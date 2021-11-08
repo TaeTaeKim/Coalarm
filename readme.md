@@ -15,7 +15,7 @@
 
 * 사용한 언어: HTML/CSS, Javascript, python, mysql , aws 
 
-* 사용된 라이브러리 : (numpy, matplotlib, wordcloud 등), numpy, pandas, flask, beautifulsoup,
+* 사용된 라이브러리 : (numpy, matplotlib, wordcloud 등), numpy, pandas, flask, beautifulsoup, jQuery
 
 * 협업툴 : [oneNote](https://1drv.ms/u/s!AvpSXISNxRLLhBWCvTHyI14K5ZAr?e=2FBl2U)
 
