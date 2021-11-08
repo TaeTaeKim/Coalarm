@@ -1,5 +1,6 @@
 # Coalarm
 * 해외여행에 필요한 코로나 바이러스 관련 정보를 제공한다.  
+<img src="./logo.png" width="100px" height="100px" title="Github_Logo"/>
 
 
 ## 프로젝트 구성 안내
