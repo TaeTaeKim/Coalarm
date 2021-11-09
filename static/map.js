@@ -6,16 +6,6 @@ function rendermap(){
   google.charts.setOnLoadCallback(drawRegionsMap);
   
     function drawRegionsMap() {
-      // const data = google.visualization.arrayToDataTable([
-      //   ['Country', 'Popularity','Exp'],
-      //   ['Germany', 200,1000],
-      //   ['United States', 300,100000],
-      //   ['Brazil', 400,50000],
-      //   ['Canada', 500,0],
-      //   ['France', 600,0],
-      //   ['RU', 700,0],
-      //   ["KR",1000,100]
-      // ]);
       const data = new google.visualization.DataTable();
         data.addColumn('string','Country');
         data.addColumn('number','active_case')
