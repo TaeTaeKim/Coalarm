@@ -1,0 +1,33 @@
+.backgroundModal {
+  width: 100%;
+  background: rgba(12, 0, 0, 0.404);
+  padding-bottom: 20% ;
+  position: fixed;
+}
+.modalBox {
+  background: rgb(209, 52, 52);
+  color: #fff;
+  font-family: 'nanumsquare';
+  width: 30%;
+  margin: auto;
+  margin-top: 7%;
+  border: 10px double #fff;
+}
+.modalBtn {
+  font-weight: bold;
+  padding-left: 93%;
+  padding-top: 15px;
+}
+.modalBody {
+  text-align: center;
+}
+.modalContent {
+  line-height: 1.5;
+  padding: 30px;
+}
+.modalPeriod {
+ padding-bottom: 30px;
+}
+.hidden{
+  display: none;
+}
