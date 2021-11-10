@@ -4,48 +4,75 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/map.css">  
     <title>Document</title>
 </head>
 <body>
     <div id='map-container'>
         <div class="tabbar continent">
             <div class ='tab world'>전체</div>
-            <div class ="tab Africa">아프리카</div>
-            <div class ='tab Europe'>유럽</div>
-            <div class ='tab Americas'>미대륙</div>
-            <div class ='tab Asia'>아시아</div>
-            <div class ='tab Oceania'>오세아니아</div>
+            <div class ="tab Africa">
+                <div>아프리카</div>
+                <div class="hidden">
+                    <ul>
+                        <li>북아프리카</li>
+                        <li>남아프리카</li>
+                        <li>동아프리카</li>
+                        <li>중아프리카</li>
+                    </ul>
+                </div>
+            </div>
+            <div class ='tab Europe'>
+                <div>유럽</div>
+                <div class="hidden">
+                    <ul>
+                        <li>북유럽</li>
+                        <li>서유럽</li>
+                        <li>동유럽</li>
+                        <li>남유럽</li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class ='tab Americas'>
+                <div>미대륙</div>
+                <div class="hidden">
+                    <ul>
+                        <li>북아메리카</li>
+                        <li>카리브</li>
+                        <li>중앙아메리카</li>
+                        <li>남아메리카</li>
+                    </ul>
+                </div>
+            </div>
+            <div class ='tab Asia'>
+                <div>아시아</div>
+                <div class="hidden">
+                    <ul>
+                        <li>중앙아시아</li>
+                        <li>동아시아</li>
+                        <li>서아시아</li>
+                        <li>서동아시아</li>
+                        <li>서아시아</li>
+                    </ul>
+                </div>
+            </div>
+            <div class ='tab Oceania'>
+                <div>오세아니아</div>
+                <div class="hidden">
+                    <ul>
+                        <li>호주,뉴질랜드</li>
+                        <li>Melanesia</li>
+                        <li>Micronesia</li>
+                        <li>Polynesia</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="tabbar continent hidden">
-            <div class ='tab'>아프리카</div>
-            <div class ='tab'>유럽</div>
-            <div class ='tab'>미대륙</div>
-            <div class ='tab'>아시아</div>
-            <div class ='tab'>오세아니아</div>
+        
         </div>
-        <div class="tabbar continent hidden">
-            <div class ='tab'>아프리카</div>
-            <div class ='tab'>유럽</div>
-            <div class ='tab'>미대륙</div>
-            <div class ='tab'>아시아</div>
-            <div class ='tab'>오세아니아</div>
-        </div>
-        <div class="tabbar continent hidden">
-            <div class ='tab'>아프리카</div>
-            <div class ='tab'>유럽</div>
-            <div class ='tab'>미대륙</div>
-            <div class ='tab'>아시아</div>
-            <div class ='tab'>오세아니아</div>
-        </div>
-        <div class="tabbar continent hidden">
-            <div class ='tab'>아프리카</div>
-            <div class ='tab'>유럽</div>
-            <div class ='tab'>미대륙</div>
-            <div class ='tab'>아시아</div>
-            <div class ='tab'>오세아니아</div>
-        </div>
-        <div id="regions_div" style="width: 100%; height: 100%;"></div>        
+        <div id="regions_div" style="width: 100%; height: 100%;"></div>   
+     
     </div>
     
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>

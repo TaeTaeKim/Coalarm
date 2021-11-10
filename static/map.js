@@ -2,9 +2,7 @@ let Zoom = 'world';
 
 
 function rendermap() {
-  google.charts.load('current', {
-    'packages': ['geochart']
-  });
+  google.charts.load('current', {'packages': ['geochart']});
   google.charts.setOnLoadCallback(drawRegionsMap);
 
   function drawRegionsMap() {
@@ -30,9 +28,7 @@ function rendermap() {
     ])
 
     const options = {
-      colorAxis: {
-        colors: ['#00853f', 'black', '#e31b23']
-      },
+      colorAxis: {colors: ['#00853f', 'black', '#e31b23']},
       backgroundColor: '#81d4fa',
       region: Zoom,
       defaultColor: '#f5f5f5'
