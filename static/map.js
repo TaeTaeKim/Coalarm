@@ -1,5 +1,14 @@
 let Zoom = 'world';
+$(document).ready(()=>{
+  $('.dropmenu').addClass('hidden')
+  $('.btn').on('mouseover',function(){
+    $(this).children('.dropmenu').removeClass('hidden')
+  })
+  $('.btn').on('mouseleave',()=>{
+    $('.dropmenu').addClass('hidden')
+  })
 
+})
 
 function rendermap() {
   google.charts.load('current', {'packages': ['geochart']});
@@ -63,7 +72,7 @@ const countryCode = [
   {name: '.northernEurope', code: '154'},
   {name: '.westernEurope', code: '155'},
   {name: '.easternEurope', code: '151'},
-  {name: '.southern Europe', code: '039'},
+  {name: '.southernEurope', code: '039'},
   //미대륙
   {name: '.Americas', code: '019'},
   {name: '.northernAmericas', code: '021'},
@@ -83,14 +92,14 @@ const countryCode = [
   {name: '.melanesia', code: '054'},
   {name: '.micronesia', code: '057'},
   {name: '.polynesia', code: '061'}
-]
+];
 
 countryCode.forEach((el) => {
   $(el.name).on('click', function () {
     Zoom = el.code;
     rendermap();
   })
-})
+});
 
 
 rendermap();
