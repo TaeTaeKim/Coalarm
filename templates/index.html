@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/map.css">  
+    <title>Document</title>
+</head>
+<body>
+    <div id='map-container'>
+        <div class="tabbar continent">
+            <div class ='tab world'>전체</div>
+            <div class ='btn'>
+                <div class="tab Europe">유럽</div>
+                <div class="dropmenu">
+                    <ul>
+                        <li class="northernEurope">북유럽</li>
+                        <li class="westernEurope">서유럽</li>
+                        <li class="easternEurope">동유럽</li>
+                        <li class="southernEurope">남유럽</li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class ='btn'>
+                <div class="tab Asia">아시아,중동</div>
+                <div class="dropmenu">
+                    <ul>
+                        <li class="centralAsia">중앙아시아</li>
+                        <li class="easternAsia">동아시아</li>
+                        <li class="southernAsia">인도</li>
+                        <li class="southEasternAsia">동남아시아</li>
+                        <li class="westernAsia">중동</li>
+                    </ul>
+                </div>
+            </div>
+            <div class ='btn'>
+                <div class="tab Americas">미대륙</div>
+                <div class="dropmenu">
+                    <ul>
+                        <li class="northernAmericas">북아메리카</li>
+                        <li class="caribbean">카리브</li>
+                        <li class="centralAmericas">중앙아메리카</li>
+                        <li class="southAmericas">남아메리카</li>
+                    </ul>
+                </div>
+            </div>
+            <div class ='btn'>
+                <div class="tab Oceania">오세아니아</div>
+                <div class="dropmenu">
+                    <ul>
+                        <li class="australiaAndNewZealand">호주,뉴질랜드</li>
+                        <li class="melanesia">Melanesia</li>
+                        <li class="micronesia">Micronesia</li>
+                        <li class="polynesia">Polynesia</li>
+                    </ul>
+                </div>
+            </div>
+            <div class ="btn">
+                <div class="tab Africa">아프리카</div>
+                <div class="dropmenu">
+                    <ul>
+                        <li class="northernAfrica">북아프리카</li>
+                        <li class="southernAfrica">남아프리카</li>
+                        <li class="easternAfrica">동아프리카</li>
+                        <li class="middleAfrica">중아프리카</li>
+                        <li class="westernAfrica">서아프리카</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div id="regions_div" style="width: 100%; height: 100%;"></div>   
+     
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="../static/map.js"></script>
+</body>
+</html>
