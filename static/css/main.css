@@ -1,0 +1,38 @@
+*{
+    padding :0px;
+    margin:0px;
+    box-sizing: border-box;
+    font-family: "Gowun Dodum",'sans-serif';
+}
+/* font-family: 'Azeret Mono', monospace; */
+li{
+    list-style: none;
+    text-align: left;
+}
+
+.hidden{
+    display: none !important;
+}
+#search{
+    width: 100%;
+    margin:0 auto 0 auto;
+    position: relative;
+}
+
+.mainimage{
+    width: 100%;
+    position: absolute;
+    height: 45rem;
+    z-index: -1;
+}
+.logoimage{
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    z-index: 100;
+}
+.logotext{
+    font-size: 5rem;
+    font-family: 'Azeret Mono', monospace;
+    font-weight: bold;
+}

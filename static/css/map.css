@@ -1,18 +1,7 @@
-*{
-    padding :0px;
-    margin:0px;
-    box-sizing: border-box;
-}
-li{
-    list-style: none;
-    text-align: left;
-}
-.hidden{
-    display: none !important;
-}
 #map-container{
     width: 50%;
     margin: 10px auto 0 auto;
+    position: relative;
 
 }
 .tabbar{

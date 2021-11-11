@@ -35,6 +35,12 @@ function rendermap() {
         f: "Russia"
       }, 2000]
     ])
+    data.addRows([
+      [{
+        v: 'SQ',
+        f: "Russia"
+      }, 2000]
+    ])
 
     const options = {
       colorAxis: {colors: ['#00853f', 'black', '#e31b23']},
