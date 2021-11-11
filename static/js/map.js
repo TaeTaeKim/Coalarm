@@ -44,7 +44,7 @@ function rendermap() {
 
     const options = {
       colorAxis: {colors: ['#00853f', 'black', '#e31b23']},
-      backgroundColor: '#81d4fa',
+      backgroundColor: '#FFFFFF',
       region: Zoom,
       defaultColor: '#f5f5f5'
     };

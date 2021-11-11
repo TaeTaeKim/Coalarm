@@ -10,22 +10,18 @@ li{
     text-align: left;
 }
 
+
 .hidden{
     display: none !important;
 }
 #search{
-    width: 100%;
-    margin:0 auto 0 auto;
-    position: relative;
-}
-
-.mainimage{
-    width: 100%;
+    background-image: url("../img/candi3.jpg");
+    background-size: cover;
     height: 45rem;
-    z-index: -1;
+    width: 100%;    
 }
-.mainsearch{
-    position: absolute;
+.searchcontent{
+    padding: 10% 0 0 0;
 }
 .logoimage{
     width: 10rem;
@@ -37,3 +33,68 @@ li{
     font-family: 'Azeret Mono', monospace;
     font-weight: bold;
 }
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.search{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.search span{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+#arrowAnim {
+    width: .5rem;
+    height: 8rem;
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .arrow {
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid black;
+    border-color: black transparent transparent black;
+    transform: rotate(225deg);
+  }
+  
+  
+  .arrowSliding {
+    position: absolute;
+    -webkit-animation: slide 4s linear infinite; 
+            animation: slide 4s linear infinite;
+  }
+  
+  .delay1 {
+    -webkit-animation-delay: 1s; 
+      animation-delay: 1s;
+  }
+  .delay2 {
+    -webkit-animation-delay: 2s; 
+      animation-delay: 2s;
+  }
+  .delay3 {
+    -webkit-animation-delay: 3s; 
+      animation-delay: 3s;
+  }
+  
+  @-webkit-keyframes slide {
+      0% { opacity:0; transform: translateY(-2vw); }	
+     20% { opacity:1; transform: translateY(-1vw); }	
+     80% { opacity:1; transform: translateY(1vw); }	
+    100% { opacity:0; transform: translateY(2vw); }	
+  }
+  @keyframes slide {
+      0% { opacity:0; transform: translateY(-2vw); }	
+     20% { opacity:1; transform: translateY(-1vw); }	
+     80% { opacity:1; transform: translateY(1vw); }	
+    100% { opacity:0; transform: translateY(2vw); }	
+  }

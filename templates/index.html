@@ -14,15 +14,31 @@
 <body>
     <div id='main'>
         <div id='search'>            
-            <div class="mainsearch">
-                <img class='logoimage' src="../static/img/mainlogo.png" alt="">
-                <div class="logotext">Coalarm</div>
-                <form action="">
-                    <input type="text" name="" id="" placeholder="나라를 입력하세요">
-                </form>
-            </div>
-            <img class="mainimage" src="../static/img/candi4.jpg" alt="">
-                 
+            <div class="searchcontent">
+                <div class="logo">
+                    <img class='logoimage' src="../static/img/mainlogo.png" alt="">
+                    <div class="logotext">Coalarm</div>
+                </div>
+                <div class="search">
+                    <span>여행할 나라 확인하러 가기</span>
+                    
+                </div>   
+                <div id="arrowAnim">
+                    <div class="arrowSliding">
+                      <div class="arrow"></div>
+                    </div>
+                    <div class="arrowSliding delay1">
+                      <div class="arrow"></div>
+                    </div>
+                    <div class="arrowSliding delay2">
+                      <div class="arrow"></div>
+                    </div>
+                    <div class="arrowSliding delay3">
+                      <div class="arrow"></div>
+                    </div>
+                  </div>             
+                
+            </div>                 
         </div>
         
         <div id='map-container'>
@@ -30,7 +46,7 @@
                 <div class ='tab world'>전체</div>
                 <div class ='btn'>
                     <div class="tab Europe">유럽</div>
-                    <div class="dropmenu">
+                    <div class="dropmenu hidden">
                         <ul>
                             <li class="northernEurope">북유럽</li>
                             <li class="westernEurope">서유럽</li>
@@ -42,7 +58,7 @@
                 </div>
                 <div class ='btn'>
                     <div class="tab Asia">아시아,중동</div>
-                    <div class="dropmenu">
+                    <div class="dropmenu hidden">
                         <ul>
                             <li class="centralAsia">중앙아시아</li>
                             <li class="easternAsia">동아시아</li>
@@ -54,7 +70,7 @@
                 </div>
                 <div class ='btn'>
                     <div class="tab Americas">미대륙</div>
-                    <div class="dropmenu">
+                    <div class="dropmenu hidden">
                         <ul>
                             <li class="northernAmericas">북아메리카</li>
                             <li class="caribbean">카리브</li>
@@ -65,7 +81,7 @@
                 </div>
                 <div class ='btn'>
                     <div class="tab Oceania">오세아니아</div>
-                    <div class="dropmenu">
+                    <div class="dropmenu hidden">
                         <ul>
                             <li class="australiaAndNewZealand">호주,뉴질랜드</li>
                             <li class="melanesia">Melanesia</li>
@@ -76,7 +92,7 @@
                 </div>
                 <div class ="btn">
                     <div class="tab Africa">아프리카</div>
-                    <div class="dropmenu">
+                    <div class="dropmenu hidden">
                         <ul>
                             <li class="northernAfrica">북아프리카</li>
                             <li class="southernAfrica">남아프리카</li>
@@ -94,8 +110,9 @@
     </div>
     
     
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="../static/js/map.js"></script>
+    <script src="../static/js/main.js"></script>
 </body>
 </html>
