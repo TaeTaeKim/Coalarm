@@ -21,12 +21,13 @@ li{
 
 .mainimage{
     width: 100%;
-    position: absolute;
     height: 45rem;
     z-index: -1;
 }
-.logoimage{
+.mainsearch{
     position: absolute;
+}
+.logoimage{
     width: 10rem;
     height: 10rem;
     z-index: 100;
