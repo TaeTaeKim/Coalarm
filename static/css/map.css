@@ -14,16 +14,16 @@
 .tab{
     font-size: 1.2rem;
     cursor: pointer;
-    color:tomato;
+    color:black;
     font-weight: bold;
 }
 .tab:hover{
-    color: pink;
+    color: skyblue;
 }
 .dropmenu {
-    font-size: 1rem;
+    font-size: .9rem;
     cursor: pointer;
     position: absolute;
     z-index: 9;
-    background-color: pink;
+    font-weight: 200;
 }
