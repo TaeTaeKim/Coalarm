@@ -63,18 +63,6 @@ $(document).ready(()=>{
 
 
 
-$.ajax({
-  type:"GET",
-  url:"/",
-  dataType:'json',
-  success:function(response){
-      console.log(response.data);
-      alert('hello')
-    }
-  })
-
-
-
 //map rendering하는 함수
 function rendermap() {
   google.charts.load('current', {'packages': ['geochart']});
