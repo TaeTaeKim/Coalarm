@@ -1,3 +1,5 @@
+## [당일 잔디 심지 못햇으면 사유 위키에 작성해주세요.](https://yeardream-gitlab.elice.io/yeardream-project/project-6/coalarm/-/wikis/home#%ED%9A%8C%EC%9D%98-%EB%B0%8F-%EA%B0%9C%EC%9D%B8-%EC%97%85%EB%AC%B4%EA%B8%B0%EB%A1%9D-%EB%82%B4%EA%B0%80-%EC%BB%A4%EB%B0%8B%EC%9D%84-%EB%AA%BB%ED%95%9C-%EC%9D%B4%EC%9C%A0)
+
 # Coalarm
   
 <img src="./logo.png" width="100px" height="100px" title="Github_Logo"/>

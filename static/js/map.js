@@ -1,4 +1,21 @@
 let Zoom = 'world';
+// 페이지 resize시에 지도 갱신
+$(window).resize(function(){location.reload();});
+$(document).ready(function(){
+  $.ajax({
+    type:"GET",
+    url:"/",
+    dataType:'json',
+    success:function(response){
+      if (response['result']=='success'){
+        let caution_lvl = response['caution']
+        console.log(caution_lvl);
+      }
+    }
+  })
+})
+
+//dropmenu관련 설정
 $(document).ready(()=>{
   $('.dropmenu').addClass('hidden')
   $('.btn').on('mouseover',function(){
@@ -10,6 +27,8 @@ $(document).ready(()=>{
 
 })
 
+
+//map rendering하는 함수
 function rendermap() {
   google.charts.load('current', {'packages': ['geochart']});
   google.charts.setOnLoadCallback(drawRegionsMap);
@@ -17,7 +36,7 @@ function rendermap() {
   function drawRegionsMap() {
     const data = new google.visualization.DataTable();
     data.addColumn('string', 'Country');
-    data.addColumn('number', 'active_case')
+    data.addColumn('number', 'active_case');    
     //   for(let i=0;i<data.length;i++){
     //       data.addRows([
     //           [{v:`${}`,f:`${}`},`${}`]
@@ -46,7 +65,7 @@ function rendermap() {
       colorAxis: {colors: ['#00853f', 'black', '#e31b23']},
       backgroundColor: '#FFFFFF',
       region: Zoom,
-      defaultColor: '#f5f5f5'
+      defaultColor: '#222222'
     };
 
     const chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
