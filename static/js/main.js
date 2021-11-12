@@ -1,3 +1,3 @@
 $('#arrowAnim').on('click',()=>{
-    $('body,html').animate({scrollTop:$('#regions_div').offset().top},1000);
+    $('body,html').animate({scrollTop:$('#map-container').offset().top},1000);
 });
