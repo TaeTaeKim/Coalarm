@@ -768,7 +768,7 @@
         "country_iso_alp2": "PY"
     }, {
         "country_name": "Peru",
-        "confirmed": "N/A",
+        "confirmed": "0",
         "death": "200502",
         "country_iso_alp2": "PE"
     }, {
@@ -978,7 +978,7 @@
         "country_iso_alp2": "TJ"
     }, {
         "country_name": "Tanzania",
-        "confirmed": "N/A",
+        "confirmed": "0",
         "death": "725",
         "country_iso_alp2": "TZ"
     }, {

@@ -71,14 +71,22 @@ function rendermap() {
   function drawRegionsMap() {
     const data = new google.visualization.DataTable();
     data.addColumn('string', 'Country');
-    data.addColumn('number', 'active_case');
+    data.addColumn('number', '확진자');
     $.ajax({
         url:'/data',
         type:'GET',
         dataType:'json',
         async:false,
         success: function(res){
-          console.log(res.caution);
+          let mapdata = res.caution;
+          mapdata.forEach((el)=>{
+            data.addRows([
+              [{
+                v:el.country_iso_alp2,
+                f:el.country_name
+              }, parseInt(el.confirmed)]
+            ])
+          })
         },
         error: function(){
           alert('지도 데이터 로드 실패')
@@ -89,25 +97,6 @@ function rendermap() {
     //           [{v:`${}`,f:`${}`},`${}`]
     //       ])
     //   }
-    data.addRows([
-      [{
-        v: 'KR',
-        f: 'South Korea'
-      }, 100000]
-    ])
-    data.addRows([
-      [{
-        v: 'RU',
-        f: "Russia"
-      }, 2000]
-    ])
-    data.addRows([
-      [{
-        v: 'SQ',
-        f: "Russia"
-      }, 2000]
-    ])
-
     const options = {
       colorAxis: {colors: ['#00853f', 'black', '#e31b23']},
       backgroundColor: '#FFFFFF',
@@ -118,12 +107,13 @@ function rendermap() {
     const chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
     google.visualization.events.addListener(chart, 'select', function () {
       let selection = chart.getSelection();
-      console.log(selection);
       if (selection.length == 1) {
         var selectedRow = selection[0].row;
         var selectedRegion = data.getValue(selectedRow, 0);
-        // window.location.href = 'https://www.naver.com/';
-        console.log(selectedRegion);
+        // 여기다가 클릭시 넘어가는 페이지 만들면 될듯.
+        // $.ajax({
+        //   url:
+        // })
       }
     });
     chart.draw(data, options);
