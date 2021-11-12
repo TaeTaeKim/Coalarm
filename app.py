@@ -1,11 +1,13 @@
-from flask import Flask,jsonify
+from flask import Flask,jsonify,render_template
 import json
 
-from flask.templating import render_template
 
 app = Flask(__name__)
+@app.route('/',methods=["GET"])
+def index():
+    return render_template('index.html')
 
-@app.route('/',methods=['GET'])
+@app.route('/data',methods=['GET'])
 def home():
     with open('./JsonData_main/sample_data.json','r') as f:
         data = json.load(f)

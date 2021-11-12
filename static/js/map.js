@@ -71,7 +71,19 @@ function rendermap() {
   function drawRegionsMap() {
     const data = new google.visualization.DataTable();
     data.addColumn('string', 'Country');
-    data.addColumn('number', 'active_case');    
+    data.addColumn('number', 'active_case');
+    $.ajax({
+        url:'/data',
+        type:'GET',
+        dataType:'json',
+        async:false,
+        success: function(res){
+          console.log(res.caution);
+        },
+        error: function(){
+          alert('지도 데이터 로드 실패')
+        }
+    })    
     //   for(let i=0;i<data.length;i++){
     //       data.addRows([
     //           [{v:`${}`,f:`${}`},`${}`]
