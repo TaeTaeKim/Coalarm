@@ -1,6 +1,19 @@
 let Zoom = 'world';
 // 페이지 resize시에 지도 갱신
 $(window).resize(function(){location.reload();});
+$(document).ready(function(){
+  $.ajax({
+    type:"GET",
+    url:"/",
+    dataType:'json',
+    success:function(response){
+      if (response['result']=='success'){
+        let caution_lvl = response['caution']
+        console.log(caution_lvl);
+      }
+    }
+  })
+})
 
 //dropmenu관련 설정
 $(document).ready(()=>{
@@ -23,18 +36,7 @@ function rendermap() {
   function drawRegionsMap() {
     const data = new google.visualization.DataTable();
     data.addColumn('string', 'Country');
-    data.addColumn('number', 'active_case');
-    $.ajax({
-      type:"GET",
-      url:"/",
-      dataType:'json',
-      success:function(response){
-        if (response['result']=='success'){
-          let caution_lvl = response['caution']
-          console.log(caution_lvl);
-        }
-      }
-    })
+    data.addColumn('number', 'active_case');    
     //   for(let i=0;i<data.length;i++){
     //       data.addRows([
     //           [{v:`${}`,f:`${}`},`${}`]
