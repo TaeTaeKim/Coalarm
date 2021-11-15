@@ -4,10 +4,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import ActionChains
 import re
 import time
-import datetime
 import json
-
-year = datetime.datetime.now().year
 
 driver = webdriver.Chrome(r'C:\Users\uss\AppData\Local\Programs\Python\Python37\chromedriver.exe')
 driver.implicitly_wait(3)
@@ -44,32 +41,16 @@ trs = trs = Table.tbody.select('tr')
 
 for tr in trs:
     vaccine_country = tr.select('td')[0].text
-    fully = re.sub('[a-zA-z]+ \d{1,2}|, \d{4} ', '',tr.select('td')[1].text)
-    partly = re.sub('[a-zA-z]+ \d{1,2}|, \d{4} ', '',tr.select('td')[2].text)
+    fully = re.sub(r'[a-zA-z]+ \d{1,2}|, \d{4} |\b\%', '',tr.select('td')[1].text)
+    partly = re.sub(r'[a-zA-z]+ \d{1,2}|, \d{4} |\b\%', '',tr.select('td')[2].text)
     vaccine_dict_value = [vaccine_country, fully, partly]
     for i in range(3):
         vaccine_dict[vaccine_columns[i]] = vaccine_dict_value[i]
+        if vaccine_dict_value[i] == "":
+            vaccine_dict[vaccine_columns[i]] = -1
     vaccine_datas.append(dict(vaccine_dict))
 #print(vaccine_datas)
 
 vaccine_json_data = json.dumps(vaccine_datas)
 
 print(vaccine_json_data)
-
-
-
-
-'''
-{'country': '{0}', 'fully': '{1}', 'partly': '5.11%'}
-'''
-
-
-
-
-#jsonStr = {'country: {0}, fully_vaccinated: {1}, partly_vaccinated: {2}'.format(country, fully_vaccinated, partly_vaccinated)}
-#     datas.append({
-#         tr.select('td')[1].text,
-#         tr.select('td')[1].text,
-#         tr.select('td')[2].text
-#         })
-# print(datas)
