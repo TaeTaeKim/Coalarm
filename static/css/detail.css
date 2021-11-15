@@ -1,0 +1,65 @@
+/* .body-container {
+  width: 100%;
+  margin: auto;
+} */
+header {
+  background: #8b60e8;
+}
+.logo-group {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 20px;
+  padding-left: 11%;
+}
+.logo-group .logo-img {
+  width: 50px;
+}
+.logo-group .logo-name {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Azeret Mono', monospace;
+  color: #fff;
+}
+
+.content-group {
+  height: 100vh;
+  background: rgb(246, 243, 243);
+}
+
+
+
+/* visual-content */
+.visual-content {
+  background-color: #5733b5;
+  height: 15vh;
+}
+.visual-content .coutry-name {
+  color: #fff;
+  font-size: 2rem;
+  padding: 15px;
+  padding-left: 11%;
+}
+.chart-group {
+  display: flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  color: #000;
+}
+.chart-group> div {
+  min-width: 250px;
+  max-width: 350px;
+  width: 30%;
+  height: 25vh;
+  margin: 20px;
+  background: #fff;
+}
+.chart-group> .chart1 {
+
+}
+.chart-group> .chart2 {
+
+}
+.chart-group> .exchange-rate {
+
+}
