@@ -114,6 +114,14 @@ function rendermap() {
         // $.ajax({
         //   url:
         // })
+        $.ajax({
+          url:`/country/${selectedRegion}`,
+          type:'GET',
+          async:false,
+          success:function(){
+            window.location.href = `/country/${selectedRegion}`
+          }
+        })
       }
     });
     chart.draw(data, options);
