@@ -1,4 +1,4 @@
-## [🔗회의록](https://yeardream-gitlab.elice.io/yeardream-project/project-6/coalarm/-/wikis/%ED%9A%8C%EC%9D%98%EB%A1%9D#coalarm-%ED%9A%8C%EC%9D%98%EB%A1%9D)
+## [🔗 회의록](https://yeardream-gitlab.elice.io/yeardream-project/project-6/coalarm/-/wikis/%ED%9A%8C%EC%9D%98%EB%A1%9D#coalarm-%ED%9A%8C%EC%9D%98%EB%A1%9D) &emsp; [🥌 마일스톤](https://yeardream-gitlab.elice.io/yeardream-project/project-6/coalarm/-/milestones)
 
 # Coalarm
   
