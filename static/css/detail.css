@@ -1,7 +1,3 @@
-/* .body-container {
-  width: 100%;
-  margin: auto;
-} */
 header {
   background: #8b60e8;
 }
@@ -10,7 +6,8 @@ header {
   justify-content: left;
   align-items: center;
   padding: 20px;
-  padding-left: 11%;
+  padding-left: 25%;
+  transition: 1s;
 }
 .logo-group .logo-img {
   width: 50px;
@@ -23,43 +20,163 @@ header {
 }
 
 .content-group {
-  height: 100vh;
+  height: 100%;
   background: rgb(246, 243, 243);
+  background-image: url('../img/mainlogo.png');
+  background-size: 400px;
+  background-position: 30px 300px;
+  background-repeat: no-repeat;
+  padding-bottom: 30px;
+  transition: .5s;
 }
 
 
 
 /* visual-content */
-.visual-content {
+.visual-content::before {
+  content: "";
   background-color: #5733b5;
-  height: 15vh;
+  width: 100vw;
+  height: 18vh;
+  position: absolute;
+  z-index: 1;
+  transition: .1s;
+}
+.visual-content {
 }
 .visual-content .coutry-name {
   color: #fff;
-  font-size: 2rem;
+  font-size: 2.3rem;
+  font-weight: bold;
   padding: 15px;
-  padding-left: 11%;
+  padding-left: 27%;
+  transition: 1s;
+  position: relative;
+  z-index: 2;
 }
 .chart-group {
   display: flex;
   justify-content:center;
   flex-wrap:wrap;
-  color: #000;
+  margin-bottom: 10px;
 }
 .chart-group> div {
   min-width: 250px;
-  max-width: 350px;
+  max-width: 270px;
   width: 30%;
   height: 25vh;
   margin: 20px;
+  color: #5733b5;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
   background: #fff;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 2px rgba(236, 230, 230, 0.767);
+  z-index: 2;
 }
 .chart-group> .chart1 {
-
+  
 }
 .chart-group> .chart2 {
 
 }
 .chart-group> .exchange-rate {
 
+}
+
+
+
+/* information-content */
+.information-content{
+  display: flex;
+  flex-flow: column wrap;
+  margin: auto;
+  max-width: 890px;
+  padding: 30px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 2px rgba(236, 230, 230, 0.767);
+  margin-bottom: 25px;
+}
+.info-help {
+  color: #8b60e8;
+  padding: 0 10px 20px;
+}
+.category-group {
+}
+
+.category-title {
+  background: #5733b5;
+  color: #fff;
+  padding: 5px 10px;
+  padding-bottom: 12px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px #3802ac;
+  cursor: pointer;
+}
+.category-description {
+  background: #fff;
+  padding: 15px;
+  margin-top: -1px;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 1px 1px 2px 2px rgba(236, 230, 230, 0.767);
+  height: 0;
+  visibility: hidden;
+}
+.category-description.look {
+  height: 100%;
+  visibility: visible;
+  margin-bottom: 30px;
+}
+
+
+/* 게시판 */
+.country-board {
+  background: orange;
+  max-width: 890px;
+  width: 94vw;
+  height: 40vh;
+  margin: auto;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 2px rgba(236, 230, 230, 0.767);
+  margin-bottom: 20px;
+}
+
+
+@media(max-width:1500px) {
+  .logo-group {
+    padding-left: 15%;
+    transition: 1s;
+  }
+  .visual-content .coutry-name {
+    padding-left: 17%;
+    transition: 1s;
+  }
+  .content-group {
+    background-size: 200px;
+    background-position: 0px 250px;
+    transition: .5s;
+  }
+}
+
+@media(max-width:940px) {
+  .visual-content::before {
+    height: 50vh;
+    transition: 1s;
+  }
+  .logo-group {
+    padding-left: 3%;
+    transition: 1s;
+  }
+  .visual-content .coutry-name {
+    padding-left: 6%;
+    transition: 1s;
+  }
+  .content-group {
+    background-size: 120px;
+    background-position: 40px 500px;
+    transition: .5s;
+  }
 }
