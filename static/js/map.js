@@ -110,10 +110,7 @@ function rendermap() {
       if (selection.length == 1) {
         var selectedRow = selection[0].row;
         var selectedRegion = data.getValue(selectedRow, 0);
-        // 여기다가 클릭시 넘어가는 페이지 만들면 될듯.
-        // $.ajax({
-        //   url:
-        // })
+        // 클릭시 해당 국가로 넘어가는 API
         $.ajax({
           url:`/country/${selectedRegion}`,
           type:'GET',

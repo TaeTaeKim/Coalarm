@@ -1,3 +1,4 @@
+# 환율 API를 이용해서 반환하는 함수.
 import requests
 def exchange(ISO):
     url  = 'https://www.koreaexim.go.kr/site/program/financial/exchangeJSON'
