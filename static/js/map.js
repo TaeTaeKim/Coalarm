@@ -120,6 +120,9 @@ function rendermap() {
           async:false,
           success:function(){
             window.location.href = `/country/${selectedRegion}`
+          },
+          error:function(){
+            alert('페이지 이동 실패 다시 시도해주세요')
           }
         })
       }
