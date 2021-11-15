@@ -2,7 +2,7 @@
 # Entry() -> update_Corona_Data()
 # CD() -> update_Corona_Vaccine_Data()
 from flask import Flask, jsonify
-import sqlite3
+import pymysql
 
 import entry_requirement
 
@@ -11,14 +11,13 @@ app = Flask(__name__)
 corona = entry_requirement.AsyncTask()
 # corona.update_Corona_Data()
 corona.update_Corona_Vaccine_Data() # 백신db 갱신 요청
-
-conn = sqlite3.connect('database.db')
+# corona.update_Api_Data()
+conn = pymysql.connect(host="localhost", user="root", password="root")
 cur = conn.cursor()
-cur.execute("select * from Corona_Vaccine_Data")
+cur.execute("select * from corona_vaccine_data")
 rows = cur.fetchall()
 for row in rows:
     print(row)
-    {"data" : rows}
 print(type(rows))
 
 @app.route("/")
