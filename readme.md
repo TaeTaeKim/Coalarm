@@ -8,16 +8,18 @@
 ## 프로젝트 구성 안내
 
 ## 1. 프로젝트 소개
-### 해외여행에 필요한 코로나 바이러스 관련 정보를 제공한다.
-* 프로젝트와 비슷한 모델 : [coronaboard사이트](https://coronaboard.kr/)
+**어떠한 데이터셋와 도구 및 기술을 사용했는지에 대한 설명과 유저에게 보이는 웹서비스에 대한 소개**
+* 프로젝트와 참고 모델 : [coronaboard사이트](https://coronaboard.kr/)
 
-* 나라별 대사관 공지사항 크롤링 데이터 : 
+* 국가별 코로나 상황 데이터
 
-* 나라별 코로나 상황, 백신접종 데이터 : [외교부_국가별_한국발 입국자 조치](https://www.data.go.kr/data/15085787/openapi.do) ,[해외입국자 조치](https://www.data.go.kr/data/15085787/openapi.do)
+* 국가별 백신 접종 현황 데이터
+
+* 국가별 입국조치 데이터 : [외교부_국가별_한국발 입국자 조치](https://www.data.go.kr/data/15085787/openapi.do) ,[해외입국자 조치](https://www.data.go.kr/data/15085787/openapi.do)
 
 * 사용한 언어: HTML/CSS, Javascript, python, mysql , aws 
 
-* 사용된 라이브러리 : (numpy, matplotlib, wordcloud 등), numpy, pandas, flask, beautifulsoup, jQuery
+* 사용된 라이브러리 : flask, beautifulsoup, jQuery, Selenium, geochart, re
 
 * 협업툴 : [oneNote](https://1drv.ms/u/s!AvpSXISNxRLLhBWCvTHyI14K5ZAr?e=2FBl2U)
 
