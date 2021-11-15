@@ -89,7 +89,7 @@ function rendermap() {
           })
         },
         error: function(){
-          alert('지도 데이터 로드 실패')
+          // alert('지도 데이터 로드 실패')
         }
     })    
     //   for(let i=0;i<data.length;i++){
