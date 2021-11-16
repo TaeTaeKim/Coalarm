@@ -65,8 +65,6 @@ class AsyncTask:
 
         # 1. scraping
         get_corona_data = self.__get_corona_scraping()
-        # corona_data columns : ['country_name', 'total_confirmed', 'new_confirmed', 'total_deaths', 'new_deaths',
-        #                        'total_recovered', 'new_recovered', 'fatality', 'recovery', 'incidence']
 
         # 2. 중복 나라 제거
         country_list = []
@@ -75,17 +73,27 @@ class AsyncTask:
             if get_corona_data[i]["country_name"] in country_list:
                 continue
             country_list.append(get_corona_data[i]["country_name"])
-            corona_data.append(get_corona_data[i])        
+            corona_data.append(get_corona_data[i])
 
-        # 3. iso 컬럼 추가
+        # 3. iso, continent 컬럼 추가
         with open('./json_file/country_ISO.json', 'r') as f:
-            b = json.load(f)
+            iso_data = json.load(f)
 
         for i in range(len(corona_data)):
             corona_data[i]['country_iso_alp2'] = "없음"
-            for j in b:
+            for j in iso_data:
                 if corona_data[i]['country_name'] == j['Name']:
                     corona_data[i]['country_iso_alp2'] = j['Code']
+
+        with open('./json_file/continent.json', 'r') as f:
+            continent = json.load(f)
+
+        # corona_data[i]["continent"]
+        for i in range(len(corona_data)):
+            corona_data[i]["continent"] = "없음"
+            for j in continent:
+                if corona_data[i]["country_iso_alp2"] == j["iso_code"]:
+                    corona_data[i]["continent"] = j["continent"]
 
         # 4. db 연결
         conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
@@ -94,10 +102,10 @@ class AsyncTask:
         
         # 5. 해당 테이블에 데이터 추가
         for i in range(len(corona_data)):
-
-            cur.execute('INSERT INTO corona_data VALUES("{0}", "{1}", "{2}", "{3}", "{4}", "{5}", "{6}", "{7}", "{8}", "{9}", "{10}")'.format(\
+            cur.execute('INSERT INTO corona_data VALUES("{0}", "{1}", "{2}", "{3}", "{4}", "{5}", "{6}", "{7}", "{8}", "{9}", "{10}", "{11}")'.format(\
             corona_data[i]["country_name"], \
             corona_data[i]["country_iso_alp2"], \
+            corona_data[i]["continent"], \
             int(corona_data[i]["total_confirmed"]), \
             int(corona_data[i]["new_confirmed"]), \
             int(corona_data[i]["total_deaths"]), \
@@ -147,7 +155,7 @@ class AsyncTask:
             i["notice"] = "없음"
             for j in text_data:
                 if i['country_iso_alp2'] == j['country_iso_alp2']:
-                    i["notice"] = j["notice"]
+                    i["notice"] = j["notice"].replace("'", "`").replace('"', "`") # 따옴표들 백틱으로 변경
 
         # 4. db 연결
         conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
@@ -161,7 +169,7 @@ class AsyncTask:
             dict_list[i]["country_iso_alp2"], \
             dict_list[i]["country_kr"], \
             float(dict_list[i]["alarm_lvl"]),\
-            "asdsadfasdf"))
+            dict_list[i]["notice"]))
             # "text_data[i]["notice"] <- "asdsadfasfb" 대신 추가 해야함 11/16
 
         conn.commit()
@@ -180,10 +188,10 @@ class AsyncTask:
         year = datetime.datetime.now().year
 
         driver = webdriver.Chrome(r'.\chromedriver.exe')
-        driver.implicitly_wait(3)
+        driver.implicitly_wait(5)
 
         driver.get('https://ourworldindata.org/covid-vaccinations')
-        time.sleep(0.5)
+        time.sleep(1)
 
         #창크기 늘림 EC2 대비
         #driver.set_window_position(0, 0)
@@ -192,11 +200,11 @@ class AsyncTask:
         scroll_table = driver.find_element_by_xpath('//*[@id="the-our-world-in-data-covid-vaccination-data"]')
         action = ActionChains(driver)
         action.move_to_element(scroll_table).perform()
-        time.sleep(0.3)
+        time.sleep(1)
 
         click_table = driver.find_element_by_xpath('/html/body/main/article/div[3]/div[2]/div/div/section[1]/figure/div/div[3]/div/div[3]/div[2]/nav/ul/li[2]/a')
         click_table.click()
-        time.sleep(0.1)
+        time.sleep(1)
 
         html = driver.page_source
 
@@ -229,7 +237,7 @@ class AsyncTask:
 
         # 웹사이트 실행
         driver = webdriver.Chrome(r'.\chromedriver.exe')
-        driver.implicitly_wait(3)
+        driver.implicitly_wait(5)
 
         driver.get('https://coronaboard.kr/en')
         time.sleep(2)
@@ -239,12 +247,12 @@ class AsyncTask:
             some_element = driver.find_element_by_xpath('//*[@id="global-slide"]/div/div[3]/p/a')
             action = ActionChains(driver)
             action.move_to_element(some_element).perform()
-            time.sleep(0.2)
+            time.sleep(1)
 
             #더보기 클릭
             more_data = driver.find_element_by_xpath('//*[@id="show-more"]')
             more_data.click()
-            time.sleep(0.2)
+            time.sleep(1)
 
         # table 읽기
         table = driver.find_element_by_tag_name('tbody')

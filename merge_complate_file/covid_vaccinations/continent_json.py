@@ -48,18 +48,14 @@ continent_columns = ['Africa', 'Europe', 'America', 'Asia', 'Oceania', 'Northern
 continent_datas = []
 
 for i in range(len(continent)):
+    continent_dict = {}
     for j in range(len(continent[i])):
-        continent_data = {"iso_code" : continent[i][j], "continent": continent_columns[i]}
-        continent_datas.append(continent_data)
+        continent_dict[continent_columns[i]] = continent[i][j]
+        continent_datas.append(dict(continent_dict))
 
+#국가수, 비슨 출력
+#print(len(continent_datas))
+#print(continent_datas)
 
-# 국가수, 비슨 출력
-print(len(continent_datas))
-print(continent_datas)
-
-# vaccine_json_data = json.dumps(continent_datas)
-# print(continent_datas, len(continent_datas))
-
-file_path = "./json_file/continent.json"
-with open(file_path, 'w') as outfile:
-    json.dump(continent_datas, outfile)
+vaccine_json_data = json.dumps(continent_datas)
+print(vaccine_json_data)
