@@ -14,6 +14,29 @@ def data():
         data = json.load(f)
 
     return jsonify({'result':'success','caution':data})
+'''
+@app.route('/corona_data',methods=['GET'])
+def data():
+    with open('./Coalarm_/json_file/corona_data.json','r') as f:
+        data = json.load(f)
+
+    return jsonify({'result':'success','caution':data})
+
+@app.route('/corona_vaccine_data',methods=['GET'])
+def data():
+    with open('./Coalarm_/json_file/corona_data.json','r') as f:
+        data = json.load(f)
+
+    return jsonify({'result':'success','caution':data})
+
+@app.route('/api_data',methods=['GET'])
+def data():
+    with open('./Coalarm_/json_file/corona_data.json','r') as f:
+        data = json.load(f)
+
+    return jsonify({'result':'success','caution':data})
+'''
+
 @app.route('/country/<ISO_code>', methods=['GET'])
 def country(ISO_code):
     # corona_data = Corona_data.query.filter(Coron_data.iso_code = ISO_code).first()
