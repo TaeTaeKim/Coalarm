@@ -15,21 +15,24 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import ActionChains
 
+# 1 -> 1.1 호출
+# 2 -> 2.1 호출
+# 3 -> 3.1, 3.2 호출
 class AsyncTask:
 
     def __init__(self):
         print("background thread - db update")
 
-    # 기능 1 scraping vaccine data update
-    def update_Corona_Vaccine_Data(self):   # 백신 데이터 주기 24시간, ISO - 없음
-        # threading.Timer(100, self.update_Corona_Vaccine_Data).start()
+    # 기능 1. scraping vaccine data update, 주기 : 100초
+    def update_Corona_Vaccine_Data(self):
+        
+        # 0. 쓰레드 실행
+        threading.Timer(100, self.update_Corona_Vaccine_Data).start()
+        
+        # 1. scraping
         vaccine_data = self.__get_vaccine_scraping()
 
-        # db 연결
-        conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
-        cur = conn.cursor()
-        cur.execute('TRUNCATE TABLE corona_vaccine_data') # 테이블 레코드 비우기
-
+        # 2. iso 컬럼 추가
         with open('./json_file/country_ISO.json', 'r') as f:
             iso_list = json.load(f)
 
@@ -39,6 +42,12 @@ class AsyncTask:
                 if vaccine_data[i]["country"] == iso_list[j]["Name"]:
                     vaccine_data[i]["iso_code"] = iso_list[j]["Code"]
 
+        # 3. db 연결
+        conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+        cur = conn.cursor()
+        cur.execute('TRUNCATE TABLE corona_vaccine_data') # 테이블 레코드 비우기
+
+        # 4. 해당 테이블에 데이터 추가
         for i in range(len(vaccine_data)):
             cur.execute('INSERT INTO corona_vaccine_data VALUES("{0}", "{1}", "{2}", "{3}")'.format(\
             vaccine_data[i]["country"], \
@@ -47,21 +56,19 @@ class AsyncTask:
             float(vaccine_data[i]["fully"])))
         conn.commit()
         conn.close()
-        print("vaccine db update complete")
+        print("corona_vaccine_date table update complete")
 
-        # json file 저장
-        file_path = "./json_file/corona_vaccine_data.json"
-        with open(file_path, 'w') as f:
-            json.dump(vaccine_data, f)
+    # 기능 2. coronaboard scraping, 주기 : 80초
+    def update_Corona_Data(self):
+        # 0. 쓰레드 실행
+        threading.Timer(80, self.update_Corona_Data).start()
 
-    # 기능 2    coronaboard scraping
-    def update_Corona_Data(self):    # 주기 : 2시간, ISO - 없음
-        # threading.Timer(50, self.update_Corona_Data).start()
-
+        # 1. scraping
+        get_corona_data = self.__get_corona_scraping()
         # corona_data columns : ['country_name', 'total_confirmed', 'new_confirmed', 'total_deaths', 'new_deaths',
         #                        'total_recovered', 'new_recovered', 'fatality', 'recovery', 'incidence']
-        get_corona_data = self.__get_corona_scraping()
-        
+
+        # 2. 중복 나라 제거
         country_list = []
         corona_data = []
         for i in range(len(get_corona_data)):
@@ -70,7 +77,7 @@ class AsyncTask:
             country_list.append(get_corona_data[i]["country_name"])
             corona_data.append(get_corona_data[i])        
 
-        # iso 코드 붙여주기
+        # 3. iso 컬럼 추가
         with open('./json_file/country_ISO.json', 'r') as f:
             b = json.load(f)
 
@@ -79,17 +86,13 @@ class AsyncTask:
             for j in b:
                 if corona_data[i]['country_name'] == j['Name']:
                     corona_data[i]['country_iso_alp2'] = j['Code']
-        
-        # iso 없는 나라들
-        for i in range(len(corona_data)):
-            if corona_data[i]["country_iso_alp2"] == "없음":
-                print(corona_data[i]["country_name"], corona_data[i]["country_iso_alp2"], i)
 
-        # db 저장
+        # 4. db 연결
         conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
         cur = conn.cursor()
         cur.execute('TRUNCATE TABLE corona_data') # 테이블 레코드 비우기
         
+        # 5. 해당 테이블에 데이터 추가
         for i in range(len(corona_data)):
 
             cur.execute('INSERT INTO corona_data VALUES("{0}", "{1}", "{2}", "{3}", "{4}", "{5}", "{6}", "{7}", "{8}", "{9}", "{10}")'.format(\
@@ -107,21 +110,20 @@ class AsyncTask:
 
         conn.commit()
         conn.close()
-        print("corona_data_table update complete")
+        print("corona_data table update complete")
 
-        # json_file 저장
-        file_path = "./json_file/corona_data.json"
-        with open(file_path, 'w') as f:
-            json.dump(corona_data, f)
-
-    # 기능 3 
+    # 기능 3. 외교부 api 호출, 주기 : 50초
     def update_Api_Data(self):
-        # threading.Timer(50, self.update_Api_Data).start()
+        # 0. 쓰레드 실행
+        threading.Timer(50, self.update_Api_Data).start()
+
+        # 1. api 호출
         # text_data columns : ['country_iso_alp2', 'country_name', 'notice', 'alarm_lvl']
         text_data = self.__get_text_api()
         # level_data columns : ['country_eng_nm', 'country_iso_alp2', 'country_nm', 'alarm_lvl']
         get_level_data = self.__get_level_api()
 
+        # 2. 중복 나라 제거
         iso_list = []
         level_data = []
         for i in range(len(get_level_data)):
@@ -129,10 +131,8 @@ class AsyncTask:
                 continue
             iso_list.append(get_level_data[i]["country_iso_alp2"])
             level_data.append(get_level_data[i])
-
-        # for i in range(len(level_data)):
-        #     print(i, level_data[i])
         
+        # 3. api 데이터 병합
         dict_list = []
         for r in level_data: 
             country_kr = r["country_nm"]
@@ -149,28 +149,13 @@ class AsyncTask:
                 if i['country_iso_alp2'] == j['country_iso_alp2']:
                     i["notice"] = j["notice"]
 
-        # for i in dict_list:
-        #     if i["country_iso_alp2"] == 'GL':
-        #         print(i)
-        # print(len(dict_list))
-        # pymysql.err.IntegrityError: (1062, "Duplicate entry 'Liberia' for key 'api_data.PRIMARY'")
-
-        # for i in text_data:
-        #     i["alarm_lvl"] = -1
-        #     i["country_kr"] = "없음"
-        #     for j in dict_list:
-        #         if i['country_iso_alp2'] == j['country_iso_alp2']:
-        #             i["alarm_lvl"] = j["alarm_lvl"]
-        #             i["country_kr"] = j["country_kr"]
-        # text_data column = ['country_iso_alp2', 'country_name', 'notice', 'alarm_lvl'] + "country_kr"
-
-        # db 저장
+        # 4. db 연결
         conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
         cur = conn.cursor()
         cur.execute('TRUNCATE TABLE api_data') # 테이블 레코드 비우기
         
+        # 5. 해당 테이블에 데이터 추가
         for i in range(len(dict_list)):
-
             cur.execute('INSERT INTO api_data VALUES("{0}", "{1}", "{2}", "{3}", "{4}")'.format(\
             dict_list[i]["country_name"], \
             dict_list[i]["country_iso_alp2"], \
@@ -178,25 +163,17 @@ class AsyncTask:
             float(dict_list[i]["alarm_lvl"]),\
             "asdsadfasdf"))
             # "text_data[i]["notice"] <- "asdsadfasfb" 대신 추가 해야함 11/16
-        
-        # for i in range(len(text_data)):
-
-        #     cur.execute('INSERT INTO api_data VALUES("{0}", "{1}", "{2}", "{3}", "{4}")'.format(\
-        #     text_data[i]["country_name"], \
-        #     text_data[i]["country_iso_alp2"], \
-        #     text_data[i]["country_kr"], \
-        #     float(text_data[i]["alarm_lvl"]),\
-        #     "asdsadfasdf"))
-        #     # "text_data[i]["notice"] <- "asdsadfasfb" 대신 추가 해야함 11/16
 
         conn.commit()
         conn.close()
-        print("api_data_table update complete")
+        print("api_data table update complete")
 
-        # json file 저장
-        file_path = "./json_file/api_data.json"
-        with open(file_path, 'w') as f:
-            json.dump(text_data, f)
+
+
+
+
+
+
 
     # 1-1 vaccine data scraping
     def __get_vaccine_scraping(self):
