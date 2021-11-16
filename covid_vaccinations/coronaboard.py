@@ -38,7 +38,7 @@ board_columns = ['country', 'Confirmed', 'Deaths', 'Recovered', 'Fatality', 'Rec
 Table = soup.find("table",{"class":"google-visualization-table-table"})
 trs = trs = Table.tbody.select('tr')
 #regex
-pattern = re.compile(r"(\(?\+?\d\)?\.?\,?|[a-z\/A-Z]\.?|-?)*")
+pattern = re.compile(r"(\(?\+?\d\)?\.?\,?|\s?[a-z\/A-Z]\.?|-?|[a-zA-Z])*")
 for tr in trs:
     country = tr.select('td')[1].text
     Confirmed = tr.select('td')[2].text
