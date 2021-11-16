@@ -19,14 +19,6 @@ const categoryList = [
 
 let categoryEl = document.querySelector('.information-content');
 
-categoryList.forEach((el)=>{
-  let divTag = document.createElement('div');
-  divTag.setAttribute('class', 'category-group')
-  divTag.innerHTML = `<div class="category-title">${el.title}</div>
-  <div class="category-description">${el.description}</div>`
-  categoryEl.append(divTag)
-})
-
 function categoryHandler(event){
   if (event.target.getAttribute('class') === 'category-title'){
     event.target.nextElementSibling.classList.toggle('look')
