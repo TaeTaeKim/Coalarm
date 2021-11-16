@@ -13,11 +13,11 @@ corona.update_Corona_Data() # corona_db update
 corona.update_Corona_Vaccine_Data() # vaccine_db update
 corona.update_Api_Data() # api_db update
 
-conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
-cur = conn.cursor()
-cur.execute("select * from corona_vaccine_data")
-rows = cur.fetchall()
-conn.close()
+# conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+# cur = conn.cursor()
+# cur.execute("select * from corona_vaccine_data")
+# rows = cur.fetchall()
+# conn.close()
 
 @app.route("/")
 def home():
