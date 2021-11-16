@@ -71,7 +71,7 @@ function rendermap() {
   function drawRegionsMap() {
     const data = new google.visualization.DataTable();
     data.addColumn('string', 'Country');
-    data.addColumn('number', '확진자');
+    data.addColumn('number', '여행 경보 수준');
     $.ajax({
         url:'/data',
         type:'GET',
@@ -80,12 +80,26 @@ function rendermap() {
         success: function(res){
           let mapdata = res.caution;
           mapdata.forEach((el)=>{
-            data.addRows([
-              [{
-                v:el.country_iso_alp2,
-                f:el.country_name
-              }, parseInt(el.confirmed)]
-            ])
+            if (el.alarm_lvl == -1){
+              data.addRows([
+                [{
+                  v:el.country_iso_alp2,
+                  f:el.country_kr
+                }, {
+                  v:parseInt(el.alarm_lvl),
+                  f:'특별여행주의보'                  
+                }]
+              ])
+            } else{
+              data.addRows([
+                [{
+                  v:el.country_iso_alp2,
+                  f:el.country_kr
+                }, {
+                  v:parseInt(el.alarm_lvl),
+                  f:`${parseInt(el.alarm_lvl)}단계`}]
+              ])
+            }
           })
         },
         error: function(){
@@ -98,9 +112,10 @@ function rendermap() {
     //       ])
     //   }
     const options = {
-      colorAxis: {colors: ['#00853f', 'black', '#e31b23']},
+      colorAxis: {colors: ['orange','blue','yellow', 'red','black']},
       backgroundColor: '#FFFFFF',
       region: Zoom,
+      legend: 'none',
       defaultColor: '#222222'
     };
 
