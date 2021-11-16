@@ -110,5 +110,7 @@ with webdriver.Chrome() as driver:
         }
         dict.append(data)
         
-    with open ('./covid_info.json', 'w') as f:
-        json.dump(dict, f)
+    # with open ('./covid_info.json', 'w') as f:
+    #     json.dump(dict, f)
+
+    print(dict[0].keys())
