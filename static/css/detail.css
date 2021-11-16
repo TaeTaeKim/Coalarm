@@ -132,7 +132,7 @@ header {
 
 
 /* 게시판 */
-.country-board {
+/* .country-board {
   background: orange;
   max-width: 890px;
   width: 94vw;
@@ -142,8 +142,11 @@ header {
   border-radius: 5px;
   box-shadow: 1px 1px 3px 2px rgba(236, 230, 230, 0.767);
   margin-bottom: 20px;
+} */
+#disqus_thread {
+  max-width: 830px;
+  margin: auto;
 }
-
 
 @media(max-width:1500px) {
   .logo-group {

@@ -35,15 +35,45 @@
 
       <section class="information-content">
         <div class="info-help">코로나 관련 <b>중요 정보</b>를 <b>Click</b>하여 확인해보세요.</div>
-        <div class='inbound'></div>
-        <div class="document"></div>
-        <div class="isolate"></div>
-        <div class="vias"></div>
+        
+        <div class="inbound category-group">
+          <div class="category-title">{{입국관련}}</div>
+          <div class="category-description">{{내용~~~~}}</div>
+        </div>
+        <div class="document category-group">
+          <div class="category-title">{{필요서류}}</div>
+          <div class="category-description">{{내용~~~~}}</div>
+        </div>
+        <div class="isolate category-group">
+          <div class="category-title">{{격리관련}}</div>
+          <div class="category-description">{{내용~~~~}}</div>
+        </div>
+        <div class="vias category-group">
+          <div class="category-title">{{비자관련}}</div>
+          <div class="category-description">{{내용~~~~}}</div>
+        </div>
+        
       </section>
 
-      <section class="country-board">
-        게시판
-      </section>
+      <div id="disqus_thread"></div>
+      <script>
+          /**
+          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+          *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+          /*
+          var disqus_config = function () {
+          this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+          this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+          };
+          */
+          (function() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+          s.src = 'https://coalarm.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
     </div>
   </div>  
