@@ -1,6 +1,9 @@
 header {
   background: #8b60e8;
 }
+.hidden{
+  display: none !important;
+}
 .logo-group {
   display: flex;
   justify-content: left;
@@ -29,6 +32,24 @@ header {
   padding-bottom: 30px;
   transition: .5s;
 }
+.info-help{
+  display: flex;
+  justify-content: space-between;
+}
+.information-tab{
+  display: flex;
+  
+  align-items: center;
+}
+.information-tab div{
+  width: 3rem;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+.content{
+  margin: 0 0 10px 0;
+}
 
 
 
@@ -41,8 +62,6 @@ header {
   position: absolute;
   z-index: 1;
   transition: .1s;
-}
-.visual-content {
 }
 .visual-content .coutry-name {
   color: #fff;
@@ -75,15 +94,6 @@ header {
   box-shadow: 1px 1px 3px 2px rgba(236, 230, 230, 0.767);
   z-index: 2;
 }
-.chart-group> .chart1 {
-  
-}
-.chart-group> .chart2 {
-
-}
-.chart-group> .exchange-rate {
-
-}
 
 
 
@@ -102,8 +112,6 @@ header {
 .info-help {
   color: #8b60e8;
   padding: 0 10px 20px;
-}
-.category-group {
 }
 
 .category-title {
@@ -128,6 +136,12 @@ header {
   height: 100%;
   visibility: visible;
   margin-bottom: 30px;
+}
+.tab{
+  background-color: #8b60e8;
+  color: white;
+  border:1px black;
+  border-radius: .5rem;
 }
 
 

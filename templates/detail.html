@@ -34,23 +34,55 @@
       </section>
 
       <section class="information-content">
-        <div class="info-help">코로나 관련 <b>중요 정보</b>를 <b>Click</b>하여 확인해보세요.</div>
+        <div class="info-help">
+          <div>
+            코로나 관련 <b>요약 정보</b>별로 확인해보세요.<br>❗꼭 전체 정보를 확인하세요
+          </div>
+          <div class="information-tab">
+            <div class="summary tab">요약</div>
+            <div class="allcontent tab">전체</div>
+          </div>
+        </div>
         
         <div class="inbound category-group">
-          <div class="category-title">{{입국관련}}</div>
-          <div class="category-description">{{내용~~~~}}</div>
+          <div class="category-title">입국관련</div>
+          <div class="category-description">
+            {% for i in data['notice']['inbound'] %}
+            <p class='content'>{{i}}</p>
+            {% endfor %}
+          </div>
         </div>
         <div class="document category-group">
-          <div class="category-title">{{필요서류}}</div>
-          <div class="category-description">{{내용~~~~}}</div>
+          <div class="category-title">필요서류</div>
+          <div class="category-description">
+            {% for i in data['notice']['document'] %}
+            <p class='content'>{{i}}</p>
+            {% endfor %}
+          </div>
         </div>
         <div class="isolate category-group">
-          <div class="category-title">{{격리관련}}</div>
-          <div class="category-description">{{내용~~~~}}</div>
+          <div class="category-title">격리관련</div>
+          <div class="category-description">
+            {% for i in data['notice']['isolate'] %}
+            <p class='content'>{{i}}</p>
+            {% endfor %}
+          </div>
         </div>
         <div class="vias category-group">
-          <div class="category-title">{{비자관련}}</div>
-          <div class="category-description">{{내용~~~~}}</div>
+          <div class="category-title">비자관련</div>
+          <div class="category-description">
+            {% for i in data['notice']['visa'] %}
+            <p class='content'>{{i}}</p>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="all category-group hidden">
+          <div class="category-title">전체</div>
+          <div class="category-description">
+            {% for i in data['allnotice'] %}
+            <p class='content'>{{i}}</p>
+            {% endfor %}
+          </div>
         </div>
         
       </section>
@@ -76,7 +108,8 @@
       <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
     </div>
-  </div>  
+  </div>
+  <script  src="http://code.jquery.com/jquery-latest.min.js"></script>  
   <script src="../static/js/detail.js"></script>
 </body>
 </html>

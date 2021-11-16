@@ -1,22 +1,3 @@
-const categoryList = [
-  {
-    title: '입국관련',
-    description: 	'목적, 외국인, 한국, 해외입국자,금지, 허용, 중단,허가,허용,불허,제한,통제,폐쇄,불가,관광,중지,통제'
-  },
-  {
-    title: '필요서류',
-    description: 	'확인서, 허가증, 신고서, 서약서,온라인,결과서,PCR,검사,카드,보험,증명서,QR,디지털,필수,결과지,서류,검진서,검사서,공인서'
-  },
-  {
-    title: '격리관련',
-    description: 	'격리~~~~~~~~~~~~~~'
-  },
-  {
-    title: '비자관련',
-    description: 	'비자~~~~~~~~~~~~~~'
-  },
-]
-
 let categoryEl = document.querySelector('.information-content');
 
 function categoryHandler(event){
@@ -26,3 +7,15 @@ function categoryHandler(event){
 }
 
 categoryEl.addEventListener('click',categoryHandler)
+
+$('.summary').on('click',function(){
+  $('.category-group').removeClass('hidden')
+  $('.all').addClass('hidden')
+  $('.info-help div:first').html('코로나 관련 <b>요약 정보</b>별로 확인해보세요.<br>❗꼭 전체 정보를 확인하세요')
+})
+$('.allcontent').on('click',function(){
+  
+  $('.category-group').addClass('hidden')
+  $('.all').removeClass('hidden')
+  $('.info-help div:first').html('코로나 관련 <b>전체 정보</b>를 확인해보세요.<br>요약정보를 보러면 요약을 클릭하세요')
+})
