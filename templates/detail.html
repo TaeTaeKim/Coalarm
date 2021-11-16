@@ -25,11 +25,11 @@
     <div class="content-group">
 
       <section class="visual-content">
-        <div class="coutry-name">한국</div>
+        <div class="coutry-name">{{data['name']}}</div>
         <div class="chart-group">
-          <div class="chart1">코로나 발생률</div>
-          <div class="chart2">백신 접종률</div>
-          <div class="exchange-rate">환율</div>
+          <div class="chart1">코로나 발생률 <br>누적 확진자 : {{data['corona']['total_confirmed']}}</div>
+          <div class="chart2">백신 접종률 <br>1차접종률 : {{data['vaccine']['partly']}} <br>2차 접종률 : {{data['vaccine']['fully']}}</div>
+          <div class="exchange-rate">환율<br> 원 : {{data['exchange'][1]}}<br> {{data['exchange'][0]}}</div>
         </div>
       </section>
 
