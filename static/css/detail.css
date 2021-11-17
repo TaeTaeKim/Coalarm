@@ -9,7 +9,7 @@ header {
   justify-content: left;
   align-items: center;
   padding: 20px;
-  padding-left: 25%;
+  padding-left: 20%;
   transition: 1s;
 }
 .logo-group .logo-img {
@@ -49,15 +49,14 @@ header {
 }
 .chart-group {
   display: flex;
-  max-width: 850px;
+  max-width: 910px;
   justify-content:center;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   margin: auto;
 }
 .chart-group> div {
   min-width: 250px;
-  max-width: 600px;
   width: 30%;
   height: 30vh;
   margin: 13px;
@@ -72,8 +71,7 @@ header {
   flex-grow: 1;
 }
 .chart-group .chart1 {
-  max-width: 600px;
-  width: 70vw;
+  width: 100vw;
 }
 .chart-group .chart2 {
   flex-grow: 3;
@@ -139,17 +137,15 @@ header {
 }
 .comment-position{
   display: flex;
-  justify-content: end;
-  background-image: url('../img/mainlogo.png');
-  background-size: 400px;
-  background-position: 30px 300px;
-  background-repeat: no-repeat;
+  width: 100vw;
+  justify-content: center;
   transition: .5s;
 }
 #disqus_thread {
   align-self: flex-start;
   width: 50vh;
-  margin:0 50px;
+  height: 30vh;
+  /* margin-left: 100px; */
   position: sticky;
   top: 280px;
   z-index: 2;
@@ -166,11 +162,6 @@ header {
     transition: 1s;
   }
   
-  .comment-position {
-    background-size: 200px;
-    background-position: 0px 250px;
-    transition: .5s;
-  }
 }
 
 @media(max-width:1500px) {
@@ -187,11 +178,6 @@ header {
     transition: 1s;
   }
 
-  .comment-position {
-    background-size: 200px;
-    background-position: 1000px 550px;
-    transition: .5s;
-  }
 }
 
 @media(max-width:1024px) {
@@ -203,19 +189,6 @@ header {
     padding-left: 6%;
     transition: 1s;
   }
-
-  .comment-position {
-    background-position: 700px 185px;
-    transition: .5s;
-  }
-  #disqus_thread {
-    top: 450px;
-    margin:0 30px;
-  }
-}
-
-
-@media(max-width:768px) {
   .chart-group::before {
     content: "";
     background-color: #5733b5;
@@ -227,19 +200,18 @@ header {
   }
 
   .content-group {
-    margin: auto
+    margin: 0;
   }
 
   .comment-position::before {
     background: rgb(246, 243, 243);
   }
   .comment-position {
-    flex-direction: column;
-    background-position: 750px 180px;
-    transition: .5s;
+    flex-flow: column;
+
   }
   #disqus_thread {
     width: 95%;
-    align-self: center;
+    align-self: flex-end;
   }
 }
