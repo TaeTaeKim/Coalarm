@@ -3,15 +3,19 @@
 # 11/16 flask - mysql 연동 완료
 
 from flask import Flask, jsonify
+from exchange import exchange
+from getdata import corona, vaccine, kr_name, notice, noticeall
+
 import pymysql
 import db_update
 
 app = Flask(__name__)
 
-corona = db_update.AsyncTask()
-corona.update_Corona_Data() # corona_db update
-corona.update_Corona_Vaccine_Data() # vaccine_db update
-corona.update_Api_Data() # api_db update
+corona_update = db_update.AsyncTask()
+corona_update.update_Corona_Data() # corona_db update
+corona_update.update_Corona_Vaccine_Data() # vaccine_db update
+corona_update.update_Api_Data() # api_db update
+print("db create and update")
 
 @app.route("/")
 def home():
@@ -43,6 +47,20 @@ def api_data():
     rows = cur.fetchall()
     conn.close()
     return jsonify(rows)
+
+@app.route('/country/<ISO_code>')
+def country(ISO_code):
+    exchange_rate = exchange(ISO_code)
+    coronadata = corona(ISO_code)
+    vaccinedata = vaccine(ISO_code)
+    country_kr = kr_name(ISO_code)
+    noticedata = notice(ISO_code)
+    allnotice = noticeall(ISO_code)
+    dataset = {
+        'name':country_kr,'exchange':exchange_rate,'corona':coronadata,
+        'vaccine':vaccinedata,'notice':noticedata,'allnotice':allnotice
+        }
+    return jsonify(dataset)
 
 if __name__ == "__main__":
     app.run(debug=True)

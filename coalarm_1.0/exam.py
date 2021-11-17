@@ -1,5 +1,0 @@
-from corona_vaccine_data_scraping import get_vaccine_scraping
-from corona_data_scraping import get_corona_scraping
-from corona_api import get_level_api, get_text_api
-
-print(get_corona_scraping())

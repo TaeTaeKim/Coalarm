@@ -1,7 +1,20 @@
 
 import requests
 
-# 3-1 notice data api 
+# 3-1 exchange data api 
+def get_exchange_api():
+    url  = 'https://www.koreaexim.go.kr/site/program/financial/exchangeJSON'
+    params = {
+        'authkey': 'y6VrwVGHQWHtS19rOIvBg7SJTi1O115y',
+        'data': 'AP01'
+    }
+    response = requests.get(url, params=params)
+    response_text_dict = response.json()
+    return response_text_dict
+    # {'result': 1, 'cur_unit': 'AED', 'ttb': '317.93', 'tts': '324.36', 'deal_bas_r': '321.15', 'bkpr': '321', 
+    # 'yy_efee_r': '0', 'ten_dd_efee_r': '0', 'kftc_bkpr': '321', 'kftc_deal_bas_r': '321.15', 'cur_nm': '아랍에미리트 디르함'}
+
+# 3-2 notice data api
 def get_text_api():
     # text 가져오기
     url = 'http://apis.data.go.kr/1262000/CountryOverseasArrivalsService/getCountryOverseasArrivalsList'
@@ -25,7 +38,7 @@ def get_text_api():
     
     return data_text
 
-# 3-2 caution data api
+# 3-3 caution data api
 def get_level_api():
     # 경보 가져오기
     url = 'http://apis.data.go.kr/1262000/TravelAlarmService2/getTravelAlarmList2'

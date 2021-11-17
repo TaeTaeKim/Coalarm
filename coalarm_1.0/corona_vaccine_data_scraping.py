@@ -11,7 +11,13 @@ from bs4 import BeautifulSoup
 def get_vaccine_scraping():
     year = datetime.datetime.now().year
 
-    driver = webdriver.Chrome(r'.\chromedriver.exe')
+    # 옵션 생성
+    options = webdriver.ChromeOptions()
+    # 창 숨기는 옵션 추가
+    options.add_argument("headless")
+
+    # driver 실행
+    driver = webdriver.Chrome(options=options)
     driver.implicitly_wait(5)
 
     driver.get('https://ourworldindata.org/covid-vaccinations')
