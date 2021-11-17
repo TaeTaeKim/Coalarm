@@ -9,6 +9,7 @@
     <link rel="icon" href="../static/img/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@500&family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
     <link rel="stylesheet" href="../static/css/main.css">
     <link rel="stylesheet" href="../static/css/detail.css">
     <title>Coalarm</title>
@@ -26,8 +27,11 @@
         <section class="visual-content">
           <div class="coutry-name">{{data['name']}} <span class="flag"></span></div>
           <div class="chart-group">
-            <div class="chart1">코로나 발생률 <br>누적 확진자 : {{data['corona']['total_confirmed']}}</div>
-            <div class="chart2">백신 접종률 <br>1차접종률 : {{data['vaccine']['partly']}} <br>2차 접종률 : {{data['vaccine']['fully']}}</div>
+            <div class="chart1">코로나 발생률 <br>누적 확진자 :<br> <span id="confirmedNum">{{data['corona']['total_confirmed']}}</span></div>
+            <div id="container" class="chart2">
+              <div id="chart2Data1">{{data['vaccine']['partly']}}</div>
+              <div id="chart2Data2">{{data['vaccine']['fully']}}</div>
+            </div>
             <div class="exchange-rate">환율<br> 원 : {{data['exchange'][1]}}<br> {{data['exchange'][0]}}</div>
           </div>
         </section>
