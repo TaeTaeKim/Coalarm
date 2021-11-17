@@ -74,6 +74,8 @@ header {
 .chart-group .chart1 {
   max-width: 600px;
   width: 70vw;
+  display: flex;
+  justify-content: space-between;
 }
 .chart-group .chart2 {
   flex-grow: 3;
