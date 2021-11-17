@@ -24,6 +24,7 @@ from bs4 import BeautifulSoup
 soup = BeautifulSoup(html, "html.parser")
 Safety_dict = {}
 Safety_datas = []
+# 국가, 안전지수, 치안지수, 살인률
 Safety_columns = ['Country', 'Safety_index', 'Numbeo_index', 'Homicide_rate']
 table = soup.select_one('#supsystic-table-14')
 trs = table.tbody.select('tr')
