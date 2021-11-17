@@ -53,7 +53,7 @@ duplicate_sum = (df.groupby(['Country'], as_index=False).mean()).round(2)
 duplicate_sum_json = duplicate_sum.to_json(orient = 'records')
 print(duplicate_sum_json)
 
-#181개
-#print(df.head(len(df)))
-#130개
-#print(duplicate_values_sum.head(len(duplicate_values_sum)))
+# 181개 ->
+# print(df.head(len(df)))
+# -> 130개
+# print(duplicate_values_sum.head(len(duplicate_values_sum)))
