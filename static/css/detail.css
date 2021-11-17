@@ -1,8 +1,8 @@
+body {
+  background: rgb(246, 243, 243);
+}
 header {
   background: #8b60e8;
-}
-.hidden{
-  display: none !important;
 }
 .logo-group {
   display: flex;
@@ -22,15 +22,15 @@ header {
   color: #fff;
 }
 
-.content-group {
-  height: 100%;
-  background: rgb(246, 243, 243);
-  background-image: url('../img/mainlogo.png');
-  background-size: 400px;
-  background-position: 30px 300px;
-  background-repeat: no-repeat;
-  padding-bottom: 30px;
-  transition: .5s;
+/* visual-content */
+.visual-content .coutry-name {
+  color: #fff;
+  font-size: 2.3rem;
+  font-weight: bold;
+  padding: 15px;
+  transition: 1s;
+  position: relative;
+  z-index: 2;
 }
 .info-help{
   display: flex;
@@ -47,44 +47,20 @@ header {
   font-weight: bold;
   cursor: pointer;
 }
-.content{
-  margin: 0 0 10px 0;
-}
-
-
-
-/* visual-content */
-.visual-content::before {
-  content: "";
-  background-color: #5733b5;
-  width: 100vw;
-  height: 18vh;
-  position: absolute;
-  z-index: 1;
-  transition: .1s;
-}
-.visual-content .coutry-name {
-  color: #fff;
-  font-size: 2.3rem;
-  font-weight: bold;
-  padding: 15px;
-  padding-left: 27%;
-  transition: 1s;
-  position: relative;
-  z-index: 2;
-}
 .chart-group {
   display: flex;
+  max-width: 850px;
   justify-content:center;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   margin-bottom: 10px;
+  margin: auto;
 }
 .chart-group> div {
   min-width: 250px;
-  max-width: 270px;
+  max-width: 600px;
   width: 30%;
-  height: 25vh;
-  margin: 20px;
+  height: 30vh;
+  margin: 13px;
   color: #5733b5;
   font-weight: bold;
   text-align: center;
@@ -93,15 +69,21 @@ header {
   border-radius: 5px;
   box-shadow: 1px 1px 3px 2px rgba(236, 230, 230, 0.767);
   z-index: 2;
+  flex-grow: 1;
 }
-
-
+.chart-group .chart1 {
+  max-width: 600px;
+  width: 70vw;
+}
+.chart-group .chart2 {
+  flex-grow: 3;
+}
 
 /* information-content */
 .information-content{
   display: flex;
   flex-flow: column wrap;
-  margin: auto;
+  margin: 0 20px;
   max-width: 890px;
   padding: 30px;
   background: #fff;
@@ -145,44 +127,74 @@ header {
 }
 
 
-/* 게시판 */
-/* .country-board {
-  background: orange;
-  max-width: 890px;
-  width: 94vw;
-  height: 40vh;
-  margin: auto;
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: 1px 1px 3px 2px rgba(236, 230, 230, 0.767);
-  margin-bottom: 20px;
-} */
+/* 댓글 */
+.comment-position::before {
+  content: "";
+  background-color: #5733b5;
+  width: 100vw;
+  height: 18vh;
+  position: absolute;
+  z-index: 1;
+  transition: .1s;
+}
+.comment-position{
+  display: flex;
+  justify-content: end;
+  background-image: url('../img/mainlogo.png');
+  background-size: 400px;
+  background-position: 30px 300px;
+  background-repeat: no-repeat;
+  transition: .5s;
+}
 #disqus_thread {
-  max-width: 830px;
-  margin: auto;
+  align-self: flex-start;
+  width: 50vh;
+  margin:0 50px;
+  position: sticky;
+  top: 280px;
+  z-index: 2;
+  background: #8b60e80a;
+  border-radius: 7px;
+  box-shadow: 1px 1px 2px 2px rgba(236, 230, 230, 0.767);
+  padding: 10px;
 }
 
-@media(max-width:1500px) {
+
+@media(max-width:1700px) {
   .logo-group {
     padding-left: 15%;
     transition: 1s;
   }
-  .visual-content .coutry-name {
-    padding-left: 17%;
-    transition: 1s;
-  }
-  .content-group {
+  
+  .comment-position {
     background-size: 200px;
     background-position: 0px 250px;
     transition: .5s;
   }
 }
 
-@media(max-width:940px) {
-  .visual-content::before {
-    height: 50vh;
+@media(max-width:1500px) {
+  .logo-group {
+    padding-left: 5%;
     transition: 1s;
   }
+
+  .content-group {
+    margin-left: 40px;
+  }
+  .visual-content .coutry-name {
+    padding-left: 3%;
+    transition: 1s;
+  }
+
+  .comment-position {
+    background-size: 200px;
+    background-position: 1000px 550px;
+    transition: .5s;
+  }
+}
+
+@media(max-width:1024px) {
   .logo-group {
     padding-left: 3%;
     transition: 1s;
@@ -191,9 +203,43 @@ header {
     padding-left: 6%;
     transition: 1s;
   }
-  .content-group {
-    background-size: 120px;
-    background-position: 40px 500px;
+
+  .comment-position {
+    background-position: 700px 185px;
     transition: .5s;
+  }
+  #disqus_thread {
+    top: 450px;
+    margin:0 30px;
+  }
+}
+
+
+@media(max-width:768px) {
+  .chart-group::before {
+    content: "";
+    background-color: #5733b5;
+    width: 100vw;
+    height: 18vh;
+    margin-top: -85px;
+    position: absolute;
+    transition: .1s;
+  }
+
+  .content-group {
+    margin: auto
+  }
+
+  .comment-position::before {
+    background: rgb(246, 243, 243);
+  }
+  .comment-position {
+    flex-direction: column;
+    background-position: 750px 180px;
+    transition: .5s;
+  }
+  #disqus_thread {
+    width: 95%;
+    align-self: center;
   }
 }
