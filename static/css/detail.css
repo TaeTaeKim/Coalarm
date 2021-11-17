@@ -4,6 +4,7 @@ body {
 header {
   background: #8b60e8;
 }
+
 .logo-group {
   display: flex;
   justify-content: left;
