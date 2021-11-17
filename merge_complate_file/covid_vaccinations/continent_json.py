@@ -57,5 +57,5 @@ for i in range(len(continent)):
 #print(len(continent_datas))
 #print(continent_datas)
 
-vaccine_json_data = json.dumps(continent_datas)
-print(vaccine_json_data)
+continent_json_data = json.dumps(continent_datas)
+print(continent_json_data)

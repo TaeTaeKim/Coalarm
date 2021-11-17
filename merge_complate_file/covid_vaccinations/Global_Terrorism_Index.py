@@ -36,5 +36,6 @@ for r, tr in enumerate(trs):
     terrorism_datas.append(dict(terrorism_dict))
 print(len(terrorism_datas))
 
-vaccine_json_data = json.dumps(terrorism_datas)
-print(vaccine_json_data)
+# 163개
+terrorism_json_data = json.dumps(terrorism_datas)
+print(terrorism_json_data)
