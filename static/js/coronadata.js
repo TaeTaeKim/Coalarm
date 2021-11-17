@@ -25,7 +25,7 @@ function animate(obj, initVal, lastVal, duration) {
         const progress = Math.min((currentTime  - startTime) / duration, 1);
 
         //calculate what to be displayed using the value gotten above
-        obj.innerHTML = Math.floor(progress * (lastVal - initVal) + initVal);
+        obj.textContent = Math.floor(progress * (lastVal - initVal) + initVal);
 
         //checking to make sure the counter does not exceed the last value (lastVal)
         if (progress < 1) {

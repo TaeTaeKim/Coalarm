@@ -56,9 +56,12 @@ document.addEventListener('DOMContentLoaded', function () {
       }]
   });
 });
+
+
+
 // 숫자 애니메이션
 var 누적확진자= parseInt(document.querySelector('#confirmedNum').textContent);
-  
+
 $({ val : 0 }).animate({ val : 누적확진자 }, {
  duration: 1000,
 step: function() {
@@ -70,6 +73,31 @@ complete: function() {
   $("#confirmedNum").text(num);
 }
 });
+
+
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+var Endnum_list = document.querySelectorAll('.coronadata')
+for(let i=1;i<=Endnum_list.length;i++){
+  endnum = parseInt(Endnum_list[i].textContent);
+  if(endnum == -1){
+    Endnum_list[i].textContent = '정보가 없습니다!'
+  }
+  else{
+    $({ val : 0 }).animate({ val : endnum }, {
+      duration: 1000,
+     step: function() {
+       var num = numberWithCommas(Math.floor(this.val));
+       Endnum_list[i].textContent = num;
+     },
+     complete: function() {
+       var num = numberWithCommas(Math.floor(this.val));
+       Endnum_list[i].textContent = num;
+     }
+     });
+  }
+
+  
 }
