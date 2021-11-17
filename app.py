@@ -15,30 +15,6 @@ def data():
         lvl_data = json.load(f)
     return jsonify({'caution':lvl_data})
 
-'''
-@app.route('/corona_data',methods=['GET'])
-def data():
-    with open('./coalarm_1.0/json_file/corona_data.json','r') as f:
-        data = json.load(f)
-
-    return jsonify({'result':'success','caution':data})
-
-@app.route('/corona_vaccine_data',methods=['GET'])
-def data():
-    with open('./coalarm_1.0/json_file/corona_vaccine_data.json','r') as f:
-        data = json.load(f)
-
-    return jsonify({'result':'success','caution':data})
-
-@app.route('/api_data',methods=['GET'])
-def data():
-    with open('./coalarm_1.0/json_file/api_data.json','r') as f:
-        data = json.load(f)
-
-    return jsonify({'result':'success','caution':data})
-'''
-
-    
 
 @app.route('/country/<ISO_code>', methods=['GET'])
 def country(ISO_code):
