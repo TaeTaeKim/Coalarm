@@ -11,7 +11,7 @@ import json
 
 from corona_vaccine_data_scraping import get_vaccine_scraping
 from corona_data_scraping import get_corona_scraping
-from corona_api import get_level_api, get_text_api
+from corona_api import get_level_api, get_text_api, get_exchange_api
 
 
 class AsyncTask:
@@ -58,7 +58,7 @@ class AsyncTask:
     def update_Corona_Data(self):
 
         # 0. 쓰레드 실행
-        # threading.Timer(80, self.update_Corona_Data).start()
+        threading.Timer(80, self.update_Corona_Data).start()
 
         # 1. scraping
         get_corona_data = get_corona_scraping()
@@ -117,12 +117,13 @@ class AsyncTask:
         conn.close()
         print("corona_data table update complete")
 
-    # 기능 3. 외교부 api 호출, 주기 : 60초
+    # 기능 3. 공지사항, 경보 api, 환율 api  호출, 주기 : 60초
     def update_Api_Data(self):
-
+        
         # 0. 쓰레드 실행
         threading.Timer(60, self.update_Api_Data).start()
-
+        
+        # api data
         # 1. api 호출
         text_data = get_text_api()
         get_level_data = get_level_api()
@@ -169,4 +170,29 @@ class AsyncTask:
 
         conn.commit()
         conn.close()
-        print("api_data table update complete")
+
+        print("api_data table update complete")   
+        
+        # exchange_data
+        # 1. api 호출
+        exchange_data = get_exchange_api()
+        
+        if len(exchange_data) != 0:
+            # 2. db 연결
+            conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+            cur = conn.cursor()
+            cur.execute('TRUNCATE TABLE exchange_data') # 테이블 레코드 비우기
+            
+            # 3. 해당 테이블에 데이터 추가
+            for i in range(len(exchange_data)):
+                cur.execute('INSERT INTO exchange_data VALUES("{0}", "{1}", "{2}")'.format(\
+                exchange_data[i]["cur_nm"], \
+                exchange_data[i]["cur_unit"], \
+                exchange_data[i]["deal_bas_r"]))
+
+            conn.commit()
+            conn.close()
+
+            print("exchange table update complete")
+        else:
+            print("주말엔 exchange api가 안와요")

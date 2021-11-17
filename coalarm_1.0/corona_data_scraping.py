@@ -11,8 +11,13 @@ def get_corona_scraping():
 
     dict_list = []  # 국가별 코로나 정보를 저장할 리스트
 
-    # 웹사이트 실행
-    driver = webdriver.Chrome()
+    # 옵션 생성
+    options = webdriver.ChromeOptions()
+    # 창 숨기는 옵션 추가
+    options.add_argument("headless")
+
+    # driver 실행
+    driver = webdriver.Chrome(options=options)
     driver.implicitly_wait(5)
 
     driver.get('https://coronaboard.kr/en/')

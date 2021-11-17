@@ -9,9 +9,10 @@ CREATE TABLE IF NOT EXISTS `Corona_Data` (
     `new_deaths` INT NOT NULL,
     `total_recovered` INT NOT NULL,
     `new_recovered` INT NOT NULL,
-    `recovered_ratio` DECIMAL(5,2) NOT NULL,
-    `critical_ratio` DECIMAL(5,2) NOT NULL,
+    `recovered_ratio` FLOAT NOT NULL,
+    `critical_ratio` FLOAT NOT NULL,
     `total_caeses_per_1million_population` FLOAT NOT NULL);
+
 
 CREATE TABLE IF NOT EXISTS `Api_Data` (
     `country` VARCHAR(50) NOT NULL PRIMARY KEY,
@@ -24,5 +25,11 @@ CREATE TABLE IF NOT EXISTS `Api_Data` (
 CREATE TABLE IF NOT EXISTS `Corona_Vaccine_Data` (
     `country` VARCHAR(50) NOT NULL PRIMARY KEY,
     `iso_code` VARCHAR(10) NOT NULL,
-    `vaccinated` DECIMAL(5,2) NOT NULL,
-    `fully_vaccinated` DECIMAL(5,2) NOT NULL);
+    `vaccinated` FLOAT NOT NULL,
+    `fully_vaccinated` FLOAT NOT NULL);
+
+
+CREATE TABLE IF NOT EXISTS `Exchange_Data` (
+    `cur_nm` VARCHAR(50) NOT NULL PRIMARY KEY,
+    `cur_unit` VARCHAR(10) NOT NULL,
+    `deal_bas_r` VARCHAR(10) NOT NULL);
