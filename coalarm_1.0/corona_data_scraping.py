@@ -1,29 +1,34 @@
 
+# Latest update
+# 11/16 새로운 코드로 업데이트 
+
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 import time
 import json
 
-dict_list = []  # 국가별 코로나 정보를 저장할 리스트
+def get_corona_scraping():
 
-# 웹사이트 실행
-driver = webdriver.Chrome()
-driver.implicitly_wait(5)
+    dict_list = []  # 국가별 코로나 정보를 저장할 리스트
 
-driver.get('https://coronaboard.kr/en/')
-time.sleep(1)
+    # 웹사이트 실행
+    driver = webdriver.Chrome()
+    driver.implicitly_wait(5)
 
-for i in range(2):
-    #some_element까지 스크롤
-    some_element = driver.find_element_by_xpath('//*[@id="global-slide"]/div/div[3]/p/a')
-    action = ActionChains(driver)
-    action.move_to_element(some_element).perform()
+    driver.get('https://coronaboard.kr/en/')
     time.sleep(1)
 
-    #더보기 클릭
-    more_data = driver.find_element_by_xpath('//*[@id="show-more"]')
-    more_data.click()
-    time.sleep(1)
+    for i in range(2):
+        #some_element까지 스크롤
+        some_element = driver.find_element_by_xpath('//*[@id="global-slide"]/div/div[3]/p/a')
+        action = ActionChains(driver)
+        action.move_to_element(some_element).perform()
+        time.sleep(1)
+
+        #더보기 클릭
+        more_data = driver.find_element_by_xpath('//*[@id="show-more"]')
+        more_data.click()
+        time.sleep(1)
 
     # table 읽기
     table = driver.find_element_by_tag_name('tbody')
@@ -38,6 +43,8 @@ for i in range(2):
         fatality = td_ele[5].text
         incidence = td_ele[7].text
 
+        if "Japan" in country_name:   # Japan은 * 하나 붙어있음.
+            country_name = country_name[:-1]
 
         if '(' in confirmed:
             total_confirmed, new_confirmed = confirmed.split('(')
@@ -113,6 +120,4 @@ for i in range(2):
                 'incidence': incidence
             }
         dict_list.append(data)
-
-with open('../covid_info.json', 'w') as f:
-        json.dump(dict_list, f)
+    return dict_list

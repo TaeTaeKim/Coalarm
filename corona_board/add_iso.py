@@ -1,6 +1,6 @@
 import json
 
-with open("./country_ISO.json", "r") as f:
+with open("./coalarm_1.0/json_file/country_ISO.json", "r") as f:
     add_country = json.load(f)
 
     add_country.append({'Code': 'KR', 'Name': 'South Korea'})
@@ -13,8 +13,8 @@ with open("./country_ISO.json", "r") as f:
     add_country.append({'Code': 'BQ', 'Name': 'Bonaire Sint Eustatius and Saba'})
     add_country.append({'Code': 'CI', 'Name': "Cote d'Ivoire"})
     add_country.append({'Code': 'CW', 'Name': 'Curacao'})
-    add_country.append({'Code': 'TL', 'Name': 'Timor})
+    add_country.append({'Code': 'TL', 'Name': 'Timor'})
 
 
-with open('./add_country_ISO.json', 'w') as f:
+with open('./coalarm_1.0/json_file/add_country_ISO.json', 'w') as f:
     json.dump(add_country, f)
