@@ -17,7 +17,7 @@ li{
 #search{
     background-image: url("../img/candi2.jpg");
     background-size: cover;
-    height: 45rem;
+    height: 100vh;
     width: 100%;    
 }
 .searchcontent{
@@ -30,15 +30,18 @@ li{
 }
 .logotext{
     font-size: 5rem;
-    font-family: 'Azeret Mono', monospace;
-    font-weight: bold;
+    font-family: 'Gugi', cursive;
+    font-weight: lighter;
+    align-self: end;
 }
 .logo{
     display: flex;
+    height: 190px;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
+
 .search{
     display: flex;
     align-items: center;
@@ -47,6 +50,8 @@ li{
 .search span{
     font-size: 1.3rem;
     font-weight: bold;
+    padding-top: 5px;
+    padding-left: 30px;
 }
 #arrowAnim {
     width: .5rem;

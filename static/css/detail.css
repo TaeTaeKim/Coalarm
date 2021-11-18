@@ -10,7 +10,7 @@ header {
   justify-content: left;
   align-items: center;
   padding: 20px;
-  padding-left: 20%;
+  padding-left: 18%;
   transition: 1s;
 }
 .logo-group .logo-img {
@@ -146,7 +146,8 @@ header {
   align-self: flex-start;
   width: 50vh;
   height: 30vh;
-  /* margin-left: 100px; */
+  margin-left: 60px;
+  margin-right: -250px;
   position: sticky;
   top: 280px;
   z-index: 2;
@@ -157,17 +158,10 @@ header {
 }
 
 
+
 @media(max-width:1700px) {
   .logo-group {
-    padding-left: 15%;
-    transition: 1s;
-  }
-  
-}
-
-@media(max-width:1500px) {
-  .logo-group {
-    padding-left: 5%;
+    padding-left: 9%;
     transition: 1s;
   }
 
@@ -178,7 +172,10 @@ header {
     padding-left: 3%;
     transition: 1s;
   }
-
+  #disqus_thread {
+    margin-left: 0;
+    margin-right: 20px;
+  }
 }
 
 @media(max-width:1024px) {
@@ -189,6 +186,9 @@ header {
   .visual-content .coutry-name {
     padding-left: 6%;
     transition: 1s;
+  }
+  .information-content {
+    margin: auto;
   }
   .chart-group::before {
     content: "";
@@ -205,14 +205,15 @@ header {
   }
 
   .comment-position::before {
-    background: rgb(246, 243, 243);
+    opacity: 0;
   }
   .comment-position {
     flex-flow: column;
 
   }
   #disqus_thread {
-    width: 95%;
-    align-self: flex-end;
+    width: 85%;
+    align-self: center;
+    margin-top: 20px;
   }
 }
