@@ -21,6 +21,8 @@ header {
   font-weight: 200;
   font-family: 'Gugi', sans-serif, monospace;
   color: #fff;
+  align-self: flex-end;
+  padding-top: 16px;
 }
 
 /* visual-content */
@@ -142,7 +144,7 @@ header {
 .information-content{
   display: flex;
   flex-flow: column wrap;
-  margin: 0 20px;
+  margin: 10px 20px;
   max-width: 890px;
   padding: 30px;
   background: #fff;
@@ -202,7 +204,7 @@ header {
   justify-content: center;
   transition: .5s;
 }
-#disqus_thread {
+.comment-box {
   align-self: flex-start;
   width: 50vh;
   height: 30vh;
@@ -232,7 +234,7 @@ header {
     padding-left: 3%;
     transition: 1s;
   }
-  #disqus_thread {
+  .comment-box {
     margin-left: 0;
     margin-right: 20px;
   }
@@ -248,7 +250,7 @@ header {
     transition: 1s;
   }
   .information-content {
-    margin: auto;
+    margin: 10px auto;
   }
   .chart-group::before {
     content: "";
@@ -271,7 +273,7 @@ header {
     flex-flow: column;
 
   }
-  #disqus_thread {
+  .comment-box {
     width: 85%;
     align-self: center;
     margin-top: 20px;

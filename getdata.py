@@ -54,3 +54,10 @@ def noticeall(ISO):
         if data['country_iso_alp2'] == ISO:
             allnotice = data['notice'].split('\r\n')
             return allnotice
+
+#
+def embassy(ISO):
+    for data in api_data:
+        if data['country_iso_alp2'] == ISO:
+            allnotice = data['notice'].split('\r\n')
+            return allnotice

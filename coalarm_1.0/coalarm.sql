@@ -33,3 +33,18 @@ CREATE TABLE IF NOT EXISTS `Exchange_Data` (
     `cur_nm` VARCHAR(50) NOT NULL PRIMARY KEY,
     `cur_unit` VARCHAR(10) NOT NULL,
     `deal_bas_r` VARCHAR(10) NOT NULL);
+
+CREATE TABLE IF NOT EXISTS `Embassy_Data` (
+    `iso_code` VARCHAR(10) NOT NULL PRIMARY KEY,
+    `embassy_kor_nm` VARCHAR(50) NOT NULL,
+    `url` VARCHAR(100) NOT NULL);
+
+CREATE TABLE IF NOT EXISTS `Safety_Data` (
+    `country` VARCHAR(50) NOT NULL,
+    `iso_code` VARCHAR(10) NOT NULL PRIMARY KEY,
+    `safety_index` FLOAT,
+    `numbeo_index` FLOAT,
+    `homicide_rate` FLOAT,
+    `last_terrorism` FLOAT,
+    `previous_terrorism` FLOAT);
+

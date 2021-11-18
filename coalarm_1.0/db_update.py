@@ -9,10 +9,14 @@ import pymysql
 import threading
 import json
 
+# 코로나 백신 데이터 가져오기
 from corona_vaccine_data_scraping import get_vaccine_scraping
+# 코로나 데이터 가져오기
 from corona_data_scraping import get_corona_scraping
+# 코로나 관련 api 가져오기
 from corona_api import get_level_api, get_text_api, get_exchange_api
-
+# 대사관 데이터 가져오기
+from embassy_data import get_embassy_data
 
 class AsyncTask:
 
