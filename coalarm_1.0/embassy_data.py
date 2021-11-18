@@ -10,7 +10,8 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.support.ui import Select
 from bs4 import BeautifulSoup
 
-def get_embassy_data():
+
+def get_embassy_data(): # return column : ['country_eng_nm', 'country_iso_alp2', 'country_nm', 'embassy_kor_nm', 'url']
     url = 'http://apis.data.go.kr/1262000/EmbassyService2/getEmbassyList2'
     key = '8F5UsoNlidAdZH5ST1vWuuwi6Q9KPRckgXs6utce+UxEZg4g8Mc7ltUGjAj0HU0TKE7993tWHmiD7bskyWMa6Q=='
 
@@ -94,5 +95,6 @@ def get_embassy_data():
         if d['embassy_kor_nm'] in url:
             d['url'] = url[d['embassy_kor_nm']]
             new.append(d)
-    
+    print(new[0].keys(), new[0], len(new))
+
     return new
