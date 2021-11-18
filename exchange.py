@@ -16,8 +16,6 @@ def exchange(ISO):
     
     response_text_dict = response.json()
     
-    print(response_text_dict)
-    
     dollar = response_text_dict[-1]['deal_bas_r']
 
     if ISO in EU:

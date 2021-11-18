@@ -16,10 +16,10 @@ header {
 .logo-group .logo-img {
   width: 50px;
 }
-.logo-group .logo-name {
+.logo-name {
   font-size: 30px;
-  font-weight: bold;
-  font-family: 'Azeret Mono', monospace;
+  font-weight: 200;
+  font-family: 'Gugi', sans-serif, monospace;
   color: #fff;
 }
 
@@ -73,10 +73,70 @@ header {
 }
 .chart-group .chart1 {
   width: 100vw;
+  display: flex;
+  justify-content: space-around;
 }
+/* 코로나 통계 부분. */
+.total, .new{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: left;
+}
+
+.total div:first-child, .new div:first-child{
+  color: black;
+  font-size: 18px;
+  font-weight: 900;
+  text-align: center;
+}
+
+
+/* 차트 2 백신접종률 */
 .chart-group .chart2 {
   flex-grow: 3;
 }
+
+/* 환율 계산기 부분 */
+.rate-comment{
+  font-size: .2rem;
+  color:tomato;
+
+}
+.calculator{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin:.7rem 0 0 0;
+}
+.exchange-rate> div:first-child{
+  font-size: 18px;
+  color: black;
+}
+.calculator > *{
+ margin: .5rem 0 0 0; 
+}
+.calculator img{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.exchangeto{
+  width: 202px;
+  height: 32px;
+  border: 1px solid gray;
+  font-weight: bold;
+  color: black;
+  font-size: 1.2rem;
+}
+.exchangefrom{
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+
+
 
 /* information-content */
 .information-content{

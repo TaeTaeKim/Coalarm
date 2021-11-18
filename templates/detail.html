@@ -9,6 +9,7 @@
     <link rel="icon" href="../static/img/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@500&family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Mochiy+Pop+One&display=swap" rel="stylesheet">
     <script src="https://code.highcharts.com/highcharts.src.js"></script>
     <link rel="stylesheet" href="../static/css/main.css">
     <link rel="stylesheet" href="../static/css/detail.css">
@@ -17,10 +18,12 @@
 <body>
   <div class="body-container">
     <header>
-      <div class="logo-group">
-        <img class="logo-img" src="../static/img/mainlogo.png"></img>&ensp;
-        <div class="logo-name">Coalarm</div>
-      </div>
+      <a href="/">
+        <div class="logo-group">
+          <img class="logo-img" src="../static/img/mainlogo.png"></img>&ensp;
+          <div class="logo-name">Coalarm</div>
+        </div>
+      </a>      
     </header>
     <div class="comment-position">
       <div class="content-group">
@@ -28,18 +31,33 @@
           <div class="coutry-name">{{data['name']}} <span class="flag"></span></div>
           <div class="chart-group">
             <div class="chart1">
-              누적 확진자 : <span id = 'confirmedNum'class="coronadata">{{data['corona']['total_confirmed']}}</span>
-              누적 사망자 : <span class="coronadata">{{data['corona']['total_deaths']}}</span>
-              누적 회복자 : <span class="coronadata">{{data['corona']['total_recovered']}}</span>
-              신규 확진자 : <span class="coronadata">{{data['corona']['new_confirmed']}}</span>
-              신규 사망자 : <span class="coronadata">{{data['corona']['new_deaths']}}</span>
-              신규 회복자 : <span class="coronadata">{{data['corona']['new_recovered']}}</span>
+              <div class="total">
+                <div>코로나 누적 통계</div>
+                <div>누적 확진자 : <span class="coronadata">{{data['corona']['total_confirmed']}}</span></div>
+                <div>누적 사망자 : <span class="coronadata">{{data['corona']['total_deaths']}}</span></div>
+                <div>누적 회복자 : <span class="coronadata">{{data['corona']['total_recovered']}}</span></div>
+              </div>
+              <div class="new">
+                <div>코로나 신규 통계</div>
+                <div>신규 확진자 : <span class="coronadata">{{data['corona']['new_confirmed']}}</span></div>
+                <div>신규 사망자 : <span class="coronadata">{{data['corona']['new_deaths']}}</span></div>
+                <div>신규 회복자 : <span class="coronadata">{{data['corona']['new_recovered']}}</span></div>
+              </div>
             </div>
             <div id="container" class="chart2">
               <div id="chart2Data1">{{data['vaccine']['partly']}}</div>
               <div id="chart2Data2">{{data['vaccine']['fully']}}</div>
             </div>
-            <div class="exchange-rate">환율<br> 원 : {{data['exchange'][1]}}<br> {{data['exchange'][0]}}</div>
+            <div class="exchange-rate">
+              <div>기준환율</div>
+              <div>1 {{data['exchange'][1]}} : <span class="rate">{{data['exchange'][0]}}</span>원<br><span class="rate-comment">해당 국가의 환율정보가 없으면 미국 달러로 표시됩니다.</span></div>               
+              <div class="calculator">
+                <div><p>한국 원</p><input class="exchangefrom" type="number"></div>
+                <img class='reverse-cal'src="../static/img/twowayarrow.png" alt="">
+                <div><p>{{data['exchange'][1]}}</p><p class="exchangeto">0</p></div>
+              </div>
+
+            </div>
           </div>
         </section>
         <section class="information-content">
