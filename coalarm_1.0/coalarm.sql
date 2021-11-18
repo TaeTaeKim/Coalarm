@@ -47,4 +47,13 @@ CREATE TABLE IF NOT EXISTS `Safety_Data` (
     `homicide_rate` FLOAT,
     `last_terrorism` FLOAT,
     `previous_terrorism` FLOAT);
+)
 
+CREATE TABLE IF NOT EXISTS `Comment` (
+    `index` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `iso_code` VARCHAR(10) NOT NULL,
+    `class` INT NOT NULL,
+    `order` INT NOT NULL,
+    `group_num` INT NOT NULL,
+    `text` TEXT NOT NULL);
+)
