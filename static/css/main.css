@@ -9,6 +9,9 @@ li{
     list-style: none;
     text-align: left;
 }
+a{
+    text-decoration: none;
+}
 
 
 .hidden{
@@ -30,7 +33,7 @@ li{
 }
 .logotext{
     font-size: 5rem;
-    font-family: 'Gugi', cursive;
+    font-family: 'Gugi', sans-serif, cursive;
     font-weight: lighter;
     align-self: end;
 }
