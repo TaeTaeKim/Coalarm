@@ -42,16 +42,28 @@ document.addEventListener('DOMContentLoaded', function () {
       xAxis: {
           categories: ['']
       },
+      yAxis: {
+        title: '',
+      },
       tooltip: {
         formatter: function() {
           return this.series.name+ " : " + this.y + '%'
+        },
+        hideDelay: 100
+      },
+      plotOptions: {
+        series: {
+          dataLabels: {
+              enabled: true,
+              format: '{y} %'
+          }
       }
       },
       series: [{
-          name: '1차 접종률',
-          data: [parseInt(document.querySelector('#chart2Data1').textContent)]
+          name: `1차 접종률`,
+          data: [parseInt(document.querySelector('#chart2Data1').textContent)],
       }, {
-          name: '2차 접종률',
+          name: `2차 접종률`,
           data: [parseInt(document.querySelector('#chart2Data2').textContent)]
       }]
   });
