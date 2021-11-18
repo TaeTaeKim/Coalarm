@@ -10,6 +10,7 @@
     justify-content: space-between;
     text-align: center;
     align-items: center;
+    margin:.5rem 0 1rem 0;
 }
 .tab{
     font-size: 1.2rem;
@@ -26,4 +27,5 @@
     position: absolute;
     z-index: 9;
     font-weight: 200;
+    background-color: white;
 }
