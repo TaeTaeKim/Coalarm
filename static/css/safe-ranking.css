@@ -8,11 +8,11 @@ a {
 .ranking-head .sub-head {
   color: rgb(250, 194, 89);
 }
-.ranking-head .main-head {
+.ranking-head {
   color: #212529;
-  font-family: 'Azeret Mono', monospace;
   font-size: 2.5rem;
 }
+
 
 .ranking-body {
   width: 80vw;
