@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+    <script src="https://kit.fontawesome.com/33c671eab1.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="../static/img/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +25,7 @@
         </div>
       </a>      
     </header>
-    <div class="comment-position">
+    <div class="content-position">
       <div class="content-group">
         <section class="visual-content">
           <div class="coutry-name">{{data['name']}} <span class="flag"></span></div>
@@ -114,7 +114,54 @@
         </div>
         </section>
         <!-- <div id="disqus_thread"></div> -->
-        <section class="comment-box"></section>
+        <section class="comment-content">
+
+          <div class="comment-menu">
+            <div class="comment-count">댓글 2,977개</div>
+          </div>
+
+          <form class="comment-input-group">
+            <input type="text" class="input-nickname" oninput="btnActive()" placeholder="닉네임 입력...">
+            <textarea class="input-comment" oninput="btnActive()" onkeydown="resize(this)" onkeyup="resize(this)"  rows="1" type="text" placeholder="공개 댓글 추가..."></textarea>
+            <div class="btn-group">
+              <button type="reset" class="btn btn-reset">취소</button>
+              <button type="submit" class="btn btn-submit" disabled>댓글</button>
+            </div>
+          </form>
+
+          <div class="comment-list">
+
+            <div class="comment-box">
+              <div class="box-head">
+                <span class="comment-nickname">룰루랄라</span>
+                <span class="comment-period">1년전</span>
+              </div>
+              <div class="box-body">너무 재미있는 곳이에요~!</div>
+              <div class="box-btn-group">
+                <button class="like"><i class="far fa-thumbs-up"></i> 126</button>
+                <button class="hate"><i class="far fa-thumbs-down"></i> 3</button>
+                <button class="btn-plus-comment">답글</button>
+              </div>
+              <div class="read-plus-comment"><b>▼</b>&ensp;다른사용자의 답글 20개 보기</div>
+            </div>
+
+            <div class="comment-box">
+              <div class="box-head">
+                <span class="comment-nickname">두번째사람</span>
+                <span class="comment-period">6개월전</span>
+              </div>
+              <div class="box-body">재미 없었어요</div>
+              <div class="box-btn-group">
+                <button class="like"><i class="far fa-thumbs-up"></i> 6</button>
+                <button class="hate"><i class="far fa-thumbs-down"></i> 23</button>
+                <button class="btn-plus-comment">답글</button>
+              </div>
+            </div>
+
+          </div>
+          
+
+        </section>
       </div>
       <!-- (구)댓글기능 -->
       <!-- <script>

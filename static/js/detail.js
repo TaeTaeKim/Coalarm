@@ -116,3 +116,21 @@ $('.reverse-cal').on('click',function(){
   rate = 1/rate
   
 })
+
+//댓글 입력창 자동크기 조절
+function resize(obj) {
+  obj.style.height = '1px';
+  obj.style.height = (3 + obj.scrollHeight)+ 'px';
+}
+
+//댓글 버튼 활성화
+function btnActive() {
+  const inputNickname = document.querySelector('.input-nickname');
+  const inputComment = document.querySelector('.input-comment');
+  const btnSubmit = document.querySelector('.btn-submit');
+  if ((inputNickname.value !=='')&&(inputComment.value !=='')) {
+    btnSubmit.removeAttribute('disabled');
+  } else {
+    btnSubmit.setAttribute('disabled','true');
+  }
+}
