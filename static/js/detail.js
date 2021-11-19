@@ -134,3 +134,169 @@ function btnActive() {
     btnSubmit.setAttribute('disabled','true');
   }
 }
+
+
+//댓글 임시 데이터
+data =[
+  {
+    name: "첫번째",
+    content : "블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라",
+    pw: "1234",
+    time: "2021-01-03",
+    like: 96,
+    hate: 33,
+    otherComment:[
+      {
+        name: "첫번째 대댓글",
+        content : "꾸르꺄숑 꾸꾸으라룡",
+        pw: "1234",
+        time: "2021-02-02",
+        like: 6,
+        hate: 0,
+      }
+    ]
+  },
+  {
+    name: "두번째",
+    content : "꺄르르",
+    pw: "1234",
+    time: "2021-02-02",
+    like: 76,
+    hate: 53,
+    otherComment:[
+      {
+        name: "두번째 대댓글",
+        content : "꾸르꺄숑 꾸꾸으라룡",
+        pw: "1234",
+        time: "2021-02-02",
+        like: 6,
+        hate: 0,
+      },
+      {
+        name: "두번째의 두번째 대댓글",
+        content : "꾸르꺄숑 꾸꾸으라룡",
+        pw: "1234",
+        time: "2021-02-02",
+        like: 6,
+        hate: 0,
+      },
+    ],
+  },
+  {
+    name: "세번째",
+    content : "제발 돼라, 돼라 돼라",
+    pw: "1234",
+    time: "2021-01-03",
+    like: 96,
+    hate: 33,
+    otherComment:[
+      {
+        name: "세번째 대댓글",
+        content : "꾸르꺄숑 꾸꾸으라룡",
+        pw: "1234",
+        time: "2021-02-02",
+        like: 6,
+        hate: 0,
+      }
+    ]
+  },
+]
+// 댓글 보여 주기
+function readComment(data) {
+  const commentListEl = document.querySelector('.comment-list');
+  data.forEach((el, i)=>{
+    let commentBoxDiv = document.createElement('div');
+    commentBoxDiv.setAttribute('class','comment-box');
+    commentBoxDiv.innerHTML = `
+    <div class="box-head">
+      <span class="comment-nickname">${el.name}</span>
+      <span class="comment-period">${el.time}</span>
+    </div>
+    <div class="box-body">${el.content}</div>
+    <div class="box-btn-group">
+      <button class="like"><i class="far fa-thumbs-up"></i> ${el.like}</button>
+      <button class="hate"><i class="far fa-thumbs-down"></i> ${el.hate}</button>
+      <button class="btn-plus-comment">답글</button>
+    </div>
+    `;
+    commentListEl.append(commentBoxDiv);
+
+    if (el.otherComment.length !== 0) {
+      readPlusComment(el.otherComment , i)
+      plusCommentAddListener();
+    }
+  })
+}
+// 대댓글 보여주기
+function readPlusComment(others, i) {
+  let commentBoxEl = document.querySelectorAll('.comment-box');
+  let readPlusDiv = document.createElement('div');
+  readPlusDiv.innerHTML =`
+  <div class="read-plus-comment">
+    <div class="triangle">▼</div>&ensp;
+    <span class="show-comment">답글 ${others.length}개 보기</span>
+    <div class="plus-comment-list hidden"></div>
+  </div>
+  `;
+  commentBoxEl[i].append(readPlusDiv);
+
+  let plusCommentListEl = commentBoxEl[i].querySelector('.plus-comment-list');
+  others.forEach((el)=>{
+    let commentBoxDiv = document.createElement('div');
+    commentBoxDiv.setAttribute('class','comment-box-plus');
+    commentBoxDiv.innerHTML = `
+    <div class="box-head">
+      <span class="comment-nickname">${el.name}</span>
+      <span class="comment-period">${el.time}</span>
+    </div>
+    <div class="box-body">${el.content}</div>
+    <div class="box-btn-group">
+      <button class="like"><i class="far fa-thumbs-up"></i> ${el.like}</button>
+      <button class="hate"><i class="far fa-thumbs-down"></i> ${el.hate}</button>
+      <button class="btn-plus-comment">답글</button>
+    </div>
+    `;
+    plusCommentListEl.append(commentBoxDiv);
+  })
+}
+
+
+
+// 대댓글 보기,숨기기
+function togglePlusComment(event) {
+  event.target.nextElementSibling.classList.toggle('hidden');
+  event.target.parentElement.firstElementChild.classList.toggle('rotate');
+  // event.target.previousElementSiblling.classList.toggle('rotate');
+}
+function plusCommentAddListener() {
+  const plusCommentEl = document.querySelectorAll('.show-comment');
+  plusCommentEl.forEach((el)=>{
+    el.addEventListener('click',togglePlusComment);
+  })
+}
+
+// 댓글 카운트
+function commentCount(data) {
+  let commentCountEl = document.querySelector('.comment-count');
+  commentCountEl.textContent = `댓글 ${data.length}개`;
+}
+
+
+// 댓글 추가 기능
+function addComment(){
+  const inputNickname = document.querySelector('.input-nickname');
+  const inputComment = document.querySelector('.input-comment');
+
+  console.log(inputNickname.value);
+  console.log(inputComment.value);
+
+}
+
+commentCount(data)
+readComment(data);
+
+
+
+
+
+
