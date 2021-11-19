@@ -31,7 +31,13 @@ $(".flag").html(tag)
 
 // 그래프
 document.addEventListener('DOMContentLoaded', function () {
-  const chart = Highcharts.chart('container', {
+  if (document.querySelector('#chart2Data1').textContent ==='-1') {
+    const containerEl = document.querySelector('#container');
+    let containerDiv = document.createElement('div');
+    containerDiv.textContent = "백신 접종률에 대한 데이터가 없습니다.";
+    containerEl.append(containerDiv);
+  } else {
+    const chart = Highcharts.chart('container', {
       chart: {
           type: 'column'
       },
@@ -66,7 +72,9 @@ document.addEventListener('DOMContentLoaded', function () {
           name: `2차 접종률`,
           data: [parseInt(document.querySelector('#chart2Data2').textContent)]
       }]
-  });
+    });
+  }
+  
 });
 
 
@@ -125,14 +133,19 @@ function resize(obj) {
 
 //댓글 버튼 활성화
 function btnActive() {
-  const inputNickname = document.querySelector('.input-nickname');
-  const inputComment = document.querySelector('.input-comment');
-  const btnSubmit = document.querySelector('.btn-submit');
-  if ((inputNickname.value !=='')&&(inputComment.value !=='')) {
-    btnSubmit.removeAttribute('disabled');
+  const inputNicknameEl = document.querySelector('.input-nickname');
+  const inputCommentEl = document.querySelector('.input-comment');
+  const inputPwEl = document.querySelector('.input-pw');
+  const btnSubmitEl = document.querySelector('.btn-submit');
+  if ((inputNicknameEl.value !=='')&&(inputCommentEl.value !=='') && (inputPwEl.value !=='')) {
+    btnSubmitEl.removeAttribute('disabled');
   } else {
-    btnSubmit.setAttribute('disabled','true');
+    btnReset()
   }
+}
+function btnReset() {
+  const btnSubmitEl = document.querySelector('.btn-submit');
+  btnSubmitEl.setAttribute('disabled','false');
 }
 
 
@@ -211,6 +224,8 @@ function readComment(data) {
     <div class="box-head">
       <span class="comment-nickname">${el.name}</span>
       <span class="comment-period">${el.time}</span>
+      <button class="btn btn-update-comment">수정</button>
+      <button class="btn btn-delete-comment">삭제</button>
     </div>
     <div class="box-body">${el.content}</div>
     <div class="box-btn-group">
@@ -248,6 +263,8 @@ function readPlusComment(others, i) {
     <div class="box-head">
       <span class="comment-nickname">${el.name}</span>
       <span class="comment-period">${el.time}</span>
+      <button class="btn btn-update-comment">수정</button>
+      <button class="btn btn-delete-comment">삭제</button>
     </div>
     <div class="box-body">${el.content}</div>
     <div class="box-btn-group">
