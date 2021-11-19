@@ -122,33 +122,6 @@ class AsyncTask:
         print("corona_data table update complete")
 
     # 기능 3. 공지사항, 경보 api, 환율 api  호출, 주기 : 60초
-    countries=[
-        'DZ', 'EG', 'EH', 'LY', 'MA', 'SD', 'SS', 'TN', 'BF', 'BJ', 
-        'CI', 'CV', 'GH', 'GM', 'GN', 'GW', 'LR', 'ML', 'MR', 'NE', 
-        'NG', 'SH', 'SL', 'SN', 'TG', 'AO', 'CD', 'ZR', 'CF', 'CG', 
-        'CM', 'GA', 'GQ', 'ST', 'TD', 'BI', 'DJ', 'ER', 'ET', 'KE', 
-        'KM', 'MG', 'MU', 'MW', 'MZ', 'RE', 'RW', 'SC', 'SO', 'TZ', 
-        'UG', 'YT', 'ZM', 'ZW', 'BW', 'LS', 'NA', 'SZ', 'ZA', 'GG', 
-        'JE', 'AX', 'DK', 'EE', 'FI', 'FO', 'GB', 'IE', 'IM', 'IS', 
-        'LT', 'LV', 'NO', 'SE', 'SJ', 'AT', 'BE', 'CH', 'DE', 'DD',
-        'FR', 'FX', 'LI', 'LU', 'MC', 'NL', 'BG', 'BY', 'CZ', 'HU',
-        'MD', 'PL', 'RO', 'RU', 'SU', 'SK', 'UA', 'AD', 'AL', 'BA', 
-        'ES', 'GI', 'GR', 'HR', 'IT', 'ME', 'MK', 'MT', 'RS', 'PT',
-        'SI', 'SM', 'VA', 'YU', 'AG', 'AI', 'AN', 'AW', 'BB', 'BL',
-        'BS', 'CU', 'DM', 'DO', 'GD', 'GP', 'HT', 'JM', 'KN', 'KY',
-        'LC', 'MF', 'MQ', 'MS', 'PR', 'TC', 'TT', 'VC', 'VG', 'VI',
-        'BZ', 'CR', 'GT', 'HN', 'MX', 'NI', 'PA', 'SV', 'AR', 'BO',
-        'BR', 'CL', 'CO', 'EC', 'FK', 'GF', 'GY', 'PE', 'PY', 'SR',
-        'UY', 'VE', 'TM', 'TJ', 'KG', 'KZ', 'UZ', 'CN', 'HK', 'JP', 
-        'KP', 'KR', 'MN', 'MO', 'TW', 'AF', 'BD', 'BT', 'IN', 'IR',
-        'LK', 'MV', 'NP', 'PK', 'BN', 'ID', 'KH', 'LA', 'MM', 'BU',
-        'MY', 'PH', 'SG', 'TH', 'TL', 'TP', 'VN', 'AE', 'AM', 'AZ',
-        'BH', 'CY', 'GE', 'IL', 'IQ', 'JO', 'KW', 'LB', 'OM', 'PS',
-        'QA', 'SA', 'NT', 'SY', 'TR', 'YE', 'YD', 'AU', 'NF', 'NZ', 
-        'FJ', 'NC', 'PG', 'SB', 'VU', 'FM', 'GU', 'KI', 'MH', 'MP',
-        'NR', 'PW', 'AS', 'CK', 'NU', 'PF', 'PN', 'TK', 'TO', 'TV',
-        'WF', 'WS', 'BM', 'CA', 'GL', 'PM', 'US'
-    ]
     def update_Api_Data(self):
         
         # 0. 쓰레드 실행
@@ -166,21 +139,41 @@ class AsyncTask:
             if get_level_data[i]["country_iso_alp2"] in iso_list:
                 continue
             iso_list.append(get_level_data[i]["country_iso_alp2"])
-            level_data.append(get_level_data[i])
+            level_data.append(get_level_data[i]) # level_data key : ["country_nm", "alarm_lvl", "country_iso_alp2", "country_eng_nm"]
         
-        # 3. api 데이터 병합
+        # 3. 기반 데이터(country_kr_ISO.json)에 api 데이터 병합
+        with open('./json_file/country_kr_ISO.json', 'r') as f:
+            json_country_kr = json.load(f)  # json_country_kr key : ["country_kr", "iso_code"]
+
         dict_list = []
-        for r in level_data: 
-            country_kr = r["country_nm"]
-            if r['alarm_lvl'] == None:
-                r['alarm_lvl'] = -1
-            key = r['country_iso_alp2']
-            value = r['alarm_lvl']
-            name = r["country_eng_nm"]
-            dict_list.append({'country_name' : name, 'country_iso_alp2' : key, 'alarm_lvl' : value, "country_kr" : country_kr})
+
+        for i in json_country_kr:
+            i["alarm_lvl"] = -1
+            i["country_eng_nm"] = "없음"
+            for r in level_data:
+                if i["iso_code"] == r["country_iso_alp2"]:
+                    if r['alarm_lvl'] == None:
+                        i['alarm_lvl'] = 5
+                    else:
+                        i["alarm_lvl"] = r["alarm_lvl"]
+                    i["country_eng_nm"] = r["country_eng_nm"]
+            dict_list.append({'country_name' : i["country_eng_nm"], 'country_iso_alp2' : i["iso_code"], \
+                              'alarm_lvl' : i["alarm_lvl"], "country_kr" : i["country_kr"]})
+            # 'country_name' : name, 'country_iso_alp2' : key, 'alarm_lvl' : value, "country_kr" : country_kr
+            # dict_list key = ["country_kr", "iso_code", "alarm_lvl", "country_eng_nm"]
+
+
+        # for r in level_data: 
+        #     country_kr = r["country_nm"]
+        #     if r['alarm_lvl'] == None:
+        #         r['alarm_lvl'] = -1
+        #     key = r['country_iso_alp2']
+        #     value = r['alarm_lvl']
+        #     name = r["country_eng_nm"]
+        #     dict_list.append({'country_name' : name, 'country_iso_alp2' : key, 'alarm_lvl' : value, "country_kr" : country_kr})
 
         for i in dict_list:
-            i["notice"] = "없음"
+            i["notice"] = None
             for j in text_data:
                 if i['country_iso_alp2'] == j['country_iso_alp2']:
                     i["notice"] = j["notice"].replace("'", "`").replace('"', "`") # 따옴표들 백틱으로 변경

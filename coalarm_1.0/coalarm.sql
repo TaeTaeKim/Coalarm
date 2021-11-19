@@ -15,8 +15,8 @@ CREATE TABLE IF NOT EXISTS `Corona_Data` (
 
 
 CREATE TABLE IF NOT EXISTS `Api_Data` (
-    `country` VARCHAR(50) NOT NULL PRIMARY KEY,
-    `iso_code` VARCHAR(10) NOT NULL,
+    `country` VARCHAR(50) NOT NULL,
+    `iso_code` VARCHAR(10) NOT NULL PRIMARY KEY,
     `country_kr` VARCHAR(30) NOT NULL,
     `caution` INT NOT NULL,
     `notice` TEXT NOT NULL);
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `Api_Data` (
 
 CREATE TABLE IF NOT EXISTS `Corona_Vaccine_Data` (
     `country` VARCHAR(50) NOT NULL PRIMARY KEY,
-    `iso_code` VARCHAR(10) NOT NULL,
+    `iso_code` VARCHAR(20) NOT NULL,
     `vaccinated` FLOAT NOT NULL,
     `fully_vaccinated` FLOAT NOT NULL);
 
@@ -47,7 +47,6 @@ CREATE TABLE IF NOT EXISTS `Safety_Data` (
     `homicide_rate` FLOAT,
     `last_terrorism` FLOAT,
     `previous_terrorism` FLOAT);
-)
 
 CREATE TABLE IF NOT EXISTS `Comment` (
     `index` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -56,4 +55,3 @@ CREATE TABLE IF NOT EXISTS `Comment` (
     `order` INT NOT NULL,
     `group_num` INT NOT NULL,
     `text` TEXT NOT NULL);
-)

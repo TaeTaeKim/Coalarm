@@ -12,8 +12,8 @@ import db_update
 app = Flask(__name__)
 
 corona_update = db_update.AsyncTask()
-corona_update.update_Corona_Data() # corona_db update
-corona_update.update_Corona_Vaccine_Data() # vaccine_db update
+# corona_update.update_Corona_Data() # corona_db update
+# corona_update.update_Corona_Vaccine_Data() # vaccine_db update
 corona_update.update_Api_Data() # api_db update
 print("db create and update")
 
