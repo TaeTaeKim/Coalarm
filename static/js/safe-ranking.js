@@ -8,7 +8,7 @@ data = [
     country: '한국',
     point: 90,
     isolation: 3,
-    continent: 'East Asia'
+    continent: '동아시아'
   },
   {
     link: "#",
@@ -16,7 +16,7 @@ data = [
     country: '미국',
     point: 80,
     isolation: 7,
-    continent: 'America'
+    continent: '미대륙'
   },
   {
     link: "#",
@@ -24,7 +24,7 @@ data = [
     country: '싱가폴',
     point: 70,
     isolation: 10,
-    continent: 'East Asia'
+    continent: '동아시아'
   }
 ]
 
@@ -35,7 +35,7 @@ data.forEach((el, i)=>{
         <div class="ranking-itmes">
             <div class="star"><i class="fa fa-star"></i> ${i+1}위</div>
             <div class="country-name">${el.country}</div>
-            <div class="point">안전점수: <b>${el.point}point</b></div>
+            <div class="point">안전점수: <b>${el.point}점</b></div>
         </div>
         <div class="ranking-line"></div>
         <div class="ranking-info">

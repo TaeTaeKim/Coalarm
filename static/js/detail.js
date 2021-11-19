@@ -31,15 +31,22 @@ $(".flag").html(tag)
 
 // 그래프
 document.addEventListener('DOMContentLoaded', function () {
-  if (document.querySelector('#chart2Data1').textContent ==='-1') {
+  if (document.querySelector('#chart2Data1').textContent ==='-1.0') {
     const containerEl = document.querySelector('#container');
     let containerDiv = document.createElement('div');
+    containerDiv.setAttribute('class', 'notData');
     containerDiv.textContent = "백신 접종률에 대한 데이터가 없습니다.";
     containerEl.append(containerDiv);
   } else {
+    Highcharts.setOptions({
+      colors: ['#058DC7', '#64E572']
+      // #64E572
+      // #6AF9C4
+      // #50B432
+  });
     const chart = Highcharts.chart('container', {
       chart: {
-          type: 'column'
+          type: 'column',
       },
       credits:{enabled:false},
       title: {
@@ -65,7 +72,9 @@ document.addEventListener('DOMContentLoaded', function () {
           }
       }
       },
-      series: [{
+      
+      series: [
+        {
           name: `1차 접종률`,
           data: [parseInt(document.querySelector('#chart2Data1').textContent)],
       }, {

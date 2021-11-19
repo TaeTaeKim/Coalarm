@@ -10,14 +10,7 @@
 }
 #board_div{
     border: 2px solid black;
-    border-collapse: collapse;
 }
 .new-statistic{
     color: red;
-}
-#board_div th{
-    border: 1px solid black;
-}
-#border-div tr, td{
-    border:1px solid gray;
 }

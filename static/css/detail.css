@@ -78,13 +78,11 @@ header {
 }
 .chart-group> div {
   min-width: 250px;
-  width: 30%;
-  height: 30vh;
   margin: 13px;
   color: #5733b5;
   font-weight: bold;
   text-align: center;
-  padding: 10px;
+  padding: 30px;
   background: #fff;
   border-radius: 5px;
   box-shadow: 1px 1px 3px 2px rgba(236, 230, 230, 0.767);
@@ -95,6 +93,7 @@ header {
   width: 100vw;
   display: flex;
   justify-content: space-around;
+  line-height: 2;
 }
 /* 코로나 통계 부분. */
 .total, .new{
@@ -114,7 +113,10 @@ header {
 
 /* 차트 2 백신접종률 */
 .chart-group .chart2 {
-  flex-grow: 3;
+  flex-grow: 1.7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 환율 계산기 부분 */
@@ -380,6 +382,12 @@ header {
     padding-left: 6%;
     transition: 1s;
   }
+  .chart-group .chart1 {
+    flex-wrap: wrap;
+  }
+  .chart-group .total {
+    margin-right: 50px;
+  }
   .information-content {
     margin: 10px auto;
   }
@@ -414,6 +422,12 @@ header {
 @media(max-width:768px) {
   .information-content {
     margin: 10px 13px;
+  }
+  .chart-group .chart1 {
+    padding: 20px;
+  }
+  .chart-group .chart1 .total {
+    margin-bottom: 15px;
   }
   .comment-content {
     max-width: 93%;
