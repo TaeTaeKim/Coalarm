@@ -143,42 +143,15 @@
           <form class="comment-input-group">
             <input type="text" class="input-nickname" oninput="btnActive()" placeholder="닉네임 입력...">
             <textarea class="input-comment" oninput="btnActive()" onkeydown="resize(this)" onkeyup="resize(this)"  rows="1" type="text" placeholder="공개 댓글 추가..."></textarea>
+            <input type="text" class="input-pw" oninput="btnActive()" placeholder="비밀번호 입력...">
             <div class="btn-group">
+              <input type="text" class="input-pw2" oninput="btnActive()" placeholder="비밀번호 입력...">
               <button type="reset" class="btn btn-reset">취소</button>
-              <button type="submit" class="btn btn-submit" disabled>댓글</button>
+              <button type="button" onclick="addComment()" class="btn btn-submit" disabled>댓글</button>
             </div>
           </form>
 
-          <div class="comment-list">
-
-            <div class="comment-box">
-              <div class="box-head">
-                <span class="comment-nickname">룰루랄라</span>
-                <span class="comment-period">1년전</span>
-              </div>
-              <div class="box-body">너무 재미있는 곳이에요~!</div>
-              <div class="box-btn-group">
-                <button class="like"><i class="far fa-thumbs-up"></i> 126</button>
-                <button class="hate"><i class="far fa-thumbs-down"></i> 3</button>
-                <button class="btn-plus-comment">답글</button>
-              </div>
-              <div class="read-plus-comment"><b>▼</b>&ensp;다른사용자의 답글 20개 보기</div>
-            </div>
-
-            <div class="comment-box">
-              <div class="box-head">
-                <span class="comment-nickname">두번째사람</span>
-                <span class="comment-period">6개월전</span>
-              </div>
-              <div class="box-body">재미 없었어요</div>
-              <div class="box-btn-group">
-                <button class="like"><i class="far fa-thumbs-up"></i> 6</button>
-                <button class="hate"><i class="far fa-thumbs-down"></i> 23</button>
-                <button class="btn-plus-comment">답글</button>
-              </div>
-            </div>
-
-          </div>
+          <div class="comment-list"></div>
           
 
         </section>

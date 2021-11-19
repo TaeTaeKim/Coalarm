@@ -214,7 +214,8 @@ header {
   height: 100%;
   margin-left: 50px;
   margin-right: -280px;
-  position: sticky;
+  /* position: sticky; */
+  margin-top: 150px;
   top: 280px;
   z-index: 2;
   background: #8b60e836;
@@ -239,23 +240,30 @@ header {
   padding: 10px;
   margin-bottom: 30px;
 }
-.comment-input-group .input-nickname,.input-comment {
+.comment-input-group input, textarea {
   border: none;
   border-bottom:1px solid #fff;
   padding: 5px;
   background: #d2ccdd1f;
+  padding-top: 10px;
 }
-.comment-input-group .input-nickname:focus, .input-comment:focus{
+.comment-input-group input:focus, textarea:focus{
   outline: none;
   border-bottom:1px solid #8b60e8;
 }
 .comment-input-group .input-comment {
-  padding-top: 10px;
   resize: none;
+}
+.comment-input-group .input-pw {
+
 }
 .comment-input-group .btn-group {
   align-self: flex-end;
   padding-top: 10px;
+}
+.btn-group .input-pw2 {
+  position: absolute;
+  left: 9%;
 }
 .btn-group .btn {
   border-style: none;
@@ -310,14 +318,27 @@ header {
   font-weight: bolder;
   cursor: pointer;
 }
-.read-plus-comment {
+.read-plus-comment> span {
   color: #5733b5;
   font-weight: bolder;
   font-size: .85rem;
   cursor: pointer;
 }
-.read-plus-comment> b {
+.read-plus-comment .triangle{
+  color: #5733b5;
   font-size: 10px;
+  display: inline-block;
+}
+.read-plus-comment .triangle.rotate{
+  transform: rotateX(180deg);
+}
+
+.read-plus-comment .plus-comment-list {
+  padding: 0px 30px;
+  margin-top: 10px;
+}
+.plus-comment-list> .comment-box {
+  margin-bottom: 10px;
 }
 
 
