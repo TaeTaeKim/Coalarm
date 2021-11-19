@@ -145,8 +145,7 @@
             <textarea class="input-comment" oninput="btnActive()" onkeydown="resize(this)" onkeyup="resize(this)"  rows="1" type="text" placeholder="공개 댓글 추가..."></textarea>
             <input type="text" class="input-pw" oninput="btnActive()" placeholder="비밀번호 입력...">
             <div class="btn-group">
-              <input type="text" class="input-pw2" oninput="btnActive()" placeholder="비밀번호 입력...">
-              <button type="reset" class="btn btn-reset">취소</button>
+              <button type="reset" onclick="btnReset()" class="btn btn-reset">취소</button>
               <button type="button" onclick="addComment()" class="btn btn-submit" disabled>댓글</button>
             </div>
           </form>
