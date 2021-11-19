@@ -214,8 +214,8 @@ header {
   height: 100%;
   margin-left: 50px;
   margin-right: -280px;
+  margin-top: 190px;
   /* position: sticky; */
-  margin-top: 150px;
   top: 280px;
   z-index: 2;
   background: #8b60e836;
@@ -261,10 +261,6 @@ header {
   align-self: flex-end;
   padding-top: 10px;
 }
-.btn-group .input-pw2 {
-  position: absolute;
-  left: 9%;
-}
 .btn-group .btn {
   border-style: none;
   border-radius: 3px;
@@ -293,14 +289,24 @@ header {
 .box-head {
   padding-bottom: 3px;
 }
+.box-head .btn {
+  padding: 2px;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  font-size: .7rem;
+}
+
+.box-head .btn:hover {
+  color: #5733b5;
+  font-weight: bolder;
+  cursor: pointer;
+}
 .box-head .comment-nickname {
   font-weight: bolder;
 }
 .box-head .comment-period {
   color: #444;
   font-size: .8rem;
-}
-.box-body {
 }
 .box-btn-group {
   display: flex;
@@ -318,7 +324,8 @@ header {
   font-weight: bolder;
   cursor: pointer;
 }
-.read-plus-comment> span {
+
+.read-plus-comment .show-comment {
   color: #5733b5;
   font-weight: bolder;
   font-size: .85rem;
@@ -360,6 +367,7 @@ header {
     margin-left: 0;
     margin-right: 20px;
     margin-bottom: 30px;
+    margin-top: 180px;
   }
 }
 
@@ -389,6 +397,7 @@ header {
   }
   .content-position::before {
     opacity: 0;
+    z-index: -1;
   }
   .content-position {
     flex-flow: column;
