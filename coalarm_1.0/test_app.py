@@ -12,9 +12,13 @@ import db_update
 app = Flask(__name__)
 
 corona_update = db_update.AsyncTask()
-# corona_update.update_Corona_Data() # corona_db update
-# corona_update.update_Corona_Vaccine_Data() # vaccine_db update
-corona_update.update_Api_Data() # api_db update
+
+corona_update.update_Corona_Data() # corona update
+corona_update.update_Corona_Vaccine_Data() # vaccine update
+corona_update.update_Api_Data() # api update
+corona_update.update_Embassy_Data() # embassy update
+corona_update.update_Safety_Data() # safety update
+
 print("db create and update")
 
 @app.route("/")
@@ -44,6 +48,24 @@ def api_data():
     conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
     cur = conn.cursor()
     cur.execute("select * from api_data")
+    rows = cur.fetchall()
+    conn.close()
+    return jsonify(rows)
+
+@app.route("/embassy_data")
+def embassy_data():
+    conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+    cur = conn.cursor()
+    cur.execute("select * from embassy_data")
+    rows = cur.fetchall()
+    conn.close()
+    return jsonify(rows)
+
+@app.route("/safety_data")
+def embassy_data():
+    conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+    cur = conn.cursor()
+    cur.execute("select * from safety_data")
     rows = cur.fetchall()
     conn.close()
     return jsonify(rows)

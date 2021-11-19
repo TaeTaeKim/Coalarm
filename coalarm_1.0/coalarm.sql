@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `Api_Data` (
 
 CREATE TABLE IF NOT EXISTS `Corona_Vaccine_Data` (
     `country` VARCHAR(50) NOT NULL PRIMARY KEY,
-    `iso_code` VARCHAR(20) NOT NULL,
+    `iso_code` VARCHAR(30) NOT NULL,
     `vaccinated` FLOAT NOT NULL,
     `fully_vaccinated` FLOAT NOT NULL);
 
@@ -35,12 +35,11 @@ CREATE TABLE IF NOT EXISTS `Exchange_Data` (
     `deal_bas_r` VARCHAR(10) NOT NULL);
 
 CREATE TABLE IF NOT EXISTS `Embassy_Data` (
-    `iso_code` VARCHAR(10) NOT NULL PRIMARY KEY,
-    `embassy_kor_nm` VARCHAR(50) NOT NULL,
+    `iso_code` VARCHAR(10) NOT NULL,
+    `embassy_kor_nm` VARCHAR(50) NOT NULL PRIMARY KEY,
     `url` VARCHAR(100) NOT NULL);
 
 CREATE TABLE IF NOT EXISTS `Safety_Data` (
-    `country` VARCHAR(50) NOT NULL,
     `iso_code` VARCHAR(10) NOT NULL PRIMARY KEY,
     `safety_index` FLOAT,
     `numbeo_index` FLOAT,

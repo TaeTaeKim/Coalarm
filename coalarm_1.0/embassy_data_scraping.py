@@ -46,8 +46,14 @@ def get_embassy_data(): # return column : ['country_eng_nm', 'country_iso_alp2',
 
 
     URL = 'https://www.mofa.go.kr/www/pgm/m_4179/uss/emblgbd/emblgbdAdres.do'
+    
+    # 옵션 생성
+    options = webdriver.ChromeOptions()
+    # 창 숨기는 옵션 추가
+    options.add_argument("headless")
 
-    driver = webdriver.Chrome('./chromedriver')
+    # driver 실행
+    driver = webdriver.Chrome(options=options)
     driver.get(url=URL)
     # Select tag 에서 '100 개씩 조회' 선택 
     select = Select(driver.find_element_by_xpath('//*[@id="sub_content"]/form/div/div/select'))
@@ -95,6 +101,5 @@ def get_embassy_data(): # return column : ['country_eng_nm', 'country_iso_alp2',
         if d['embassy_kor_nm'] in url:
             d['url'] = url[d['embassy_kor_nm']]
             new.append(d)
-    print(new[0].keys(), new[0], len(new))
 
     return new
