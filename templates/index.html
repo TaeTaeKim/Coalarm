@@ -123,19 +123,31 @@
     
         <div class="corona-board">
             <div id="chart_div" style="width: 100%; height: 500px; margin: auto"></div>
-            <table>
-                <tr>
-                    <td>대륙</td>
-                    <td>국가</td>
-                    <td>확진자</td>
-                    <td>사망자</td>
-                    <td>회복자</td>
-                    <td>치명률</td>
-                    <td>회복률</td>
-                    <td>발생률</td>
-                    <td>1차접종률</td>
-                    <td>2차접종률</td>
-                </tr>
+            <table id ='board_div' style="width: 100%; margin: auto;">
+                <thead>
+                    <th>국가</th>
+                    <th>확진자</th>
+                    <th>사망자</th>
+                    <th>회복자</th>
+                    <th>치명률</th>
+                    <th>회복률</th>
+                    <th>발생률</th>
+                    <th>1차접종률</th>
+                    <th>2차접종률</th>
+                </thead>
+                <tbody id ='board-data'>
+                    <!-- <tr>
+                        <td>${data[i]["country_x"]}</td>
+                        <td>${data[i]["total_cases"]}<br><span class="new-statistic">${data[i]["new_cases"]}</span></td>
+                        <td>${data[i]["total_deaths"]}<br><span class="new-statistic">${data[i]["new_deaths"]}</span></td>
+                        <td>${data[i]["total_recovered"]}<br><span class="new-statistic">${data[i]["new_recovered"]}</span></td>
+                        <td>${data[i]["critical_ratio"]}</td>
+                        <td>${data[i]["recovered_ratio"]}</td>
+                        <td>${data[i]["total_caeses_per_1million_population"]}</td>
+                        <td>${data[i]["vaccinated"]}</td>
+                        <td>${data[i]["fully_vaccinated"]}</td>
+                    </tr> -->
+                </tbody>
                 
             </table>
         </div>

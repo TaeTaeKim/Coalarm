@@ -3,3 +3,14 @@
     min-width: 800px;
     margin: auto;
 }
+
+#board-data{
+    text-align: center;
+    
+}
+#board_div{
+    border: 2px solid black;
+}
+.new-statistic{
+    color: red;
+}

@@ -1,7 +1,7 @@
 from flask import Flask,jsonify,render_template
 from exchange import exchange
 from getdata import corona, vaccine, kr_name, notice, noticeall
-from mainstatic import board_data
+from mainstatistic import board_data
 import json
 
 

@@ -1,7 +1,5 @@
 import json
 import pandas as pd
-
-from getdata import vaccine
 def board_data():
 
     with open('./static/Test_json/corona_data.json','r') as f:

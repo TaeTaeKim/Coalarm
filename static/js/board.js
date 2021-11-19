@@ -34,3 +34,32 @@ function drawChart() {
 var chart = new google.visualization.BubbleChart(document.getElementById('chart_div'));
 chart.draw(data, options);
 }
+
+
+
+
+$.ajax({
+    url:'/boarddata',
+    type:'GET',
+    datatype:'json',
+    async:false,
+    success:function(res){
+        let data = res.boarddata.merged
+        
+        for(i=0;i<=data.length;i++){
+            $('#board-data').append(`
+            <tr>
+                <td>${data[i]["country_x"]}</td>
+                <td>${data[i]["total_cases"]}<span class="new-statistic">(${data[i]["new_cases"]})</span></td>
+                <td>${data[i]["total_deaths"]}<span class="new-statistic">(${data[i]["new_deaths"]})</span></td>
+                <td>${data[i]["total_recovered"]}<span class="new-statistic">(${data[i]["new_recovered"]})</span></td>
+                <td>${data[i]["critical_ratio"]}</td>
+                <td>${data[i]["recovered_ratio"]}</td>
+                <td>${data[i]["total_caeses_per_1million_population"]}</td>
+                <td>${data[i]["vaccinated"]}</td>
+                <td>${data[i]["fully_vaccinated"]}</td>
+            </tr>
+        `)
+        }
+    }
+})
