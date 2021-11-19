@@ -33,20 +33,20 @@
             <div class="chart1">
               <div class="total">
                 <div>코로나 누적 통계</div>
-                <div>누적 확진자 : <span class="coronadata">{{data['corona']['total_confirmed']}}</span></div>
+                <div>누적 확진자 : <span class="coronadata">{{data['corona']['total_cases']}}</span></div>
                 <div>누적 사망자 : <span class="coronadata">{{data['corona']['total_deaths']}}</span></div>
                 <div>누적 회복자 : <span class="coronadata">{{data['corona']['total_recovered']}}</span></div>
               </div>
               <div class="new">
                 <div>코로나 신규 통계</div>
-                <div>신규 확진자 : <span class="coronadata">{{data['corona']['new_confirmed']}}</span></div>
+                <div>신규 확진자 : <span class="coronadata">{{data['corona']['new_cases']}}</span></div>
                 <div>신규 사망자 : <span class="coronadata">{{data['corona']['new_deaths']}}</span></div>
                 <div>신규 회복자 : <span class="coronadata">{{data['corona']['new_recovered']}}</span></div>
               </div>
             </div>
             <div id="container" class="chart2">
-              <div id="chart2Data1">{{data['vaccine']['partly']}}</div>
-              <div id="chart2Data2">{{data['vaccine']['fully']}}</div>
+              <div id="chart2Data1">{{data['vaccine']['vaccinated']}}</div>
+              <div id="chart2Data2">{{data['vaccine']['fully_vaccinated']}}</div>
             </div>
             <div class="exchange-rate">
               <div>기준환율</div>
@@ -74,41 +74,61 @@
           <div class="inbound category-group">
             <div class="category-title">입국관련</div>
             <div class="category-description">
-              {% for i in data['notice']['inbound'] %}
-              <p class='content'>{{i}}</p>
-              {% endfor %}
+              {% if data['notice'] == "no data" %}
+                <p class='content'>정보가 없습니다.</p>
+              {% else %}
+                {% for i in data['notice']['inbound'] %}
+                <p class='content'>{{i}}</p>
+                {% endfor %}
+              {% endif %}
             </div>
           </div>
           <div class="document category-group">
             <div class="category-title">필요서류</div>
             <div class="category-description">
-              {% for i in data['notice']['document'] %}
-              <p class='content'>{{i}}</p>
-              {% endfor %}
+              {% if data['notice'] == "no data" %}
+                <p class='content'>정보가 없습니다.</p>
+              {% else %}
+                {% for i in data['notice']['document'] %}
+                <p class='content'>{{i}}</p>
+                {% endfor %}
+              {% endif %}
             </div>
           </div>
           <div class="isolate category-group">
             <div class="category-title">격리관련</div>
             <div class="category-description">
-              {% for i in data['notice']['isolate'] %}
-              <p class='content'>{{i}}</p>
-              {% endfor %}
+              {% if data['notice'] == "no data" %}
+                <p class='content'>정보가 없습니다.</p>
+              {% else %}
+                {% for i in data['notice']['isolate'] %}
+                <p class='content'>{{i}}</p>
+                {% endfor %}
+              {% endif %}
             </div>
           </div>
           <div class="vias category-group">
             <div class="category-title">비자관련</div>
             <div class="category-description">
-              {% for i in data['notice']['visa'] %}
-              <p class='content'>{{i}}</p>
-              {% endfor %}
+              {% if data['notice'] == "no data" %}
+                <p class='content'>정보가 없습니다.</p>
+              {% else %}
+                {% for i in data['notice']['visa'] %}
+                <p class='content'>{{i}}</p>
+                {% endfor %}
+              {% endif %}
             </div>
           </div>
           <div class="all category-group hidden">
             <div class="category-title">전체</div>
             <div class="category-description">
-              {% for i in data['allnotice'] %}
-              <p class='content'>{{i}}</p>
-              {% endfor %}
+              {% if data['allnotice'] == "no data" %}
+                <p class='content'>정보가 없습니다.</p>
+              {% else %}
+                {% for i in data['allnotice'] %}
+                <p class='content'>{{i}}</p>
+                {% endfor %}
+              {% endif %}
             </div>
           </div>
         </div>

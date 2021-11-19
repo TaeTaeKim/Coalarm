@@ -11,7 +11,7 @@ inbound = ["목적", "외국인", "한국", "해외입국자","금지", "허용"
 document = ["확인서", "허가증", "신고서", "서약서","온라인","결과서","PCR","검사","카드","보험","증명서","QR","디지털","필수","결과지","서류","검진서","검사서","공인서"]
 def corona(ISO):
     for data in coronadata:
-        if data['country_iso_alp2'] == ISO:
+        if data['iso_code'] == ISO:
             return data
 
 
@@ -22,7 +22,7 @@ def vaccine(ISO):
 
 def kr_name(ISO):
     for data in api_data:
-        if data['country_iso_alp2'] == ISO:
+        if data['iso_code'] == ISO:
             return data['country_kr']
 
 def notice(ISO):
@@ -32,32 +32,38 @@ def notice(ISO):
     visa_notice =[]
     
     for data in api_data:
-        if data['country_iso_alp2'] == ISO:
+        if data['iso_code'] == ISO:
             # 선택된 나라의 notice를 가져옴
-            noticedata = data['notice'].split('\r\n')
-            for phrase in noticedata:
-                for i in inbound:
-                    if i in phrase and (phrase.startswith('※') or phrase.startswith('▸')):
-                        inbound_notice.append(phrase)
-                for i in document:
-                    if i in phrase and (phrase.startswith('※') or phrase.startswith('▸')):
-                        document_notice.append(phrase)
-                if '격리' in phrase:
-                    isolate_notice.append(phrase)
-                if '비자' in phrase:
-                    visa_notice.append(phrase)
-    notice = {"inbound":set(inbound_notice),'document':set(document_notice),'isolate':set(isolate_notice),'visa':set(visa_notice)}
-    return notice
+            if data['notice'] =='None':
+                return "no data"
+            else:
+                noticedata = data['notice'].split('\r\n')
+            
+                for phrase in noticedata:
+                    for i in inbound:
+                        if i in phrase and (phrase.startswith('※') or phrase.startswith('▸')):
+                            inbound_notice.append(phrase)
+                    for i in document:
+                        if i in phrase and (phrase.startswith('※') or phrase.startswith('▸')):
+                            document_notice.append(phrase)
+                    if '격리' in phrase:
+                        isolate_notice.append(phrase)
+                    if '비자' in phrase:
+                        visa_notice.append(phrase)
+                notice = {"inbound":set(inbound_notice),'document':set(document_notice),'isolate':set(isolate_notice),'visa':set(visa_notice)}
+                return notice
 
 def noticeall(ISO):
     for data in api_data:
-        if data['country_iso_alp2'] == ISO:
-            allnotice = data['notice'].split('\r\n')
-            return allnotice
-
+        if data['iso_code'] == ISO:
+            if data['notice'] =='None':
+                return "no data"
+            else:
+                allnotice = data['notice'].split('\r\n')
+                return allnotice
 #
 def embassy(ISO):
     for data in api_data:
-        if data['country_iso_alp2'] == ISO:
+        if data['iso_code'] == ISO:
             allnotice = data['notice'].split('\r\n')
             return allnotice

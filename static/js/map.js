@@ -80,24 +80,34 @@ function rendermap() {
         success: function(res){
           let mapdata = res.caution;
           mapdata.forEach((el)=>{
-            if (el.alarm_lvl == -1){
+            if (el.caution == -1){
               data.addRows([
                 [{
-                  v:el.country_iso_alp2,
+                  v:el.iso_code,
                   f:el.country_kr
                 }, {
-                  v:parseInt(el.alarm_lvl),
-                  f:'특별여행주의보'                  
+                  v:parseInt(el.caution),
+                  f:'경보정보가 없습니다.'                  
                 }]
               ])
-            } else{
+            } else if(el.caution==5){
               data.addRows([
                 [{
-                  v:el.country_iso_alp2,
+                  v:el.iso_code,
                   f:el.country_kr
                 }, {
-                  v:parseInt(el.alarm_lvl),
-                  f:`${parseInt(el.alarm_lvl)}단계`}]
+                  v:parseInt(el.caution),
+                  f:'특별여행 주의보'                  
+                }]
+              ])
+            }else{
+              data.addRows([
+                [{
+                  v:el.iso_code,
+                  f:el.country_kr
+                }, {
+                  v:parseInt(el.caution),
+                  f:`${parseInt(el.caution)}단계`}]
               ])
             }
           })
@@ -112,7 +122,7 @@ function rendermap() {
     //       ])
     //   }
     const options = {
-      colorAxis: {colors: ['orange','blue','yellow', 'red','black']},
+      colorAxis: {colors: ['white','blue','yellow', 'red','black','orange']},
       backgroundColor: '#FFFFFF',
       region: Zoom,
       legend: 'none',
@@ -142,7 +152,5 @@ function rendermap() {
     chart.draw(data, options);
   }
 }
-
-
 
 rendermap();

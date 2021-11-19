@@ -1,6 +1,7 @@
 from flask import Flask,jsonify,render_template
 from exchange import exchange
 from getdata import corona, vaccine, kr_name, notice, noticeall
+from mainstatic import board_data
 import json
 
 
@@ -12,8 +13,13 @@ def index():
 @app.route('/data',methods=['GET'])
 def data():
     with open('./static/Test_json/api_data.json','r') as f:
-        lvl_data = json.load(f)
+            lvl_data = json.load(f)
+    
     return jsonify({'caution':lvl_data})
+@app.route('/boarddata',methods=['GET'])
+def board():
+    boarddata = board_data()
+    return jsonify({'boarddata':boarddata})
 
 
 @app.route('/country/<ISO_code>', methods=['GET'])
