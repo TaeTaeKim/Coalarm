@@ -28,65 +28,14 @@ class AsyncTask:
     def __init__(self):
         print("db update - background")
 
-    # 기능 5. safety data update, 주기 : 24시간
-    def update_Safety_Data(self):
-        
-        # 0. 쓰레드 실행
-        threading.Timer(600, self.update_Safety_Data).start()
-
-        # 1. scraping
-        safety_data = get_safety_data() # return : ['Country', 'Safety_index', 'Numbeo_index', 'Homicide_rate']
-        terror_data = get_terror_data() # return : ['Ranking', 'Country', 'Last', 'Previous']
-
-        # 2. 기반 데이터(country_ISO.json)에 api 데이터 병합
-        with open('./json_file/country_ISO.json', 'r') as f:
-            country_iso = json.load(f)  # json_country key : ["Code", "Name"]
-
-        for i in safety_data:
-            i["iso_code"] = "없음"
-            for j in country_iso:
-                if i["Country"] == j["Name"]:
-                    i["iso_code"] = j["Code"]
-        
-        for i in terror_data:
-            i["iso_code"] = "없음"
-            for j in country_iso:
-                if i["Country"] == j["Name"]:
-                    i["iso_code"] = j["Code"]
-        
-        df_safety_data = pd.DataFrame(safety_data)
-        df_terror_data = pd.DataFrame(terror_data)
-
-        data = pd.merge(df_safety_data, df_terror_data, how = 'outer', on = "iso_code").fillna(-1)
-        data = data.to_dict(orient = "records") 
-        # return : {'Safety_index', 'Numbeo_index', 'Homicide_rate', 'iso_code', 'Last', 'Previous'}
-        
-        # 3. db 연결
-        conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
-        cur = conn.cursor()
-        cur.execute('TRUNCATE TABLE safety_data') # 테이블 레코드 비우기
-
-        # 4. 해당 테이블에 데이터 추가
-        for i in range(len(data)):
-            cur.execute('INSERT INTO safety_data VALUES("{0}", "{1}", "{2}", "{3}", "{4}", "{5}")'.format(\
-            data[i]["iso_code"], \
-            float(data[i]["Safety_index"]),\
-            float(data[i]["Numbeo_index"]),\
-            float(data[i]["Homicide_rate"]),\
-            float(data[i]["Last"]),\
-            float(data[i]["Previous"])))
-
-        conn.commit()
-        conn.close()
-        print("safety_data table update complete")
-
-
-
     # 기능 1. corona vaccine data update, 주기 : 24시간
     def update_Corona_Vaccine_Data(self):
         
         # 0. 쓰레드 실행
-        threading.Timer(500, self.update_Corona_Vaccine_Data).start()
+        # threading.Timer(500, self.update_Corona_Vaccine_Data).start()
+        t = threading.Timer(500, self.update_Corona_Vaccine_Data)
+        t.daemon = True
+        t.start()
         
         # 1. scraping
         vaccine_data = get_vaccine_scraping() 
@@ -121,7 +70,10 @@ class AsyncTask:
     def update_Corona_Data(self):
 
         # 0. 쓰레드 실행
-        threading.Timer(400, self.update_Corona_Data).start()
+        # threading.Timer(400, self.update_Corona_Data).start()
+        t = threading.Timer(400, self.update_Corona_Data)
+        t.daemon = True
+        t.start()
 
         # 1. scraping
         get_corona_data = get_corona_scraping()
@@ -183,7 +135,10 @@ class AsyncTask:
     def update_Api_Data(self):
         
         # 0. 쓰레드 실행
-        threading.Timer(300, self.update_Api_Data).start()
+        # threading.Timer(300, self.update_Api_Data).start()
+        t = threading.Timer(300, self.update_Api_Data)
+        t.daemon = True
+        t.start()
         
         # api data
         # 1. api 호출
@@ -271,7 +226,10 @@ class AsyncTask:
     def update_Embassy_Data(self):
 
         # 0. 쓰레드 실행
-        threading.Timer(200, self.update_Embassy_Data).start()
+        # threading.Timer(200, self.update_Embassy_Data).start()
+        t = threading.Timer(200, self.update_Embassy_Data)
+        t.daemon = True
+        t.start()
 
         # 1. scraping
         embassy_data = get_embassy_data()
@@ -291,3 +249,58 @@ class AsyncTask:
         conn.commit()
         conn.close()
         print("embassy_data table update complete")
+
+    # 기능 5. safety data update, 주기 : 24시간
+    def update_Safety_Data(self):
+        
+        # 0. 쓰레드 실행
+        # threading.Timer(600, self.update_Safety_Data).start()
+        t = threading.Timer(600, self.update_Safety_Data)
+        t.daemon = True
+        t.start()
+
+        # 1. scraping
+        safety_data = get_safety_data() # return : ['Country', 'Safety_index', 'Numbeo_index', 'Homicide_rate']
+        terror_data = get_terror_data() # return : ['Ranking', 'Country', 'Last', 'Previous']
+
+        # 2. 기반 데이터(country_ISO.json)에 api 데이터 병합
+        with open('./json_file/country_ISO.json', 'r') as f:
+            country_iso = json.load(f)  # json_country key : ["Code", "Name"]
+
+        for i in safety_data:
+            i["iso_code"] = "없음"
+            for j in country_iso:
+                if i["Country"] == j["Name"]:
+                    i["iso_code"] = j["Code"]
+        
+        for i in terror_data:
+            i["iso_code"] = "없음"
+            for j in country_iso:
+                if i["Country"] == j["Name"]:
+                    i["iso_code"] = j["Code"]
+        
+        df_safety_data = pd.DataFrame(safety_data)
+        df_terror_data = pd.DataFrame(terror_data)
+
+        data = pd.merge(df_safety_data, df_terror_data, how = 'outer', on = "iso_code").fillna(-1)
+        data = data.to_dict(orient = "records") 
+        # return : {'Safety_index', 'Numbeo_index', 'Homicide_rate', 'iso_code', 'Last', 'Previous'}
+        
+        # 3. db 연결
+        conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+        cur = conn.cursor()
+        cur.execute('TRUNCATE TABLE safety_data') # 테이블 레코드 비우기
+
+        # 4. 해당 테이블에 데이터 추가
+        for i in range(len(data)):
+            cur.execute('INSERT INTO safety_data VALUES("{0}", "{1}", "{2}", "{3}", "{4}", "{5}")'.format(\
+            data[i]["iso_code"], \
+            float(data[i]["Safety_index"]),\
+            float(data[i]["Numbeo_index"]),\
+            float(data[i]["Homicide_rate"]),\
+            float(data[i]["Last"]),\
+            float(data[i]["Previous"])))
+
+        conn.commit()
+        conn.close()
+        print("safety_data table update complete")

@@ -62,7 +62,7 @@ def embassy_data():
     return jsonify(rows)
 
 @app.route("/safety_data")
-def embassy_data():
+def safety_data():
     conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
     cur = conn.cursor()
     cur.execute("select * from safety_data")
