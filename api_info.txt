@@ -1,9 +1,0 @@
-항공편 open api
-
-amadeus : https://developers.amadeus.com/
-skyscanner: https://www.partners.skyscanner.net/affiliates/travel-apis
-한국공항공사 : https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15000126
-인천공항공사 : https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15060397
-
-
-amadeus, skyscanner 요청 후 대기
