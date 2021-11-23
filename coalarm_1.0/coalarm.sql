@@ -50,7 +50,10 @@ CREATE TABLE IF NOT EXISTS `Safety_Data` (
 CREATE TABLE IF NOT EXISTS `Comment` (
     `index` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `iso_code` VARCHAR(10) NOT NULL,
-    `class` INT NOT NULL,
-    `order` INT NOT NULL,
-    `group_num` INT NOT NULL,
-    `text` TEXT NOT NULL);
+    `parent` INT NOT NULL,
+    `text` VARCHAR(100) NOT NULL,
+    `nickname` VARCHAR(30) NOT NULL,
+    `like` INT NOT NULL,
+    `dislike` INT NOT NULL,
+    `write_time` VARCHAR(30) NOT NULL,
+    `password` VARCHAR(30) NOT NULL);
