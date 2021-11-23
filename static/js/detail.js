@@ -1,292 +1,354 @@
 let categoryEl = document.querySelector('.information-content');
 
-function categoryHandler(event){
-  if (event.target.getAttribute('class') === 'category-title'){
-    event.target.nextElementSibling.classList.toggle('look')
+function categoryHandler(event) {
+  if (event.target.getAttribute('class') === 'category-title') {
+    event.target.nextElementSibling.classList.toggle('look');
   }
 }
 
-categoryEl.addEventListener('click',categoryHandler)
+categoryEl.addEventListener('click', categoryHandler);
 
-$('.summary').on('click',function(){
-  $('.category-group').removeClass('hidden')
-  $('.all').addClass('hidden')
-  $('.info-help div:first').html('코로나 관련 <b>여행자 요약 정보</b>별로 확인해보세요.<br>❗꼭 전체 정보를 확인하세요')
-})
-$('.allcontent').on('click',function(){
-  
-  $('.category-group').addClass('hidden')
-  $('.all').removeClass('hidden')
+$('.summary').on('click', function () {
+  $('.category-group').removeClass('hidden');
+  $('.all').addClass('hidden');
+  $('.info-help div:first').html(
+    '코로나 관련 <b>여행자 요약 정보</b>별로 확인해보세요.<br>❗꼭 전체 정보를 확인하세요'
+  );
+});
+$('.allcontent').on('click', function () {
+  $('.category-group').addClass('hidden');
+  $('.all').removeClass('hidden');
 
-  $('.info-help div:first').html('코로나 관련 <b>여행자 전체 정보</b>를 확인해보세요.<br>요약정보를 보러면 요약을 클릭하세요')
-})
-
+  $('.info-help div:first').html(
+    '코로나 관련 <b>여행자 전체 정보</b>를 확인해보세요.<br>요약정보를 보러면 요약을 클릭하세요'
+  );
+});
 
 // 국기 추가하는 부분
-let iso = window.location.pathname.slice(9,11).toLowerCase();
-let tag = `<img src="https://flagcdn.com/40x30/${iso}.png" alt="">`
-$(".flag").html(tag)
-
-
+let iso = window.location.pathname.slice(9, 11).toLowerCase();
+let tag = `<img src="https://flagcdn.com/40x30/${iso}.png" alt="">`;
+$('.flag').html(tag);
 
 // 그래프
 document.addEventListener('DOMContentLoaded', function () {
-  if (document.querySelector('#chart2Data1').textContent ==='-1.0') {
+  if (document.querySelector('#chart2Data1').textContent === '-1.0') {
     const containerEl = document.querySelector('#container');
     let containerDiv = document.createElement('div');
     containerDiv.setAttribute('class', 'notData');
-    containerDiv.textContent = "백신 접종률에 대한 데이터가 없습니다.";
+    containerDiv.textContent = '백신 접종률에 대한 데이터가 없습니다.';
     containerEl.append(containerDiv);
   } else {
     Highcharts.setOptions({
-      colors: ['#058DC7', '#64E572']
+      colors: ['#058DC7', '#64E572'],
       // #64E572
       // #6AF9C4
       // #50B432
-  });
+    });
     const chart = Highcharts.chart('container', {
       chart: {
-          type: 'column',
+        type: 'column',
       },
-      credits:{enabled:false},
+      credits: { enabled: false },
       title: {
-          text: '백신접종률'
+        text: '백신접종률',
       },
       xAxis: {
-          categories: ['']
+        categories: [''],
       },
       yAxis: {
         title: '',
       },
       tooltip: {
-        formatter: function() {
-          return this.series.name+ " : " + this.y + '%'
+        formatter: function () {
+          return this.series.name + ' : ' + this.y + '%';
         },
-        hideDelay: 100
+        hideDelay: 100,
       },
       plotOptions: {
         series: {
           dataLabels: {
-              enabled: true,
-              format: '{y} %'
-          }
-      }
+            enabled: true,
+            format: '{y} %',
+          },
+        },
       },
-      
+
       series: [
         {
           name: `1차 접종률`,
           data: [parseInt(document.querySelector('#chart2Data1').textContent)],
-      }, {
+        },
+        {
           name: `2차 접종률`,
-          data: [parseInt(document.querySelector('#chart2Data2').textContent)]
-      }]
+          data: [parseInt(document.querySelector('#chart2Data2').textContent)],
+        },
+      ],
     });
   }
-  
 });
-
-
 
 // 숫자 애니메이션
 function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
-var Endnum_list = document.querySelectorAll('.coronadata')
-for(let i=0;i<Endnum_list.length;i++){
+var Endnum_list = document.querySelectorAll('.coronadata');
+for (let i = 0; i < Endnum_list.length; i++) {
   endnum = parseInt(Endnum_list[i].innerText);
-  if(endnum == -1){
-    Endnum_list[i].innerText = '정보가 없습니다!'
-  }
-  else{
-    $({ val : 0 }).animate({ val : endnum }, {
-      duration: 1000,
-     step: function() {
-       var num = numberWithCommas(Math.floor(this.val));
-       Endnum_list[i].innerText = num;
-     },
-     complete: function() {
-       var num = numberWithCommas(Math.floor(this.val));
-       Endnum_list[i].innerText = num;
-     }
-     });
+  if (endnum == -1) {
+    Endnum_list[i].innerText = '정보가 없습니다!';
+  } else {
+    $({ val: 0 }).animate(
+      { val: endnum },
+      {
+        duration: 1000,
+        step: function () {
+          var num = numberWithCommas(Math.floor(this.val));
+          Endnum_list[i].innerText = num;
+        },
+        complete: function () {
+          var num = numberWithCommas(Math.floor(this.val));
+          Endnum_list[i].innerText = num;
+        },
+      }
+    );
   }
 }
 // 환율 계산기
 let rate = $('.rate').text();
-rate = Number(rate.replace(/[^0-9.-]+/g,""));
+rate = Number(rate.replace(/[^0-9.-]+/g, ''));
 
-$('.exchangefrom').keyup(function(){
+$('.exchangefrom').keyup(function () {
   let value = $('.exchangefrom').val();
-  value = Number(value)
-  let cal = value *(1/rate)
-  cal = cal.toFixed(3)
-  $('.exchangeto').text(cal)
-
-})
-$('.reverse-cal').on('click',function(){
-  const fromname = $('.calculator div:first p').text()
-  const toname = $('.calculator div:last p:first').text()
-  $('.calculator div:first p').text(toname)
-  $('.calculator div:last p:first').text(fromname)
-  rate = 1/rate
-  
-})
+  value = Number(value);
+  let cal = value * (1 / rate);
+  cal = cal.toFixed(3);
+  $('.exchangeto').text(cal);
+});
+$('.reverse-cal').on('click', function () {
+  const fromname = $('.calculator div:first p').text();
+  const toname = $('.calculator div:last p:first').text();
+  $('.calculator div:first p').text(toname);
+  $('.calculator div:last p:first').text(fromname);
+  rate = 1 / rate;
+});
 
 //댓글 입력창 자동크기 조절
 function resize(obj) {
   obj.style.height = '1px';
-  obj.style.height = (3 + obj.scrollHeight)+ 'px';
+  obj.style.height = 3 + obj.scrollHeight + 'px';
 }
 
 //댓글 버튼 활성화
 function btnActive() {
-  const inputNicknameEl = document.querySelector('.input-nickname');
-  const inputCommentEl = document.querySelector('.input-comment');
-  const inputPwEl = document.querySelector('.input-pw');
-  const btnSubmitEl = document.querySelector('.btn-submit');
-  if ((inputNicknameEl.value !=='')&&(inputCommentEl.value !=='') && (inputPwEl.value !=='')) {
-    btnSubmitEl.removeAttribute('disabled');
-  } else {
-    btnReset()
+  const inputNicknameEls = document.querySelectorAll('.input-nickname');
+  const inputCommentEls = document.querySelectorAll('.input-comment');
+  const inputPwEls = document.querySelectorAll('.input-pw');
+  const btnSubmitEls = document.querySelectorAll('.btn-submit');
+  for (let i = 0; i < inputNicknameEls.length; i++) {
+    if (
+      inputNicknameEls[i].value !== '' &&
+      inputCommentEls[i].value !== '' &&
+      inputPwEls[i].value !== ''
+    ) {
+      btnSubmitEls[i].removeAttribute('disabled');
+    } else {
+      btnReset();
+    }
   }
 }
 function btnReset() {
-  const btnSubmitEl = document.querySelector('.btn-submit');
-  btnSubmitEl.setAttribute('disabled','false');
+  const btnSubmitEls = document.querySelectorAll('.btn-submit');
+  btnSubmitEls.forEach((el) => {
+    el.setAttribute('disabled', 'false');
+  });
 }
 
-
 //댓글 임시 데이터
-data =[
+const data = [
   {
-    name: "첫번째",
-    content : "블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라",
-    pw: "1234",
-    time: "2021-01-03",
-    like: 96,
-    hate: 33,
-    otherComment:[
-      {
-        name: "첫번째 대댓글",
-        content : "꾸르꺄숑 꾸꾸으라룡",
-        pw: "1234",
-        time: "2021-02-02",
-        like: 6,
-        hate: 0,
-      }
-    ]
+    index: 12,
+    iso_code: 'US',
+    parent: 12,
+    text: 'cxvbsb',
+    nickname: 'xcnn',
+    like: 0,
+    dislike: 423,
+    write_time: '1998-12-31 23:59:59',
+    password: 'sgbr',
   },
   {
-    name: "두번째",
-    content : "꺄르르",
-    pw: "1234",
-    time: "2021-02-02",
-    like: 76,
-    hate: 53,
-    otherComment:[
-      {
-        name: "두번째 대댓글",
-        content : "꾸르꺄숑 꾸꾸으라룡",
-        pw: "1234",
-        time: "2021-02-02",
-        like: 6,
-        hate: 0,
-      },
-      {
-        name: "두번째의 두번째 대댓글",
-        content : "꾸르꺄숑 꾸꾸으라룡",
-        pw: "1234",
-        time: "2021-02-02",
-        like: 6,
-        hate: 0,
-      },
-    ],
+    index: 9,
+    iso_code: 'US',
+    parent: 9,
+    text: 'asdf',
+    nickname: 'xcvb',
+    like: 5,
+    dislike: 6,
+    write_time: '1998-12-31 23:59:59',
+    password: 'asdfxb',
   },
   {
-    name: "세번째",
-    content : "제발 돼라, 돼라 돼라",
-    pw: "1234",
-    time: "2021-01-03",
-    like: 96,
-    hate: 33,
-    otherComment:[
-      {
-        name: "세번째 대댓글",
-        content : "꾸르꺄숑 꾸꾸으라룡",
-        pw: "1234",
-        time: "2021-02-02",
-        like: 6,
-        hate: 0,
-      }
-    ]
+    index: 3,
+    iso_code: 'US',
+    parent: 3,
+    text: 'qwer',
+    nickname: 'asvarew',
+    like: 2,
+    dislike: 123,
+    write_time: '1998-12-31 23:59:59',
+    password: 'dxvb',
   },
-]
+  {
+    index: 4,
+    iso_code: 'US',
+    parent: 3,
+    text: 'cxvbsb',
+    nickname: 'xcnn',
+    like: 0,
+    dislike: 423,
+    write_time: '1998-12-31 23:59:59',
+    password: 'sgbr',
+  },
+  {
+    index: 11,
+    iso_code: 'US',
+    parent: 3,
+    text: 'qwer',
+    nickname: 'asvarew',
+    like: 2,
+    dislike: 123,
+    write_time: '1998-12-31 23:59:59',
+    password: 'dxvb',
+  },
+  {
+    index: 1,
+    iso_code: 'US',
+    parent: 1,
+    text: 'asdf',
+    nickname: 'xcvb',
+    like: 5,
+    dislike: 6,
+    write_time: '1998-12-31 23:59:59',
+    password: 'asdfxb',
+  },
+  {
+    index: 2,
+    iso_code: 'US',
+    parent: 3,
+    text: 'zxcv',
+    nickname: 'sefb',
+    like: 34,
+    dislike: 1,
+    write_time: '1998-12-31 23:59:59',
+    password: 'xcvbsdfb',
+  },
+  {
+    index: 10,
+    iso_code: 'US',
+    parent: 1,
+    text: 'zxcv',
+    nickname: 'sefb',
+    like: 34,
+    dislike: 1,
+    write_time: '1998-12-31 23:59:59',
+    password: 'xcvbsdfb',
+  },
+];
+
 // 댓글 보여 주기
 function readComment(data) {
   const commentListEl = document.querySelector('.comment-list');
-  data.forEach((el, i)=>{
-    let commentBoxDiv = document.createElement('div');
-    commentBoxDiv.setAttribute('class','comment-box');
-    commentBoxDiv.innerHTML = `
-    <div class="box-head">
-      <span class="comment-nickname">${el.name}</span>
-      <span class="comment-period">${el.time}</span>
-      <button class="btn btn-update-comment">수정</button>
-      <button class="btn btn-delete-comment">삭제</button>
-    </div>
-    <div class="box-body">${el.content}</div>
-    <div class="box-btn-group">
-      <button class="like"><i class="far fa-thumbs-up"></i> ${el.like}</button>
-      <button class="hate"><i class="far fa-thumbs-down"></i> ${el.hate}</button>
-      <button class="btn-plus-comment">답글</button>
+  data.forEach((el, i) => {
+    // 댓글 루트
+    if (el.index === el.parent) {
+      let commentBoxDiv = document.createElement('div');
+      commentBoxDiv.setAttribute('class', 'comment-box');
+      commentBoxDiv.setAttribute('data-parent', el.index); // 댓글에 인덱스 표시
+      commentBoxDiv.innerHTML = `
+      <div class="box-head">
+        <span class="comment-nickname">${el.nickname}</span>
+        <span class="comment-period">${el.write_time}</span>
+        <button class="btn btn-update-comment">수정</button>
+        <button class="btn btn-delete-comment">삭제</button>
+      </div>
+      <div class="box-body">${el.text}</div>
+      <div class="box-btn-group">
+        <button class="like"><i class="far fa-thumbs-up"></i> ${el.like}</button>
+        <button class="hate"><i class="far fa-thumbs-down"></i> ${el.dislike}</button>
+        <button class="btn-plus-comment">답글</button>
+      </div>
+      `;
+      commentListEl.append(commentBoxDiv);
+    }
+    // 대댓글 루트
+    else {
+      readPlusCommentBtn(el, data);
+      readPlusComment(el);
+      plusCommentAddListener();
+      inputGroupAddListener();
+    }
+  });
+}
+// 대댓글 버튼
+function readPlusCommentBtn(plusComment, data) {
+  // 현재 입력된 댓글들의 index 값들을 가져옴
+  let commentBoxEls = document.querySelectorAll('[data-parent]');
+  // 각 댓글들에 접근해서 현재 데이터의 parent와 일치하는 index의 댓글에 접근
+  let commentBoxEl = '';
+  for (let El of commentBoxEls) {
+    if (El.dataset.parent == plusComment.parent) {
+      commentBoxEl = El;
+    }
+  }
+  // 일치하는 댓글에 대댓글 버튼이 없을 경우에만 대댓글 버튼 추가
+  if (commentBoxEl.querySelector('.read-plus-comment') === null) {
+    // 대댓글의 개수를 셈
+    let count = 0;
+    for (let i = 0; i < data.length; i++) {
+      if (plusComment.parent === data[i].parent) {
+        count++;
+      }
+    }
+    let readPlusDiv = document.createElement('div');
+    readPlusDiv.innerHTML = `
+    <div class="read-plus-comment">
+      <div class="triangle">▼</div>&ensp;
+      <span class="show-comment">답글 ${count - 1}개 보기</span>
+      <div class="plus-comment-list hidden"></div>
     </div>
     `;
-    commentListEl.append(commentBoxDiv);
-
-    if (el.otherComment.length !== 0) {
-      readPlusComment(el.otherComment , i)
-      plusCommentAddListener();
-    }
-  })
+    commentBoxEl.append(readPlusDiv);
+  }
 }
 // 대댓글 보여주기
-function readPlusComment(others, i) {
-  let commentBoxEl = document.querySelectorAll('.comment-box');
-  let readPlusDiv = document.createElement('div');
-  readPlusDiv.innerHTML =`
-  <div class="read-plus-comment">
-    <div class="triangle">▼</div>&ensp;
-    <span class="show-comment">답글 ${others.length}개 보기</span>
-    <div class="plus-comment-list hidden"></div>
+function readPlusComment(plusComment) {
+  let commentBoxEls = document.querySelectorAll('[data-parent]');
+  let commentBoxEl = '';
+  for (let El of commentBoxEls) {
+    if (El.dataset.parent == plusComment.parent) {
+      commentBoxEl = El;
+    }
+  }
+  // 해당 index의 댓글에 대댓글 요소에 접근하여, 대댓글 추가
+  let plusCommentListEl = commentBoxEl.querySelector('.plus-comment-list');
+  let commentBoxDiv = document.createElement('div');
+  commentBoxDiv.setAttribute('class', 'comment-box-plus');
+  commentBoxDiv.innerHTML = `
+  <div class="box-head">
+    <span class="comment-nickname">${plusComment.nickname}</span>
+    <span class="comment-period">${plusComment.write_time}</span>
+    <button class="btn btn-update-comment">수정</button>
+    <button class="btn btn-delete-comment">삭제</button>
   </div>
-  `;
-  commentBoxEl[i].append(readPlusDiv);
-
-  let plusCommentListEl = commentBoxEl[i].querySelector('.plus-comment-list');
-  others.forEach((el)=>{
-    let commentBoxDiv = document.createElement('div');
-    commentBoxDiv.setAttribute('class','comment-box-plus');
-    commentBoxDiv.innerHTML = `
-    <div class="box-head">
-      <span class="comment-nickname">${el.name}</span>
-      <span class="comment-period">${el.time}</span>
-      <button class="btn btn-update-comment">수정</button>
-      <button class="btn btn-delete-comment">삭제</button>
-    </div>
-    <div class="box-body">${el.content}</div>
-    <div class="box-btn-group">
-      <button class="like"><i class="far fa-thumbs-up"></i> ${el.like}</button>
-      <button class="hate"><i class="far fa-thumbs-down"></i> ${el.hate}</button>
-      <button class="btn-plus-comment">답글</button>
-    </div>
+  <div class="box-body">${plusComment.text}</div>
+  <div class="box-btn-group">
+    <button class="like"><i class="far fa-thumbs-up"></i> ${plusComment.like}</button>
+    <button class="hate"><i class="far fa-thumbs-down"></i> ${plusComment.dislike}</button>
+  </div>
     `;
-    plusCommentListEl.append(commentBoxDiv);
-  })
+  plusCommentListEl.append(commentBoxDiv);
 }
-
-
 
 // 대댓글 보기,숨기기
 function togglePlusComment(event) {
@@ -295,34 +357,74 @@ function togglePlusComment(event) {
   // event.target.previousElementSiblling.classList.toggle('rotate');
 }
 function plusCommentAddListener() {
-  const plusCommentEl = document.querySelectorAll('.show-comment');
-  plusCommentEl.forEach((el)=>{
-    el.addEventListener('click',togglePlusComment);
-  })
+  const plusCommentEls = document.querySelectorAll('.show-comment');
+  plusCommentEls.forEach((el) => {
+    el.addEventListener('click', togglePlusComment);
+  });
 }
 
-// 댓글 카운트
+// 총 댓글 카운트
 function commentCount(data) {
   let commentCountEl = document.querySelector('.comment-count');
   commentCountEl.textContent = `댓글 ${data.length}개`;
 }
 
+// 대댓글 입력 창
+// 입력창 추가 이벤트핸들러
+function addInputGroup(event) {
+  if (document.querySelectorAll('.comment-input-group').length === 1) {
+    let formEl = document.createElement('form');
+    formEl.setAttribute('class', 'comment-input-group margin');
+    formEl.innerHTML = `
+    <input type="text" class="input-nickname" oninput="btnActive()" placeholder="닉네임 입력...">
+    <textarea class="input-comment" oninput="btnActive()" onkeydown="resize(this)" onkeyup="resize(this)"  rows="1" type="text" placeholder="공개 댓글 추가..."></textarea>
+    <input type="text" class="input-pw" oninput="btnActive()" placeholder="비밀번호 입력...">
+    <div class="btn-group">
+      <button type="reset" onclick="btnReset()" class="btn btn-reset">취소</button>
+      <button type="button" onclick="addComment(1)" class="btn btn-submit" disabled>댓글</button>
+    </div>
+    `;
+    event.target.parentElement.after(formEl);
+  }
+}
+function inputGroupAddListener() {
+  const btnPlusComments = document.querySelectorAll('.btn-plus-comment');
+  btnPlusComments.forEach((el) => {
+    el.addEventListener('click', addInputGroup);
+  });
+}
+//입력창 삭제 이벤트핸들러
+function removeInputGroup(event) {
+  const safeInputEl = document.querySelectorAll('.comment-input-group')[1];
+  if (
+    //예외 사항
+    event.target.parentElement === safeInputEl ||
+    event.target.textContent === '답글' ||
+    event.target.textContent === '취소'
+  ) {
+    return; //예외 사항은 pass
+  } else {
+    //그외의 경우는 입력상자 삭제
+    if (document.querySelectorAll('.comment-input-group')[1] !== undefined) {
+      document.querySelectorAll('.comment-input-group')[1].remove();
+    }
+  }
+}
+const body = document.querySelector('body');
+body.addEventListener('click', removeInputGroup);
 
 // 댓글 추가 기능
-function addComment(){
-  const inputNickname = document.querySelector('.input-nickname');
-  const inputComment = document.querySelector('.input-comment');
-
-  console.log(inputNickname.value);
-  console.log(inputComment.value);
-
+function addComment(i) {
+  let inputNicknameEl = document.querySelectorAll('.input-nickname')[i];
+  let inputCommentEl = document.querySelectorAll('.input-comment')[i];
+  let inputPwEl = document.querySelectorAll('.input-pw')[i];
+  console.log('닉네임:' + inputNicknameEl.value);
+  console.log('내용:' + inputCommentEl.value);
+  console.log('비밀번호:' + inputPwEl.value);
+  inputNicknameEl.value = '';
+  inputCommentEl.value = '';
+  inputPwEl.value = '';
 }
 
-commentCount(data)
+commentCount(data);
 readComment(data);
-
-
-
-
-
-
