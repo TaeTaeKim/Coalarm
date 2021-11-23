@@ -3,6 +3,8 @@ let categoryEl = document.querySelector('.information-content');
 function categoryHandler(event) {
   if (event.target.getAttribute('class') === 'category-title') {
     event.target.nextElementSibling.classList.toggle('look');
+  } else if (event.target.getAttribute('class') === 'click-guide') {
+    event.target.parentElement.nextElementSibling.classList.toggle('look');
   }
 }
 

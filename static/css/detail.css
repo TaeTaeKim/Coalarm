@@ -186,6 +186,11 @@ header {
   box-shadow: 1px 1px 1px 1px #3802ac;
   cursor: pointer;
 }
+.category-title .click-guide {
+  padding-left: 87%;
+  font-size: 13px;
+  opacity: .6;
+}
 .category-description {
   background: #fff;
   padding: 15px;
@@ -391,9 +396,6 @@ header {
   .chart-group .total {
     margin-right: 50px;
   }
-  .information-content {
-    margin: 10px auto;
-  }
   .chart-group::before {
     content: "";
     background-color: #5733b5;
@@ -402,6 +404,9 @@ header {
     margin-top: -85px;
     position: absolute;
     transition: .1s;
+  }
+  .information-content {
+    margin: 10px auto;
   }
   .content-group {
     margin: 0;
@@ -422,15 +427,18 @@ header {
   }
 }
 
-@media(max-width:768px) {
-  .information-content {
-    margin: 10px 13px;
-  }
+@media(max-width:765px) {
   .chart-group .chart1 {
     padding: 20px;
   }
   .chart-group .chart1 .total {
     margin-bottom: 15px;
+  }
+  .information-content {
+    margin: 10px 13px;
+  }
+  .category-title .click-guide {
+    padding-left: 61%;
   }
   .comment-content {
     max-width: 93%;
