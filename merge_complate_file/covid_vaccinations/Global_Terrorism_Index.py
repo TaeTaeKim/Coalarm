@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.options import Options
 import time
 from selenium.webdriver import ActionChains
 import re
-
+#하윙
 driver = webdriver.Chrome(r'C:\Users\uss\AppData\Local\Programs\Python\Python37\chromedriver.exe')
 driver.implicitly_wait(3)
 driver.get('https://tradingeconomics.com/country-list/terrorism-index')
