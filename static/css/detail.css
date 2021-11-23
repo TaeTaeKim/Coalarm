@@ -259,6 +259,9 @@ header {
 .comment-input-group .input-pw {
 
 }
+.comment-input-group.margin {
+  margin-bottom: -10px;
+}
 .comment-input-group .btn-group {
   align-self: flex-end;
   padding-top: 10px;
