@@ -55,14 +55,24 @@ def comment_data(ISO_code):
                 result.append(commentData)
     return jsonify(result)
 
+
+# 해당 나라 댓글 개수 알려주기
+@app.route('/country/<ISO_code>/comment_update', methods=['GET'])
+def get_comment_count(ISO_code):
+    # comment table select query
+    with open('./static/Test_json/comment.json','r') as f:  # db 업데이트
+        comment = json.load(f)
+    return jsonify({"count" : len(comment)})
+
+
 # post input : 닉네임, 내용, 비밀번호, 부모 인덱스
 
 
 @app.route('/country/<ISO_code>', methods=['POST'])
 def add_comment(ISO_code):
-    # db update
+    # comment table insert query
     data = request.get_json()
-    with open('./static/Test_json/comment.json', 'r') as f:  # db 업데이트
+    with open('./static/Test_json/comment.json','r') as f:  # db 대용 json 파일
         comment = json.load(f)
     print(data)
     data["write_time"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -76,6 +86,7 @@ def add_comment(ISO_code):
 
 @app.route('/country/<ISO_code>', methods=['PATCH'])
 def update_comment(ISO_code):
+    # comment table update query
     return
 
 # delete input : 인덱스
@@ -83,6 +94,7 @@ def update_comment(ISO_code):
 
 @app.route('/country/<ISO_code>', methods=['DELETE'])
 def delete_comment(ISO_code):
+    # comment table delete query
     return
 
 
