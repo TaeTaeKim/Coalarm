@@ -53,7 +53,5 @@ CREATE TABLE IF NOT EXISTS `Comment` (
     `parent` INT NOT NULL,
     `text` VARCHAR(100) NOT NULL,
     `nickname` VARCHAR(30) NOT NULL,
-    `like` INT NOT NULL,
-    `dislike` INT NOT NULL,
     `write_time` VARCHAR(30) NOT NULL,
     `password` VARCHAR(30) NOT NULL);

@@ -1,8 +1,9 @@
-from flask import Flask,jsonify,render_template
+from flask import Flask,jsonify,render_template, request
 from exchange import exchange
 from getdata import corona, vaccine, kr_name, notice, noticeall
 from mainstatistic import board_data
 import json
+import datetime
 
 
 app = Flask(__name__)
@@ -38,15 +39,30 @@ def country(ISO_code):
         'vaccine':vaccinedata,'notice':noticedata,'allnotice':allnotice
         }
     return render_template('detail.html',data = dataset)
-'''
+
+# post input : 닉네임, 내용, 비밀번호, 부모 인덱스
 @app.route('/country/<ISO_code>', methods=['POST'])
 def add_comment(ISO_code):
     # db update
-    request.form.get
-    
+    data = request.get_json()
+    with open('./static/Test_json/comment.json','r') as f:  # db 업데이트
+        comment = json.load(f)
+    data["write_time"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    comment.append(data)
 
-    return # 리다이렉팅
-'''
+    print(comment[-1])
+    return jsonify({"result":"success"})
+
+# update input : 인덱스, 비밀번호, 내용
+@app.route('/country/<ISO_code>', methods=['PATCH'])
+def update_comment(ISO_code):
+    return
+
+# delete input : 인덱스
+@app.route('/country/<ISO_code>', methods=['DELETE'])
+def delete_comment(ISO_code):
+    return
+    
 
 if __name__ =="__main__":
     app.run(debug=True)
