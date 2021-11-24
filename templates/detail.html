@@ -72,8 +72,8 @@
           </div>
       
           <div class="inbound category-group">
-            <div class="category-title">입국관련</div>
-            <div class="category-description">
+            <div class="category-title">입국관련<span class="click-guide">click</span></div>
+            <div class="category-description look">
               {% if data['notice'] == "no data" %}
                 <p class='content'>정보가 없습니다.</p>
               {% else %}
@@ -84,8 +84,8 @@
             </div>
           </div>
           <div class="document category-group">
-            <div class="category-title">필요서류</div>
-            <div class="category-description">
+            <div class="category-title">필요서류<span class="click-guide">click</span></div>
+            <div class="category-description look">
               {% if data['notice'] == "no data" %}
                 <p class='content'>정보가 없습니다.</p>
               {% else %}
@@ -96,8 +96,8 @@
             </div>
           </div>
           <div class="isolate category-group">
-            <div class="category-title">격리관련</div>
-            <div class="category-description">
+            <div class="category-title">격리관련<span class="click-guide">click</span></div>
+            <div class="category-description look">
               {% if data['notice'] == "no data" %}
                 <p class='content'>정보가 없습니다.</p>
               {% else %}
@@ -108,8 +108,8 @@
             </div>
           </div>
           <div class="vias category-group">
-            <div class="category-title">비자관련</div>
-            <div class="category-description">
+            <div class="category-title">비자관련<span class="click-guide">click</span></div>
+            <div class="category-description look">
               {% if data['notice'] == "no data" %}
                 <p class='content'>정보가 없습니다.</p>
               {% else %}
@@ -120,8 +120,8 @@
             </div>
           </div>
           <div class="all category-group hidden">
-            <div class="category-title">전체</div>
-            <div class="category-description">
+            <div class="category-title">전체<span class="click-guide">click</span></div>
+            <div class="category-description look">
               {% if data['allnotice'] == "no data" %}
                 <p class='content'>정보가 없습니다.</p>
               {% else %}
@@ -137,7 +137,7 @@
         <section class="comment-content">
 
           <div class="comment-menu">
-            <div class="comment-count">댓글 2,977개</div>
+            <div class="comment-count">댓글 0개</div>
           </div>
 
           <form class="comment-input-group">
@@ -146,7 +146,7 @@
             <input type="text" class="input-pw" oninput="btnActive()" placeholder="비밀번호 입력...">
             <div class="btn-group">
               <button type="reset" onclick="btnReset()" class="btn btn-reset">취소</button>
-              <button type="button" onclick="addComment()" class="btn btn-submit" disabled>댓글</button>
+              <button type="button" onclick="addComment(0)" class="btn btn-submit" disabled>댓글</button>
             </div>
           </form>
 
