@@ -167,80 +167,80 @@ function btnReset() {
 }
 
 //댓글 임시 데이터
-const data = [
-  {
-    index: 12,
-    iso_code: 'US',
-    parent: 12,
-    text: 'cxvbsb',
-    nickname: 'xcnn',
-    write_time: '1998-12-31 23:59:59',
-    password: 'sgbr',
-  },
-  {
-    index: 9,
-    iso_code: 'US',
-    parent: 9,
-    text: 'asdf',
-    nickname: 'xcvb',
-    write_time: '1998-12-31 23:59:59',
-    password: 'asdfxb',
-  },
-  {
-    index: 3,
-    iso_code: 'US',
-    parent: 3,
-    text: 'qwer',
-    nickname: 'asvarew',
-    write_time: '1998-12-31 23:59:59',
-    password: 'dxvb',
-  },
-  {
-    index: 4,
-    iso_code: 'US',
-    parent: 3,
-    text: 'cxvbsb',
-    nickname: 'xcnn',
-    write_time: '1998-12-31 23:59:59',
-    password: 'sgbr',
-  },
-  {
-    index: 11,
-    iso_code: 'US',
-    parent: 3,
-    text: 'qwer',
-    nickname: 'asvarew',
-    write_time: '1998-12-31 23:59:59',
-    password: 'dxvb',
-  },
-  {
-    index: 1,
-    iso_code: 'US',
-    parent: 1,
-    text: 'asdf',
-    nickname: 'xcvb',
-    write_time: '1998-12-31 23:59:59',
-    password: 'asdfxb',
-  },
-  {
-    index: 2,
-    iso_code: 'US',
-    parent: 1,
-    text: 'zxcv',
-    nickname: 'sefb',
-    write_time: '1998-12-31 23:59:59',
-    password: 'xcvbsdfb',
-  },
-  {
-    index: 10,
-    iso_code: 'US',
-    parent: 1,
-    text: 'zxcv',
-    nickname: 'sefb',
-    write_time: '1998-12-31 23:59:59',
-    password: 'xcvbsdfb',
-  },
-];
+// const data = [
+//   {
+//     index: 12,
+//     iso_code: 'US',
+//     parent: 12,
+//     text: 'cxvbsb',
+//     nickname: 'xcnn',
+//     write_time: '1998-12-31 23:59:59',
+//     password: 'sgbr',
+//   },
+//   {
+//     index: 9,
+//     iso_code: 'US',
+//     parent: 9,
+//     text: 'asdf',
+//     nickname: 'xcvb',
+//     write_time: '1998-12-31 23:59:59',
+//     password: 'asdfxb',
+//   },
+//   {
+//     index: 3,
+//     iso_code: 'US',
+//     parent: 3,
+//     text: 'qwer',
+//     nickname: 'asvarew',
+//     write_time: '1998-12-31 23:59:59',
+//     password: 'dxvb',
+//   },
+//   {
+//     index: 4,
+//     iso_code: 'US',
+//     parent: 3,
+//     text: 'cxvbsb',
+//     nickname: 'xcnn',
+//     write_time: '1998-12-31 23:59:59',
+//     password: 'sgbr',
+//   },
+//   {
+//     index: 11,
+//     iso_code: 'US',
+//     parent: 3,
+//     text: 'qwer',
+//     nickname: 'asvarew',
+//     write_time: '1998-12-31 23:59:59',
+//     password: 'dxvb',
+//   },
+//   {
+//     index: 1,
+//     iso_code: 'US',
+//     parent: 1,
+//     text: 'asdf',
+//     nickname: 'xcvb',
+//     write_time: '1998-12-31 23:59:59',
+//     password: 'asdfxb',
+//   },
+//   {
+//     index: 2,
+//     iso_code: 'US',
+//     parent: 1,
+//     text: 'zxcv',
+//     nickname: 'sefb',
+//     write_time: '1998-12-31 23:59:59',
+//     password: 'xcvbsdfb',
+//   },
+//   {
+//     index: 10,
+//     iso_code: 'US',
+//     parent: 1,
+//     text: 'zxcv',
+//     nickname: 'sefb',
+//     write_time: '1998-12-31 23:59:59',
+//     password: 'xcvbsdfb',
+//   },
+// ];
 
 // 댓글 보여 주기
 function readComment(data) {
@@ -398,18 +398,31 @@ body.addEventListener('click', removeInputGroup);
 
 // 댓글 추가 기능
 function addComment(i) {
+  let iso_upper = window.location.pathname.slice(9, 11).toUpperCase();
   let inputNicknameEl = document.querySelectorAll('.input-nickname')[i];
   let inputCommentEl = document.querySelectorAll('.input-comment')[i];
   let inputPwEl = document.querySelectorAll('.input-pw')[i];
+  let parentIndex =
+    event.target.parentElement.parentElement.parentElement.dataset.parent !==
+    undefined
+      ? event.target.parentElement.parentElement.parentElement.dataset.parent
+      : -1;
+  console.log(parentIndex);
   console.log('닉네임:' + inputNicknameEl.value);
   console.log('내용:' + inputCommentEl.value);
   console.log('비밀번호:' + inputPwEl.value);
+  let postData = {
+    iso_code: iso_upper,
+    parent: parentIndex,
+    text: inputNicknameEl.value,
+    nickname: inputNicknameEl.value,
+    password: inputPwEl.value,
+  };
   $.ajax({
-    type: 'post',
-    url: './',
-    data: parms,
-    dataType: 'json',
-    async: false,
+    type: 'POST',
+    url: '/country/' + iso_upper,
+    data: JSON.stringify(postData),
+    contentType: 'application/json; charset=UTF-8',
     success: function () {
       alert('댓글이 등록되었습니다.');
     },
@@ -419,6 +432,19 @@ function addComment(i) {
   inputPwEl.value = '';
   btnReset();
 }
+// 댓글 DB와 연동
+function callComment() {
+  let iso_upper = window.location.pathname.slice(9, 11).toUpperCase();
+  $.ajax({
+    type: 'get',
+    url: `/country/${iso_upper}/comment`,
+    dataType: 'json',
+    async: false,
+    success: function (data) {
+      commentCount(data);
+      readComment(data);
+    },
+  });
+}
 
-commentCount(data);
-readComment(data);
+callComment();
