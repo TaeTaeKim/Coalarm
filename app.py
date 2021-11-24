@@ -68,8 +68,11 @@ def add_comment(ISO_code):
     with open('./static/Test_json/comment.json','r') as f:  # db 대용 json 파일
         comment = json.load(f)
     data["write_time"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    data["iso_code"] = ISO_code
-    comment.append(data)
+    data["index"] = len(comment)
+    if data["parent"] == -1:
+        data["parent"] = data["index"]
+    comment.insert(0, data)
+
     with open('./static/Test_json/comment.json','w') as f:  # db 대용 json 파일
         json.dump(comment, f)
 
