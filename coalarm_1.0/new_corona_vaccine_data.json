@@ -1,1 +1,1382 @@
-[{"country": "Afghanistan", "iso_code": "AF", "vaccinated": 0.86, "fully_vaccinated": 8.0}, {"country": "Africa", "iso_code": "Africa", "vaccinated": 3.16, "fully_vaccinated": 6.65}, {"country": "Albania", "iso_code": "AL", "vaccinated": 4.21, "fully_vaccinated": 32.39}, {"country": "Algeria", "iso_code": "DZ", "vaccinated": 3.4, "fully_vaccinated": 11.05}, {"country": "Andorra", "iso_code": "AD", "vaccinated": 7.06, "fully_vaccinated": 64.04}, {"country": "Angola", "iso_code": "AO", "vaccinated": 11.19, "fully_vaccinated": 5.91}, {"country": "Anguilla", "iso_code": "AI", "vaccinated": 3.08, "fully_vaccinated": 60.55}, {"country": "Antigua and Barbuda", "iso_code": "AG", "vaccinated": 5.94, "fully_vaccinated": 54.92}, {"country": "Argentina", "iso_code": "AR", "vaccinated": 17.73, "fully_vaccinated": 61.08}, {"country": "Armenia", "iso_code": "AM", "vaccinated": 11.01, "fully_vaccinated": 8.51}, {"country": "Aruba", "iso_code": "AW", "vaccinated": 5.36, "fully_vaccinated": 72.36}, {"country": "Asia", "iso_code": "Asia", "vaccinated": 14.49, "fully_vaccinated": 45.89}, {"country": "Australia", "iso_code": "AU", "vaccinated": 6.08, "fully_vaccinated": 70.25}, {"country": "Austria", "iso_code": "AT", "vaccinated": 4.35, "fully_vaccinated": 63.88}, {"country": "Azerbaijan", "iso_code": "AZ", "vaccinated": 5.24, "fully_vaccinated": 44.0}, {"country": "Bahamas", "iso_code": "BS", "vaccinated": 3.9, "fully_vaccinated": 32.31}, {"country": "Bahrain", "iso_code": "BH", "vaccinated": 1.97, "fully_vaccinated": 65.79}, {"country": "Bangladesh", "iso_code": "BD", "vaccinated": 11.3, "fully_vaccinated": 20.29}, {"country": "Barbados", "iso_code": "BB", "vaccinated": 6.64, "fully_vaccinated": 46.15}, {"country": "Belarus", "iso_code": "BY", "vaccinated": 8.62, "fully_vaccinated": 24.34}, {"country": "Belgium", "iso_code": "BE", "vaccinated": 1.23, "fully_vaccinated": 74.22}, {"country": "Belize", "iso_code": "BZ", "vaccinated": 9.47, "fully_vaccinated": 46.35}, {"country": "Benin", "iso_code": "BJ", "vaccinated": 0.31, "fully_vaccinated": 2.13}, {"country": "Bermuda", "iso_code": "BM", "vaccinated": 1.77, "fully_vaccinated": 76.28}, {"country": "Bhutan", "iso_code": "BT", "vaccinated": 3.65, "fully_vaccinated": 71.78}, {"country": "Bolivia", "iso_code": "BO", "vaccinated": 6.25, "fully_vaccinated": 33.37}, {"country": "Bonaire Sint Eustatius and Saba", "iso_code": "BQ", "vaccinated": -1.0, "fully_vaccinated": -1.0}, {"country": "Bosnia and Herzegovina", "iso_code": "BA", "vaccinated": 3.45, "fully_vaccinated": 22.08}, {"country": "Botswana", "iso_code": "BW", "vaccinated": 17.26, "fully_vaccinated": 14.9}, {"country": "Brazil", "iso_code": "BR", "vaccinated": 15.87, "fully_vaccinated": 60.04}, {"country": "British Virgin Islands", "iso_code": "VG", "vaccinated": 5.48, "fully_vaccinated": 54.14}, {"country": "Brunei", "iso_code": "BN", "vaccinated": 18.5, "fully_vaccinated": 69.98}, {"country": "Bulgaria", "iso_code": "BG", "vaccinated": -1.0, "fully_vaccinated": -1.0}, {"country": "Burkina Faso", "iso_code": "BF", "vaccinated": 0.31, "fully_vaccinated": 1.38}, {"country": "Burundi", "iso_code": "BI", "vaccinated": 0.0, "fully_vaccinated": 0.0}, {"country": "Cambodia", "iso_code": "KH", "vaccinated": 5.04, "fully_vaccinated": 78.04}, {"country": "Cameroon", "iso_code": "CM", "vaccinated": 0.94, "fully_vaccinated": 0.65}, {"country": "Canada", "iso_code": "CA", "vaccinated": 3.51, "fully_vaccinated": 75.56}, {"country": "Cape Verde", "iso_code": "CV", "vaccinated": 11.43, "fully_vaccinated": 41.17}, {"country": "Cayman Islands", "iso_code": "KY", "vaccinated": 3.31, "fully_vaccinated": 82.95}, {"country": "Central African Republic", "iso_code": "CF", "vaccinated": 0.82, "fully_vaccinated": 6.54}, {"country": "Chad", "iso_code": "TD", "vaccinated": 0.63, "fully_vaccinated": 0.39}, {"country": "Chile", "iso_code": "CL", "vaccinated": 5.06, "fully_vaccinated": 81.89}, {"country": "China", "iso_code": "CN", "vaccinated": 7.71, "fully_vaccinated": 74.35}, {"country": "Colombia", "iso_code": "CO", "vaccinated": 20.44, "fully_vaccinated": 44.84}, {"country": "Comoros", "iso_code": "KM", "vaccinated": 9.0, "fully_vaccinated": 22.31}, {"country": "Congo", "iso_code": "CG", "vaccinated": 5.27, "fully_vaccinated": 2.22}, {"country": "Cook Islands", "iso_code": "CK", "vaccinated": 4.97, "fully_vaccinated": 66.73}, {"country": "Costa Rica", "iso_code": "CR", "vaccinated": 15.39, "fully_vaccinated": 58.97}, {"country": "Cote d'Ivoire", "iso_code": "CI", "vaccinated": 5.35, "fully_vaccinated": 4.14}, {"country": "Croatia", "iso_code": "HR", "vaccinated": 4.99, "fully_vaccinated": 45.89}, {"country": "Cuba", "iso_code": "CU", "vaccinated": 11.37, "fully_vaccinated": 77.83}, {"country": "Curacao", "iso_code": "CW", "vaccinated": 4.88, "fully_vaccinated": 57.11}, {"country": "Cyprus", "iso_code": "CY", "vaccinated": 3.95, "fully_vaccinated": 64.29}, {"country": "Czechia", "iso_code": "CZ", "vaccinated": 2.24, "fully_vaccinated": 57.94}, {"country": "Democratic Republic of Congo", "iso_code": "CG", "vaccinated": 0.08, "fully_vaccinated": 0.05}, {"country": "Denmark", "iso_code": "DK", "vaccinated": 1.63, "fully_vaccinated": 76.25}, {"country": "Djibouti", "iso_code": "DJ", "vaccinated": 3.98, "fully_vaccinated": 2.6}, {"country": "Dominica", "iso_code": "DM", "vaccinated": 3.41, "fully_vaccinated": 35.68}, {"country": "Dominican Republic", "iso_code": "DO", "vaccinated": 12.19, "fully_vaccinated": 50.19}, {"country": "Ecuador", "iso_code": "EC", "vaccinated": 13.7, "fully_vaccinated": 58.51}, {"country": "Egypt", "iso_code": "EG", "vaccinated": 7.53, "fully_vaccinated": 12.73}, {"country": "El Salvador", "iso_code": "SV", "vaccinated": 6.04, "fully_vaccinated": 61.32}, {"country": "Equatorial Guinea", "iso_code": "GQ", "vaccinated": 3.51, "fully_vaccinated": 13.43}, {"country": "Estonia", "iso_code": "EE", "vaccinated": 3.13, "fully_vaccinated": 58.68}, {"country": "Eswatini", "iso_code": "SZ", "vaccinated": 0.8, "fully_vaccinated": 21.29}, {"country": "Ethiopia", "iso_code": "ET", "vaccinated": 1.95, "fully_vaccinated": 1.18}, {"country": "Europe", "iso_code": "Europe", "vaccinated": 4.71, "fully_vaccinated": 56.66}, {"country": "European Union", "iso_code": "European Union", "vaccinated": 3.36, "fully_vaccinated": 66.42}, {"country": "Faeroe Islands", "iso_code": "FO", "vaccinated": 4.21, "fully_vaccinated": 77.76}, {"country": "Falkland Islands", "iso_code": "FK", "vaccinated": -1.0, "fully_vaccinated": -1.0}, {"country": "Fiji", "iso_code": "FJ", "vaccinated": 6.22, "fully_vaccinated": 63.83}, {"country": "Finland", "iso_code": "FI", "vaccinated": 5.19, "fully_vaccinated": 71.59}, {"country": "France", "iso_code": "FR", "vaccinated": 7.54, "fully_vaccinated": 68.81}, {"country": "French Polynesia", "iso_code": "PF", "vaccinated": 2.08, "fully_vaccinated": 54.32}, {"country": "Gabon", "iso_code": "GA", "vaccinated": 1.78, "fully_vaccinated": 4.75}, {"country": "Gambia", "iso_code": "GM", "vaccinated": 0.56, "fully_vaccinated": 8.95}, {"country": "Georgia", "iso_code": "GE", "vaccinated": 3.18, "fully_vaccinated": 24.47}, {"country": "Germany", "iso_code": "DE", "vaccinated": 2.48, "fully_vaccinated": 67.17}, {"country": "Ghana", "iso_code": "GH", "vaccinated": 4.78, "fully_vaccinated": 2.63}, {"country": "Gibraltar", "iso_code": "GI", "vaccinated": 2.89, "fully_vaccinated": 118.18}, {"country": "Greece", "iso_code": "GR", "vaccinated": 3.49, "fully_vaccinated": 62.57}, {"country": "Greenland", "iso_code": "GL", "vaccinated": 5.04, "fully_vaccinated": 65.52}, {"country": "Grenada", "iso_code": "GD", "vaccinated": 5.51, "fully_vaccinated": 29.22}, {"country": "Guatemala", "iso_code": "GT", "vaccinated": 10.59, "fully_vaccinated": 20.17}, {"country": "Guernsey", "iso_code": "GG", "vaccinated": -1.0, "fully_vaccinated": -1.0}, {"country": "Guinea", "iso_code": "GN", "vaccinated": 6.02, "fully_vaccinated": 5.75}, {"country": "Guinea-Bissau", "iso_code": "GW", "vaccinated": 14.64, "fully_vaccinated": 0.89}, {"country": "Guyana", "iso_code": "GY", "vaccinated": 16.33, "fully_vaccinated": 33.33}, {"country": "Haiti", "iso_code": "HT", "vaccinated": 0.49, "fully_vaccinated": 0.42}, {"country": "High income", "iso_code": "High income", "vaccinated": 6.31, "fully_vaccinated": 66.67}, {"country": "Honduras", "iso_code": "HN", "vaccinated": 3.33, "fully_vaccinated": 36.0}, {"country": "Hong Kong", "iso_code": "HK", "vaccinated": 2.64, "fully_vaccinated": 59.37}, {"country": "Hungary", "iso_code": "HU", "vaccinated": 2.37, "fully_vaccinated": 60.05}, {"country": "Iceland", "iso_code": "IS", "vaccinated": 1.27, "fully_vaccinated": 81.48}, {"country": "India", "iso_code": "IN", "vaccinated": 26.95, "fully_vaccinated": 27.47}, {"country": "Indonesia", "iso_code": "ID", "vaccinated": 16.55, "fully_vaccinated": 31.22}, {"country": "Iran", "iso_code": "IR", "vaccinated": 15.75, "fully_vaccinated": 49.61}, {"country": "Iraq", "iso_code": "IQ", "vaccinated": 6.41, "fully_vaccinated": 9.77}, {"country": "Ireland", "iso_code": "IE", "vaccinated": 1.38, "fully_vaccinated": 75.65}, {"country": "Isle of Man", "iso_code": "IM", "vaccinated": 4.0, "fully_vaccinated": 75.78}, {"country": "Israel", "iso_code": "IL", "vaccinated": 5.41, "fully_vaccinated": 61.99}, {"country": "Italy", "iso_code": "IT", "vaccinated": 4.96, "fully_vaccinated": 72.76}, {"country": "Jamaica", "iso_code": "JM", "vaccinated": 5.12, "fully_vaccinated": 16.28}, {"country": "Japan", "iso_code": "JP", "vaccinated": 2.77, "fully_vaccinated": 76.09}, {"country": "Jersey", "iso_code": "JE", "vaccinated": 4.3, "fully_vaccinated": 74.02}, {"country": "Jordan", "iso_code": "JO", "vaccinated": 4.07, "fully_vaccinated": 35.44}, {"country": "Kazakhstan", "iso_code": "KZ", "vaccinated": 3.73, "fully_vaccinated": 41.4}, {"country": "Kenya", "iso_code": "KE", "vaccinated": 3.14, "fully_vaccinated": 3.96}, {"country": "Kiribati", "iso_code": "KI", "vaccinated": 35.04, "fully_vaccinated": 12.51}, {"country": "Kosovo", "iso_code": "XK", "vaccinated": 5.34, "fully_vaccinated": 42.15}, {"country": "Kuwait", "iso_code": "KW", "vaccinated": -1.0, "fully_vaccinated": -1.0}, {"country": "Kyrgyzstan", "iso_code": "KG", "vaccinated": 3.35, "fully_vaccinated": 12.63}, {"country": "Laos", "iso_code": "LA", "vaccinated": 6.44, "fully_vaccinated": 37.63}, {"country": "Latvia", "iso_code": "LV", "vaccinated": 6.17, "fully_vaccinated": 60.6}, {"country": "Lebanon", "iso_code": "LB", "vaccinated": 3.38, "fully_vaccinated": 24.03}, {"country": "Lesotho", "iso_code": "LS", "vaccinated": -1.0, "fully_vaccinated": -1.0}, {"country": "Liberia", "iso_code": "LR", "vaccinated": 0.43, "fully_vaccinated": 7.17}, {"country": "Libya", "iso_code": "LY", "vaccinated": 15.25, "fully_vaccinated": 7.82}, {"country": "Liechtenstein", "iso_code": "LI", "vaccinated": 1.94, "fully_vaccinated": 64.86}, {"country": "Lithuania", "iso_code": "LT", "vaccinated": 3.3, "fully_vaccinated": 65.31}, {"country": "Low income", "iso_code": "Low income", "vaccinated": 2.1, "fully_vaccinated": 2.6}, {"country": "Lower middle income", "iso_code": "Lower middle income", "vaccinated": 16.75, "fully_vaccinated": 24.43}, {"country": "Luxembourg", "iso_code": "LU", "vaccinated": -1.0, "fully_vaccinated": -1.0}, {"country": "Macao", "iso_code": "MO", "vaccinated": 15.63, "fully_vaccinated": 54.97}, {"country": "Madagascar", "iso_code": "MG", "vaccinated": 0.69, "fully_vaccinated": 0.65}, {"country": "Malawi", "iso_code": "MW", "vaccinated": 2.39, "fully_vaccinated": 2.96}, {"country": "Malaysia", "iso_code": "MY", "vaccinated": 2.16, "fully_vaccinated": 75.94}, {"country": "Maldives", "iso_code": "MV", "vaccinated": 6.24, "fully_vaccinated": 66.44}, {"country": "Mali", "iso_code": "ML", "vaccinated": 0.25, "fully_vaccinated": 1.3}, {"country": "Malta", "iso_code": "MT", "vaccinated": 0.55, "fully_vaccinated": 83.5}, {"country": "Mauritania", "iso_code": "MR", "vaccinated": 7.69, "fully_vaccinated": 13.89}, {"country": "Mauritius", "iso_code": "MU", "vaccinated": 3.78, "fully_vaccinated": 67.39}, {"country": "Mexico", "iso_code": "MX", "vaccinated": 9.21, "fully_vaccinated": 48.74}, {"country": "Moldova", "iso_code": "MD", "vaccinated": -1.0, "fully_vaccinated": -1.0}, {"country": "Monaco", "iso_code": "MC", "vaccinated": -1.0, "fully_vaccinated": -1.0}, {"country": "Mongolia", "iso_code": "MN", "vaccinated": 3.37, "fully_vaccinated": 64.45}, {"country": "Montenegro", "iso_code": "ME", "vaccinated": 2.7, "fully_vaccinated": 39.75}, {"country": "Montserrat", "iso_code": "MS", "vaccinated": 2.29, "fully_vaccinated": 28.45}, {"country": "Morocco", "iso_code": "MA", "vaccinated": 5.27, "fully_vaccinated": 60.23}, {"country": "Mozambique", "iso_code": "MZ", "vaccinated": 7.02, "fully_vaccinated": 8.09}, {"country": "Myanmar", "iso_code": "MM", "vaccinated": 10.32, "fully_vaccinated": 15.05}, {"country": "Namibia", "iso_code": "NA", "vaccinated": 2.52, "fully_vaccinated": 10.61}, {"country": "Nauru", "iso_code": "NR", "vaccinated": -1.0, "fully_vaccinated": -1.0}, {"country": "Nepal", "iso_code": "NP", "vaccinated": 4.38, "fully_vaccinated": 25.06}, {"country": "Netherlands", "iso_code": "NL", "vaccinated": 3.1, "fully_vaccinated": 73.2}, {"country": "New Caledonia", "iso_code": "NC", "vaccinated": 4.72, "fully_vaccinated": 57.11}, {"country": "New Zealand", "iso_code": "NZ", "vaccinated": 7.07, "fully_vaccinated": 67.48}, {"country": "Nicaragua", "iso_code": "NI", "vaccinated": 10.24, "fully_vaccinated": 8.4}, {"country": "Niger", "iso_code": "NE", "vaccinated": 0.2, "fully_vaccinated": 1.82}, {"country": "Nigeria", "iso_code": "NG", "vaccinated": 1.24, "fully_vaccinated": 1.51}, {"country": "Niue", "iso_code": "NU", "vaccinated": -1.0, "fully_vaccinated": -1.0}, {"country": "North America", "iso_code": "North America", "vaccinated": 9.23, "fully_vaccinated": 53.68}, {"country": "North Macedonia", "iso_code": "MK", "vaccinated": 4.13, "fully_vaccinated": 37.74}, {"country": "Norway", "iso_code": "NO", "vaccinated": 8.1, "fully_vaccinated": 69.16}, {"country": "Oceania", "iso_code": "Oceania", "vaccinated": 5.44, "fully_vaccinated": 52.8}, {"country": "Oman", "iso_code": "OM", "vaccinated": 6.83, "fully_vaccinated": 52.32}, {"country": "Pakistan", "iso_code": "PK", "vaccinated": 13.28, "fully_vaccinated": 21.65}, {"country": "Palestine", "iso_code": "PS", "vaccinated": 10.62, "fully_vaccinated": 25.3}, {"country": "Panama", "iso_code": "PA", "vaccinated": 13.47, "fully_vaccinated": 54.82}, {"country": "Papua New Guinea", "iso_code": "PG", "vaccinated": 0.85, "fully_vaccinated": 1.17}, {"country": "Paraguay", "iso_code": "PY", "vaccinated": 9.31, "fully_vaccinated": 34.74}, {"country": "Peru", "iso_code": "PE", "vaccinated": 13.33, "fully_vaccinated": 49.41}, {"country": "Philippines", "iso_code": "PH", "vaccinated": 7.07, "fully_vaccinated": 22.6}, {"country": "Pitcairn", "iso_code": "PN", "vaccinated": -1.0, "fully_vaccinated": -1.0}, {"country": "Poland", "iso_code": "PL", "vaccinated": 0.88, "fully_vaccinated": 53.38}, {"country": "Portugal", "iso_code": "PT", "vaccinated": 1.26, "fully_vaccinated": 87.78}, {"country": "Qatar", "iso_code": "QA", "vaccinated": -1.0, "fully_vaccinated": -1.0}, {"country": "Romania", "iso_code": "RO", "vaccinated": -1.0, "fully_vaccinated": -1.0}, {"country": "Russia", "iso_code": "RU", "vaccinated": 7.1, "fully_vaccinated": 35.8}, {"country": "Rwanda", "iso_code": "RW", "vaccinated": 16.98, "fully_vaccinated": 18.98}, {"country": "Saint Helena", "iso_code": "SH", "vaccinated": -1.0, "fully_vaccinated": -1.0}, {"country": "Saint Kitts and Nevis", "iso_code": "KN", "vaccinated": 2.91, "fully_vaccinated": 46.05}, {"country": "Saint Lucia", "iso_code": "LC", "vaccinated": 4.72, "fully_vaccinated": 23.99}, {"country": "Saint Vincent and the Grenadines", "iso_code": "VC", "vaccinated": 7.26, "fully_vaccinated": 18.76}, {"country": "Samoa", "iso_code": "WS", "vaccinated": 25.49, "fully_vaccinated": 43.09}, {"country": "San Marino", "iso_code": "SM", "vaccinated": 8.36, "fully_vaccinated": 65.65}, {"country": "Sao Tome and Principe", "iso_code": "ST", "vaccinated": 23.53, "fully_vaccinated": 12.79}, {"country": "Saudi Arabia", "iso_code": "SA", "vaccinated": 6.61, "fully_vaccinated": 62.61}, {"country": "Senegal", "iso_code": "SN", "vaccinated": 2.34, "fully_vaccinated": 5.11}, {"country": "Serbia", "iso_code": "RS", "vaccinated": 2.33, "fully_vaccinated": 44.42}, {"country": "Seychelles", "iso_code": "SC", "vaccinated": 4.25, "fully_vaccinated": 78.24}, {"country": "Sierra Leone", "iso_code": "SL", "vaccinated": 3.7, "fully_vaccinated": 3.72}, {"country": "Singapore", "iso_code": "SG", "vaccinated": 1.08, "fully_vaccinated": 91.91}, {"country": "Sint Maarten (Dutch part)", "iso_code": "SX", "vaccinated": 4.89, "fully_vaccinated": 56.46}, {"country": "Slovakia", "iso_code": "SK", "vaccinated": 4.08, "fully_vaccinated": 42.62}, {"country": "Slovenia", "iso_code": "SI", "vaccinated": 3.87, "fully_vaccinated": 54.59}, {"country": "Solomon Islands", "iso_code": "SB", "vaccinated": 14.27, "fully_vaccinated": 5.05}, {"country": "Somalia", "iso_code": "SO", "vaccinated": 0.15, "fully_vaccinated": 3.45}, {"country": "South Africa", "iso_code": "ZA", "vaccinated": 4.7, "fully_vaccinated": 22.62}, {"country": "South America", "iso_code": "South America", "vaccinated": 15.36, "fully_vaccinated": 55.46}, {"country": "South Korea", "iso_code": "KR", "vaccinated": 3.51, "fully_vaccinated": 78.57}, {"country": "South Sudan", "iso_code": "SS", "vaccinated": 0.16, "fully_vaccinated": 0.58}, {"country": "Spain", "iso_code": "ES", "vaccinated": 1.48, "fully_vaccinated": 80.2}, {"country": "Sri Lanka", "iso_code": "LK", "vaccinated": 10.26, "fully_vaccinated": 63.65}, {"country": "Sudan", "iso_code": "SD", "vaccinated": -1.0, "fully_vaccinated": -1.0}, {"country": "Suriname", "iso_code": "SR", "vaccinated": 7.09, "fully_vaccinated": 35.96}, {"country": "Sweden", "iso_code": "SE", "vaccinated": 2.98, "fully_vaccinated": 68.72}, {"country": "Switzerland", "iso_code": "CH", "vaccinated": 1.83, "fully_vaccinated": 64.69}, {"country": "Syria", "iso_code": "SY", "vaccinated": 0.56, "fully_vaccinated": 3.95}, {"country": "Taiwan", "iso_code": "TW", "vaccinated": 31.52, "fully_vaccinated": 43.78}, {"country": "Tajikistan", "iso_code": "TJ", "vaccinated": 5.93, "fully_vaccinated": 21.92}, {"country": "Tanzania", "iso_code": "TZ", "vaccinated": -1.0, "fully_vaccinated": -1.0}, {"country": "Thailand", "iso_code": "TH", "vaccinated": 11.68, "fully_vaccinated": 53.65}, {"country": "Timor", "iso_code": "TL", "vaccinated": 15.27, "fully_vaccinated": 28.44}, {"country": "Togo", "iso_code": "TG", "vaccinated": 5.77, "fully_vaccinated": 5.69}, {"country": "Tokelau", "iso_code": "TK", "vaccinated": -1.0, "fully_vaccinated": -1.0}, {"country": "Tonga", "iso_code": "TO", "vaccinated": 22.43, "fully_vaccinated": 36.82}, {"country": "Trinidad and Tobago", "iso_code": "TT", "vaccinated": 0.27, "fully_vaccinated": 44.95}, {"country": "Tunisia", "iso_code": "TN", "vaccinated": 8.79, "fully_vaccinated": 40.3}, {"country": "Turkey", "iso_code": "TR", "vaccinated": 7.17, "fully_vaccinated": 58.61}, {"country": "Turkmenistan", "iso_code": "TM", "vaccinated": -1.0, "fully_vaccinated": -1.0}, {"country": "Turks and Caicos Islands", "iso_code": "TC", "vaccinated": 5.29, "fully_vaccinated": 69.17}, {"country": "Tuvalu", "iso_code": "TV", "vaccinated": 2.9, "fully_vaccinated": 49.34}, {"country": "Uganda", "iso_code": "UG", "vaccinated": 6.21, "fully_vaccinated": 1.94}, {"country": "Ukraine", "iso_code": "UA", "vaccinated": 7.54, "fully_vaccinated": 21.35}, {"country": "United Arab Emirates", "iso_code": "AE", "vaccinated": 9.7, "fully_vaccinated": 88.4}, {"country": "United Kingdom", "iso_code": "GB", "vaccinated": 6.72, "fully_vaccinated": 67.54}, {"country": "United States", "iso_code": "US", "vaccinated": 10.12, "fully_vaccinated": 57.72}, {"country": "Upper middle income", "iso_code": "Upper middle income", "vaccinated": 9.23, "fully_vaccinated": 63.88}, {"country": "Uruguay", "iso_code": "UY", "vaccinated": 3.93, "fully_vaccinated": 75.65}, {"country": "Uzbekistan", "iso_code": "UZ", "vaccinated": 20.79, "fully_vaccinated": 17.33}, {"country": "Vanuatu", "iso_code": "VU", "vaccinated": 15.61, "fully_vaccinated": 11.73}, {"country": "Venezuela", "iso_code": "VE", "vaccinated": 15.98, "fully_vaccinated": 32.3}, {"country": "Vietnam", "iso_code": "VN", "vaccinated": 28.95, "fully_vaccinated": 37.49}, {"country": "Wallis and Futuna", "iso_code": "WF", "vaccinated": 1.06, "fully_vaccinated": 52.91}, {"country": "World", "iso_code": "World", "vaccinated": 11.18, "fully_vaccinated": 41.23}, {"country": "Yemen", "iso_code": "YE", "vaccinated": 0.6, "fully_vaccinated": 1.13}, {"country": "Zambia", "iso_code": "ZM", "vaccinated": -1.0, "fully_vaccinated": -1.0}, {"country": "Zimbabwe", "iso_code": "ZW", "vaccinated": 5.32, "fully_vaccinated": 17.98}]
+[
+    {
+        "country": "Afghanistan",
+        "iso_code": "AF",
+        "vaccinated": 0.86,
+        "fully_vaccinated": 8.0
+    },
+    {
+        "country": "Africa",
+        "iso_code": "Africa",
+        "vaccinated": 3.16,
+        "fully_vaccinated": 6.65
+    },
+    {
+        "country": "Albania",
+        "iso_code": "AL",
+        "vaccinated": 4.21,
+        "fully_vaccinated": 32.39
+    },
+    {
+        "country": "Algeria",
+        "iso_code": "DZ",
+        "vaccinated": 3.4,
+        "fully_vaccinated": 11.05
+    },
+    {
+        "country": "Andorra",
+        "iso_code": "AD",
+        "vaccinated": 7.06,
+        "fully_vaccinated": 64.04
+    },
+    {
+        "country": "Angola",
+        "iso_code": "AO",
+        "vaccinated": 11.19,
+        "fully_vaccinated": 5.91
+    },
+    {
+        "country": "Anguilla",
+        "iso_code": "AI",
+        "vaccinated": 3.08,
+        "fully_vaccinated": 60.55
+    },
+    {
+        "country": "Antigua and Barbuda",
+        "iso_code": "AG",
+        "vaccinated": 5.94,
+        "fully_vaccinated": 54.92
+    },
+    {
+        "country": "Argentina",
+        "iso_code": "AR",
+        "vaccinated": 17.73,
+        "fully_vaccinated": 61.08
+    },
+    {
+        "country": "Armenia",
+        "iso_code": "AM",
+        "vaccinated": 11.01,
+        "fully_vaccinated": 8.51
+    },
+    {
+        "country": "Aruba",
+        "iso_code": "AW",
+        "vaccinated": 5.36,
+        "fully_vaccinated": 72.36
+    },
+    {
+        "country": "Asia",
+        "iso_code": "Asia",
+        "vaccinated": 14.49,
+        "fully_vaccinated": 45.89
+    },
+    {
+        "country": "Australia",
+        "iso_code": "AU",
+        "vaccinated": 6.08,
+        "fully_vaccinated": 70.25
+    },
+    {
+        "country": "Austria",
+        "iso_code": "AT",
+        "vaccinated": 4.35,
+        "fully_vaccinated": 63.88
+    },
+    {
+        "country": "Azerbaijan",
+        "iso_code": "AZ",
+        "vaccinated": 5.24,
+        "fully_vaccinated": 44.0
+    },
+    {
+        "country": "Bahamas",
+        "iso_code": "BS",
+        "vaccinated": 3.9,
+        "fully_vaccinated": 32.31
+    },
+    {
+        "country": "Bahrain",
+        "iso_code": "BH",
+        "vaccinated": 1.97,
+        "fully_vaccinated": 65.79
+    },
+    {
+        "country": "Bangladesh",
+        "iso_code": "BD",
+        "vaccinated": 11.3,
+        "fully_vaccinated": 20.29
+    },
+    {
+        "country": "Barbados",
+        "iso_code": "BB",
+        "vaccinated": 6.64,
+        "fully_vaccinated": 46.15
+    },
+    {
+        "country": "Belarus",
+        "iso_code": "BY",
+        "vaccinated": 8.62,
+        "fully_vaccinated": 24.34
+    },
+    {
+        "country": "Belgium",
+        "iso_code": "BE",
+        "vaccinated": 1.23,
+        "fully_vaccinated": 74.22
+    },
+    {
+        "country": "Belize",
+        "iso_code": "BZ",
+        "vaccinated": 9.47,
+        "fully_vaccinated": 46.35
+    },
+    {
+        "country": "Benin",
+        "iso_code": "BJ",
+        "vaccinated": 0.31,
+        "fully_vaccinated": 2.13
+    },
+    {
+        "country": "Bermuda",
+        "iso_code": "BM",
+        "vaccinated": 1.77,
+        "fully_vaccinated": 76.28
+    },
+    {
+        "country": "Bhutan",
+        "iso_code": "BT",
+        "vaccinated": 3.65,
+        "fully_vaccinated": 71.78
+    },
+    {
+        "country": "Bolivia",
+        "iso_code": "BO",
+        "vaccinated": 6.25,
+        "fully_vaccinated": 33.37
+    },
+    {
+        "country": "Bonaire Sint Eustatius and Saba",
+        "iso_code": "BQ",
+        "vaccinated": -1.0,
+        "fully_vaccinated": -1.0
+    },
+    {
+        "country": "Bosnia and Herzegovina",
+        "iso_code": "BA",
+        "vaccinated": 3.45,
+        "fully_vaccinated": 22.08
+    },
+    {
+        "country": "Botswana",
+        "iso_code": "BW",
+        "vaccinated": 17.26,
+        "fully_vaccinated": 14.9
+    },
+    {
+        "country": "Brazil",
+        "iso_code": "BR",
+        "vaccinated": 15.87,
+        "fully_vaccinated": 60.04
+    },
+    {
+        "country": "British Virgin Islands",
+        "iso_code": "VG",
+        "vaccinated": 5.48,
+        "fully_vaccinated": 54.14
+    },
+    {
+        "country": "Brunei",
+        "iso_code": "BN",
+        "vaccinated": 18.5,
+        "fully_vaccinated": 69.98
+    },
+    {
+        "country": "Bulgaria",
+        "iso_code": "BG",
+        "vaccinated": -1.0,
+        "fully_vaccinated": -1.0
+    },
+    {
+        "country": "Burkina Faso",
+        "iso_code": "BF",
+        "vaccinated": 0.31,
+        "fully_vaccinated": 1.38
+    },
+    {
+        "country": "Burundi",
+        "iso_code": "BI",
+        "vaccinated": 0.0,
+        "fully_vaccinated": 0.0
+    },
+    {
+        "country": "Cambodia",
+        "iso_code": "KH",
+        "vaccinated": 5.04,
+        "fully_vaccinated": 78.04
+    },
+    {
+        "country": "Cameroon",
+        "iso_code": "CM",
+        "vaccinated": 0.94,
+        "fully_vaccinated": 0.65
+    },
+    {
+        "country": "Canada",
+        "iso_code": "CA",
+        "vaccinated": 3.51,
+        "fully_vaccinated": 75.56
+    },
+    {
+        "country": "Cape Verde",
+        "iso_code": "CV",
+        "vaccinated": 11.43,
+        "fully_vaccinated": 41.17
+    },
+    {
+        "country": "Cayman Islands",
+        "iso_code": "KY",
+        "vaccinated": 3.31,
+        "fully_vaccinated": 82.95
+    },
+    {
+        "country": "Central African Republic",
+        "iso_code": "CF",
+        "vaccinated": 0.82,
+        "fully_vaccinated": 6.54
+    },
+    {
+        "country": "Chad",
+        "iso_code": "TD",
+        "vaccinated": 0.63,
+        "fully_vaccinated": 0.39
+    },
+    {
+        "country": "Chile",
+        "iso_code": "CL",
+        "vaccinated": 5.06,
+        "fully_vaccinated": 81.89
+    },
+    {
+        "country": "China",
+        "iso_code": "CN",
+        "vaccinated": 7.71,
+        "fully_vaccinated": 74.35
+    },
+    {
+        "country": "Colombia",
+        "iso_code": "CO",
+        "vaccinated": 20.44,
+        "fully_vaccinated": 44.84
+    },
+    {
+        "country": "Comoros",
+        "iso_code": "KM",
+        "vaccinated": 9.0,
+        "fully_vaccinated": 22.31
+    },
+    {
+        "country": "Congo",
+        "iso_code": "CG",
+        "vaccinated": 5.27,
+        "fully_vaccinated": 2.22
+    },
+    {
+        "country": "Cook Islands",
+        "iso_code": "CK",
+        "vaccinated": 4.97,
+        "fully_vaccinated": 66.73
+    },
+    {
+        "country": "Costa Rica",
+        "iso_code": "CR",
+        "vaccinated": 15.39,
+        "fully_vaccinated": 58.97
+    },
+    {
+        "country": "Cote d'Ivoire",
+        "iso_code": "CI",
+        "vaccinated": 5.35,
+        "fully_vaccinated": 4.14
+    },
+    {
+        "country": "Croatia",
+        "iso_code": "HR",
+        "vaccinated": 4.99,
+        "fully_vaccinated": 45.89
+    },
+    {
+        "country": "Cuba",
+        "iso_code": "CU",
+        "vaccinated": 11.37,
+        "fully_vaccinated": 77.83
+    },
+    {
+        "country": "Curacao",
+        "iso_code": "CW",
+        "vaccinated": 4.88,
+        "fully_vaccinated": 57.11
+    },
+    {
+        "country": "Cyprus",
+        "iso_code": "CY",
+        "vaccinated": 3.95,
+        "fully_vaccinated": 64.29
+    },
+    {
+        "country": "Czechia",
+        "iso_code": "CZ",
+        "vaccinated": 2.24,
+        "fully_vaccinated": 57.94
+    },
+    {
+        "country": "Democratic Republic of Congo",
+        "iso_code": "CG",
+        "vaccinated": 0.08,
+        "fully_vaccinated": 0.05
+    },
+    {
+        "country": "Denmark",
+        "iso_code": "DK",
+        "vaccinated": 1.63,
+        "fully_vaccinated": 76.25
+    },
+    {
+        "country": "Djibouti",
+        "iso_code": "DJ",
+        "vaccinated": 3.98,
+        "fully_vaccinated": 2.6
+    },
+    {
+        "country": "Dominica",
+        "iso_code": "DM",
+        "vaccinated": 3.41,
+        "fully_vaccinated": 35.68
+    },
+    {
+        "country": "Dominican Republic",
+        "iso_code": "DO",
+        "vaccinated": 12.19,
+        "fully_vaccinated": 50.19
+    },
+    {
+        "country": "Ecuador",
+        "iso_code": "EC",
+        "vaccinated": 13.7,
+        "fully_vaccinated": 58.51
+    },
+    {
+        "country": "Egypt",
+        "iso_code": "EG",
+        "vaccinated": 7.53,
+        "fully_vaccinated": 12.73
+    },
+    {
+        "country": "El Salvador",
+        "iso_code": "SV",
+        "vaccinated": 6.04,
+        "fully_vaccinated": 61.32
+    },
+    {
+        "country": "Equatorial Guinea",
+        "iso_code": "GQ",
+        "vaccinated": 3.51,
+        "fully_vaccinated": 13.43
+    },
+    {
+        "country": "Estonia",
+        "iso_code": "EE",
+        "vaccinated": 3.13,
+        "fully_vaccinated": 58.68
+    },
+    {
+        "country": "Eswatini",
+        "iso_code": "SZ",
+        "vaccinated": 0.8,
+        "fully_vaccinated": 21.29
+    },
+    {
+        "country": "Ethiopia",
+        "iso_code": "ET",
+        "vaccinated": 1.95,
+        "fully_vaccinated": 1.18
+    },
+    {
+        "country": "Europe",
+        "iso_code": "Europe",
+        "vaccinated": 4.71,
+        "fully_vaccinated": 56.66
+    },
+    {
+        "country": "European Union",
+        "iso_code": "European Union",
+        "vaccinated": 3.36,
+        "fully_vaccinated": 66.42
+    },
+    {
+        "country": "Faeroe Islands",
+        "iso_code": "FO",
+        "vaccinated": 4.21,
+        "fully_vaccinated": 77.76
+    },
+    {
+        "country": "Falkland Islands",
+        "iso_code": "FK",
+        "vaccinated": -1.0,
+        "fully_vaccinated": -1.0
+    },
+    {
+        "country": "Fiji",
+        "iso_code": "FJ",
+        "vaccinated": 6.22,
+        "fully_vaccinated": 63.83
+    },
+    {
+        "country": "Finland",
+        "iso_code": "FI",
+        "vaccinated": 5.19,
+        "fully_vaccinated": 71.59
+    },
+    {
+        "country": "France",
+        "iso_code": "FR",
+        "vaccinated": 7.54,
+        "fully_vaccinated": 68.81
+    },
+    {
+        "country": "French Polynesia",
+        "iso_code": "PF",
+        "vaccinated": 2.08,
+        "fully_vaccinated": 54.32
+    },
+    {
+        "country": "Gabon",
+        "iso_code": "GA",
+        "vaccinated": 1.78,
+        "fully_vaccinated": 4.75
+    },
+    {
+        "country": "Gambia",
+        "iso_code": "GM",
+        "vaccinated": 0.56,
+        "fully_vaccinated": 8.95
+    },
+    {
+        "country": "Georgia",
+        "iso_code": "GE",
+        "vaccinated": 3.18,
+        "fully_vaccinated": 24.47
+    },
+    {
+        "country": "Germany",
+        "iso_code": "DE",
+        "vaccinated": 2.48,
+        "fully_vaccinated": 67.17
+    },
+    {
+        "country": "Ghana",
+        "iso_code": "GH",
+        "vaccinated": 4.78,
+        "fully_vaccinated": 2.63
+    },
+    {
+        "country": "Gibraltar",
+        "iso_code": "GI",
+        "vaccinated": 2.89,
+        "fully_vaccinated": 118.18
+    },
+    {
+        "country": "Greece",
+        "iso_code": "GR",
+        "vaccinated": 3.49,
+        "fully_vaccinated": 62.57
+    },
+    {
+        "country": "Greenland",
+        "iso_code": "GL",
+        "vaccinated": 5.04,
+        "fully_vaccinated": 65.52
+    },
+    {
+        "country": "Grenada",
+        "iso_code": "GD",
+        "vaccinated": 5.51,
+        "fully_vaccinated": 29.22
+    },
+    {
+        "country": "Guatemala",
+        "iso_code": "GT",
+        "vaccinated": 10.59,
+        "fully_vaccinated": 20.17
+    },
+    {
+        "country": "Guernsey",
+        "iso_code": "GG",
+        "vaccinated": -1.0,
+        "fully_vaccinated": -1.0
+    },
+    {
+        "country": "Guinea",
+        "iso_code": "GN",
+        "vaccinated": 6.02,
+        "fully_vaccinated": 5.75
+    },
+    {
+        "country": "Guinea-Bissau",
+        "iso_code": "GW",
+        "vaccinated": 14.64,
+        "fully_vaccinated": 0.89
+    },
+    {
+        "country": "Guyana",
+        "iso_code": "GY",
+        "vaccinated": 16.33,
+        "fully_vaccinated": 33.33
+    },
+    {
+        "country": "Haiti",
+        "iso_code": "HT",
+        "vaccinated": 0.49,
+        "fully_vaccinated": 0.42
+    },
+    {
+        "country": "High income",
+        "iso_code": "High income",
+        "vaccinated": 6.31,
+        "fully_vaccinated": 66.67
+    },
+    {
+        "country": "Honduras",
+        "iso_code": "HN",
+        "vaccinated": 3.33,
+        "fully_vaccinated": 36.0
+    },
+    {
+        "country": "Hong Kong",
+        "iso_code": "HK",
+        "vaccinated": 2.64,
+        "fully_vaccinated": 59.37
+    },
+    {
+        "country": "Hungary",
+        "iso_code": "HU",
+        "vaccinated": 2.37,
+        "fully_vaccinated": 60.05
+    },
+    {
+        "country": "Iceland",
+        "iso_code": "IS",
+        "vaccinated": 1.27,
+        "fully_vaccinated": 81.48
+    },
+    {
+        "country": "India",
+        "iso_code": "IN",
+        "vaccinated": 26.95,
+        "fully_vaccinated": 27.47
+    },
+    {
+        "country": "Indonesia",
+        "iso_code": "ID",
+        "vaccinated": 16.55,
+        "fully_vaccinated": 31.22
+    },
+    {
+        "country": "Iran",
+        "iso_code": "IR",
+        "vaccinated": 15.75,
+        "fully_vaccinated": 49.61
+    },
+    {
+        "country": "Iraq",
+        "iso_code": "IQ",
+        "vaccinated": 6.41,
+        "fully_vaccinated": 9.77
+    },
+    {
+        "country": "Ireland",
+        "iso_code": "IE",
+        "vaccinated": 1.38,
+        "fully_vaccinated": 75.65
+    },
+    {
+        "country": "Isle of Man",
+        "iso_code": "IM",
+        "vaccinated": 4.0,
+        "fully_vaccinated": 75.78
+    },
+    {
+        "country": "Israel",
+        "iso_code": "IL",
+        "vaccinated": 5.41,
+        "fully_vaccinated": 61.99
+    },
+    {
+        "country": "Italy",
+        "iso_code": "IT",
+        "vaccinated": 4.96,
+        "fully_vaccinated": 72.76
+    },
+    {
+        "country": "Jamaica",
+        "iso_code": "JM",
+        "vaccinated": 5.12,
+        "fully_vaccinated": 16.28
+    },
+    {
+        "country": "Japan",
+        "iso_code": "JP",
+        "vaccinated": 2.77,
+        "fully_vaccinated": 76.09
+    },
+    {
+        "country": "Jersey",
+        "iso_code": "JE",
+        "vaccinated": 4.3,
+        "fully_vaccinated": 74.02
+    },
+    {
+        "country": "Jordan",
+        "iso_code": "JO",
+        "vaccinated": 4.07,
+        "fully_vaccinated": 35.44
+    },
+    {
+        "country": "Kazakhstan",
+        "iso_code": "KZ",
+        "vaccinated": 3.73,
+        "fully_vaccinated": 41.4
+    },
+    {
+        "country": "Kenya",
+        "iso_code": "KE",
+        "vaccinated": 3.14,
+        "fully_vaccinated": 3.96
+    },
+    {
+        "country": "Kiribati",
+        "iso_code": "KI",
+        "vaccinated": 35.04,
+        "fully_vaccinated": 12.51
+    },
+    {
+        "country": "Kosovo",
+        "iso_code": "XK",
+        "vaccinated": 5.34,
+        "fully_vaccinated": 42.15
+    },
+    {
+        "country": "Kuwait",
+        "iso_code": "KW",
+        "vaccinated": -1.0,
+        "fully_vaccinated": -1.0
+    },
+    {
+        "country": "Kyrgyzstan",
+        "iso_code": "KG",
+        "vaccinated": 3.35,
+        "fully_vaccinated": 12.63
+    },
+    {
+        "country": "Laos",
+        "iso_code": "LA",
+        "vaccinated": 6.44,
+        "fully_vaccinated": 37.63
+    },
+    {
+        "country": "Latvia",
+        "iso_code": "LV",
+        "vaccinated": 6.17,
+        "fully_vaccinated": 60.6
+    },
+    {
+        "country": "Lebanon",
+        "iso_code": "LB",
+        "vaccinated": 3.38,
+        "fully_vaccinated": 24.03
+    },
+    {
+        "country": "Lesotho",
+        "iso_code": "LS",
+        "vaccinated": -1.0,
+        "fully_vaccinated": -1.0
+    },
+    {
+        "country": "Liberia",
+        "iso_code": "LR",
+        "vaccinated": 0.43,
+        "fully_vaccinated": 7.17
+    },
+    {
+        "country": "Libya",
+        "iso_code": "LY",
+        "vaccinated": 15.25,
+        "fully_vaccinated": 7.82
+    },
+    {
+        "country": "Liechtenstein",
+        "iso_code": "LI",
+        "vaccinated": 1.94,
+        "fully_vaccinated": 64.86
+    },
+    {
+        "country": "Lithuania",
+        "iso_code": "LT",
+        "vaccinated": 3.3,
+        "fully_vaccinated": 65.31
+    },
+    {
+        "country": "Low income",
+        "iso_code": "Low income",
+        "vaccinated": 2.1,
+        "fully_vaccinated": 2.6
+    },
+    {
+        "country": "Lower middle income",
+        "iso_code": "Lower middle income",
+        "vaccinated": 16.75,
+        "fully_vaccinated": 24.43
+    },
+    {
+        "country": "Luxembourg",
+        "iso_code": "LU",
+        "vaccinated": -1.0,
+        "fully_vaccinated": -1.0
+    },
+    {
+        "country": "Macao",
+        "iso_code": "MO",
+        "vaccinated": 15.63,
+        "fully_vaccinated": 54.97
+    },
+    {
+        "country": "Madagascar",
+        "iso_code": "MG",
+        "vaccinated": 0.69,
+        "fully_vaccinated": 0.65
+    },
+    {
+        "country": "Malawi",
+        "iso_code": "MW",
+        "vaccinated": 2.39,
+        "fully_vaccinated": 2.96
+    },
+    {
+        "country": "Malaysia",
+        "iso_code": "MY",
+        "vaccinated": 2.16,
+        "fully_vaccinated": 75.94
+    },
+    {
+        "country": "Maldives",
+        "iso_code": "MV",
+        "vaccinated": 6.24,
+        "fully_vaccinated": 66.44
+    },
+    {
+        "country": "Mali",
+        "iso_code": "ML",
+        "vaccinated": 0.25,
+        "fully_vaccinated": 1.3
+    },
+    {
+        "country": "Malta",
+        "iso_code": "MT",
+        "vaccinated": 0.55,
+        "fully_vaccinated": 83.5
+    },
+    {
+        "country": "Mauritania",
+        "iso_code": "MR",
+        "vaccinated": 7.69,
+        "fully_vaccinated": 13.89
+    },
+    {
+        "country": "Mauritius",
+        "iso_code": "MU",
+        "vaccinated": 3.78,
+        "fully_vaccinated": 67.39
+    },
+    {
+        "country": "Mexico",
+        "iso_code": "MX",
+        "vaccinated": 9.21,
+        "fully_vaccinated": 48.74
+    },
+    {
+        "country": "Moldova",
+        "iso_code": "MD",
+        "vaccinated": -1.0,
+        "fully_vaccinated": -1.0
+    },
+    {
+        "country": "Monaco",
+        "iso_code": "MC",
+        "vaccinated": -1.0,
+        "fully_vaccinated": -1.0
+    },
+    {
+        "country": "Mongolia",
+        "iso_code": "MN",
+        "vaccinated": 3.37,
+        "fully_vaccinated": 64.45
+    },
+    {
+        "country": "Montenegro",
+        "iso_code": "ME",
+        "vaccinated": 2.7,
+        "fully_vaccinated": 39.75
+    },
+    {
+        "country": "Montserrat",
+        "iso_code": "MS",
+        "vaccinated": 2.29,
+        "fully_vaccinated": 28.45
+    },
+    {
+        "country": "Morocco",
+        "iso_code": "MA",
+        "vaccinated": 5.27,
+        "fully_vaccinated": 60.23
+    },
+    {
+        "country": "Mozambique",
+        "iso_code": "MZ",
+        "vaccinated": 7.02,
+        "fully_vaccinated": 8.09
+    },
+    {
+        "country": "Myanmar",
+        "iso_code": "MM",
+        "vaccinated": 10.32,
+        "fully_vaccinated": 15.05
+    },
+    {
+        "country": "Namibia",
+        "iso_code": "NA",
+        "vaccinated": 2.52,
+        "fully_vaccinated": 10.61
+    },
+    {
+        "country": "Nauru",
+        "iso_code": "NR",
+        "vaccinated": -1.0,
+        "fully_vaccinated": -1.0
+    },
+    {
+        "country": "Nepal",
+        "iso_code": "NP",
+        "vaccinated": 4.38,
+        "fully_vaccinated": 25.06
+    },
+    {
+        "country": "Netherlands",
+        "iso_code": "NL",
+        "vaccinated": 3.1,
+        "fully_vaccinated": 73.2
+    },
+    {
+        "country": "New Caledonia",
+        "iso_code": "NC",
+        "vaccinated": 4.72,
+        "fully_vaccinated": 57.11
+    },
+    {
+        "country": "New Zealand",
+        "iso_code": "NZ",
+        "vaccinated": 7.07,
+        "fully_vaccinated": 67.48
+    },
+    {
+        "country": "Nicaragua",
+        "iso_code": "NI",
+        "vaccinated": 10.24,
+        "fully_vaccinated": 8.4
+    },
+    {
+        "country": "Niger",
+        "iso_code": "NE",
+        "vaccinated": 0.2,
+        "fully_vaccinated": 1.82
+    },
+    {
+        "country": "Nigeria",
+        "iso_code": "NG",
+        "vaccinated": 1.24,
+        "fully_vaccinated": 1.51
+    },
+    {
+        "country": "Niue",
+        "iso_code": "NU",
+        "vaccinated": -1.0,
+        "fully_vaccinated": -1.0
+    },
+    {
+        "country": "North America",
+        "iso_code": "North America",
+        "vaccinated": 9.23,
+        "fully_vaccinated": 53.68
+    },
+    {
+        "country": "North Macedonia",
+        "iso_code": "MK",
+        "vaccinated": 4.13,
+        "fully_vaccinated": 37.74
+    },
+    {
+        "country": "Norway",
+        "iso_code": "NO",
+        "vaccinated": 8.1,
+        "fully_vaccinated": 69.16
+    },
+    {
+        "country": "Oceania",
+        "iso_code": "Oceania",
+        "vaccinated": 5.44,
+        "fully_vaccinated": 52.8
+    },
+    {
+        "country": "Oman",
+        "iso_code": "OM",
+        "vaccinated": 6.83,
+        "fully_vaccinated": 52.32
+    },
+    {
+        "country": "Pakistan",
+        "iso_code": "PK",
+        "vaccinated": 13.28,
+        "fully_vaccinated": 21.65
+    },
+    {
+        "country": "Palestine",
+        "iso_code": "PS",
+        "vaccinated": 10.62,
+        "fully_vaccinated": 25.3
+    },
+    {
+        "country": "Panama",
+        "iso_code": "PA",
+        "vaccinated": 13.47,
+        "fully_vaccinated": 54.82
+    },
+    {
+        "country": "Papua New Guinea",
+        "iso_code": "PG",
+        "vaccinated": 0.85,
+        "fully_vaccinated": 1.17
+    },
+    {
+        "country": "Paraguay",
+        "iso_code": "PY",
+        "vaccinated": 9.31,
+        "fully_vaccinated": 34.74
+    },
+    {
+        "country": "Peru",
+        "iso_code": "PE",
+        "vaccinated": 13.33,
+        "fully_vaccinated": 49.41
+    },
+    {
+        "country": "Philippines",
+        "iso_code": "PH",
+        "vaccinated": 7.07,
+        "fully_vaccinated": 22.6
+    },
+    {
+        "country": "Pitcairn",
+        "iso_code": "PN",
+        "vaccinated": -1.0,
+        "fully_vaccinated": -1.0
+    },
+    {
+        "country": "Poland",
+        "iso_code": "PL",
+        "vaccinated": 0.88,
+        "fully_vaccinated": 53.38
+    },
+    {
+        "country": "Portugal",
+        "iso_code": "PT",
+        "vaccinated": 1.26,
+        "fully_vaccinated": 87.78
+    },
+    {
+        "country": "Qatar",
+        "iso_code": "QA",
+        "vaccinated": -1.0,
+        "fully_vaccinated": -1.0
+    },
+    {
+        "country": "Romania",
+        "iso_code": "RO",
+        "vaccinated": -1.0,
+        "fully_vaccinated": -1.0
+    },
+    {
+        "country": "Russia",
+        "iso_code": "RU",
+        "vaccinated": 7.1,
+        "fully_vaccinated": 35.8
+    },
+    {
+        "country": "Rwanda",
+        "iso_code": "RW",
+        "vaccinated": 16.98,
+        "fully_vaccinated": 18.98
+    },
+    {
+        "country": "Saint Helena",
+        "iso_code": "SH",
+        "vaccinated": -1.0,
+        "fully_vaccinated": -1.0
+    },
+    {
+        "country": "Saint Kitts and Nevis",
+        "iso_code": "KN",
+        "vaccinated": 2.91,
+        "fully_vaccinated": 46.05
+    },
+    {
+        "country": "Saint Lucia",
+        "iso_code": "LC",
+        "vaccinated": 4.72,
+        "fully_vaccinated": 23.99
+    },
+    {
+        "country": "Saint Vincent and the Grenadines",
+        "iso_code": "VC",
+        "vaccinated": 7.26,
+        "fully_vaccinated": 18.76
+    },
+    {
+        "country": "Samoa",
+        "iso_code": "WS",
+        "vaccinated": 25.49,
+        "fully_vaccinated": 43.09
+    },
+    {
+        "country": "San Marino",
+        "iso_code": "SM",
+        "vaccinated": 8.36,
+        "fully_vaccinated": 65.65
+    },
+    {
+        "country": "Sao Tome and Principe",
+        "iso_code": "ST",
+        "vaccinated": 23.53,
+        "fully_vaccinated": 12.79
+    },
+    {
+        "country": "Saudi Arabia",
+        "iso_code": "SA",
+        "vaccinated": 6.61,
+        "fully_vaccinated": 62.61
+    },
+    {
+        "country": "Senegal",
+        "iso_code": "SN",
+        "vaccinated": 2.34,
+        "fully_vaccinated": 5.11
+    },
+    {
+        "country": "Serbia",
+        "iso_code": "RS",
+        "vaccinated": 2.33,
+        "fully_vaccinated": 44.42
+    },
+    {
+        "country": "Seychelles",
+        "iso_code": "SC",
+        "vaccinated": 4.25,
+        "fully_vaccinated": 78.24
+    },
+    {
+        "country": "Sierra Leone",
+        "iso_code": "SL",
+        "vaccinated": 3.7,
+        "fully_vaccinated": 3.72
+    },
+    {
+        "country": "Singapore",
+        "iso_code": "SG",
+        "vaccinated": 1.08,
+        "fully_vaccinated": 91.91
+    },
+    {
+        "country": "Sint Maarten (Dutch part)",
+        "iso_code": "SX",
+        "vaccinated": 4.89,
+        "fully_vaccinated": 56.46
+    },
+    {
+        "country": "Slovakia",
+        "iso_code": "SK",
+        "vaccinated": 4.08,
+        "fully_vaccinated": 42.62
+    },
+    {
+        "country": "Slovenia",
+        "iso_code": "SI",
+        "vaccinated": 3.87,
+        "fully_vaccinated": 54.59
+    },
+    {
+        "country": "Solomon Islands",
+        "iso_code": "SB",
+        "vaccinated": 14.27,
+        "fully_vaccinated": 5.05
+    },
+    {
+        "country": "Somalia",
+        "iso_code": "SO",
+        "vaccinated": 0.15,
+        "fully_vaccinated": 3.45
+    },
+    {
+        "country": "South Africa",
+        "iso_code": "ZA",
+        "vaccinated": 4.7,
+        "fully_vaccinated": 22.62
+    },
+    {
+        "country": "South America",
+        "iso_code": "South America",
+        "vaccinated": 15.36,
+        "fully_vaccinated": 55.46
+    },
+    {
+        "country": "South Korea",
+        "iso_code": "KR",
+        "vaccinated": 3.51,
+        "fully_vaccinated": 78.57
+    },
+    {
+        "country": "South Sudan",
+        "iso_code": "SS",
+        "vaccinated": 0.16,
+        "fully_vaccinated": 0.58
+    },
+    {
+        "country": "Spain",
+        "iso_code": "ES",
+        "vaccinated": 1.48,
+        "fully_vaccinated": 80.2
+    },
+    {
+        "country": "Sri Lanka",
+        "iso_code": "LK",
+        "vaccinated": 10.26,
+        "fully_vaccinated": 63.65
+    },
+    {
+        "country": "Sudan",
+        "iso_code": "SD",
+        "vaccinated": -1.0,
+        "fully_vaccinated": -1.0
+    },
+    {
+        "country": "Suriname",
+        "iso_code": "SR",
+        "vaccinated": 7.09,
+        "fully_vaccinated": 35.96
+    },
+    {
+        "country": "Sweden",
+        "iso_code": "SE",
+        "vaccinated": 2.98,
+        "fully_vaccinated": 68.72
+    },
+    {
+        "country": "Switzerland",
+        "iso_code": "CH",
+        "vaccinated": 1.83,
+        "fully_vaccinated": 64.69
+    },
+    {
+        "country": "Syria",
+        "iso_code": "SY",
+        "vaccinated": 0.56,
+        "fully_vaccinated": 3.95
+    },
+    {
+        "country": "Taiwan",
+        "iso_code": "TW",
+        "vaccinated": 31.52,
+        "fully_vaccinated": 43.78
+    },
+    {
+        "country": "Tajikistan",
+        "iso_code": "TJ",
+        "vaccinated": 5.93,
+        "fully_vaccinated": 21.92
+    },
+    {
+        "country": "Tanzania",
+        "iso_code": "TZ",
+        "vaccinated": -1.0,
+        "fully_vaccinated": -1.0
+    },
+    {
+        "country": "Thailand",
+        "iso_code": "TH",
+        "vaccinated": 11.68,
+        "fully_vaccinated": 53.65
+    },
+    {
+        "country": "Timor",
+        "iso_code": "TL",
+        "vaccinated": 15.27,
+        "fully_vaccinated": 28.44
+    },
+    {
+        "country": "Togo",
+        "iso_code": "TG",
+        "vaccinated": 5.77,
+        "fully_vaccinated": 5.69
+    },
+    {
+        "country": "Tokelau",
+        "iso_code": "TK",
+        "vaccinated": -1.0,
+        "fully_vaccinated": -1.0
+    },
+    {
+        "country": "Tonga",
+        "iso_code": "TO",
+        "vaccinated": 22.43,
+        "fully_vaccinated": 36.82
+    },
+    {
+        "country": "Trinidad and Tobago",
+        "iso_code": "TT",
+        "vaccinated": 0.27,
+        "fully_vaccinated": 44.95
+    },
+    {
+        "country": "Tunisia",
+        "iso_code": "TN",
+        "vaccinated": 8.79,
+        "fully_vaccinated": 40.3
+    },
+    {
+        "country": "Turkey",
+        "iso_code": "TR",
+        "vaccinated": 7.17,
+        "fully_vaccinated": 58.61
+    },
+    {
+        "country": "Turkmenistan",
+        "iso_code": "TM",
+        "vaccinated": -1.0,
+        "fully_vaccinated": -1.0
+    },
+    {
+        "country": "Turks and Caicos Islands",
+        "iso_code": "TC",
+        "vaccinated": 5.29,
+        "fully_vaccinated": 69.17
+    },
+    {
+        "country": "Tuvalu",
+        "iso_code": "TV",
+        "vaccinated": 2.9,
+        "fully_vaccinated": 49.34
+    },
+    {
+        "country": "Uganda",
+        "iso_code": "UG",
+        "vaccinated": 6.21,
+        "fully_vaccinated": 1.94
+    },
+    {
+        "country": "Ukraine",
+        "iso_code": "UA",
+        "vaccinated": 7.54,
+        "fully_vaccinated": 21.35
+    },
+    {
+        "country": "United Arab Emirates",
+        "iso_code": "AE",
+        "vaccinated": 9.7,
+        "fully_vaccinated": 88.4
+    },
+    {
+        "country": "United Kingdom",
+        "iso_code": "GB",
+        "vaccinated": 6.72,
+        "fully_vaccinated": 67.54
+    },
+    {
+        "country": "United States",
+        "iso_code": "US",
+        "vaccinated": 10.12,
+        "fully_vaccinated": 57.72
+    },
+    {
+        "country": "Upper middle income",
+        "iso_code": "Upper middle income",
+        "vaccinated": 9.23,
+        "fully_vaccinated": 63.88
+    },
+    {
+        "country": "Uruguay",
+        "iso_code": "UY",
+        "vaccinated": 3.93,
+        "fully_vaccinated": 75.65
+    },
+    {
+        "country": "Uzbekistan",
+        "iso_code": "UZ",
+        "vaccinated": 20.79,
+        "fully_vaccinated": 17.33
+    },
+    {
+        "country": "Vanuatu",
+        "iso_code": "VU",
+        "vaccinated": 15.61,
+        "fully_vaccinated": 11.73
+    },
+    {
+        "country": "Venezuela",
+        "iso_code": "VE",
+        "vaccinated": 15.98,
+        "fully_vaccinated": 32.3
+    },
+    {
+        "country": "Vietnam",
+        "iso_code": "VN",
+        "vaccinated": 28.95,
+        "fully_vaccinated": 37.49
+    },
+    {
+        "country": "Wallis and Futuna",
+        "iso_code": "WF",
+        "vaccinated": 1.06,
+        "fully_vaccinated": 52.91
+    },
+    {
+        "country": "World",
+        "iso_code": "World",
+        "vaccinated": 11.18,
+        "fully_vaccinated": 41.23
+    },
+    {
+        "country": "Yemen",
+        "iso_code": "YE",
+        "vaccinated": 0.6,
+        "fully_vaccinated": 1.13
+    },
+    {
+        "country": "Zambia",
+        "iso_code": "ZM",
+        "vaccinated": -1.0,
+        "fully_vaccinated": -1.0
+    },
+    {
+        "country": "Zimbabwe",
+        "iso_code": "ZW",
+        "vaccinated": 5.32,
+        "fully_vaccinated": 17.98
+    }
+]
