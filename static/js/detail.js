@@ -337,7 +337,7 @@ function addComment(i) {
   console.log('비밀번호:' + inputPwEl.value);
   let postData = {
     iso_code: iso_upper,
-    parent: parentIndex,
+    parent: parseInt(parentIndex),
     text: inputNicknameEl.value,
     nickname: inputNicknameEl.value,
     password: inputPwEl.value,

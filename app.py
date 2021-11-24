@@ -68,10 +68,13 @@ def add_comment(ISO_code):
     with open('./static/Test_json/comment.json','r') as f:  # db 대용 json 파일
         comment = json.load(f)
     data["write_time"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    data["index"] = len(comment)
+    data["index"] = len(comment) + 10
     if data["parent"] == -1:
         data["parent"] = data["index"]
     comment.insert(0, data)
+    
+    # comment.sort(key = lambda x : (x["parent"], x["index"]), reverse=(True, False))
+    comment = sorted(comment, key=lambda e: (-e['parent'], e['index']))
 
     with open('./static/Test_json/comment.json','w') as f:  # db 대용 json 파일
         json.dump(comment, f)

@@ -45,7 +45,7 @@ import json
 conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
 cur = conn.cursor()
 
-cur.execute("select * from comment where iso_code='US' order by parent desc;")
+cur.execute("select * from comment order by parent desc;")
 row_headers=[x[0] for x in cur.description]
 rv = cur.fetchall()
 comment_data=[]
@@ -53,6 +53,6 @@ for result in rv:
     comment_data.append(dict(zip(row_headers,result)))
 conn.close()
 
-file_path = "./comment.json"
+file_path = "../static/Test_json/comment.json"
 with open(file_path, 'w') as outfile:
     json.dump(comment_data, outfile)
