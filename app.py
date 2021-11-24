@@ -14,8 +14,8 @@ def index():
 def data():
     with open('./static/Test_json/api_data.json','r') as f:
             lvl_data = json.load(f)
-    
     return jsonify({'caution':lvl_data})
+
 @app.route('/boarddata',methods=['GET'])
 def board():
     boarddata = board_data()
@@ -38,6 +38,15 @@ def country(ISO_code):
         'vaccine':vaccinedata,'notice':noticedata,'allnotice':allnotice
         }
     return render_template('detail.html',data = dataset)
+'''
+@app.route('/country/<ISO_code>', methods=['POST'])
+def add_comment(ISO_code):
+    # db update
+    request.form.get
+    
+
+    return # 리다이렉팅
+'''
 
 if __name__ =="__main__":
     app.run(debug=True)
