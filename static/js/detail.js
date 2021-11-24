@@ -194,7 +194,6 @@ function readComment(data) {
       readPlusCommentBtn(el, data);
       readPlusComment(el);
       plusCommentAddListener();
-      inputGroupAddListener();
     }
   });
 }
@@ -320,11 +319,16 @@ function removeInputGroup(event) {
 const body = document.querySelector('body');
 body.addEventListener('click', removeInputGroup);
 
+// 댓글목록 초기화
+function resetComment() {
+  let commentListEl = document.querySelector('.comment-list');
+  commentListEl.innerHTML = '';
+}
 // 댓글 추가 기능
 function addComment(i) {
   let iso_upper = window.location.pathname.slice(9, 11).toUpperCase();
-  let inputNicknameEl = document.querySelectorAll('.input-nickname')[i];
   let inputCommentEl = document.querySelectorAll('.input-comment')[i];
+  let inputNicknameEl = document.querySelectorAll('.input-nickname')[i];
   let inputPwEl = document.querySelectorAll('.input-pw')[i];
   let parentIndex =
     event.target.parentElement.parentElement.parentElement.dataset.parent !==
@@ -338,7 +342,7 @@ function addComment(i) {
   let postData = {
     iso_code: iso_upper,
     parent: parseInt(parentIndex),
-    text: inputNicknameEl.value,
+    text: inputCommentEl.value,
     nickname: inputNicknameEl.value,
     password: inputPwEl.value,
   };
@@ -348,7 +352,8 @@ function addComment(i) {
     data: JSON.stringify(postData),
     contentType: 'application/json; charset=UTF-8',
     success: function () {
-      alert('댓글이 등록되었습니다.');
+      // alert('댓글이 등록되었습니다.');
+      callComment();
     },
   });
   inputNicknameEl.value = '';
@@ -365,8 +370,10 @@ function callComment() {
     dataType: 'json',
     async: false,
     success: function (data) {
+      resetComment();
       commentCount(data);
       readComment(data);
+      inputGroupAddListener();
     },
   });
 }
