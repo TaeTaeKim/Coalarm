@@ -2,7 +2,7 @@
 
 # Coalarm
   
-<img src="./logo.png" width="100px" height="100px" title="Github_Logo"/>
+<img src="./logo.png" width="250px" height="150px" title="Github_Logo"/>
 
 
 ## 프로젝트 구성 안내
