@@ -299,18 +299,7 @@ header {
 .box-head {
   padding-bottom: 3px;
 }
-.box-head .btn {
-  padding: 2px;
-  background: rgba(0, 0, 0, 0);
-  border: none;
-  font-size: .7rem;
-}
 
-.box-head .btn:hover {
-  color: #5733b5;
-  font-weight: bolder;
-  cursor: pointer;
-}
 .box-head .comment-nickname {
   font-weight: bolder;
 }

@@ -174,8 +174,6 @@ const data = [
     parent: 12,
     text: 'cxvbsb',
     nickname: 'xcnn',
-    like: 0,
-    dislike: 423,
     write_time: '1998-12-31 23:59:59',
     password: 'sgbr',
   },
@@ -185,8 +183,6 @@ const data = [
     parent: 9,
     text: 'asdf',
     nickname: 'xcvb',
-    like: 5,
-    dislike: 6,
     write_time: '1998-12-31 23:59:59',
     password: 'asdfxb',
   },
@@ -196,8 +192,6 @@ const data = [
     parent: 3,
     text: 'qwer',
     nickname: 'asvarew',
-    like: 2,
-    dislike: 123,
     write_time: '1998-12-31 23:59:59',
     password: 'dxvb',
   },
@@ -207,8 +201,6 @@ const data = [
     parent: 3,
     text: 'cxvbsb',
     nickname: 'xcnn',
-    like: 0,
-    dislike: 423,
     write_time: '1998-12-31 23:59:59',
     password: 'sgbr',
   },
@@ -218,8 +210,6 @@ const data = [
     parent: 3,
     text: 'qwer',
     nickname: 'asvarew',
-    like: 2,
-    dislike: 123,
     write_time: '1998-12-31 23:59:59',
     password: 'dxvb',
   },
@@ -229,19 +219,15 @@ const data = [
     parent: 1,
     text: 'asdf',
     nickname: 'xcvb',
-    like: 5,
-    dislike: 6,
     write_time: '1998-12-31 23:59:59',
     password: 'asdfxb',
   },
   {
     index: 2,
     iso_code: 'US',
-    parent: 3,
+    parent: 1,
     text: 'zxcv',
     nickname: 'sefb',
-    like: 34,
-    dislike: 1,
     write_time: '1998-12-31 23:59:59',
     password: 'xcvbsdfb',
   },
@@ -251,8 +237,6 @@ const data = [
     parent: 1,
     text: 'zxcv',
     nickname: 'sefb',
-    like: 34,
-    dislike: 1,
     write_time: '1998-12-31 23:59:59',
     password: 'xcvbsdfb',
   },
@@ -271,13 +255,11 @@ function readComment(data) {
       <div class="box-head">
         <span class="comment-nickname">${el.nickname}</span>
         <span class="comment-period">${el.write_time}</span>
-        <button class="btn btn-update-comment">수정</button>
-        <button class="btn btn-delete-comment">삭제</button>
       </div>
       <div class="box-body">${el.text}</div>
       <div class="box-btn-group">
-        <button class="like"><i class="far fa-thumbs-up"></i> ${el.like}</button>
-        <button class="hate"><i class="far fa-thumbs-down"></i> ${el.dislike}</button>
+        <button class="btn btn-update-comment">수정</button>
+        <button class="btn btn-delete-comment">삭제</button>
         <button class="btn-plus-comment">답글</button>
       </div>
       `;
@@ -340,13 +322,11 @@ function readPlusComment(plusComment) {
   <div class="box-head">
     <span class="comment-nickname">${plusComment.nickname}</span>
     <span class="comment-period">${plusComment.write_time}</span>
-    <button class="btn btn-update-comment">수정</button>
-    <button class="btn btn-delete-comment">삭제</button>
   </div>
   <div class="box-body">${plusComment.text}</div>
   <div class="box-btn-group">
-    <button class="like"><i class="far fa-thumbs-up"></i> ${plusComment.like}</button>
-    <button class="hate"><i class="far fa-thumbs-down"></i> ${plusComment.dislike}</button>
+    <button class="btn btn-update-comment">수정</button>
+    <button class="btn btn-delete-comment">삭제</button>
   </div>
     `;
   plusCommentListEl.append(commentBoxDiv);
@@ -401,7 +381,8 @@ function removeInputGroup(event) {
   if (
     //예외 사항
     event.target.parentElement === safeInputEl ||
-    event.target.textContent === '답글' ||
+    event.target.parentElement.nextElementSibling ===
+      document.querySelectorAll('.comment-input-group')[1] ||
     event.target.textContent === '취소'
   ) {
     return; //예외 사항은 pass
@@ -423,9 +404,20 @@ function addComment(i) {
   console.log('닉네임:' + inputNicknameEl.value);
   console.log('내용:' + inputCommentEl.value);
   console.log('비밀번호:' + inputPwEl.value);
+  $.ajax({
+    type: 'post',
+    url: './',
+    data: parms,
+    dataType: 'json',
+    async: false,
+    success: function () {
+      alert('댓글이 등록되었습니다.');
+    },
+  });
   inputNicknameEl.value = '';
   inputCommentEl.value = '';
   inputPwEl.value = '';
+  btnReset();
 }
 
 commentCount(data);
