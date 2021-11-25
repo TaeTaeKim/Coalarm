@@ -6,9 +6,7 @@ header {
 }
 
 .logo-group {
-  display: flex;
-  justify-content: left;
-  align-items: center;
+  display: inline-flex;
   padding: 20px;
   padding-left: 18%;
   transition: 1s;
@@ -288,7 +286,6 @@ header {
 }
 .btn-group .btn.btn-submit:enabled{
   background: #8b60e8;
-  /* background: #5733b5; */
 }
 .comment-list {
   padding: 20px;
@@ -398,6 +395,9 @@ header {
   .information-content {
     margin: 10px auto;
   }
+  .category-title .click-guide {
+    padding-left: 85%;
+  }
   .content-group {
     margin: 0;
   }
@@ -408,6 +408,7 @@ header {
   .content-position {
     flex-flow: column;
   }
+  
   .comment-content {
     max-width: 87%;
     align-self: center;
@@ -428,7 +429,7 @@ header {
     margin: 10px 13px;
   }
   .category-title .click-guide {
-    padding-left: 61%;
+    padding-left: 55%;
   }
   .comment-content {
     max-width: 93%;
