@@ -77,11 +77,11 @@ header {
 }
 .chart-group> div {
   min-width: 250px;
-  margin: 13px;
+  margin: 8px;
   color: #5733b5;
   font-weight: bold;
   text-align: center;
-  padding: 30px;
+  padding: 22px;
   background: #fff;
   border-radius: 5px;
   box-shadow: 1px 1px 3px 2px rgba(236, 230, 230, 0.767);
@@ -127,11 +127,11 @@ header {
   -webkit-background-clip: text;
 }
 .safe-point-group .safe-point.middle {
-  background: linear-gradient(to right top, orange, #f39a7f);
+  background: linear-gradient(to right top, orange, #ffeccd);
   -webkit-background-clip: text;
 }
-.safe-point-group .safe-point.row {
-  background: linear-gradient(to right top, red, #ffa69e);
+.safe-point-group .safe-point.low {
+  background: linear-gradient(to right top, red, #fbccc8);
   -webkit-background-clip: text;
 }
 
@@ -144,13 +144,9 @@ header {
 
 
 /* 환율 계산기 부분 */
-.exchange-rate{
-  padding-top: 5px;
-}
 .rate-comment{
   font-size: .2rem;
   color:tomato;
-
 }
 .calculator{
   display: flex;
@@ -189,6 +185,7 @@ header {
   flex-direction: column;
   flex-wrap: wrap;
   padding-top: 5px;
+  line-height: 2;
 }
 .embassy >div:first-child{
   color: black;
@@ -199,6 +196,9 @@ header {
 .embassydata{
   text-align: left;
   padding: 0 0 0 10px;
+}
+.embassydata > a:hover {
+  color: #29c34a;
 }
 
 /* information-content */
@@ -473,6 +473,9 @@ header {
   }
   .chart-group .chart1 .safe-point-group {
     margin-bottom: 15px;
+  }
+  .embassy {
+    align-items: center;
   }
   .information-content {
     margin: 10px 13px;

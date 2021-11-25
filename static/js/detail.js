@@ -93,29 +93,33 @@ document.addEventListener('DOMContentLoaded', function () {
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
-
-var Endnum_list = document.querySelectorAll('.coronadata');
-for (let i = 0; i < Endnum_list.length; i++) {
-  endnum = parseInt(Endnum_list[i].innerText);
-  if (endnum == -1) {
-    Endnum_list[i].innerText = '정보가 없습니다!';
-  } else {
-    $({ val: 0 }).animate(
-      { val: endnum },
-      {
-        duration: 1000,
-        step: function () {
-          var num = numberWithCommas(Math.floor(this.val));
-          Endnum_list[i].innerText = num;
-        },
-        complete: function () {
-          var num = numberWithCommas(Math.floor(this.val));
-          Endnum_list[i].innerText = num;
-        },
-      }
-    );
+function numberAnimation(className) {
+  let Endnum_list = document.querySelectorAll(className);
+  for (let i = 0; i < Endnum_list.length; i++) {
+    endnum = parseInt(Endnum_list[i].innerText);
+    if (endnum == -1) {
+      Endnum_list[i].innerText = '정보가 없습니다!';
+    } else {
+      $({ val: 0 }).animate(
+        { val: endnum },
+        {
+          duration: 1000,
+          step: function () {
+            let num = numberWithCommas(Math.floor(this.val));
+            Endnum_list[i].innerText = num;
+          },
+          complete: function () {
+            let num = numberWithCommas(Math.floor(this.val));
+            Endnum_list[i].innerText = num;
+          },
+        }
+      );
+    }
   }
 }
+numberAnimation('.coronadata');
+numberAnimation('.safe-point');
+
 // 환율 계산기
 let rate = $('.rate').text();
 rate = Number(rate.replace(/[^0-9.-]+/g, ''));
@@ -140,14 +144,21 @@ function safeColor() {
   const safePointEl = document.querySelector('.safe-point');
   const sagePoint = parseInt(safePointEl.textContent);
   if (sagePoint >= 85) {
-    safePointEl.classList.remove('middle', 'row');
+    safePointEl.classList.remove('middle', 'low');
     safePointEl.classList.add('high');
   } else if (sagePoint >= 70) {
-    safePointEl.classList.remove('high', 'row');
+    safePointEl.classList.remove('high', 'low');
     safePointEl.classList.add('middle');
   } else {
     safePointEl.classList.remove('high', 'middle');
-    safePointEl.classList.add('row');
+    safePointEl.classList.add('low');
   }
 }
-safeColor();
+
+const colorTimer = setInterval(() => {
+  safeColor();
+}, 100);
+
+const clearcolorTimer = setTimeout(() => {
+  clearInterval(colorTimer);
+}, 1100);
