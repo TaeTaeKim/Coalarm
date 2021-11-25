@@ -57,9 +57,41 @@ $(document).ready(()=>{
     $('.dropmenu').addClass('hidden')
   })
 
-})
+}); 
+// 검색관련 js 코드
 
-
+function searchCountry(){
+  console.log($('#country_search').val())
+  let searched = $('#country_search').val()
+  $.getJSON('./static/Test_json/country_kr_ISO.json',function(data){
+    let countrydata = data;
+    for(let i=0;i<=countrydata.length;i++){
+      if(searched==countrydata[i].country_kr){
+        window.location.href=`/country/${countrydata[i].iso_code}`
+      }
+    }
+  })
+};
+$('#country_search').on('keyup',function(){
+  let txt = $(this).val()
+  if(txt==""){
+    $('.autocomplete').addClass('hidden')
+  }
+  else{
+    $('.autocomplete').removeClass('hidden')
+  }
+  $('.autocomplete').html("") 
+  console.log(txt);
+  $.getJSON('./static/Test_json/country_kr_ISO.json',function(data){
+    data.forEach((el)=>{
+      if (el.country_kr.indexOf(txt)>-1){
+        $('.autocomplete').append(
+          `<a href="/country/${el.iso_code}">${el.country_kr}</a>` 
+        )
+      }
+    })
+  })
+});
 
 
 
@@ -125,8 +157,8 @@ function rendermap() {
       colorAxis: {colors: ['white','blue','yellow', 'red','black','orange']},
       backgroundColor: '#FFFFFF',
       region: Zoom,
-      legend: 'none',
-      defaultColor: '#222222'
+      defaultColor: '#222222',
+      legend:'noen'
     };
 
     const chart = new google.visualization.GeoChart(document.getElementById('regions_div'));

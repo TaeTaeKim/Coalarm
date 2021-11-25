@@ -29,3 +29,31 @@
     font-weight: 200;
     background-color: rgba(255, 255, 255, 0.719);
 }
+/* 맵 상단 알림과 검색창 */
+.country-search{
+    display: flex;
+    justify-content: space-between;
+}
+.country-search > div:first-child{
+    font-size: 20px;
+    color: tomato;
+}
+.country-search input{
+    width: 11rem;
+    font-size: 18px;
+    
+
+}
+.country-search button{
+    font-size: 18px;
+} 
+.autocomplete{
+    width: 11rem;
+    position: absolute;
+    background-color: black;
+    z-index: 1000;
+}
+.autocomplete a{
+    display: block;
+    color: white;
+}

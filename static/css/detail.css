@@ -120,6 +120,9 @@ header {
 }
 
 /* 환율 계산기 부분 */
+.exchange-rate{
+  padding-top: 5px;
+}
 .rate-comment{
   font-size: .2rem;
   color:tomato;
@@ -161,8 +164,18 @@ header {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  padding-top: 5px;
 }
-
+.embassy >div:first-child{
+  color: black;
+  font-size: 18px;
+  font-weight: 900;
+  text-align: center;
+}
+.embassydata{
+  text-align: left;
+  padding: 0 0 0 10px;
+}
 
 /* information-content */
 .information-content{

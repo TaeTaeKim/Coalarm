@@ -47,6 +47,16 @@
         </div>
         
         <div id='map-container'>
+            <div class="country-search">
+                <div>✔해당 국가를 클릭하면 국가 상세페이지로 이동합니다.</div>
+                <div>
+                    <input type="text" id ="country_search"placeholder="국가 검색" autofocus autocomplete="off" required>
+                    <button onclick="searchCountry();">바로가기</button>
+                    <div class="autocomplete"></div>
+                </div>
+            </div>
+            
+
             <div class="tabbar continent">
                 <div class ='tab world'>전체</div>
                 <div class ='btn'>
