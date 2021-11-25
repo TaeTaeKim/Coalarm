@@ -135,13 +135,14 @@ $('.reverse-cal').on('click', function () {
   rate = 1 / rate;
 });
 
+
 //댓글 입력창 자동크기 조절
 function resize(obj) {
   obj.style.height = '1px';
   obj.style.height = 3 + obj.scrollHeight + 'px';
 }
 
-//댓글 버튼 활성화
+//댓글 버튼 활성화 -기본
 function btnActive() {
   const inputNicknameEls = document.querySelectorAll('.input-nickname');
   const inputCommentEls = document.querySelectorAll('.input-comment');
@@ -165,6 +166,31 @@ function btnReset() {
     el.setAttribute('disabled', 'false');
   });
 }
+//댓글 버튼 활성화 - 수정
+function btnActiveUpdate() {
+  const inputCommentEls = document.querySelectorAll('.input-comment');
+  const inputPwEls = document.querySelectorAll('.input-pw');
+  const btnSubmitEls = document.querySelectorAll('.btn-submit');
+  for (let i = 0; i < inputCommentEls.length; i++) {
+    if (inputCommentEls[i].value !== '' && inputPwEls[i].value !== '') {
+      btnSubmitEls[i].removeAttribute('disabled');
+    } else {
+      btnReset();
+    }
+  }
+}
+//댓글 버튼 활성화 - 삭제
+function btnActiveDelete() {
+  const inputPwEls = document.querySelectorAll('.input-pw');
+  const btnSubmitEls = document.querySelectorAll('.btn-submit');
+  for (let i = 0; i < inputPwEls.length; i++) {
+    if (inputPwEls[i].value !== '') {
+      btnSubmitEls[i].removeAttribute('disabled');
+    } else {
+      btnReset();
+    }
+  }
+}
 
 // 댓글 보여 주기
 function readComment(data) {
@@ -174,7 +200,8 @@ function readComment(data) {
     if (el.index === el.parent) {
       let commentBoxDiv = document.createElement('div');
       commentBoxDiv.setAttribute('class', 'comment-box');
-      commentBoxDiv.setAttribute('data-parent', el.index); // 댓글에 인덱스 표시
+      commentBoxDiv.setAttribute('data-parent', el.index); // 부모 댓글 표시
+      commentBoxDiv.setAttribute('data-index', el.index); // 자기 index 표시
       commentBoxDiv.innerHTML = `
       <div class="box-head">
         <span class="comment-nickname">${el.nickname}</span>
@@ -182,8 +209,8 @@ function readComment(data) {
       </div>
       <div class="box-body">${el.text}</div>
       <div class="box-btn-group">
-        <button class="btn btn-update-comment">수정</button>
-        <button class="btn btn-delete-comment">삭제</button>
+        <button class="btn btn-update-comment" onclick="updateInputGroup()">수정</button>
+        <button class="btn btn-delete-comment" onclick="deleteInputGroup()">삭제</button>
         <button class="btn-plus-comment">답글</button>
       </div>
       `;
@@ -241,6 +268,7 @@ function readPlusComment(plusComment) {
   let plusCommentListEl = commentBoxEl.querySelector('.plus-comment-list');
   let commentBoxDiv = document.createElement('div');
   commentBoxDiv.setAttribute('class', 'comment-box-plus');
+  commentBoxDiv.setAttribute('data-index', plusComment.index); // 자기 index 표시
   commentBoxDiv.innerHTML = `
   <div class="box-head">
     <span class="comment-nickname">${plusComment.nickname}</span>
@@ -248,8 +276,8 @@ function readPlusComment(plusComment) {
   </div>
   <div class="box-body">${plusComment.text}</div>
   <div class="box-btn-group">
-    <button class="btn btn-update-comment">수정</button>
-    <button class="btn btn-delete-comment">삭제</button>
+    <button class="btn btn-update-comment" onclick="updateInputGroup()">수정</button>
+    <button class="btn btn-delete-comment" onclick="deleteInputGroup()">삭제</button>
   </div>
     `;
   plusCommentListEl.append(commentBoxDiv);
@@ -275,8 +303,8 @@ function commentCount(data) {
 }
 
 // 대댓글 입력 창
-// 입력창 추가 이벤트핸들러
-function addInputGroup(event) {
+// 댓글 추가 입력창 이벤트핸들러
+function addInputGroup() {
   if (document.querySelectorAll('.comment-input-group').length === 1) {
     let formEl = document.createElement('form');
     formEl.setAttribute('class', 'comment-input-group margin');
@@ -301,18 +329,33 @@ function inputGroupAddListener() {
 //입력창 삭제 이벤트핸들러
 function removeInputGroup(event) {
   const safeInputEl = document.querySelectorAll('.comment-input-group')[1];
-  if (
+  console.log(event.target.parentElement);
+  console.log(safeInputEl);
+  if (event.target.textContent === '수정') {
+    if (safeInputEl !== undefined) {
+      safeInputEl.remove();
+      updateInputGroup();
+    }
+  } else if (event.target.textContent === '삭제') {
+    if (safeInputEl !== undefined) {
+      safeInputEl.remove();
+      deleteInputGroup();
+    }
+  } else if (event.target.textContent === '답글') {
+    if (safeInputEl !== undefined) {
+      safeInputEl.remove();
+      addInputGroup();
+    }
+  } else if (
     //예외 사항
     event.target.parentElement === safeInputEl ||
-    event.target.parentElement.nextElementSibling ===
-      document.querySelectorAll('.comment-input-group')[1] ||
     event.target.textContent === '취소'
   ) {
     return; //예외 사항은 pass
   } else {
     //그외의 경우는 입력상자 삭제
-    if (document.querySelectorAll('.comment-input-group')[1] !== undefined) {
-      document.querySelectorAll('.comment-input-group')[1].remove();
+    if (safeInputEl !== undefined) {
+      safeInputEl.remove();
     }
   }
 }
@@ -361,6 +404,54 @@ function addComment(i) {
   inputPwEl.value = '';
   btnReset();
 }
+// 댓글 삭제
+function deleteComment() {
+  console.log(
+    '삭제:' +
+      event.target.parentElement.parentElement.parentElement.dataset.index
+  );
+}
+// 댓글 수정 작업
+function updateComment() {
+  console.log(
+    '수정:' +
+      event.target.parentElement.parentElement.parentElement.dataset.index
+  );
+}
+// 댓글 수정 입력창 이벤트핸들러
+function updateInputGroup() {
+  if (document.querySelectorAll('.comment-input-group').length === 1) {
+    let originalText =
+      event.target.parentElement.previousElementSibling.textContent;
+    let formEl = document.createElement('form');
+    formEl.setAttribute('class', 'comment-input-group margin');
+    formEl.innerHTML = `
+    <textarea class="input-comment" oninput="btnActiveUpdate()" onkeydown="resize(this)" onkeyup="resize(this)" rows="1" type="text" placeholder="공개 댓글 수정...(100글자 이내)">${originalText}</textarea>
+    <input type="text" class="input-pw" oninput="btnActiveUpdate()" placeholder="비밀번호 입력...">
+    <div class="btn-group">
+      <button type="reset" onclick="btnReset()" class="btn btn-reset">취소</button>
+      <button type="button" onclick="updateComment()" class="btn btn-submit" disabled>수정</button>
+    </div>
+    `;
+    event.target.parentElement.after(formEl);
+  }
+}
+// 댓글 삭제 입력창 이벤트핸들러
+function deleteInputGroup() {
+  if (document.querySelectorAll('.comment-input-group').length === 1) {
+    let formEl = document.createElement('form');
+    formEl.setAttribute('class', 'comment-input-group margin');
+    formEl.innerHTML = `
+    <input type="text" class="input-pw" oninput="btnActiveDelete()" placeholder="비밀번호 입력...">
+    <div class="btn-group">
+      <button type="reset" onclick="btnReset()" class="btn btn-reset">취소</button>
+      <button type="button" onclick="deleteComment()" class="btn btn-submit" disabled>삭제</button>
+    </div>
+    `;
+    event.target.parentElement.after(formEl);
+  }
+}
+
 // 댓글 DB와 연동
 function callComment() {
   let iso_upper = window.location.pathname.slice(9, 11).toUpperCase();
