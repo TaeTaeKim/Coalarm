@@ -64,11 +64,10 @@ def comment_data(ISO_code):
 def add_comment(ISO_code):
     # comment table insert query
     data = request.get_json()
-    print(data)
     with open('./static/Test_json/comment.json','r') as f:  # db 대용 json 파일
         comment = json.load(f)
     data["write_time"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    data["index"] = len(comment) + 10
+    data["index"] = len(comment) + 1
     if data["parent"] == -1:
         data["parent"] = data["index"]
     comment.insert(0, data)
@@ -79,21 +78,50 @@ def add_comment(ISO_code):
     with open('./static/Test_json/comment.json','w') as f:  # db 대용 json 파일
         json.dump(comment, f)
 
-    # print(comment[-1])
+    print(comment[0])
     return jsonify({"result":"success"})
 
 # update input : 인덱스, 비밀번호, 내용
 @app.route('/country/<ISO_code>', methods=['PATCH'])
 def update_comment(ISO_code):
     # comment table update query
-    return
+    data = request.get_json()
+    
+    with open('./static/Test_json/comment.json','r') as f:  # db 대용 json 파일
+        comment = json.load(f)
+    for i in range(len(comment)):
+        if data["index"] == comment[i]["index"] and data["password"] == comment[i]["password"]:
+            comment[i]["write_time"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            comment[i]["text"] = data["text"]
+            
+            # json 파일 저장
+            # comment = sorted(comment, key=lambda e: (-e['parent'], e['index']))
+            with open('./static/Test_json/comment.json','w') as f:  # db 대용 json 파일
+                json.dump(comment, f)
+            return jsonify({"result":"success"})
+
+    return jsonify({"result":"fail"})
 
 # delete input : 인덱스, 비밀번호
 @app.route('/country/<ISO_code>', methods=['DELETE'])
 def delete_comment(ISO_code):
     # comment table delete query
-    return
-    
+    data = request.get_json()
+    with open('./static/Test_json/comment.json','r') as f:  # db 대용 json 파일
+        comment = json.load(f)
+    for i in range(len(comment)):
+        if data["index"] == comment[i]["index"] and data["password"] == comment[i]["password"]:
+            # 해당 댓글 지우기
+            comment = list(filter(lambda x: x["index"] != data["index"], comment))
+            # 해당 댓글이 부모인 댓글 지우기
+            comment = list(filter(lambda x: x["parent"] != data["index"], comment))
+            # json 파일 저장
+            comment = sorted(comment, key=lambda e: (-e['parent'], e['index']))
+            with open('./static/Test_json/comment.json','w') as f:  # db 대용 json 파일
+                json.dump(comment, f)
+            return jsonify({"result":"success"})
+
+    return jsonify({"result":"fail"})    
 
 if __name__ =="__main__":
     app.run(debug=True)
