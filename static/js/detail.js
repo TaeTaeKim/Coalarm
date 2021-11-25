@@ -135,7 +135,6 @@ $('.reverse-cal').on('click', function () {
   rate = 1 / rate;
 });
 
-
 //댓글 입력창 자동크기 조절
 function resize(obj) {
   obj.style.height = '1px';
@@ -329,8 +328,6 @@ function inputGroupAddListener() {
 //입력창 삭제 이벤트핸들러
 function removeInputGroup(event) {
   const safeInputEl = document.querySelectorAll('.comment-input-group')[1];
-  console.log(event.target.parentElement);
-  console.log(safeInputEl);
   if (event.target.textContent === '수정') {
     if (safeInputEl !== undefined) {
       safeInputEl.remove();
@@ -378,10 +375,6 @@ function addComment(i) {
     undefined
       ? event.target.parentElement.parentElement.parentElement.dataset.parent
       : -1;
-  console.log(parentIndex);
-  console.log('닉네임:' + inputNicknameEl.value);
-  console.log('내용:' + inputCommentEl.value);
-  console.log('비밀번호:' + inputPwEl.value);
   let postData = {
     iso_code: iso_upper,
     parent: parseInt(parentIndex),
@@ -406,17 +399,70 @@ function addComment(i) {
 }
 // 댓글 삭제
 function deleteComment() {
-  console.log(
-    '삭제:' +
-      event.target.parentElement.parentElement.parentElement.dataset.index
-  );
+  let iso_upper = window.location.pathname.slice(9, 11).toUpperCase();
+  let inputPwEl = document.querySelectorAll('.input-pw')[1];
+  let commentIndex =
+    event.target.parentElement.parentElement.parentElement.dataset.index;
+  console.log(commentIndex);
+  console.log('비밀번호:' + inputPwEl.value);
+
+  let deleteData = {
+    index: parseInt(commentIndex),
+    password: inputPwEl.value,
+  };
+  $.ajax({
+    type: 'DELETE',
+    url: '/country/' + iso_upper,
+    data: JSON.stringify(deleteData),
+    contentType: 'application/json; charset=UTF-8',
+    success: function (res) {
+      if (res.result === 'fail') {
+        alert('비밀번호를 확인하세요.');
+      } else if (res.result === 'success') {
+        alert('성공했습니다.');
+      }
+      callComment();
+    },
+    error: function () {
+      alert('알수 없는 오류 발생!');
+    },
+  });
+  inputCommentEl.value = '';
+  inputPwEl.value = '';
+  btnReset();
 }
 // 댓글 수정 작업
 function updateComment() {
-  console.log(
-    '수정:' +
-      event.target.parentElement.parentElement.parentElement.dataset.index
-  );
+  let iso_upper = window.location.pathname.slice(9, 11).toUpperCase();
+  let inputCommentEl = document.querySelectorAll('.input-comment')[1];
+  let inputPwEl = document.querySelectorAll('.input-pw')[1];
+  let commentIndex =
+    event.target.parentElement.parentElement.parentElement.dataset.index;
+  let updateData = {
+    index: parseInt(commentIndex),
+    text: inputCommentEl.value,
+    password: inputPwEl.value,
+  };
+  $.ajax({
+    type: 'PATCH',
+    url: '/country/' + iso_upper,
+    data: JSON.stringify(updateData),
+    contentType: 'application/json; charset=UTF-8',
+    success: function (res) {
+      if (res.result === 'fail') {
+        alert('비밀번호를 확인하세요.');
+      } else if (res.result === 'success') {
+        alert('성공했습니다.');
+      }
+      callComment();
+    },
+    error: function () {
+      alert('알수 없는 오류 발생!');
+    },
+  });
+  inputCommentEl.value = '';
+  inputPwEl.value = '';
+  btnReset();
 }
 // 댓글 수정 입력창 이벤트핸들러
 function updateInputGroup() {
