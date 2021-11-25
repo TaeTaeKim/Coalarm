@@ -134,3 +134,20 @@ $('.reverse-cal').on('click', function () {
   $('.calculator div:last p:first').text(fromname);
   rate = 1 / rate;
 });
+
+// 안전점수 색입히기
+function safeColor() {
+  const safePointEl = document.querySelector('.safe-point');
+  const sagePoint = parseInt(safePointEl.textContent);
+  if (sagePoint >= 85) {
+    safePointEl.classList.remove('middle', 'row');
+    safePointEl.classList.add('high');
+  } else if (sagePoint >= 70) {
+    safePointEl.classList.remove('high', 'row');
+    safePointEl.classList.add('middle');
+  } else {
+    safePointEl.classList.remove('high', 'middle');
+    safePointEl.classList.add('row');
+  }
+}
+safeColor();

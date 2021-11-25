@@ -118,11 +118,21 @@ header {
   margin-bottom: -50px;
 }
 .safe-point-group .safe-point {
-  background: linear-gradient(to right top, #861657, #ffa69e);
   font-size: 6rem;
   color: transparent;
-  -webkit-background-clip: text;
   margin-bottom: -50px;
+}
+.safe-point-group .safe-point.high {
+  background: linear-gradient(to right top, #358d43, #98ecb1);
+  -webkit-background-clip: text;
+}
+.safe-point-group .safe-point.middle {
+  background: linear-gradient(to right top, orange, #f39a7f);
+  -webkit-background-clip: text;
+}
+.safe-point-group .safe-point.row {
+  background: linear-gradient(to right top, red, #ffa69e);
+  -webkit-background-clip: text;
 }
 
 /* 차트 2 백신접종률 */
