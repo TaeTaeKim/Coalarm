@@ -35,6 +35,7 @@ header {
 }
 .content-position{
   display: flex;
+  flex-wrap: wrap;
   width: 100vw;
   justify-content: center;
   transition: .5s;
@@ -87,35 +88,50 @@ header {
   z-index: 2;
   flex-grow: 1;
 }
+/* 코로나 통계, 안전점수 부분  */
 .chart-group .chart1 {
   width: 100vw;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   line-height: 2;
+  align-items: start;
 }
-/* 코로나 통계 부분. */
 .total, .new{
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   text-align: left;
 }
-
 .total div:first-child, .new div:first-child{
   color: black;
   font-size: 18px;
   font-weight: 900;
   text-align: center;
 }
-
+.safe-point-group {
+  max-width: 150px;
+}
+.safe-point-group .safe-point-head{
+  font-size: 18px;
+  color: black;
+  margin-bottom: -50px;
+}
+.safe-point-group .safe-point {
+  background: linear-gradient(to right top, #861657, #ffa69e);
+  font-size: 6rem;
+  color: transparent;
+  -webkit-background-clip: text;
+  margin-bottom: -50px;
+}
 
 /* 차트 2 백신접종률 */
 .chart-group .chart2 {
-  flex-grow: 1.7;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 
 /* 환율 계산기 부분 */
 .rate-comment{
@@ -421,8 +437,18 @@ header {
 @media(max-width:765px) {
   .chart-group .chart1 {
     padding: 20px;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  .chart-group .chart1 .new {
+    margin-bottom: 15px;
   }
   .chart-group .chart1 .total {
+    margin-bottom: 15px;
+    margin: auto;
+  }
+  .chart-group .chart1 .safe-point-group {
     margin-bottom: 15px;
   }
   .information-content {
