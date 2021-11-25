@@ -7,6 +7,8 @@ with open('./static/Test_json/corona_vaccine_data.json','r') as f:
     vaccinedata = json.load(f)
 with open('./static/Test_json/api_data.json','r') as f:
     api_data = json.load(f)
+with open('./static/Test_json/embassy_data.json','r') as f:
+    embassy_data = json.load(f)
 inbound = ["목적", "외국인", "한국", "해외입국자","금지", "허용", "중단","허가","허용","불허","제한","통제","폐쇄","불가","관광","중지","통제"]
 document = ["확인서", "허가증", "신고서", "서약서","온라인","결과서","PCR","검사","카드","보험","증명서","QR","디지털","필수","결과지","서류","검진서","검사서","공인서"]
 def corona(ISO):
@@ -63,7 +65,8 @@ def noticeall(ISO):
                 return allnotice
 #
 def embassy(ISO):
-    for data in api_data:
+    embassydata = []
+    for data in embassy_data:
         if data['iso_code'] == ISO:
-            allnotice = data['notice'].split('\r\n')
-            return allnotice
+            embassydata.append(data)
+    return embassydata

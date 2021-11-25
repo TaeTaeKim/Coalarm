@@ -58,8 +58,16 @@
               </div>
 
             </div>
+            <div class="embassy">
+              <div> 대사관 바로가기 </div>
+              <!-- 대사관 데이터 입력-->
+              {% for i in data['embassy'] %}
+                <div><a target="_blank" rel="noopener noreferrer" href="{{i['url']}}">{{i['embassy_kor_nm']}}</a></div>
+              {% endfor %}
+            </div>
           </div>
         </section>
+        
         <section class="information-content">
           <div class="info-help">
             <div>

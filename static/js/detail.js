@@ -135,6 +135,7 @@ $('.reverse-cal').on('click', function () {
   rate = 1 / rate;
 });
 
+
 //댓글 입력창 자동크기 조절
 function resize(obj) {
   obj.style.height = '1px';

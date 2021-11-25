@@ -156,8 +156,12 @@ header {
   font-weight: bold;
   font-size: 1.2rem;
 }
-
-
+/* 대사관 부분 */
+.embassy {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
 
 
 /* information-content */
@@ -260,9 +264,6 @@ header {
 }
 .comment-input-group .input-comment {
   resize: none;
-}
-.comment-input-group .input-pw {
-
 }
 .comment-input-group.margin {
   margin-bottom: -10px;
