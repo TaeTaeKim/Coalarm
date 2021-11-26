@@ -53,21 +53,6 @@ header {
   position: relative;
   z-index: 2;
 }
-.info-help{
-  display: flex;
-  justify-content: space-between;
-}
-.information-tab{
-  display: flex;
-  
-  align-items: center;
-}
-.information-tab div{
-  width: 3rem;
-  text-align: center;
-  font-weight: bold;
-  cursor: pointer;
-}
 .chart-group {
   display: flex;
   max-width: 910px;
@@ -231,9 +216,24 @@ header {
   box-shadow: 1px 1px 3px 2px rgba(236, 230, 230, 0.767);
   margin-bottom: 25px;
 }
-.info-help {
+.info-help{
+  display: flex;
+  justify-content: space-between;
   color: #8b60e8;
   padding: 0 10px 20px;
+}
+.information-tab{
+  display: flex;
+  align-items: center;
+}
+.information-tab div{
+  width: 3rem;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+.information-tab .summary.tab{
+  margin-right: 7px;
 }
 
 .category-title {
@@ -300,6 +300,25 @@ header {
 }
 .comment-menu .comment-resent {
   margin-left: 80%;
+  position: relative;
+}
+.comment-menu .comment-resent .fa-history{
+  transition: transform 1s;
+}
+.comment-menu .comment-resent .fa-history.activity {
+  color: #5733b5;
+  transform: rotate(360deg) scale(1.5);
+  transition: transform 1s;
+}
+.comment-menu .comment-resent:hover::after {
+  content: "새댓글 확인";
+  color: #8b60e8;
+  position: absolute;
+  top: -21px;
+  right: -38px;
+  width: 80px;
+  font-weight: bolder;
+  font-size: .8rem;
 }
 .comment-input-group {
   display: flex;
@@ -356,7 +375,6 @@ header {
 .box-head {
   padding-bottom: 3px;
 }
-
 .box-head .comment-nickname {
   font-weight: bolder;
 }
@@ -380,7 +398,6 @@ header {
   font-weight: bolder;
   cursor: pointer;
 }
-
 .read-plus-comment .show-comment {
   color: #5733b5;
   font-weight: bolder;
@@ -404,7 +421,7 @@ header {
   margin-bottom: 10px;
 }
 
-
+/********************** 미디어 쿼리 *************************************/
 
 @media(max-width:1700px) {
   .logo-group {
@@ -426,6 +443,7 @@ header {
     margin-top: 180px;
   }
 }
+
 @media(max-width:1500px) {
   .comment-menu .comment-resent {
     margin-left: 80%;
@@ -519,6 +537,25 @@ header {
   .information-content {
     margin: 10px 13px;
     padding: 12px;
+  }
+  .info-help{
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: #8b60e8;
+    padding: 0px
+  }
+  .info-help> div:first-child {
+    width: 100%;
+    text-align: center;
+  }
+  .information-tab{
+    width: 100%;
+    justify-content: space-evenly;
+    padding: 10px 0;
+  }
+  .information-tab .tab {
+    width: 47%;
   }
   .category-title .click-guide {
     padding-left: 55%;
