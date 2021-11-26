@@ -72,6 +72,7 @@ function searchCountry(){
     }
   })
 };
+
 $('#country_search').on('keyup',function(){
   let txt = $(this).val()
   if(txt==""){
@@ -80,9 +81,8 @@ $('#country_search').on('keyup',function(){
   else{
     $('.autocomplete').removeClass('hidden')
   }
-  $('.autocomplete').html("") 
-  console.log(txt);
   $.getJSON('./static/Test_json/country_kr_ISO.json',function(data){
+    $('.autocomplete').html("")
     data.forEach((el)=>{
       if (el.country_kr.indexOf(txt)>-1){
         $('.autocomplete').append(
@@ -92,8 +92,6 @@ $('#country_search').on('keyup',function(){
     })
   })
 });
-
-
 
 //map rendering하는 함수
 function rendermap() {

@@ -28,16 +28,20 @@ function drawChart() {
     var options = {
         hAxis: {title:'코로나 감염자수'},
         vAxis: {title: '백신 접종률'},
-        colorAxis: {colors: ['yellow', 'red']}
+        colorAxis: {colors: ['yellow', 'red']},
+        chartArea:{width:'90%',height:'80%'}
 };
 
 var chart = new google.visualization.BubbleChart(document.getElementById('chart_div'));
 chart.draw(data, options);
 }
 
-// 초기 실행시  개수 20개를 띄움
-let num =20
-function load_board(num){
+// 초기 실행시  개수 20개를 띄움 전체국가를 띄움
+let num =30
+let board_continent = 'all'
+let board_length = 0
+//테이블을 불러오는 함수
+function load_board(num,conti){
     $('#board-data').html("")
     $.ajax({
         url:'/boarddata',
@@ -46,82 +50,176 @@ function load_board(num){
         async:false,
         success:function(res){
             let data = res.merged
+            board_length = data.length
             for(i=0;i<num;i++){
+                // 결측치 처리
                 if(data[i]['new_cases']==-1){
                     data[i]['new_cases'] = ""
-                }
+                };
                 if(data[i]['new_deaths']==-1){
                     data[i]['new_deaths'] = ""
-                }
+                };
                 if(data[i]['new_recovered']==-1){
                     data[i]['new_recovered'] = ""
-                }
+                };
                 if(data[i]['country_kr']==-1){
                     data[i]['country_kr'] = data[i]['country_x']
+                };
+                if(data[i]['critical_ratio']==-1){
+                    data[i]['critical_ratio'] = ""
+                };
+                if(data[i]['recovered_ratio']==-1){
+                    data[i]['recovered_ratio'] = ""
+                };
+                if(data[i]['total_caeses_per_1million_population']==-1){
+                    data[i]['total_caeses_per_1million_population'] = ""
+                };
+                if(data[i]['vaccinated']==-1){
+                    data[i]['vaccinated'] = ""
+                };
+                if(data[i]['fully_vaccinated']==-1){
+                    data[i]['fully_vaccinated'] = ""
+                };
+                // 대륙분류 기능
+                if(conti=='all'){
+                    $('#board-data').append(`
+                        <tr>
+                            <td><a style="color:black;" target="_blank" rel="noopener noreferrer" href ="/country/${data[i]['iso_code']}">${data[i]["country_kr"]} </a></td>
+                            <td>${data[i]["total_cases"]}<span class="new-statistic">(${data[i]["new_cases"]})</span></td>
+                            <td>${data[i]["total_deaths"]}<span class="new-statistic">(${data[i]["new_deaths"]})</span></td>
+                            <td>${data[i]["total_recovered"]}<span class="new-statistic">(${data[i]["new_recovered"]})</span></td>
+                            <td>${data[i]["critical_ratio"]}%</td>
+                            <td>${data[i]["recovered_ratio"]}%</td>
+                            <td>${data[i]["total_caeses_per_1million_population"]}명</td>
+                            <td>${data[i]["vaccinated"]}%</td>
+                            <td>${data[i]["fully_vaccinated"]}%</td>
+                        </tr>
+                    `)  
                 }
-                $('#board-data').append(`
-                <tr>
-                    <td><a style="color:black;"href ="/country/${data[i]['iso_code']}">${data[i]["country_kr"]}</a></td>
-                    <td>${data[i]["total_cases"]}<span class="new-statistic">(${data[i]["new_cases"]})</span></td>
-                    <td>${data[i]["total_deaths"]}<span class="new-statistic">(${data[i]["new_deaths"]})</span></td>
-                    <td>${data[i]["total_recovered"]}<span class="new-statistic">(${data[i]["new_recovered"]})</span></td>
-                    <td>${data[i]["critical_ratio"]}%</td>
-                    <td>${data[i]["recovered_ratio"]}%</td>
-                    <td>${data[i]["total_caeses_per_1million_population"]}명</td>
-                    <td>${data[i]["vaccinated"]}%</td>
-                    <td>${data[i]["fully_vaccinated"]}%</td>
-                </tr>
-            `)
+                else if(conti =='Europe'){
+                    if(data[i]['continent']=='Europe'){
+                        $('#board-data').append(`
+                            <tr>
+                                <td><a style="color:black;" target="_blank" rel="noopener noreferrer" href ="/country/${data[i]['iso_code']}">${data[i]["country_kr"]}</a></td>
+                                <td>${data[i]["total_cases"]}<span class="new-statistic">(${data[i]["new_cases"]})</span></td>
+                                <td>${data[i]["total_deaths"]}<span class="new-statistic">(${data[i]["new_deaths"]})</span></td>
+                                <td>${data[i]["total_recovered"]}<span class="new-statistic">(${data[i]["new_recovered"]})</span></td>
+                                <td>${data[i]["critical_ratio"]}%</td>
+                                <td>${data[i]["recovered_ratio"]}%</td>
+                                <td>${data[i]["total_caeses_per_1million_population"]}명</td>
+                                <td>${data[i]["vaccinated"]}%</td>
+                                <td>${data[i]["fully_vaccinated"]}%</td>
+                            </tr>
+                        `)
+                    }
+                }
+                else if(conti =='Asia'){
+                    if(data[i]['continent']=='Asia'){
+                        $('#board-data').append(`
+                            <tr>
+                                <td><a style="color:black;" target="_blank" rel="noopener noreferrer" href ="/country/${data[i]['iso_code']}">${data[i]["country_kr"]}</a></td>
+                                <td>${data[i]["total_cases"]}<span class="new-statistic">(${data[i]["new_cases"]})</span></td>
+                                <td>${data[i]["total_deaths"]}<span class="new-statistic">(${data[i]["new_deaths"]})</span></td>
+                                <td>${data[i]["total_recovered"]}<span class="new-statistic">(${data[i]["new_recovered"]})</span></td>
+                                <td>${data[i]["critical_ratio"]}%</td>
+                                <td>${data[i]["recovered_ratio"]}%</td>
+                                <td>${data[i]["total_caeses_per_1million_population"]}명</td>
+                                <td>${data[i]["vaccinated"]}%</td>
+                                <td>${data[i]["fully_vaccinated"]}%</td>
+                            </tr>
+                        `)
+                    }
+                }
+                else if(conti =='North America'){
+                    if(data[i]['continent']=='NorthernAmerica'){
+                        $('#board-data').append(`
+                            <tr>
+                                <td><a style="color:black;" target="_blank" rel="noopener noreferrer" href ="/country/${data[i]['iso_code']}">${data[i]["country_kr"]}</a></td>
+                                <td>${data[i]["total_cases"]}<span class="new-statistic">(${data[i]["new_cases"]})</span></td>
+                                <td>${data[i]["total_deaths"]}<span class="new-statistic">(${data[i]["new_deaths"]})</span></td>
+                                <td>${data[i]["total_recovered"]}<span class="new-statistic">(${data[i]["new_recovered"]})</span></td>
+                                <td>${data[i]["critical_ratio"]}%</td>
+                                <td>${data[i]["recovered_ratio"]}%</td>
+                                <td>${data[i]["total_caeses_per_1million_population"]}명</td>
+                                <td>${data[i]["vaccinated"]}%</td>
+                                <td>${data[i]["fully_vaccinated"]}%</td>
+                            </tr>
+                        `)
+                    }
+                }
+                else if(conti =='South America'){
+                    if(data[i]['continent']=='America'){
+                        $('#board-data').append(`
+                            <tr>
+                                <td><a style="color:black;" target="_blank" rel="noopener noreferrer" href ="/country/${data[i]['iso_code']}">${data[i]["country_kr"]}</a></td>
+                                <td>${data[i]["total_cases"]}<span class="new-statistic">(${data[i]["new_cases"]})</span></td>
+                                <td>${data[i]["total_deaths"]}<span class="new-statistic">(${data[i]["new_deaths"]})</span></td>
+                                <td>${data[i]["total_recovered"]}<span class="new-statistic">(${data[i]["new_recovered"]})</span></td>
+                                <td>${data[i]["critical_ratio"]}%</td>
+                                <td>${data[i]["recovered_ratio"]}%</td>
+                                <td>${data[i]["total_caeses_per_1million_population"]}명</td>
+                                <td>${data[i]["vaccinated"]}%</td>
+                                <td>${data[i]["fully_vaccinated"]}%</td>
+                            </tr>
+                        `)
+                    }
+                }
+                else if(conti =='Oceania'){
+                    if(data[i]['continent']=='Oceania'){
+                        $('#board-data').append(`
+                            <tr>
+                                <td><a style="color:black;" target="_blank" rel="noopener noreferrer" href ="/country/${data[i]['iso_code']}">${data[i]["country_kr"]}</a></td>
+                                <td>${data[i]["total_cases"]}<span class="new-statistic">(${data[i]["new_cases"]})</span></td>
+                                <td>${data[i]["total_deaths"]}<span class="new-statistic">(${data[i]["new_deaths"]})</span></td>
+                                <td>${data[i]["total_recovered"]}<span class="new-statistic">(${data[i]["new_recovered"]})</span></td>
+                                <td>${data[i]["critical_ratio"]}%</td>
+                                <td>${data[i]["recovered_ratio"]}%</td>
+                                <td>${data[i]["total_caeses_per_1million_population"]}명</td>
+                                <td>${data[i]["vaccinated"]}%</td>
+                                <td>${data[i]["fully_vaccinated"]}%</td>
+                            </tr>
+                        `)
+                    }
+                }
+                else if(conti =='Africa'){
+                    if(data[i]['continent']=='Africa'){
+                        $('#board-data').append(`
+                            <tr>
+                                <td><a style="color:black;" target="_blank" rel="noopener noreferrer" href ="/country/${data[i]['iso_code']}">${data[i]["country_kr"]}</a></td>
+                                <td>${data[i]["total_cases"]}<span class="new-statistic">(${data[i]["new_cases"]})</span></td>
+                                <td>${data[i]["total_deaths"]}<span class="new-statistic">(${data[i]["new_deaths"]})</span></td>
+                                <td>${data[i]["total_recovered"]}<span class="new-statistic">(${data[i]["new_recovered"]})</span></td>
+                                <td>${data[i]["critical_ratio"]}%</td>
+                                <td>${data[i]["recovered_ratio"]}%</td>
+                                <td>${data[i]["total_caeses_per_1million_population"]}명</td>
+                                <td>${data[i]["vaccinated"]}%</td>
+                                <td>${data[i]["fully_vaccinated"]}%</td>
+                            </tr>
+                        `)
+                    }
+                }
+                
             }
         }
     })
 }
-
+// 접어보기 펼쳐보기 기능
 $('.loadall').on('click',()=>{
     $('#board-data').html("");
     if(document.querySelector('.loadall').innerText=='전체보기'){
-        $.ajax({
-            url:'/boarddata',
-            type:'GET',
-            datatype:'json',
-            async:false,
-            success:function(res){
-                let data = res.merged
-                console.log(data)
-                for(i=0;i<data.length;i++){
-                    if(data[i]['new_cases']==-1){
-                        data[i]['new_cases'] = ""
-                    }
-                    if(data[i]['new_deaths']==-1){
-                        data[i]['new_deaths'] = ""
-                    }
-                    if(data[i]['new_recovered']==-1){
-                        data[i]['new_recovered'] = ""
-                    }
-                    if(data[i]['country_kr']==-1){
-                        data[i]['country_kr'] = data[i]['country_x']
-                    }
-                    $('#board-data').append(`
-                    <tr>
-                        <td><a style="color:black;"href ="/country/${data[i]['iso_code']}">${data[i]["country_kr"]}</a></td>
-                        <td>${data[i]["total_cases"]}<span class="new-statistic">(${data[i]["new_cases"]})</span></td>
-                        <td>${data[i]["total_deaths"]}<span class="new-statistic">(${data[i]["new_deaths"]})</span></td>
-                        <td>${data[i]["total_recovered"]}<span class="new-statistic">(${data[i]["new_recovered"]})</span></td>
-                        <td>${data[i]["critical_ratio"]}%</td>
-                        <td>${data[i]["recovered_ratio"]}%</td>
-                        <td>${data[i]["total_caeses_per_1million_population"]}명</td>
-                        <td>${data[i]["vaccinated"]}%</td>
-                        <td>${data[i]["fully_vaccinated"]}%</td>
-                    </tr>
-                `)
-                }
-            }
-        })
-        $('.loadall').html('접어보기')
+        load_board(board_length,board_continent);
+        $('.loadall').html('접어보기');
     }else{
-        load_board(num)
-        $('.loadall').html('전체보기')
-    }
+        load_board(num,board_continent);
+        $('.loadall').html('전체보기');
+    };
     
 })
-load_board(num)
+// 대륙선택 기능
+$('#board-select').change(function(){
+    board_continent = $('#board-select option:selected').val()
+    load_board(board_length,board_continent)
+    $('.loadall').html('접어보기');
+})
+// 사이트 실행시 보드 렌더링
+load_board(num,board_continent)
