@@ -302,6 +302,9 @@ header {
   margin-left: 80%;
   position: relative;
 }
+.comment-menu .comment-resent .fa-history{
+  transition: transform 1s;
+}
 .comment-menu .comment-resent .fa-history.activity {
   color: #5733b5;
   transform: rotate(360deg) scale(1.5);
