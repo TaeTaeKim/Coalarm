@@ -14,7 +14,7 @@ $('.summary').on('click', function () {
   $('.category-group').removeClass('hidden');
   $('.all').addClass('hidden');
   $('.info-help div:first').html(
-    '코로나 관련 <b>여행자 요약 정보</b>별로 확인해보세요.<br>❗꼭 전체 정보를 확인하세요'
+    '코로나 관련 <b>요약 정보</b>별로 확인해보세요.<br>❗꼭 전체 정보를 확인하세요'
   );
 });
 $('.allcontent').on('click', function () {
@@ -22,7 +22,7 @@ $('.allcontent').on('click', function () {
   $('.all').removeClass('hidden');
 
   $('.info-help div:first').html(
-    '코로나 관련 <b>여행자 전체 정보</b>를 확인해보세요.<br>요약정보를 보러면 요약을 클릭하세요'
+    '코로나 관련 <b>전체 정보</b>를 확인해보세요.<br>요약정보를 보러면 요약을 클릭하세요'
   );
 });
 
@@ -138,13 +138,15 @@ $('.reverse-cal').on('click', function () {
   $('.calculator div:last p:first').text(fromname);
   rate = 1 / rate;
 });
-
-$('.safe-point-head').on('mouseover',function(){
+// 안전점수 툴팁
+$('.safe-point-group').on('mouseover',function(){
   $('.tooltip').removeClass('hidden')
-})
-$('.safe-point-head').on('mouseleave',function(){
+  console.log(1)
+});
+$('.safe-point-group').on('mouseleave',function(){
   $('.tooltip').addClass('hidden')
-})
+  console.log(2)
+});
 // 안전점수 색입히기
 function safeColor() {
   const safePointEl = document.querySelector('.safe-point');
