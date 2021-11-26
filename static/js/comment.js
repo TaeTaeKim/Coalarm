@@ -251,8 +251,7 @@ function addComment(i) {
     data: JSON.stringify(postData),
     contentType: 'application/json; charset=UTF-8',
     success: function () {
-      // alert('댓글이 등록되었습니다.');
-      callComment();
+      // callComment();
     },
   });
   inputNicknameEl.value = '';
@@ -377,5 +376,39 @@ function callComment() {
     },
   });
 }
-
 callComment();
+
+// 댓글 최신 감지
+function commentResentActivition() {
+  let iso_upper = window.location.pathname.slice(9, 11).toUpperCase();
+  $.ajax({
+    type: 'get',
+    url: `/country/${iso_upper}/comment_update`,
+    dataType: 'json',
+    async: false,
+    success: function (res) {
+      const rensentIconEl = document.querySelector('.fa-history');
+      const serverCount = res.count;
+      const commentCountEl = document.querySelector('.comment-count');
+      const commentCount = parseInt(
+        commentCountEl.textContent.slice(
+          3,
+          commentCountEl.textContent.length - 1
+        )
+      );
+      if (serverCount !== commentCount) {
+        rensentIconEl.classList.add('activity');
+      }
+    },
+  });
+}
+// 댓글 감지 타이머
+const commentResentActivityTimer = setInterval(() => {
+  commentResentActivition();
+}, 5000);
+// 댓글 최신화 실행
+function commentResentDeactivation() {
+  const rensentIconEl = document.querySelector('.fa-history');
+  rensentIconEl.classList.remove('activity');
+  callComment();
+}
