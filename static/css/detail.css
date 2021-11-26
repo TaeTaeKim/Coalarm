@@ -111,6 +111,7 @@ header {
 }
 .safe-point-group {
   max-width: 150px;
+  position: relative;
 }
 .safe-point-group .safe-point-head{
   font-size: 18px;
@@ -126,10 +127,14 @@ header {
   font-size: 13px;
   width: 15rem;
   display: inline-block;
-  position: relative;
-  top:-5rem;
-  left:10rem;
+  position: absolute;
+  top: 2rem;
+  left:7rem;
+  background-color: rgba(255, 255, 255, 0.568);
+  box-shadow:1px 1px 1px gray;
   color: black;
+  border-radius: 10px;
+  text-align: left;
 }
 .safe-point-group .safe-point.high {
   background: linear-gradient(to right top, #358d43, #98ecb1);

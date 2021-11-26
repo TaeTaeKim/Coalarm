@@ -11,7 +11,7 @@ function drawChart() {
         datatype:'json',
         async:false,
         success:function(res){
-            let chartdata = res.boarddata.chart_data;
+            let chartdata = res.chart_data;
             chartdata.forEach((el)=>{
                 data.addRow([
                     el.continent,
@@ -44,9 +44,9 @@ $.ajax({
     datatype:'json',
     async:false,
     success:function(res){
-        let data = res.boarddata.merged
-        
-        for(i=0;i<=data.length;i++){
+        let data = res.merged
+        console.log(data)
+        for(i=0;i<10;i++){
             if(data[i]['new_cases']==-1){
                 data[i]['new_cases'] = ""
             }
@@ -56,15 +56,18 @@ $.ajax({
             if(data[i]['new_recovered']==-1){
                 data[i]['new_recovered'] = ""
             }
+            if(data[i]['country_kr']==-1){
+                data[i]['country_kr'] = data[i]['country_x']
+            }
             $('#board-data').append(`
             <tr>
-                <td>${data[i]["country_x"]}</td>
+                <td><a style="color:black;"href ="/country/${data[i]['iso_code']}">${data[i]["country_kr"]}</a></td>
                 <td>${data[i]["total_cases"]}<span class="new-statistic">(${data[i]["new_cases"]})</span></td>
                 <td>${data[i]["total_deaths"]}<span class="new-statistic">(${data[i]["new_deaths"]})</span></td>
                 <td>${data[i]["total_recovered"]}<span class="new-statistic">(${data[i]["new_recovered"]})</span></td>
-                <td>${data[i]["recovered_ratio"]}%</td>
                 <td>${data[i]["critical_ratio"]}%</td>
-                <td>${data[i]["total_caeses_per_1million_population"]}%</td>
+                <td>${data[i]["recovered_ratio"]}%</td>
+                <td>${data[i]["total_caeses_per_1million_population"]}명</td>
                 <td>${data[i]["vaccinated"]}%</td>
                 <td>${data[i]["fully_vaccinated"]}%</td>
             </tr>

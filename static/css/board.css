@@ -1,13 +1,22 @@
 .corona-board{
-    width: 55%;
+    width: 70%;
     min-width: 800px;
     margin: auto;
 }
-
-#board-data{
-    text-align: center;
-    
+/* 버튼 부분 */
+.board-btn{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin:0 0 10px 0;
+    font-size: 20px;
 }
+.board-btn >div:hover{
+    color: skyblue;
+    cursor: pointer;
+}
+
+
 #board_div{
     border: 2px solid black;
     border-collapse: collapse;
@@ -25,4 +34,9 @@
 .newdata{
     font-size: 15px;
     color: red;
+}
+/* 테이블 데이터 부분 */
+#board-data{
+    text-align: center;
+    
 }
