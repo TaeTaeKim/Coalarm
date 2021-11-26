@@ -28,8 +28,9 @@ header {
   content: "";
   background-color: #5733b5;
   width: 100vw;
-  height: 18vh;
+  height: 23vh;
   position: absolute;
+  margin-top: -40px;
   z-index: 1;
   transition: .1s;
 }
@@ -134,14 +135,17 @@ header {
 .safe-point-group .safe-point.high {
   background: linear-gradient(to right top, #358d43, #98ecb1);
   -webkit-background-clip: text;
+  background-clip: text;
 }
 .safe-point-group .safe-point.middle {
   background: linear-gradient(to right top, orange, #ffeccd);
   -webkit-background-clip: text;
+  background-clip: text;
 }
 .safe-point-group .safe-point.low {
   background: linear-gradient(to right top, red, #fbccc8);
   -webkit-background-clip: text;
+  background-clip: text;
 }
 
 /* 차트 2 백신접종률 */
@@ -272,7 +276,6 @@ header {
   margin-left: 50px;
   margin-right: -280px;
   margin-top: 190px;
-  /* position: sticky; */
   top: 280px;
   z-index: 2;
   background: #8b60e836;
@@ -447,7 +450,8 @@ header {
     padding-left: 85%;
   }
   .content-group {
-    margin: 0;
+    margin-right: 40px;
+    margin-top: -35px;
   }
   .content-position::before {
     opacity: 0;
@@ -472,6 +476,9 @@ header {
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
+  }
+  .chart-group::before {
+    height: 30vh;
   }
   .chart-group .chart1 .new {
     margin-bottom: 15px;
