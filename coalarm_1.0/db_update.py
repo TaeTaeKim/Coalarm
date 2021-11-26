@@ -123,8 +123,8 @@ class AsyncTask:
             int(corona_data[i]["new_deaths"]), \
             int(corona_data[i]["total_recovered"]), \
             int(corona_data[i]["new_recovered"]), \
-            float(corona_data[i]["fatality"]), \
             float(corona_data[i]["recovery"]), \
+            float(corona_data[i]["fatality"]), \
             float(corona_data[i]["incidence"])))
 
         conn.commit()
