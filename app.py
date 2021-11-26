@@ -24,7 +24,7 @@ def data():
 @app.route('/boarddata', methods=['GET'])
 def board():
     boarddata = board_data()
-    return jsonify({'boarddata': boarddata})
+    return jsonify(boarddata)
 
 
 @app.route('/country/<ISO_code>', methods=['GET'])

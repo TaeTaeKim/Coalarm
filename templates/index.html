@@ -13,6 +13,7 @@
     <link rel="icon" href="../static/img/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Mochiy+Pop+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@500&family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/top-btn.css">
     <link rel="stylesheet" href="../static/css/board.css">
     <title>Coalarm</title>
 </head>
@@ -45,7 +46,7 @@
                 
             </div>                 
         </div>
-        <div class="scroll-top-btn">Top</div>
+        <div class="scroll-top-btn"><i class="fas fa-arrow-circle-up"></i></div>
         <div id='map-container'>
             <div class="country-search">
                 <div>✔해당 국가를 클릭하면 국가 상세페이지로 이동합니다.</div>
@@ -99,9 +100,9 @@
                     <div class="dropmenu hidden">
                         <ul>
                             <li class="australiaAndNewZealand">호주,뉴질랜드</li>
-                            <li class="melanesia">Melanesia</li>
-                            <li class="micronesia">Micronesia</li>
-                            <li class="polynesia">Polynesia</li>
+                            <li class="melanesia">멜라네시아</li>
+                            <li class="micronesia">미크로네시아</li>
+                            <li class="polynesia">폴리네시아</li>
                         </ul>
                     </div>
                 </div>
@@ -132,7 +133,18 @@
         </div>
     
         <div class="corona-board">
+            <div style="font-size: 2.5rem; text-align: center;">대륙별 코로나 그래프</div>
             <div id="chart_div" style="width: 100%; height: 500px; margin: auto"></div>
+            <div style="font-size: 2.5rem; text-align: center;">코로나 테이블</div>
+            <div class="board-btn">
+                <div>전체</div>
+                <div>유럽</div>
+                <div>아시아</div>
+                <div>북미</div>
+                <div>남미</div>
+                <div>오세아니아</div>
+                <div>아프리카</div>
+            </div>
             <table id ='board_div' style="width: 100%; margin: auto;">
                 <thead >
                     <th >국가</th>
@@ -155,11 +167,12 @@
                         <td>${data[i]["recovered_ratio"]}</td>
                         <td>${data[i]["total_caeses_per_1million_population"]}</td>
                         <td>${data[i]["vaccinated"]}</td>
-                        <td>${data[i]["fully_vaccinated"]}</td>
+                        <td>${data[i]["fully_vaccinated"]}</td> 
                     </tr> -->
                 </tbody>
                 
             </table>
+            <div class="loadall"> 전체보기 </div>
         </div>
     </div>
 
@@ -175,5 +188,6 @@
     <script src="../static/js/main.js"></script>
     <script src="../static/js/safe-ranking.js"></script>\
     <script src="../static/js/board.js"></script>
+    <script src="../static/js/top-btn.js"></script>
 </body>
 </html>
