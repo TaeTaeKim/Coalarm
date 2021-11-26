@@ -51,7 +51,7 @@
             <div class="country-search">
                 <div>✔해당 국가를 클릭하면 국가 상세페이지로 이동합니다.</div>
                 <div>
-                    <input type="text" id ="country_search"placeholder="국가 검색" autofocus autocomplete="off" required>
+                    <input onPropertyChange="test();" type="text" id ="country_search"placeholder="국가 검색" autofocus autocomplete="off" required>
                     <button onclick="searchCountry();">바로가기</button>
                     <div class="autocomplete"></div>
                 </div>
@@ -137,14 +137,18 @@
             <div id="chart_div" style="width: 100%; height: 500px; margin: auto"></div>
             <div style="font-size: 2.5rem; text-align: center;">코로나 테이블</div>
             <div class="board-btn">
-                <div>전체</div>
-                <div>유럽</div>
-                <div>아시아</div>
-                <div>북미</div>
-                <div>남미</div>
-                <div>오세아니아</div>
-                <div>아프리카</div>
+                <div>대륙별로 보기</div>
+                <select name="board-select" id="board-select">
+                    <option selected='selected'value="all">전체</option>
+                    <option value="Europe">유럽</option>
+                    <option value="Asia">아시아</option>
+                    <option value="North America">북미</option>
+                    <option value="South America">남미</option>
+                    <option value="Oceania">오세아니아</option>
+                    <option value="Africa">아프리카</option>
+                </select>
             </div>
+            
             <table id ='board_div' style="width: 100%; margin: auto;">
                 <thead >
                     <th >국가</th>

@@ -6,14 +6,9 @@
 /* 버튼 부분 */
 .board-btn{
     display: flex;
-    justify-content: space-between;
-    font-weight: bold;
+    justify-content: right;
     margin:0 0 10px 0;
     font-size: 20px;
-}
-.board-btn >div:hover{
-    color: skyblue;
-    cursor: pointer;
 }
 
 
@@ -40,6 +35,8 @@
     text-align: center;
     
 }
+
+/* 펼쳐보기 기능 css */
 .loadall{
     display: flex;
     background-color: slateblue;
@@ -50,4 +47,11 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+}
+
+/* 대륙선택 부분 */
+#board-select{
+    width: 10rem;
+    font-size: 15px;
+    margin-left: 10px;
 }
