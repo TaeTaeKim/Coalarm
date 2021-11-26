@@ -43,7 +43,7 @@ def country(ISO_code):
     dataset = {
         'name': country_kr, 'exchange': exchange_rate, 'corona': coronadata,
         'vaccine': vaccinedata, 'notice': noticedata, 'allnotice': allnotice,
-        'embassy': embassydata, 'safe':safedata
+        'embassy': embassydata, 'safe': safedata
     }
     return render_template('detail.html', data=dataset)
 
@@ -53,8 +53,12 @@ def country(ISO_code):
 def get_comment_count(ISO_code):
     # comment table select query
     with open('./static/Test_json/comment.json', 'r') as f:  # db 업데이트
-        comment = json.load(f)
-    return jsonify({"count": len(comment)})
+        commentDatas = json.load(f)
+        result = []
+        for commentData in commentDatas:
+            if commentData['iso_code'] == ISO_code:
+                result.append(commentData)
+    return jsonify({"count": len(result)})
 
 # json 파일(db) 읽기
 
