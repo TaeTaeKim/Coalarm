@@ -1,6 +1,8 @@
 import pymysql
 import datetime
 import json
+import pandas as pd
+import numpy as np
 
 
 # # 기본 폼 (복붙용)
@@ -42,17 +44,57 @@ import json
 # conn.close()
 # print("comment_data table update complete")
 
+# conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+# cur = conn.cursor()
+
+# cur.execute("select * from comment order by parent desc;")
+# row_headers=[x[0] for x in cur.description]
+# rv = cur.fetchall()
+# comment_data=[]
+# for result in rv:
+#     comment_data.append(dict(zip(row_headers,result)))
+# conn.close()
+
+# file_path = "../static/Test_json/comment.json"
+# with open(file_path, 'w') as outfile:
+#     json.dump(comment_data, outfile)
+
+with open('./json_file/new_continent.json', 'r') as f:
+    df_continent = pd.DataFrame(json.load(f))  # json_country key : ["iso_code", "continent"]
+
 conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
 cur = conn.cursor()
 
-cur.execute("select * from comment order by parent desc;")
+cur.execute("select v.iso_code, v.fully_vaccinated, s.homicide_rate, a.caution, c.total_caeses_per_1million_population, c.recovered_ratio, c.critical_ratio \
+from corona_vaccine_data v \
+join safety_data s using(iso_code) \
+join api_data a using(iso_code) \
+join corona_data c using(iso_code)")
 row_headers=[x[0] for x in cur.description]
 rv = cur.fetchall()
-comment_data=[]
+recommend_data=[]
 for result in rv:
-    comment_data.append(dict(zip(row_headers,result)))
+    recommend_data.append(dict(zip(row_headers,result)))
 conn.close()
 
-file_path = "../static/Test_json/comment.json"
+df_recommend_data = pd.DataFrame(recommend_data).replace(-1, np.NaN)
+df_recommend_data["caution"] = df_recommend_data["caution"].apply(lambda x : x if x != 5 else 1.5)
+df_recommend_data = pd.merge(df_continent, df_recommend_data, how = 'left', on = "iso_code").groupby("continent").apply(lambda x: x.fillna(x.mean()))
+df_recommend_data = df_recommend_data.drop(["continent"], axis=1).reset_index()
+df_recommend_data = df_recommend_data.dropna(axis=0)
+df_recommend_data = df_recommend_data.to_dict(orient = "records")
+print(len(df_recommend_data), type(df_recommend_data))
+
+file_path = "./recommend.json"
 with open(file_path, 'w') as outfile:
-    json.dump(comment_data, outfile)
+    json.dump(df_recommend_data, outfile)
+
+
+# select v.iso_code, v.fully_vaccinated, s.homicide_rate, a.caution, c.total_caeses_per_1million_population, c.recovered_ratio, c.critical_ratio
+# from corona_vaccine_data v
+# join safety_data s using(iso_code)
+# join api_data a using(iso_code)
+# join corona_data c using(iso_code);
+# limit 10;
+
+
