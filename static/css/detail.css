@@ -30,7 +30,7 @@ header {
   width: 100vw;
   height: 23vh;
   position: absolute;
-  margin-top: -40px;
+  margin-top: -50px;
   z-index: 1;
   transition: .1s;
 }
@@ -293,6 +293,9 @@ header {
 .comment-menu .comment-count {
   font-weight: bold;
 }
+.comment-menu .comment-resent {
+  margin-left: 80%;
+}
 .comment-input-group {
   display: flex;
   flex-direction: column;
@@ -418,6 +421,16 @@ header {
     margin-top: 180px;
   }
 }
+@media(max-width:1500px) {
+  .comment-menu .comment-resent {
+    margin-left: 80%;
+  }
+  .comment-content {
+    max-width: 890px;
+    margin-top: 0px;
+    margin-right: -40px;
+  }
+}
 
 @media(max-width:1024px) {
   .logo-group {
@@ -447,11 +460,11 @@ header {
     margin: 10px auto;
   }
   .category-title .click-guide {
-    padding-left: 85%;
+    padding-left: 82%;
   }
   .content-group {
     margin-right: 40px;
-    margin-top: -35px;
+    margin-top: -55px;
   }
   .content-position::before {
     opacity: 0;
@@ -459,6 +472,7 @@ header {
   }
   .content-position {
     flex-flow: column;
+    max-width: none;
   }
   
   .comment-content {
@@ -471,6 +485,10 @@ header {
 }
 
 @media(max-width:765px) {
+  .content-group {
+    margin-left: 0;
+    margin-right: 0;
+  }
   .chart-group .chart1 {
     padding: 20px;
     flex-direction: column-reverse;
@@ -495,6 +513,7 @@ header {
   }
   .information-content {
     margin: 10px 13px;
+    padding: 12px;
   }
   .category-title .click-guide {
     padding-left: 55%;
