@@ -94,6 +94,21 @@ function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
+const safe = document.querySelector('.safe-point');
+$({val:0}).animate(
+  {val: safe.innerText},
+  {
+    duration: 1000,
+    step: function () {
+      var num = numberWithCommas(Math.floor(this.val));
+      safe.innerText = num;
+    },
+    complete: function () {
+      var num = numberWithCommas(Math.floor(this.val));
+      safe.innerText = num;
+    }
+  }
+);
 var Endnum_list = document.querySelectorAll('.coronadata');
 for (let i = 0; i < Endnum_list.length; i++) {
   endnum = parseInt(Endnum_list[i].innerText);
@@ -134,3 +149,10 @@ $('.reverse-cal').on('click', function () {
   $('.calculator div:last p:first').text(fromname);
   rate = 1 / rate;
 });
+
+$('.safe-point-group').on('mouseover',function(){
+  $('.tooltip').removeClass('hidden')
+})
+$('.safe-point-group').on('mouseleave',function(){
+  $('.tooltip').addClass('hidden')
+})

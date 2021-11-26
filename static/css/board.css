@@ -14,10 +14,15 @@
 }
 .new-statistic{
     color: red;
+    font-size: 15px;
 }
 #board_div th{
     border: 1px solid black;
 }
 #border-div tr, td{
     border:1px solid gray;
+}
+.newdata{
+    font-size: 15px;
+    color: red;
 }

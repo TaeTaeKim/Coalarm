@@ -46,6 +46,11 @@
               <div class="safe-point-group">
                 <div class="safe-point-head">안전점수</div>
                 <div class="safe-point">93</div>
+                <!-- <div class="tooltip">
+                  <p>안전점수는 코로나 데이터, 사회안전 점수를 기반으로 계산되었습니다.</p>
+                  <p>안전지수: {{data['safe']['safety_index']}}</p>
+                  <p>치안점수: {{data['safe']['numbeo_index']}}</p>
+                </div>  -->
               </div>
             </div>
             <div id="container" class="chart2">
@@ -63,7 +68,7 @@
 
             </div>
             <div class="embassy">
-              <div> 대사관 바로가기 </div>
+              <div> 재외공관 바로가기 </div>
               <!-- 대사관 데이터 입력-->
               {% if data['embassy'] ==[] %}
                 <div>대사관 정보가 없습니다.</div>

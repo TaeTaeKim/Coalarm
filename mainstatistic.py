@@ -4,7 +4,10 @@ def board_data():
 
     with open('./static/Test_json/corona_data.json','r') as f:
         coronadata = json.load(f)
+    with open('./json_file/country_kr_ISO.json','r') as f:
+        kr_country = json.load(f)
 
+    kr_country_df = pd.DataFrame(kr_country)
     corona_df = pd.DataFrame(coronadata)
     continent_corona = corona_df.groupby(['continent']).mean()['total_cases']
 
@@ -33,6 +36,10 @@ def board_data():
     ]
 
     vaccine_df = pd.DataFrame(vaccinedata)
-    merged = corona_df.merge(vaccine_df,on='iso_code',how='inner')
+    merged = corona_df.merge(vaccine_df,on='iso_code',how='left')
+    merged = merged.merge(kr_country_df,on="iso_code",how='left')
     merged = merged.to_dict(orient='records')
     return {'chart_data':chart_data,"merged":merged}
+
+
+print(board_data())

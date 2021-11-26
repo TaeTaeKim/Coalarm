@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, render_template, request
 from exchange import exchange
-from getdata import corona, embassy, vaccine, kr_name, notice, noticeall, embassy
+from getdata import corona, embassy, vaccine, kr_name, notice, noticeall, embassy, safe
 from mainstatistic import board_data
 import json
 import datetime
@@ -39,10 +39,11 @@ def country(ISO_code):
     noticedata = notice(ISO_code)
     allnotice = noticeall(ISO_code)
     embassydata = embassy(ISO_code)
+    safedata = safe(ISO_code)
     dataset = {
         'name': country_kr, 'exchange': exchange_rate, 'corona': coronadata,
         'vaccine': vaccinedata, 'notice': noticedata, 'allnotice': allnotice,
-        'embassy': embassydata
+        'embassy': embassydata, 'safe':safedata
     }
     return render_template('detail.html', data=dataset)
 

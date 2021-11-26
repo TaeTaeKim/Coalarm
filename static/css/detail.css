@@ -124,6 +124,16 @@ header {
   -webkit-background-clip: text;
   margin-bottom: -50px;
 }
+.tooltip{
+  font-size: 13px;
+  width: 15rem;
+  display: inline-block;
+  position: relative;
+  top:-5rem;
+  left:10rem;
+  color: black;
+
+}
 
 /* 차트 2 백신접종률 */
 .chart-group .chart2 {
