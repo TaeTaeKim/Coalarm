@@ -28,8 +28,9 @@ header {
   content: "";
   background-color: #5733b5;
   width: 100vw;
-  height: 18vh;
+  height: 23vh;
   position: absolute;
+  margin-top: -50px;
   z-index: 1;
   transition: .1s;
 }
@@ -139,14 +140,17 @@ header {
 .safe-point-group .safe-point.high {
   background: linear-gradient(to right top, #358d43, #98ecb1);
   -webkit-background-clip: text;
+  background-clip: text;
 }
 .safe-point-group .safe-point.middle {
   background: linear-gradient(to right top, orange, #ffeccd);
   -webkit-background-clip: text;
+  background-clip: text;
 }
 .safe-point-group .safe-point.low {
   background: linear-gradient(to right top, red, #fbccc8);
   -webkit-background-clip: text;
+  background-clip: text;
 }
 
 /* 차트 2 백신접종률 */
@@ -277,7 +281,6 @@ header {
   margin-left: 50px;
   margin-right: -280px;
   margin-top: 190px;
-  /* position: sticky; */
   top: 280px;
   z-index: 2;
   background: #8b60e836;
@@ -294,6 +297,9 @@ header {
 }
 .comment-menu .comment-count {
   font-weight: bold;
+}
+.comment-menu .comment-resent {
+  margin-left: 80%;
 }
 .comment-input-group {
   display: flex;
@@ -420,6 +426,16 @@ header {
     margin-top: 180px;
   }
 }
+@media(max-width:1500px) {
+  .comment-menu .comment-resent {
+    margin-left: 80%;
+  }
+  .comment-content {
+    max-width: 890px;
+    margin-top: 0px;
+    margin-right: -40px;
+  }
+}
 
 @media(max-width:1024px) {
   .logo-group {
@@ -449,10 +465,11 @@ header {
     margin: 10px auto;
   }
   .category-title .click-guide {
-    padding-left: 85%;
+    padding-left: 82%;
   }
   .content-group {
-    margin: 0;
+    margin-right: 40px;
+    margin-top: -55px;
   }
   .content-position::before {
     opacity: 0;
@@ -460,6 +477,7 @@ header {
   }
   .content-position {
     flex-flow: column;
+    max-width: none;
   }
   
   .comment-content {
@@ -472,11 +490,18 @@ header {
 }
 
 @media(max-width:765px) {
+  .content-group {
+    margin-left: 0;
+    margin-right: 0;
+  }
   .chart-group .chart1 {
     padding: 20px;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
+  }
+  .chart-group::before {
+    height: 30vh;
   }
   .chart-group .chart1 .new {
     margin-bottom: 15px;
@@ -493,6 +518,7 @@ header {
   }
   .information-content {
     margin: 10px 13px;
+    padding: 12px;
   }
   .category-title .click-guide {
     padding-left: 55%;

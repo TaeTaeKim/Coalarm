@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@500&family=Gowun+Dodum&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Mochiy+Pop+One&display=swap" rel="stylesheet">
     <script src="https://code.highcharts.com/highcharts.src.js"></script>
+    <link rel="stylesheet" href="../static/css/top-btn.css">
     <link rel="stylesheet" href="../static/css/main.css">
     <link rel="stylesheet" href="../static/css/detail.css">
     <title>Coalarm</title>
@@ -25,6 +26,7 @@
         </div>
       </a>      
     </header>
+    <div class="scroll-top-btn-detail"><i class="fas fa-arrow-circle-up"></i></div>
     <div class="content-position">
       <div class="content-group">
         <section class="visual-content">
@@ -91,7 +93,7 @@
               <div class="allcontent tab">전체</div>
             </div>
           </div>
-      
+        
           <div class="inbound category-group">
             <div class="category-title">입국관련<span class="click-guide">click</span></div>
             <div class="category-description look">
@@ -152,13 +154,14 @@
               {% endif %}
             </div>
           </div>
-        </div>
         </section>
+      </div>
         <!-- <div id="disqus_thread"></div> -->
         <section class="comment-content">
 
           <div class="comment-menu">
             <div class="comment-count">댓글 0개</div>
+            <div class="comment-resent"><i class="fas fa-history"></i></div>
           </div>
 
           <form class="comment-input-group">
@@ -201,5 +204,6 @@
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  
   <script src="../static/js/detail.js"></script>
   <script src="../static/js/comment.js"></script>
+  <script src="../static/js/top-btn.js"></script>
 </body>
 </html>
