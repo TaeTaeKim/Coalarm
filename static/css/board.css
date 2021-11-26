@@ -18,7 +18,7 @@
 
 
 #board_div{
-    border: 2px solid black;
+    border: 1px solid black;
     border-collapse: collapse;
 }
 .new-statistic{
@@ -41,11 +41,13 @@
     
 }
 .loadall{
+    display: flex;
     background-color: slateblue;
     color: white;
     font-size: 1.2rem;
-    text-align: center;
     border-radius: 5px;
-    margin: 5px 0 0 0;
+    height: 2.5rem;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
 }

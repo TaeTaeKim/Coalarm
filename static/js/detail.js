@@ -139,10 +139,10 @@ $('.reverse-cal').on('click', function () {
   rate = 1 / rate;
 });
 
-$('.safe-point-group').on('mouseover',function(){
+$('.safe-point-head').on('mouseover',function(){
   $('.tooltip').removeClass('hidden')
 })
-$('.safe-point-group').on('mouseleave',function(){
+$('.safe-point-head').on('mouseleave',function(){
   $('.tooltip').addClass('hidden')
 })
 // 안전점수 색입히기
