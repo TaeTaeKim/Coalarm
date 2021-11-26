@@ -107,20 +107,3 @@ a{
      80% { opacity:1; transform: translateY(1vw); }	
     100% { opacity:0; transform: translateY(2vw); }	
   }
-
-/* top 스크롤 버튼 */
-.scroll-top-btn {
-    position: sticky;
-    position: -webkit-sticky;
-    top:90%;
-    left: 90%;
-    background: linear-gradient(to top left, #f39601, #f3dabb);
-    color: #fff;
-    border-radius: 20%;
-    padding: 5px;
-    display: inline-block;
-    cursor: pointer;
-    z-index: 999;
-    font-size: .8rem;
-    font-family: 'Gugi', sans-serif, cursive;
-}
