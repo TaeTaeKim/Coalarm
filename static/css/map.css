@@ -29,10 +29,14 @@
     font-weight: 200;
     background-color: rgba(255, 255, 255, 0.719);
 }
+.dropmenu > ul > li:hover {
+    color: skyblue;
+}
 /* 맵 상단 알림과 검색창 */
 .country-search{
     display: flex;
     justify-content: space-between;
+    margin-top: -30px;
 }
 .country-search > div:first-child{
     font-size: 20px;
