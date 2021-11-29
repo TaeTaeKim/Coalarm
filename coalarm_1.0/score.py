@@ -124,9 +124,10 @@ for i in score:
     print(i, len(i), type(i))
 
 for i in range(len(score)):
-    cur.execute("INSERT INTO Safety_Score VALUES('{0}', '{1}')".format(\
-    score[i]["iso_code"], \
-    float(score[i]["score"])))
+    cur.execute("INSERT INTO Safety_Score VALUES('{0}', '{1}', '{2}')".format(\
+        score[i]["iso_code"], \
+        score[i]["country_kr"], \
+        float(score[i]["score"])))
 conn.commit()
 conn.close()
 

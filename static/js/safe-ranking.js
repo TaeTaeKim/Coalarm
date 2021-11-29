@@ -1,47 +1,24 @@
-
-let rankingEl = $('.ranking-body');
-
-data = [
-  {
-    link: "#",
-    flag: '../static/img/한국.jpg',
-    country: '한국',
-    point: 90,
-    isolation: 3,
-    continent: '동아시아'
-  },
-  {
-    link: "#",
-    flag: '../static/img/미국.png',
-    country: '미국',
-    point: 80,
-    isolation: 7,
-    continent: '미대륙'
-  },
-  {
-    link: "#",
-    flag: '../static/img/싱가폴.png',
-    country: '싱가폴',
-    point: 70,
-    isolation: 10,
-    continent: '동아시아'
-  }
-]
-
-data.forEach((el, i)=>{
-  $(rankingEl).append(
-    `<a href=${el.link} class="ranking-box">
-        <img src=${el.flag} alt="국기사진${i+1}">
-        <div class="ranking-itmes">
-            <div class="star"><i class="fa fa-star"></i> ${i+1}위</div>
-            <div class="country-name">${el.country}</div>
-            <div class="point">안전점수: <b>${el.point}점</b></div>
-        </div>
-        <div class="ranking-line"></div>
-        <div class="ranking-info">
-            <div class="period"><i class="fa fa-clock"></i> 자가격리 기간: ${el.isolation}일</div>
-            <div class="continent"><i class="fa fa-globe"></i> 대륙: ${el.continent}</div>
-        </div>
-    </a>`
-  );
+$(document).ready(function(){
+  $.ajax({
+    url:'/safety_score',
+    type:'GET',
+    async:false,
+    datatype:'json',
+    success:function(res){
+      let data = res['top3_score']
+      data.forEach((el,i)=>{
+        $(rankingEl).append(
+          `<a href="/country/${el.iso_code}" class="ranking-box">
+              <img src="https://flagcdn.com/40x30/${el.iso_code}.png" alt="">;
+              <div class="ranking-itmes">
+                  <div class="star"><i class="fa fa-star"></i> ${i+1}위</div>
+                  <div class="country-name">${el.country_kr}</div>
+                  <div class="point">안전점수: <b>${el.score}점</b></div>
+              </div>
+          </a>`
+        )
+      })
+    }
+  })
 })
+

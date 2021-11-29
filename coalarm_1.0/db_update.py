@@ -9,7 +9,6 @@ import pymysql
 import threading
 import json
 import pandas as pd
-import user_info
 
 # 코로나 백신 데이터 가져오기
 from corona_vaccine_data_scraping import get_vaccine_scraping
@@ -24,19 +23,14 @@ from safety_scraping import get_safety_data
 from terror_scraping import get_terror_data
 
 class AsyncTask:
-
-    coalarm = None
     
     def __init__(self):
-        # self.coalarm = user_info.user_info
-        self.coalarm = user_info.user_info
         print("db update - background")
 
     # 기능 1. corona vaccine data update, 주기 : 24시간
     def update_Corona_Vaccine_Data(self):
         
         # 0. 쓰레드 실행
-        # threading.Timer(500, self.update_Corona_Vaccine_Data).start()
         t = threading.Timer(500, self.update_Corona_Vaccine_Data)
         t.daemon = True
         t.start()
@@ -55,7 +49,6 @@ class AsyncTask:
                     vaccine_data[i]["iso_code"] = iso_list[j]["Code"]
 
         # 3. db 연결
-        # conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
         conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
         cur = conn.cursor()
         cur.execute('TRUNCATE TABLE Corona_Vaccine_Data') # 테이블 레코드 비우기
@@ -75,7 +68,6 @@ class AsyncTask:
     def update_Corona_Data(self):
 
         # 0. 쓰레드 실행
-        # threading.Timer(400, self.update_Corona_Data).start()
         t = threading.Timer(400, self.update_Corona_Data)
         t.daemon = True
         t.start()
@@ -112,7 +104,6 @@ class AsyncTask:
                     corona_data[i]["continent"] = j["continent"]
 
         # 4. db 연결
-        # conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
         conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
         cur = conn.cursor()
         cur.execute('TRUNCATE TABLE Corona_Data') # 테이블 레코드 비우기
@@ -141,7 +132,6 @@ class AsyncTask:
     def update_Api_Data(self):
         
         # 0. 쓰레드 실행
-        # threading.Timer(300, self.update_Api_Data).start()
         t = threading.Timer(300, self.update_Api_Data)
         t.daemon = True
         t.start()
@@ -186,7 +176,6 @@ class AsyncTask:
                     i["notice"] = j["notice"].replace("'", "`").replace('"', "`") # 따옴표들 백틱으로 변경
 
         # 4. db 연결
-        # conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
         conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")  
         cur = conn.cursor()
         cur.execute('TRUNCATE TABLE Api_Data') # 테이블 레코드 비우기
@@ -211,7 +200,6 @@ class AsyncTask:
         
         if len(exchange_data) != 0:
             # 2. db 연결
-            # conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
             conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
             cur = conn.cursor()
             cur.execute('TRUNCATE TABLE Exchange_Data') # 테이블 레코드 비우기
@@ -234,7 +222,6 @@ class AsyncTask:
     def update_Embassy_Data(self):
 
         # 0. 쓰레드 실행
-        # threading.Timer(200, self.update_Embassy_Data).start()
         t = threading.Timer(200, self.update_Embassy_Data)
         t.daemon = True
         t.start()
@@ -244,7 +231,6 @@ class AsyncTask:
         # return column : ['country_eng_nm', 'country_iso_alp2', 'country_nm', 'embassy_kor_nm', 'url']
 
         # 3. db 연결
-        # conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
         conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
         cur = conn.cursor()
         cur.execute('TRUNCATE TABLE Embassy_Data') # 테이블 레코드 비우기
@@ -263,7 +249,6 @@ class AsyncTask:
     def update_Safety_Data(self):
         
         # 0. 쓰레드 실행
-        # threading.Timer(600, self.update_Safety_Data).start()
         t = threading.Timer(600, self.update_Safety_Data)
         t.daemon = True
         t.start()
@@ -296,7 +281,6 @@ class AsyncTask:
         # return : {'Safety_index', 'Numbeo_index', 'Homicide_rate', 'iso_code', 'Last', 'Previous'}
         
         # 3. db 연결
-        # conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
         conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
         cur = conn.cursor()
         cur.execute('TRUNCATE TABLE Safety_Data') # 테이블 레코드 비우기

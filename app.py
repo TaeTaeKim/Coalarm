@@ -37,6 +37,18 @@ def board():
     boarddata = board_data()
     return jsonify(boarddata)
 
+@app.route("/safety_score", methods=["GET"])
+def safety_score():
+    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+    cur = conn.cursor()
+    cur.execute("select * from Safety_Score order by score desc limit 3")
+    row_headers=[x[0] for x in cur.description]
+    rv = cur.fetchall()
+    top3_score=[]
+    for result in rv:
+        top3_score.append(dict(zip(row_headers,result)))
+    conn.close()
+    return jsonify({"top3_score" : top3_score})
 
 @app.route('/country/<ISO_code>', methods=['GET'])
 def country(ISO_code):
