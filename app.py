@@ -4,6 +4,7 @@ from getdata import corona, embassy, vaccine, kr_name, notice, noticeall, embass
 from mainstatistic import board_data
 import json
 import datetime
+import pymysql
 
 
 app = Flask(__name__)
@@ -16,8 +17,18 @@ def index():
 
 @app.route('/data', methods=['GET'])
 def data():
-    with open('./static/Test_json/api_data.json', 'r') as f:
-        lvl_data = json.load(f)
+    # with open('./static/Test_json/api_data.json', 'r') as f:
+    #     lvl_data = json.load(f)
+
+    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+    cur = conn.cursor()
+    cur.execute("select * from Api_Data")
+    row_headers=[x[0] for x in cur.description]
+    rv = cur.fetchall()
+    lvl_data=[]
+    for result in rv:
+        lvl_data.append(dict(zip(row_headers,result)))
+    conn.close()
     return jsonify({'caution': lvl_data})
 
 

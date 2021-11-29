@@ -1,6 +1,8 @@
 # 환율 API를 이용해서 반환하는 함수.
 import requests
 import json
+import pymysql
+
 def exchange(ISO):
     # url  = 'https://www.koreaexim.go.kr/site/program/financial/exchangeJSON'
     # params = {
@@ -16,9 +18,21 @@ def exchange(ISO):
     # response = requests.get(url, params=params)
     
     # response_text_dict = response.json()
-    with open('./static/Test_json/exchange.json','r') as f:
-        response_text_dict = json.load(f)
-    dollar = response_text_dict[4]['deal_bas_r']
+
+    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+    cur = conn.cursor()
+    cur.execute("select * from Exchange_Data")
+    row_headers=[x[0] for x in cur.description]
+    rv = cur.fetchall()
+    response_text_dict=[]
+    for result in rv:
+        response_text_dict.append(dict(zip(row_headers,result)))
+    conn.close()
+    # with open('./static/Test_json/exchange.json','r') as f:
+    #     response_text_dict = json.load(f)
+    for i in range(len(response_text_dict)):
+        if response_text_dict[i]["cur_unit"] == "USD":
+            dollar = response_text_dict[i]
 
     if ISO in EU:
         for d in response_text_dict:
@@ -31,4 +45,4 @@ def exchange(ISO):
             exchange_name = i['cur_nm']
             return [exchange_rate,exchange_name]
 
-    return [dollar,response_text_dict[4]['cur_nm']]
+    return [dollar["cur_unit"],dollar['cur_nm']]

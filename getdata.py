@@ -12,8 +12,18 @@ for result in rv:
     coronadata.append(dict(zip(row_headers,result)))
 # with open('./static/Test_json/corona_data.json','r') as f:
 #     coronadata = json.load(f)
-with open('./static/Test_json/corona_vaccine_data.json','r') as f:
-    vaccinedata = json.load(f)
+
+conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+cur = conn.cursor()
+cur.execute("select * from Corona_Vaccine_Data")
+row_headers=[x[0] for x in cur.description]
+rv = cur.fetchall()
+vaccinedata=[]
+for result in rv:
+    vaccinedata.append(dict(zip(row_headers,result)))
+conn.close()
+# with open('./static/Test_json/corona_vaccine_data.json','r') as f:
+#     vaccinedata = json.load(f)
 
 cur.execute("select * from Api_Data")
 row_headers=[x[0] for x in cur.description]
@@ -41,6 +51,9 @@ for result in rv:
     safe_data.append(dict(zip(row_headers,result)))
 # with open('./static/Test_json/new_safety_data.json','r') as f:
 #     safe_data = json.load(f)
+
+# 안전 점수 가져오기
+conn.close()
 
 inbound = ["목적", "외국인", "한국", "해외입국자","금지", "허용", "중단","허가","허용","불허","제한","통제","폐쇄","불가","관광","중지","통제"]
 document = ["확인서", "허가증", "신고서", "서약서","온라인","결과서","PCR","검사","카드","보험","증명서","QR","디지털","필수","결과지","서류","검진서","검사서","공인서"]

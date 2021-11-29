@@ -3,8 +3,8 @@
 # 11/16 flask - mysql 연동 완료
 
 from flask import Flask, jsonify
-from exchange import exchange
-from getdata import corona, vaccine, kr_name, notice, noticeall
+# from exchange import exchange
+# from getdata import corona, vaccine, kr_name, notice, noticeall
 import pymysql
 import db_update
 
@@ -26,7 +26,7 @@ def home():
 
 @app.route("/corona_data")
 def corona_data():
-    conn = pymysql.connect(host="13.209.17.131", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
     cur = conn.cursor()
     cur.execute("select * from Corona_Data")
     row_headers=[x[0] for x in cur.description]
@@ -45,7 +45,7 @@ def corona_data():
 
 @app.route("/corona_vaccine_data")
 def corona_vaccine_data():
-    conn = pymysql.connect(host="13.209.17.131", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
     cur = conn.cursor()
     cur.execute("select * from Corona_Vaccine_Data")
     row_headers=[x[0] for x in cur.description]
@@ -64,7 +64,7 @@ def corona_vaccine_data():
 
 @app.route("/api_data")
 def api_data():
-    conn = pymysql.connect(host="13.209.17.131", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
     cur = conn.cursor()
     cur.execute("select * from Api_Data")
     row_headers=[x[0] for x in cur.description]
@@ -83,7 +83,7 @@ def api_data():
 
 @app.route("/embassy_data")
 def embassy_data():
-    conn = pymysql.connect(host="13.209.17.131", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
     cur = conn.cursor()
     cur.execute("select * from Embassy_Data")
     row_headers=[x[0] for x in cur.description]
@@ -102,7 +102,7 @@ def embassy_data():
 
 @app.route("/safety_data")
 def safety_data():
-    conn = pymysql.connect(host="13.209.17.131", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
     cur = conn.cursor()
     cur.execute("select * from Safety_Data")
     row_headers=[x[0] for x in cur.description]

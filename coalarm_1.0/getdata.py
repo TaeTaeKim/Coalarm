@@ -8,7 +8,7 @@ import pymysql
 # import user_info
 # coalarm = user_info.user_info
 
-conn = pymysql.connect(host="13.209.17.131", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
 cur = conn.cursor()
 
 cur.execute("select * from Corona_Data")

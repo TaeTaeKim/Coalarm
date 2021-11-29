@@ -10,7 +10,7 @@ import user_info
 coalarm = user_info.user_info
 
 def exchange(ISO):
-    conn = pymysql.connect(host="13.209.17.131", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
     cur = conn.cursor()
     cur.execute("select * from Exchange_Data")
     row_headers=[x[0] for x in cur.description]
