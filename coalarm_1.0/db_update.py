@@ -9,6 +9,7 @@ import pymysql
 import threading
 import json
 import pandas as pd
+import user_info
 
 # 코로나 백신 데이터 가져오기
 from corona_vaccine_data_scraping import get_vaccine_scraping
@@ -22,10 +23,13 @@ from embassy_data_scraping import get_embassy_data
 from safety_scraping import get_safety_data
 from terror_scraping import get_terror_data
 
-
 class AsyncTask:
 
+    coalarm = None
+    
     def __init__(self):
+        # self.coalarm = user_info.user_info
+        self.coalarm = user_info.user_info
         print("db update - background")
 
     # 기능 1. corona vaccine data update, 주기 : 24시간
@@ -51,13 +55,14 @@ class AsyncTask:
                     vaccine_data[i]["iso_code"] = iso_list[j]["Code"]
 
         # 3. db 연결
-        conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+        # conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+        conn = pymysql.connect(host="13.209.17.131", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
         cur = conn.cursor()
-        cur.execute('TRUNCATE TABLE corona_vaccine_data') # 테이블 레코드 비우기
+        cur.execute('TRUNCATE TABLE Corona_Vaccine_Data') # 테이블 레코드 비우기
 
         # 4. 해당 테이블에 데이터 추가
         for i in range(len(vaccine_data)):
-            cur.execute('INSERT INTO corona_vaccine_data VALUES("{0}", "{1}", "{2}", "{3}")'.format(\
+            cur.execute('INSERT INTO Corona_Vaccine_Data VALUES("{0}", "{1}", "{2}", "{3}")'.format(\
             vaccine_data[i]["country"], \
             vaccine_data[i]["iso_code"], \
             float(vaccine_data[i]["partly"]),\
@@ -107,13 +112,14 @@ class AsyncTask:
                     corona_data[i]["continent"] = j["continent"]
 
         # 4. db 연결
-        conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+        # conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+        conn = pymysql.connect(host="13.209.17.131", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
         cur = conn.cursor()
-        cur.execute('TRUNCATE TABLE corona_data') # 테이블 레코드 비우기
+        cur.execute('TRUNCATE TABLE Corona_Data') # 테이블 레코드 비우기
         
         # 5. 해당 테이블에 데이터 추가
         for i in range(len(corona_data)):
-            cur.execute('INSERT INTO corona_data VALUES("{0}", "{1}", "{2}", "{3}", "{4}", "{5}", "{6}", "{7}", "{8}", "{9}", "{10}", "{11}")'.format(\
+            cur.execute('INSERT INTO Corona_Data VALUES("{0}", "{1}", "{2}", "{3}", "{4}", "{5}", "{6}", "{7}", "{8}", "{9}", "{10}", "{11}")'.format(\
             corona_data[i]["country_name"], \
             corona_data[i]["country_iso_alp2"], \
             corona_data[i]["continent"], \
@@ -180,13 +186,14 @@ class AsyncTask:
                     i["notice"] = j["notice"].replace("'", "`").replace('"', "`") # 따옴표들 백틱으로 변경
 
         # 4. db 연결
-        conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+        # conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+        conn = pymysql.connect(host="13.209.17.131", user="coalarm", password="coalarm", db="coalarm", charset="utf8")  
         cur = conn.cursor()
-        cur.execute('TRUNCATE TABLE api_data') # 테이블 레코드 비우기
+        cur.execute('TRUNCATE TABLE Api_Data') # 테이블 레코드 비우기
         
         # 5. 해당 테이블에 데이터 추가
         for i in range(len(dict_list)):
-            cur.execute('INSERT INTO api_data VALUES("{0}", "{1}", "{2}", "{3}", "{4}")'.format(\
+            cur.execute('INSERT INTO Api_Data VALUES("{0}", "{1}", "{2}", "{3}", "{4}")'.format(\
             dict_list[i]["country_name"], \
             dict_list[i]["country_iso_alp2"], \
             dict_list[i]["country_kr"], \
@@ -204,13 +211,14 @@ class AsyncTask:
         
         if len(exchange_data) != 0:
             # 2. db 연결
-            conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+            # conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+            conn = pymysql.connect(host="13.209.17.131", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
             cur = conn.cursor()
-            cur.execute('TRUNCATE TABLE exchange_data') # 테이블 레코드 비우기
+            cur.execute('TRUNCATE TABLE Exchange_Data') # 테이블 레코드 비우기
             
             # 3. 해당 테이블에 데이터 추가
             for i in range(len(exchange_data)):
-                cur.execute('INSERT INTO exchange_data VALUES("{0}", "{1}", "{2}")'.format(\
+                cur.execute('INSERT INTO Exchange_Data VALUES("{0}", "{1}", "{2}")'.format(\
                 exchange_data[i]["cur_nm"], \
                 exchange_data[i]["cur_unit"], \
                 exchange_data[i]["deal_bas_r"]))
@@ -236,13 +244,14 @@ class AsyncTask:
         # return column : ['country_eng_nm', 'country_iso_alp2', 'country_nm', 'embassy_kor_nm', 'url']
 
         # 3. db 연결
-        conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+        # conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+        conn = pymysql.connect(host="13.209.17.131", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
         cur = conn.cursor()
-        cur.execute('TRUNCATE TABLE embassy_data') # 테이블 레코드 비우기
+        cur.execute('TRUNCATE TABLE Embassy_Data') # 테이블 레코드 비우기
 
         # 4. 해당 테이블에 데이터 추가
         for i in range(len(embassy_data)):
-            cur.execute('INSERT INTO embassy_data VALUES("{0}", "{1}", "{2}")'.format(\
+            cur.execute('INSERT INTO Embassy_Data VALUES("{0}", "{1}", "{2}")'.format(\
             embassy_data[i]["country_iso_alp2"], \
             embassy_data[i]["embassy_kor_nm"], \
             embassy_data[i]["url"]))
@@ -287,13 +296,14 @@ class AsyncTask:
         # return : {'Safety_index', 'Numbeo_index', 'Homicide_rate', 'iso_code', 'Last', 'Previous'}
         
         # 3. db 연결
-        conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+        # conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+        conn = pymysql.connect(host="13.209.17.131", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
         cur = conn.cursor()
-        cur.execute('TRUNCATE TABLE safety_data') # 테이블 레코드 비우기
+        cur.execute('TRUNCATE TABLE Safety_Data') # 테이블 레코드 비우기
 
         # 4. 해당 테이블에 데이터 추가
         for i in range(len(data)):
-            cur.execute('INSERT INTO safety_data VALUES("{0}", "{1}", "{2}", "{3}", "{4}", "{5}")'.format(\
+            cur.execute('INSERT INTO Safety_Data VALUES("{0}", "{1}", "{2}", "{3}", "{4}", "{5}")'.format(\
             data[i]["iso_code"], \
             float(data[i]["Safety_index"]),\
             float(data[i]["Numbeo_index"]),\

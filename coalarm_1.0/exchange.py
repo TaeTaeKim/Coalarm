@@ -5,18 +5,21 @@
 # 환율 API를 이용해서 반환하는 함수.
 import requests
 import pymysql
+import user_info
+
+coalarm = user_info.user_info
 
 def exchange(ISO):
-    conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+    conn = pymysql.connect(host="13.209.17.131", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
     cur = conn.cursor()
-    cur.execute("select * from exchange_data")
+    cur.execute("select * from Exchange_Data")
     row_headers=[x[0] for x in cur.description]
     rv = cur.fetchall()
     response_text_dict=[]
     for result in rv:
         response_text_dict.append(dict(zip(row_headers,result)))
     
-    cur.execute("select * from exchange_data where cur_unit = 'USD'")
+    cur.execute("select * from Exchange_Data where cur_unit = 'USD'")
     dollar = cur.fetchall()[0]
     conn.close()
 

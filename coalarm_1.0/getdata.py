@@ -4,25 +4,28 @@
 
 import json
 import pymysql
+import user_info
 
-conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+coalarm = user_info.user_info
+print(coalarm["db"], type(coalarm["db"]))
+conn = pymysql.connect(host="13.209.17.131", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
 cur = conn.cursor()
 
-cur.execute("select * from corona_data")
+cur.execute("select * from Corona_Data")
 row_headers=[x[0] for x in cur.description]
 rv = cur.fetchall()
 coronadata=[]
 for result in rv:
     coronadata.append(dict(zip(row_headers,result)))
 
-cur.execute("select * from corona_vaccine_data")
+cur.execute("select * from Corona_Vaccine_Data")
 row_headers=[x[0] for x in cur.description]
 rv = cur.fetchall()
 vaccinedata=[]
 for result in rv:
     vaccinedata.append(dict(zip(row_headers,result)))
 
-cur.execute("select * from api_data")
+cur.execute("select * from Api_Data")
 row_headers=[x[0] for x in cur.description]
 rv = cur.fetchall()
 api_data=[]

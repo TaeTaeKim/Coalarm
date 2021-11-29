@@ -55,3 +55,8 @@ CREATE TABLE IF NOT EXISTS `Comment` (
     `nickname` VARCHAR(30) NOT NULL,
     `write_time` VARCHAR(30) NOT NULL,
     `password` VARCHAR(30) NOT NULL);
+
+CREATE TABLE IF NOT EXISTS `Safety_Score` (
+    `iso_code` VARCHAR(10) NOT NULL PRIMARY KEY,
+    `score` FLOAT NOT NULL);
+
