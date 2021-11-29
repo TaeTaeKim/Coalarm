@@ -42,9 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
   } else {
     Highcharts.setOptions({
       colors: ['#058DC7', '#64E572'],
-      // #64E572
-      // #6AF9C4
-      // #50B432
     });
     const chart = Highcharts.chart('container', {
       chart: {
@@ -140,10 +137,10 @@ $('.reverse-cal').on('click', function () {
 });
 
 $('.safe-point-group').on('mouseover', function () {
-  $('.tooltip').removeClass('hidden');
+  $('.tooltip').removeClass('fadeout');
 });
 $('.safe-point-group').on('mouseleave', function () {
-  $('.tooltip').addClass('hidden');
+  $('.tooltip').addClass('fadeout');
 });
 // 안전점수 색입히기
 function safeColor() {

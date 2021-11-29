@@ -20,6 +20,9 @@ a{
 .hidden{
     display: none !important;
 }
+.fadeout{
+    opacity: 0;
+}
 #search{
     background-image: url("../img/candi2.jpg");
     background-size: cover;

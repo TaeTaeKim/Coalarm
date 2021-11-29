@@ -2,7 +2,6 @@
     width: 50%;
     margin: 10px auto 0 auto;
     position: relative;
-
 }
 .tabbar{
     display: flex;
@@ -39,17 +38,32 @@
     margin-top: -50px;
 }
 .country-search > div:first-child{
-    font-size: .8rem;
-    color: tomato;
+    font-size: 1rem;
+    color: #333;
+}
+.country-search> div:last-child {
+    padding-bottom: 10px;
+    margin: auto;
 }
 .country-search input{
     width: 11rem;
     font-size: 18px;
-    
-
+    outline: none;
+    padding: 0 250px;
 }
+.country-search input:focus {
+    border: 2px solid #5733b5;
+    border-radius: 5px;
+}
+
 .country-search button{
-    font-size: 18px;
+    font-size: 15px;
+    padding:4px 6px;
+    padding-top: 5px;
+    border:none;
+    border-radius: 4px;
+    color: #fff;
+    background: linear-gradient(to right top, #5733b5, #956af3);
 } 
 .autocomplete{
     width: 11rem;
@@ -67,19 +81,23 @@
         width: 100vw;
         padding: 0 20px;
     }
+    .country-search> div:first-child {
+        padding-bottom: 15px;
+        padding-top: 0px;
+        text-align: center;
+    }
+    
+    .tab {
+        font-size: .8rem;
+    }
+}
+@media(max-width:768px) {
     .country-search {
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
     }
-    .country-search> div:first-child {
-        padding-bottom: 15px;
-        padding-top: 0px;
-    }
-    .country-search> div:last-child {
-        padding-bottom: 10px;
-    }
-    .tab {
-        font-size: .8rem;
+    .country-search> div:last-child > input {
+        padding: 0;
     }
 }
