@@ -109,11 +109,19 @@ print(len(df_recommend_data), type(df_recommend_data))
 
 
 a = SafetyScore(df_recommend_data)
+
+with open('./json_file/country_kr_ISO.json', 'r') as f:
+    json_country_kr = json.load(f)  # json_country_kr key : ["country_kr", "iso_code"]
+
 score = []
 for i in range(len(a)):
     s = {}
     s['iso_code'] = a['iso_code'][i]
+    s['country_kr'] = a['country_kr'][i]
     s['score'] = a['score'][i]
+    for j in json_country_kr:
+        if s["iso_code"] == j["iso_code"]:
+            s["country_kr"] = j["country_kr"]
     score.append(s)
 '''
 Safety_Score
