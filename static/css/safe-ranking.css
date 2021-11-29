@@ -1,9 +1,11 @@
 a {
   text-decoration: none;
 }
+
 .ranking-head {
   text-align: center;
   padding: 30px;
+  padding-bottom: 10px;
 }
 .ranking-head .sub-head {
   color: rgb(250, 194, 89);
@@ -81,4 +83,14 @@ a {
   font-size: 12px;
   text-align: center;
   margin-bottom: 30px;
+}
+
+@media(max-width:768px) {
+  .ranking-body {
+    flex-wrap: nowrap;
+    margin-bottom: 10px;
+  }
+  .ranking-body .ranking-box {
+    margin: 10px;
+  }
 }
