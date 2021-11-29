@@ -53,9 +53,6 @@ a {
   font-weight: bold;
   color: #212529;
 }
-.ranking-itmes> .point {
-  
-}
 .ranking-itmes> .point> b{
   color: lightseagreen;
 }
@@ -70,12 +67,6 @@ a {
   padding: 0px 20px;
   color: gray;
   font-size: 13px;
-}
-.ranking-info> .period {
-
-}
-.ranking-info> .continent {
-
 }
 
 .safe-point-description {
