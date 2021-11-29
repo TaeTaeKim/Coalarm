@@ -43,7 +43,7 @@ for result in rv:
 # with open('./static/Test_json/embassy_data.json','r') as f:
 #     embassy_data = json.load(f)
 
-cur.execute("select * from Safety_Data")
+cur.execute("select * from Safety_Score")
 row_headers=[x[0] for x in cur.description]
 rv = cur.fetchall()
 safe_data=[]
