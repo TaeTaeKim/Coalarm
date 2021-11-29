@@ -58,6 +58,6 @@ CREATE TABLE IF NOT EXISTS `Comment` (
 
 CREATE TABLE IF NOT EXISTS `Safety_Score` (
     `iso_code` VARCHAR(10) NOT NULL PRIMARY KEY,
-    `country_kr` VARCHAR(20) NOT NULL,
+    `country_kr` VARCHAR(30) NOT NULL,
     `score` FLOAT NOT NULL);
 
