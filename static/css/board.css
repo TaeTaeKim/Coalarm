@@ -13,6 +13,8 @@
 
 
 #board_div{
+    width: 100%; 
+    margin: auto;
     border: 1px solid black;
     border-collapse: collapse;
 }
@@ -54,4 +56,13 @@
     width: 10rem;
     font-size: 15px;
     margin-left: 10px;
+}
+
+@media(max-width:768px) {
+    #board_div {
+        width: 95%;
+    }
+    .board-btn{
+        margin:0 20px 10px 0;
+    }
 }

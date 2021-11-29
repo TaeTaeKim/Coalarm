@@ -13,6 +13,9 @@ a{
     text-decoration: none;
     color:#5733b5;
 }
+#main {
+    min-width: 800px;
+}
 
 .hidden{
     display: none !important;
@@ -106,3 +109,23 @@ a{
      80% { opacity:1; transform: translateY(1vw); }	
     100% { opacity:0; transform: translateY(2vw); }	
   }
+.dividing-line {
+    width: 75%;
+    border-bottom: 1px solid rgb(230, 225, 225);
+    margin: 60px auto;
+    /* margin-top: 60px; */
+    /* margin-bottom: 30px; */
+}
+
+.corona-board> .dividing-line {
+    width: 100%;
+}
+
+@media(max-width:768px) {
+    .dividing-line {
+        width: 85%;
+    }
+    .corona-board> .dividing-line {
+        width: 85%;
+    }
+}

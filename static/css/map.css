@@ -61,3 +61,20 @@
     display: block;
     color: white;
 }
+
+@media(max-width:765px) {
+    #map-container {
+        width: 90%;
+    }
+    .country-search {
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .country-search> div:first-child {
+        padding-bottom: 10px;
+    }
+    .country-search> div:last-child {
+        padding-bottom: 10px;
+    }
+}
