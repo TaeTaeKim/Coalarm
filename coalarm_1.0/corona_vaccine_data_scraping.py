@@ -17,7 +17,7 @@ def get_vaccine_scraping():
     options.add_argument("headless")
 
     # driver 실행
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome("./chromedriver", options=options)
     driver.implicitly_wait(5)
 
     driver.get('https://ourworldindata.org/covid-vaccinations')

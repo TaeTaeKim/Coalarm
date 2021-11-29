@@ -104,7 +104,7 @@ df_recommend_data = pd.merge(df_continent, df_recommend_data, how = 'left', on =
 df_recommend_data = df_recommend_data.drop(["continent"], axis=1).reset_index()
 df_recommend_data = df_recommend_data.dropna(axis=0)
 df_recommend_data = df_recommend_data.to_dict(orient = "records")
-print(len(df_recommend_data), type(df_recommend_data))
+#print(len(df_recommend_data), type(df_recommend_data))
 
 
 
@@ -120,9 +120,13 @@ Safety_Score
     iso_code
     score
 '''
+for i in score:
+    print(i, len(i), type(i))
+
 for i in range(len(score)):
     cur.execute("INSERT INTO Safety_Score VALUES('{0}', '{1}')".format(\
-        score[i]["iso_code"], \
-        float(score[i]["score"])))
+    score[i]["iso_code"], \
+    float(score[i]["score"])))
 conn.commit()
 conn.close()
+

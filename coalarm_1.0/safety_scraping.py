@@ -12,7 +12,7 @@ def get_safety_data(): # return : ['Country', 'Safety_index', 'Numbeo_index', 'H
     options.add_argument("headless")
 
     # driver 실행
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome("./chromedriver", options=options)
     driver.implicitly_wait(3)
     
     driver.get('https://globalresidenceindex.com/hnwi-index/safety-index/')
