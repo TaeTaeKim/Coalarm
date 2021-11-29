@@ -94,7 +94,7 @@ rv = cur.fetchall()
 recommend_data=[]
 for result in rv:
     recommend_data.append(dict(zip(row_headers,result)))
-conn.close()
+
 
 df_recommend_data = pd.DataFrame(recommend_data).replace(-1, np.NaN)
 df_recommend_data["caution"] = df_recommend_data["caution"].apply(lambda x : x if x != 5 else 1.5)
