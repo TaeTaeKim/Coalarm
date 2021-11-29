@@ -53,7 +53,7 @@ def get_embassy_data(): # return column : ['country_eng_nm', 'country_iso_alp2',
     options.add_argument("headless")
 
     # driver 실행
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome("./chromedriver", options=options)
     driver.get(url=URL)
     # Select tag 에서 '100 개씩 조회' 선택 
     select = Select(driver.find_element_by_xpath('//*[@id="sub_content"]/form/div/div/select'))

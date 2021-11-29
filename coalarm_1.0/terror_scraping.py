@@ -11,7 +11,7 @@ def get_terror_data(): # return : ['Ranking', 'Country', 'Last', 'Previous']
     options.add_argument("headless")
 
     # driver 실행
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome("./chromedriver", options=options)
 
     driver.implicitly_wait(3)
     driver.get('https://tradingeconomics.com/country-list/terrorism-index')
