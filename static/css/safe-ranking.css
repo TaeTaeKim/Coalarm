@@ -85,12 +85,22 @@ a {
   margin-bottom: 30px;
 }
 
-@media(max-width:768px) {
+@media(max-width:1024px) {
   .ranking-body {
-    flex-wrap: nowrap;
-    margin-bottom: 10px;
+    width: 100%;
   }
   .ranking-body .ranking-box {
-    margin: 10px;
+    height: 32vh;
   }
+  .safe-point-description {
+    padding: 20px
+  }
+}
+
+@media(max-width:770px) {
+  .ranking-body .ranking-box {
+    margin-bottom: 10px;
+    height: 110%;
+  }
+  
 }

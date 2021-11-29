@@ -39,7 +39,7 @@
     margin-top: -50px;
 }
 .country-search > div:first-child{
-    font-size: 20px;
+    font-size: .8rem;
     color: tomato;
 }
 .country-search input{
@@ -62,9 +62,10 @@
     color: white;
 }
 
-@media(max-width:765px) {
+@media(max-width:1024px) {
     #map-container {
-        width: 90%;
+        width: 100vw;
+        padding: 0 20px;
     }
     .country-search {
         flex-direction: column;
@@ -72,9 +73,13 @@
         align-items: center;
     }
     .country-search> div:first-child {
-        padding-bottom: 10px;
+        padding-bottom: 15px;
+        padding-top: 0px;
     }
     .country-search> div:last-child {
         padding-bottom: 10px;
+    }
+    .tab {
+        font-size: .8rem;
     }
 }

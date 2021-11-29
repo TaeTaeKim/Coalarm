@@ -59,10 +59,10 @@
 }
 
 @media(max-width:768px) {
-    #board_div {
-        width: 95%;
-    }
     .board-btn{
         margin:0 20px 10px 0;
+    }
+    .corona-board {
+        display: none;
     }
 }
