@@ -34,5 +34,4 @@ def board_data():
     for i in board_data.columns:
         board_data.loc[board_data[i].isnull(),i] = -1
     board_data = board_data.to_dict(orient='records')
-    print(type(board_data))
     return {'chart_data':chart_data,"merged":board_data}
