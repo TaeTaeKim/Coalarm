@@ -36,7 +36,6 @@ data.forEach((el, i) => {
             <div class="country-name">${el.country}</div>
             <div class="point">안전점수: <b>${el.point}점</b></div>
         </div>
-        <div class="ranking-line"></div>
     </a>`
   );
 });
