@@ -45,7 +45,10 @@ countryCode.forEach((el) => {
 });
 
 // 페이지 resize시에 지도 갱신
-$(window).resize(function(){location.reload();});
+if(screen.width>1500){
+  $(window).resize(function(){location.reload();});
+}
+
 
 //dropmenu관련 설정
 $(document).ready(()=>{
