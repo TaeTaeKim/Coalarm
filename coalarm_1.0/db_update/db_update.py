@@ -12,7 +12,8 @@ import pandas as pd
 import numpy as np
 
 # 코로나 백신 데이터 가져오기
-from corona_vaccine_data_scraping import get_vaccine_scraping
+# from corona_vaccine_data_scraping import get_vaccine_scraping
+import corona_vaccine_data_scraping as coronadata
 # 코로나 데이터 가져오기
 from corona_data_scraping import get_corona_scraping
 # 코로나 관련 api 가져오기
@@ -39,7 +40,7 @@ class AsyncTask:
         t.start()
         
         # 1. scraping
-        vaccine_data = get_vaccine_scraping() 
+        vaccine_data = corona.get_vaccine_scraping()
 
         # 2. iso 컬럼 추가
         with open('./json_file/country_ISO.json', 'r') as f:

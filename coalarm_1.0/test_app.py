@@ -6,18 +6,19 @@ from flask import Flask, jsonify
 from exchange import exchange
 from getdata import corona, vaccine, kr_name, notice, noticeall
 import pymysql
-import db_update
+from db_update import db_update
 
 app = Flask(__name__)
 
 corona_update = db_update.AsyncTask()
 
-corona_update.update_Corona_Data() # corona update
-corona_update.update_Corona_Vaccine_Data() # vaccine update
-corona_update.update_Api_Data() # api update
-corona_update.update_Embassy_Data() # embassy update
-corona_update.update_Safety_Data() # safety update
-corona_update.update_Safety_Score() # score update
+corona_update.__init__()
+# corona_update.update_Corona_Data() # corona update
+# corona_update.update_Corona_Vaccine_Data() # vaccine update
+# corona_update.update_Api_Data() # api update
+# corona_update.update_Embassy_Data() # embassy update
+# corona_update.update_Safety_Data() # safety update
+# corona_update.update_Safety_Score() # score update
 print("db create and update")
 
 @app.route("/")
