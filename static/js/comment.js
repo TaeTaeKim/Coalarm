@@ -59,7 +59,8 @@ function readComment(data) {
   const commentListEl = document.querySelector('.comment-list');
   data.forEach((el, i) => {
     // 댓글 루트
-    if (el.index === el.parent) {
+    // if (el.index === el.parent) {
+    if (el.class == 0) {
       let commentBoxDiv = document.createElement('div');
       commentBoxDiv.setAttribute('class', 'comment-box');
       commentBoxDiv.setAttribute('data-parent', el.index); // 부모 댓글 표시
@@ -110,7 +111,7 @@ function readPlusCommentBtn(plusComment, data) {
     readPlusDiv.innerHTML = `
     <div class="read-plus-comment">
       <div class="triangle">▼</div>&ensp;
-      <span class="show-comment">답글 ${count - 1}개 보기</span>
+      <span class="show-comment">답글 ${count}개 보기</span>
       <div class="plus-comment-list hidden"></div>
     </div>
     `;
