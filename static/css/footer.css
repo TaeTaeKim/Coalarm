@@ -1,9 +1,11 @@
 footer {
+  padding-left: 500px;
+  margin-bottom: 20px;
+}
+.footer-content{  
   display: flex;
   flex-flow: column;
   justify-content: center;
-  padding-left: 500px;
-  margin-bottom: 20px;
 }
 footer .footer-title {
   padding-left: 5px;
@@ -13,20 +15,7 @@ footer .footer-title {
 footer img{
   width: 101px;
   height: 108px;
-}
-footer .icon-group {
-  display: flex;
-  text-align: center;
-  align-items: center;
-}
-footer .icon {
-  font-size: 23px;
-  padding: 5px 10px;
-}
-footer .icon.logo {
-  width: 23px;
-  height: 23px;
-  box-sizing: unset;
+  display: inline-block;
 }
 
 footer .text-group {
