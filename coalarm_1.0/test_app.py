@@ -3,8 +3,8 @@
 # 11/16 flask - mysql 연동 완료
 
 from flask import Flask, jsonify
-# from exchange import exchange
-# from getdata import corona, vaccine, kr_name, notice, noticeall
+from exchange import exchange
+from getdata import corona, vaccine, kr_name, notice, noticeall
 import pymysql
 import db_update
 
@@ -17,7 +17,7 @@ corona_update.update_Corona_Vaccine_Data() # vaccine update
 corona_update.update_Api_Data() # api update
 corona_update.update_Embassy_Data() # embassy update
 corona_update.update_Safety_Data() # safety update
-
+corona_update.update_Safety_Score() # score update
 print("db create and update")
 
 @app.route("/")

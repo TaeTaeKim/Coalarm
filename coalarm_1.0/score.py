@@ -78,65 +78,65 @@ def SafetyScore(new2):
     return a
 
 
-with open('./json_file/new_continent.json', 'r') as f:
-    df_continent = pd.DataFrame(json.load(f))  # json_country key : ["iso_code", "continent"]
+# with open('./json_file/new_continent.json', 'r') as f:
+#     df_continent = pd.DataFrame(json.load(f))  # json_country key : ["iso_code", "continent"]
 
-conn = pymysql.connect(host='localhost', user="coalarm", password="coalarm", db="coalarm", charset="utf8")
-cur = conn.cursor()
+# conn = pymysql.connect(host='localhost', user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+# cur = conn.cursor()
 
-cur.execute("select v.iso_code, v.fully_vaccinated, s.homicide_rate, a.caution, c.total_caeses_per_1million_population, c.recovered_ratio, c.critical_ratio \
-from Corona_Vaccine_Data v \
-join Safety_Data s using(iso_code) \
-join Api_Data a using(iso_code) \
-join Corona_Data c using(iso_code)")
-row_headers=[x[0] for x in cur.description]
-rv = cur.fetchall()
-recommend_data=[]
-for result in rv:
-    recommend_data.append(dict(zip(row_headers,result)))
-
-
-df_recommend_data = pd.DataFrame(recommend_data).replace(-1, np.NaN)
-df_recommend_data["caution"] = df_recommend_data["caution"].apply(lambda x : x if x != 5 else 1.5)
+# cur.execute("select v.iso_code, v.fully_vaccinated, s.homicide_rate, a.caution, c.total_caeses_per_1million_population, c.recovered_ratio, c.critical_ratio \
+# from Corona_Vaccine_Data v \
+# join Safety_Data s using(iso_code) \
+# join Api_Data a using(iso_code) \
+# join Corona_Data c using(iso_code)")
+# row_headers=[x[0] for x in cur.description]
+# rv = cur.fetchall()
+# recommend_data=[]
+# for result in rv:
+#     recommend_data.append(dict(zip(row_headers,result)))
 
 
-df_recommend_data = pd.merge(df_continent, df_recommend_data, how = 'left', on = "iso_code").groupby("continent").apply(lambda x: x.fillna(x.mean()))
-df_recommend_data = df_recommend_data.drop(["continent"], axis=1).reset_index()
-df_recommend_data = df_recommend_data.dropna(axis=0)
-df_recommend_data = df_recommend_data.to_dict(orient = "records")
-#print(len(df_recommend_data), type(df_recommend_data))
+# df_recommend_data = pd.DataFrame(recommend_data).replace(-1, np.NaN)
+# df_recommend_data["caution"] = df_recommend_data["caution"].apply(lambda x : x if x != 5 else 1.5)
+
+
+# df_recommend_data = pd.merge(df_continent, df_recommend_data, how = 'left', on = "iso_code").groupby("continent").apply(lambda x: x.fillna(x.mean()))
+# df_recommend_data = df_recommend_data.drop(["continent"], axis=1).reset_index()
+# df_recommend_data = df_recommend_data.dropna(axis=0)
+# df_recommend_data = df_recommend_data.to_dict(orient = "records")
+# #print(len(df_recommend_data), type(df_recommend_data))
 
 
 
-a = SafetyScore(df_recommend_data)
+# a = SafetyScore(df_recommend_data)
 
-with open('./json_file/country_kr_ISO.json', 'r') as f:
-    json_country_kr = json.load(f)  # json_country_kr key : ["country_kr", "iso_code"]
+# with open('./json_file/country_kr_ISO.json', 'r') as f:
+#     json_country_kr = json.load(f)  # json_country_kr key : ["country_kr", "iso_code"]
 
-score = []
-for i in range(len(a)):
-    s = {}
-    s['iso_code'] = a['iso_code'][i]
-    #s['country_kr'] = a['country_kr'][i]
-    s['score'] = a['score'][i]
-    s["country_kr"] = s["iso_code"]
-    for j in json_country_kr:
-        if s["iso_code"] == j["iso_code"]:
-            s["country_kr"] = j["country_kr"]
-    score.append(s)
-'''
-Safety_Score
-    iso_code
-    score
-'''
-for i in score:
-    print(i)
+# score = []
+# for i in range(len(a)):
+#     s = {}
+#     s['iso_code'] = a['iso_code'][i]
+#     #s['country_kr'] = a['country_kr'][i]
+#     s['score'] = a['score'][i]
+#     s["country_kr"] = s["iso_code"]
+#     for j in json_country_kr:
+#         if s["iso_code"] == j["iso_code"]:
+#             s["country_kr"] = j["country_kr"]
+#     score.append(s)
+# '''
+# Safety_Score
+#     iso_code
+#     score
+# '''
+# for i in score:
+#     print(i)
 
-for i in range(len(score)):
-    cur.execute("INSERT INTO Safety_Score VALUES('{0}', '{1}', '{2}')".format(\
-        score[i]["iso_code"], \
-        score[i]["country_kr"], \
-        float(score[i]["score"])))
-conn.commit()
-conn.close()
+# for i in range(len(score)):
+#     cur.execute("INSERT INTO Safety_Score VALUES('{0}', '{1}', '{2}')".format(\
+#         score[i]["iso_code"], \
+#         score[i]["country_kr"], \
+#         float(score[i]["score"])))
+# conn.commit()
+# conn.close()
 
