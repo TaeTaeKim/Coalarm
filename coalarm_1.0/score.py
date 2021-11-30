@@ -75,6 +75,9 @@ def SafetyScore(new2):
         rate[4] * X[:, 4] +\
         rate[5] * X[:, 5]
     )*100
+    for i in range(len(a)):
+        if a['homicide_rate'][i] == 4:
+            a['score'][i] = 0
     return a
 
 
@@ -83,6 +86,31 @@ def SafetyScore(new2):
 
 # conn = pymysql.connect(host='localhost', user="coalarm", password="coalarm", db="coalarm", charset="utf8")
 # cur = conn.cursor()
+
+#score = []
+#for i in range(len(a)):
+#    s = {}
+#    s['iso_code'] = a['iso_code'][i]
+#    #s['country_kr'] = a['country_kr'][i]
+#    s['score'] = a['score'][i]
+#    s["country_kr"] = s["iso_code"]
+#    for j in json_country_kr:
+#        if s["iso_code"] == j["iso_code"]:
+#            s["country_kr"] = j["country_kr"]
+#    score.append(s)
+'''
+Safety_Score
+    iso_code
+    score
+'''
+
+#for i in range(len(score)):
+#    cur.execute("INSERT INTO Safety_Score VALUES('{0}', '{1}', '{2}')".format(\
+#        score[i]["iso_code"], \
+#        score[i]["country_kr"], \
+#        float(score[i]["score"])))
+#conn.commit()
+#conn.close()
 
 # cur.execute("select v.iso_code, v.fully_vaccinated, s.homicide_rate, a.caution, c.total_caeses_per_1million_population, c.recovered_ratio, c.critical_ratio \
 # from Corona_Vaccine_Data v \

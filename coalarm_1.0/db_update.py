@@ -9,6 +9,7 @@ import pymysql
 import threading
 import json
 import pandas as pd
+import numpy as np
 
 # 코로나 백신 데이터 가져오기
 from corona_vaccine_data_scraping import get_vaccine_scraping
@@ -363,3 +364,5 @@ class AsyncTask:
                 float(score[i]["score"])))
         conn.commit()
         conn.close()
+        print("Safety Score table update complete")
+

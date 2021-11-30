@@ -45,4 +45,4 @@ def exchange(ISO):
             exchange_name = i['cur_nm']
             return [exchange_rate,exchange_name]
 
-    return [dollar["cur_unit"],dollar['cur_nm']]
+    return [dollar["deal_bas_r"],dollar['cur_nm']]
