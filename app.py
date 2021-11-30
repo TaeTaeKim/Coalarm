@@ -106,7 +106,8 @@ def comment_data(ISO_code):
     # return jsonify(result)
     conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
     cur = conn.cursor()
-    cur.execute(f"select * from Comment where iso_code='{ISO_code}' order by parent desc;")
+    # cur.execute(f"select * from Comment where iso_code='{ISO_code}' order by parent desc;")
+    cur.execute(f"select * from Comment c where iso_code='{ISO_code}' order by if(c.parent = -1, idx, parent) desc;")
     row_headers=[x[0] for x in cur.description]
     row_headers[0]="index"
     rv = cur.fetchall()
@@ -117,43 +118,23 @@ def comment_data(ISO_code):
     conn.close()
     return jsonify(comment_data)
 
-# post input : 'iso_code': 'RU', 'parent': -1, 'text': 'asd', 'nickname': 'asd', 'password': 'asd'
+# post input : 'iso_code': 'RU', 'parent': -1, 'text': 'asd', 'nickname': 'asd', 'password': 'asd', 'class' : 0 or 1
 
 
 @app.route('/country/<ISO_code>', methods=['POST'])
-def add_comment(ISO_code):
-    # comment table insert query
-    # data = request.get_json()
-    # with open('./static/Test_json/comment.json', 'r') as f:  # db 대용 json 파일
-    #     comment = json.load(f)
-    # data["write_time"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    # data["index"] = len(comment) + 1
-    # if data["parent"] == -1:
-    #     data["parent"] = data["index"]
-    # comment.insert(0, data)
-
-    # # comment.sort(key = lambda x : (x["parent"], x["index"]), reverse=(True, False))
-    # comment = sorted(comment, key=lambda e: (-e['parent'], e['index']))
-
-    # with open('./static/Test_json/comment.json', 'w') as f:  # db 대용 json 파일
-    #     json.dump(comment, f)
-
-    # print(comment[0])
-    # return jsonify({"result": "success"})
-    
+def add_comment(ISO_code):    
     data = request.get_json()
     conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
     cur = conn.cursor()
-    if data["parent"] == -1:
-        data["parent"] = data["index"]
-    cur.execute('INSERT INTO Comment VALUES(NULL, "{0}", "{1}", "{2}", "{3}", "{4}", "{5}")'.format(\
+    cur.execute('INSERT INTO Comment VALUES(NULL, "{0}", "{1}", "{2}", "{3}", "{4}", "{5}", "{6}")'.format(\
     data["iso_code"], \
     int(data["parent"]), \
     data["text"], \
     data["nickname"], \
     datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), \
-    data["password"]))
-    # post input : 'iso_code': 'RU', 'parent': -1, 'text': 'asd', 'nickname': 'asd', 'password': 'asd'
+    data["password"],
+    data["class"]))
+
     conn.commit()
     conn.close()
     return jsonify({"result" : "success"})
