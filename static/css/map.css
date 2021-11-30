@@ -38,11 +38,8 @@
     margin-top: -50px;
 }
 .country-search > div:first-child{
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     color: #333;
-}
-.country-search> div:last-child {
-    padding-bottom: 10px;
 }
 .country-search input{
     width: 11rem;
@@ -75,6 +72,7 @@
 }
 @media(max-width:1600px) {
     .country-search input{
+        padding:0px;
     }
 }
 @media(max-width:1024px) {
