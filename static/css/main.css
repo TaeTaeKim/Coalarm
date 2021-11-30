@@ -119,7 +119,9 @@ a{
 .corona-board> .dividing-line {
     width: 100%;
 }
-
+.dividing-line.footer-line {
+    margin-bottom: 10px;
+}
 
 
 @media(max-width:1024px) {
