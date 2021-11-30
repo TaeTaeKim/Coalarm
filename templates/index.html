@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/map.css">
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="../static/css/main.css">
     <link rel="stylesheet" href="../static/css/safe-ranking.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="../static/img/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Mochiy+Pop+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@500&family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/map.css">
     <link rel="stylesheet" href="../static/css/top-btn.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
     <link rel="stylesheet" href="../static/css/board.css">
     <title>Coalarm</title>
 </head>
@@ -49,7 +50,7 @@
         <div class="scroll-top-btn"><i class="fas fa-arrow-circle-up"></i></div>
         <div id='map-container'>
             <div class="country-search">
-                <div>✔해당 국가를 클릭하면 국가 상세페이지로 이동합니다.</div>
+                <div>✔국가를 클릭 또는 검색하면 상세페이지로 이동합니다.</div>
                 <div>
                     <input onPropertyChange="test();" type="text" id ="country_search"placeholder="국가 검색" autofocus autocomplete="off" required>
                     <button onclick="searchCountry();">바로가기</button>
@@ -73,7 +74,7 @@
     
                 </div>
                 <div class ='btn'>
-                    <div class="tab Asia">아시아,중동</div>
+                    <div class="tab Asia">아시아, 중동</div>
                     <div class="dropmenu hidden">
                         <ul>
                             <li class="centralAsia">중앙아시아</li>
@@ -123,6 +124,7 @@
             <div id="regions_div" style="width: 100%; height: 100%;"></div>   
          
         </div>
+        <div class="dividing-line"></div>
         <div class='ranking-section'>
             <div class="ranking-head">
                 <div class="sub-head">TOP 3</div>
@@ -131,10 +133,12 @@
             <div class="ranking-body"></div>
             <div class="safe-point-description">※<b>안전점수</b>는 자가격리기간, 코로나 발생률&치명률, 백신접종률 등을 고려하여 계산된 점수입니다.</div>
         </div>
-    
+
+        <div class="dividing-line"></div>
         <div class="corona-board">
-            <div style="font-size: 2.5rem; text-align: center;">대륙별 코로나 그래프</div>
+            <div style="font-size: 2.5rem; text-align: center; margin-bottom: -10px;">대륙별 코로나 그래프</div>
             <div id="chart_div" style="width: 100%; height: 500px; margin: auto"></div>
+            <div class="dividing-line"></div>
             <div style="font-size: 2.5rem; text-align: center;">코로나 테이블</div>
             <div class="board-btn">
                 <div>대륙별로 보기</div>
@@ -148,8 +152,8 @@
                     <option value="Africa">아프리카</option>
                 </select>
             </div>
-            
-            <table id ='board_div' style="width: 100%; margin: auto;">
+
+            <table id ='board_div'>
                 <thead >
                     <th >국가</th>
                     <th>확진자<span class="newdata">(신규확진)</span></th>
@@ -178,6 +182,19 @@
             </table>
             <div class="loadall"> 전체보기 </div>
         </div>
+
+        <div class="dividing-line footer-line"></div>
+        <footer>
+            <img src="../static/img/coQR.png" alt="">
+            <div class='footer-content'>
+                <div class="footer-title">Coalarm</div>
+                <div class="text-group">
+                    <div><i class="far fa-copyright"> 2021-11-09 ~ 2021-12-02 yeardream poject 6team</i></div>
+                    <div><i class="far fa-copyright"></i> 김태윤, 최웅수, 정준호, 박병규, 유승아, 박용석</div>
+                </div>
+            </div>
+            
+        </footer>
     </div>
 
     
@@ -190,7 +207,7 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="../static/js/map.js"></script>
     <script src="../static/js/main.js"></script>
-    <script src="../static/js/safe-ranking.js"></script>\
+    <script src="../static/js/safe-ranking.js"></script>
     <script src="../static/js/board.js"></script>
     <script src="../static/js/top-btn.js"></script>
 </body>

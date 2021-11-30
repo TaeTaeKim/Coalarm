@@ -9,7 +9,7 @@ $(document).ready(function(){
       data.forEach((el,i)=>{
         $(".ranking-body").append(
           `<a href="/country/${el.iso_code}" class="ranking-box">
-              <img src="https://flagcdn.com/w640/${el.iso_code.toLowerCase()}.png" alt="">;
+              <img src="https://flagcdn.com/w640/${el.iso_code.toLowerCase()}.png" alt="">
               <div class="ranking-itmes">
                   <div class="star"><i class="fa fa-star"></i> ${i+1}위</div>
                   <div class="country-name">${el.country_kr}</div>

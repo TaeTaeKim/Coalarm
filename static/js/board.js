@@ -3,7 +3,7 @@ google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
     const data = new google.visualization.DataTable();
     data.addColumn('string', '대륙이름');
-    data.addColumn('number', '총 확진자');
+    data.addColumn('number', '코로나 발생률');
     data.addColumn('number', '백신 접종률');
     data.addColumn('string', '대륙');
     $.ajax({
@@ -32,7 +32,7 @@ function drawChart() {
         colorAxis: {colors: ['yellow', 'red']},
         chartArea:{width:'90%',height:'80%'},
         vAxis:{title: '백신 접종률',maxValue:100,minValue:0},
-        hAxis:{title:'코로나 감염자수',minValue:-10000,maxValue:11000000},
+        hAxis:{title:'코로나 발생률',minValue:0,maxValue:120000},
         legend:'none'
 };
 

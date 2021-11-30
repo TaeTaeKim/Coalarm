@@ -254,7 +254,7 @@ function addComment(i) {
     data: JSON.stringify(postData),
     contentType: 'application/json; charset=UTF-8',
     success: function () {
-      // callComment();
+      callComment();
     },
   });
   inputNicknameEl.value = '';
@@ -399,7 +399,7 @@ function commentResentActivition() {
           commentCountEl.textContent.length - 1
         )
       );
-      if (serverCount !== commentCount) {
+      if (serverCount > commentCount) {
         rensentIconEl.classList.add('activity');
       }
     },
@@ -408,7 +408,7 @@ function commentResentActivition() {
 // 댓글 감지 타이머
 const commentResentActivityTimer = setInterval(() => {
   commentResentActivition();
-}, 5000);
+}, 10000);
 // 댓글 최신화 실행
 function commentResentDeactivation() {
   const rensentIconEl = document.querySelector('.fa-history');

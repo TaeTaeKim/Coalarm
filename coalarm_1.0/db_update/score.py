@@ -76,7 +76,7 @@ def SafetyScore(new2):
         rate[5] * X[:, 5]
     )*100
     for i in range(len(a)):
-        if a['homicide_rate'][i] == 4:
+        if a['caution'][i] == 4:
             a['score'][i] = 0
     return a
 
