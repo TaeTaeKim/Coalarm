@@ -6,7 +6,7 @@ import numpy as np
 
 
 # # 기본 폼 (복붙용)
-# # comment_data.append({"iso_code" : "", "parent" : , "text" : "", "nickname" : "", "like" : , "dislike" : , "write_time" : "", "password" : ""})
+# comment_data.append({"iso_code" : "", "parent" : , "text" : "", "nickname" : "", "like" : , "dislike" : , "write_time" : "", "password" : ""})
 # comment_data = []
 # comment_data.append({"iso_code" : "US", "parent" : 1, "text" : "asdf", "nickname" : "xcvb", "write_time" : "1998-12-31 23:59:59", "password" : "asdfxb"})
 # comment_data.append({"iso_code" : "US", "parent" : 1, "text" : "zxcv", "nickname" : "sefb", "write_time" : "1998-12-31 23:59:59", "password" : "xcvbsdfb"})
@@ -25,7 +25,7 @@ import numpy as np
 # comment_data.append({"iso_code" : "RU", "parent" : 15, "text" : "srn", "nickname" : "tmt", "write_time" : "1998-12-31 23:59:59", "password" : "sbrt"})
 # comment_data.append({"iso_code" : "RU", "parent" : 7, "text" : "rymfgcnrd", "nickname" : "tncs", "write_time" : "1998-12-31 23:59:59", "password" : "fdbgdf"})
 
-# db 입력 폼
+# # db 입력 폼
 # conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
 # cur = conn.cursor()
 # cur.execute('TRUNCATE TABLE Comment') # 테이블 레코드 비우기
@@ -44,10 +44,9 @@ import numpy as np
 # conn.close()
 # print("comment_data table update complete")
 
+# 코멘트 차례대로 읽기
 # conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
 # cur = conn.cursor()
-
-# 코멘트 차례대로 읽기
 # cur.execute("select * from Comment order by parent desc;")
 # row_headers=[x[0] for x in cur.description]
 # rv = cur.fetchall()
@@ -61,33 +60,33 @@ import numpy as np
 #     json.dump(comment_data, outfile)
 
 # 안전점수 데이터 서빙
-with open('./json_file/new_continent.json', 'r') as f:
-    df_continent = pd.DataFrame(json.load(f))  # json_country key : ["iso_code", "continent"]
+# with open('./json_file/new_continent.json', 'r') as f:
+#     df_continent = pd.DataFrame(json.load(f))  # json_country key : ["iso_code", "continent"]
 
-conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
-cur = conn.cursor()
+# conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+# cur = conn.cursor()
 
-cur.execute("select v.iso_code, v.fully_vaccinated, s.homicide_rate, a.caution, c.total_caeses_per_1million_population, c.recovered_ratio, c.critical_ratio \
-from Corona_Vaccine_Data v \
-join Safety_Data s using(iso_code) \
-join Api_Data a using(iso_code) \
-join Corona_Data c using(iso_code)")
-row_headers=[x[0] for x in cur.description]
-rv = cur.fetchall()
-recommend_data=[]
-for result in rv:
-    recommend_data.append(dict(zip(row_headers,result)))
-conn.close()
+# cur.execute("select v.iso_code, v.fully_vaccinated, s.homicide_rate, a.caution, c.total_caeses_per_1million_population, c.recovered_ratio, c.critical_ratio \
+# from Corona_Vaccine_Data v \
+# join Safety_Data s using(iso_code) \
+# join Api_Data a using(iso_code) \
+# join Corona_Data c using(iso_code)")
+# row_headers=[x[0] for x in cur.description]
+# rv = cur.fetchall()
+# recommend_data=[]
+# for result in rv:
+#     recommend_data.append(dict(zip(row_headers,result)))
+# conn.close()
 
-df_recommend_data = pd.DataFrame(recommend_data).replace(-1, np.NaN)
-df_recommend_data["caution"] = df_recommend_data["caution"].apply(lambda x : x if x != 5 else 1.5)
-df_recommend_data = pd.merge(df_continent, df_recommend_data, how = 'left', on = "iso_code").groupby("continent").apply(lambda x: x.fillna(x.mean()))
-df_recommend_data = df_recommend_data.drop(["continent"], axis=1).reset_index()
-df_recommend_data = df_recommend_data.fillna(df_recommend_data.mean())
-# df_recommend_data = df_recommend_data.dropna(axis=0)
-df_recommend_data = df_recommend_data.to_dict(orient = "records")
-for i in df_recommend_data:
-    print(i)
+# df_recommend_data = pd.DataFrame(recommend_data).replace(-1, np.NaN)
+# df_recommend_data["caution"] = df_recommend_data["caution"].apply(lambda x : x if x != 5 else 1.5)
+# df_recommend_data = pd.merge(df_continent, df_recommend_data, how = 'left', on = "iso_code").groupby("continent").apply(lambda x: x.fillna(x.mean()))
+# df_recommend_data = df_recommend_data.drop(["continent"], axis=1).reset_index()
+# df_recommend_data = df_recommend_data.fillna(df_recommend_data.mean())
+# # df_recommend_data = df_recommend_data.dropna(axis=0)
+# df_recommend_data = df_recommend_data.to_dict(orient = "records")
+# for i in df_recommend_data:
+#     print(i)
 
 # file_path = "./recommend.json
 # with open(file_path, 'w') as outfile:

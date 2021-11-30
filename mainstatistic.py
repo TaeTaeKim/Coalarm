@@ -1,16 +1,36 @@
 import json
+import pymysql
 from flask.json import jsonify
 import pandas as pd
 import numpy as np
 def board_data():
 
-    with open('./static/Test_json/corona_data.json','r') as f:
-        coronadata = json.load(f)
     with open('./json_file/country_kr_ISO.json','r') as f:
-        kr_country = json.load(f)
-    with open('./static/Test_json/corona_vaccine_data.json','r') as f:
-        vaccinedata = json.load(f)
+            kr_country = json.load(f)
     
+    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+    cur = conn.cursor()
+
+    # with open('./static/Test_json/corona_data.json','r') as f:
+    #     coronadata = json.load(f)
+    cur.execute("select * from Corona_Data")
+    row_headers=[x[0] for x in cur.description]
+    rv = cur.fetchall()
+    coronadata=[]
+    for result in rv:
+        coronadata.append(dict(zip(row_headers,result)))
+
+    # with open('./static/Test_json/corona_vaccine_data.json','r') as f:
+    #         vaccinedata = json.load(f)
+    cur.execute("select * from Corona_Vaccine_Data")
+    row_headers=[x[0] for x in cur.description]
+    rv = cur.fetchall()
+    vaccinedata=[]
+    for result in rv:
+        vaccinedata.append(dict(zip(row_headers,result)))
+
+    conn.close()
+
     corona_df = pd.DataFrame(coronadata)
     kr_country_df = pd.DataFrame(kr_country)
     vaccine_df = pd.DataFrame(vaccinedata)
