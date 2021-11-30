@@ -61,33 +61,35 @@ import numpy as np
 #     json.dump(comment_data, outfile)
 
 # 안전점수 데이터 서빙
-# with open('./json_file/new_continent.json', 'r') as f:
-#     df_continent = pd.DataFrame(json.load(f))  # json_country key : ["iso_code", "continent"]
+with open('./json_file/new_continent.json', 'r') as f:
+    df_continent = pd.DataFrame(json.load(f))  # json_country key : ["iso_code", "continent"]
 
-# conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
-# cur = conn.cursor()
+conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+cur = conn.cursor()
 
-# cur.execute("select v.iso_code, v.fully_vaccinated, s.homicide_rate, a.caution, c.total_caeses_per_1million_population, c.recovered_ratio, c.critical_ratio \
-# from Corona_Vaccine_Data v \
-# join Safety_Data s using(iso_code) \
-# join Api_Data a using(iso_code) \
-# join Corona_Data c using(iso_code)")
-# row_headers=[x[0] for x in cur.description]
-# rv = cur.fetchall()
-# recommend_data=[]
-# for result in rv:
-#     recommend_data.append(dict(zip(row_headers,result)))
-# conn.close()
+cur.execute("select v.iso_code, v.fully_vaccinated, s.homicide_rate, a.caution, c.total_caeses_per_1million_population, c.recovered_ratio, c.critical_ratio \
+from Corona_Vaccine_Data v \
+join Safety_Data s using(iso_code) \
+join Api_Data a using(iso_code) \
+join Corona_Data c using(iso_code)")
+row_headers=[x[0] for x in cur.description]
+rv = cur.fetchall()
+recommend_data=[]
+for result in rv:
+    recommend_data.append(dict(zip(row_headers,result)))
+conn.close()
 
-# df_recommend_data = pd.DataFrame(recommend_data).replace(-1, np.NaN)
-# df_recommend_data["caution"] = df_recommend_data["caution"].apply(lambda x : x if x != 5 else 1.5)
-# df_recommend_data = pd.merge(df_continent, df_recommend_data, how = 'left', on = "iso_code").groupby("continent").apply(lambda x: x.fillna(x.mean()))
-# df_recommend_data = df_recommend_data.drop(["continent"], axis=1).reset_index()
+df_recommend_data = pd.DataFrame(recommend_data).replace(-1, np.NaN)
+df_recommend_data["caution"] = df_recommend_data["caution"].apply(lambda x : x if x != 5 else 1.5)
+df_recommend_data = pd.merge(df_continent, df_recommend_data, how = 'left', on = "iso_code").groupby("continent").apply(lambda x: x.fillna(x.mean()))
+df_recommend_data = df_recommend_data.drop(["continent"], axis=1).reset_index()
+df_recommend_data = df_recommend_data.fillna(df_recommend_data.mean())
 # df_recommend_data = df_recommend_data.dropna(axis=0)
-# df_recommend_data = df_recommend_data.to_dict(orient = "records")
-# print(len(df_recommend_data), type(df_recommend_data))
+df_recommend_data = df_recommend_data.to_dict(orient = "records")
+for i in df_recommend_data:
+    print(i)
 
-# file_path = "./recommend.json"
+# file_path = "./recommend.json
 # with open(file_path, 'w') as outfile:
 #     json.dump(df_recommend_data, outfile)
 
