@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `Safety_Data` (
     `previous_terrorism` FLOAT);
 
 CREATE TABLE IF NOT EXISTS `Comment` (
-    `index` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `idx` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `iso_code` VARCHAR(10) NOT NULL,
     `parent` INT NOT NULL,
     `text` VARCHAR(100) NOT NULL,
