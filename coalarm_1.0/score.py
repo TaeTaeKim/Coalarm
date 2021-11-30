@@ -75,6 +75,9 @@ def SafetyScore(new2):
         rate[4] * X[:, 4] +\
         rate[5] * X[:, 5]
     )*100
+    for i in range(len(a)):
+        if a['homicide_rate'][i] == 4:
+            a['score'][i] = 0
     return a
 
 
@@ -129,8 +132,6 @@ Safety_Score
     iso_code
     score
 '''
-for i in score:
-    print(i)
 
 for i in range(len(score)):
     cur.execute("INSERT INTO Safety_Score VALUES('{0}', '{1}', '{2}')".format(\
