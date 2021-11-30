@@ -82,7 +82,7 @@ def get_comment_count(ISO_code):
     #         if commentData['iso_code'] == ISO_code:
     #             result.append(commentData)
     # return jsonify(result)
-    conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
     cur = conn.cursor()
     cur.execute("select * from Comment where iso_code='ISO_code' order by parent desc;")
     row_headers=[x[0] for x in cur.description]
@@ -104,7 +104,7 @@ def comment_data(ISO_code):
     #         if commentData['iso_code'] == ISO_code:
     #             result.append(commentData)
     # return jsonify(result)
-    conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
     cur = conn.cursor()
     cur.execute(f"select * from Comment where iso_code='{ISO_code}' order by parent desc;")
     row_headers=[x[0] for x in cur.description]
@@ -117,7 +117,7 @@ def comment_data(ISO_code):
     conn.close()
     return jsonify(comment_data)
 
-# post input : 'iso_code': 'RU', 'parent': -1, 'text': 'asd', 'nickname': 'asd', 'password': 'asd'
+# post input : 'iso_code': 'RU', 'parent': -1, 'text': 'asd', 'nickname': 'asd', 'password': 'asd', 'class' : 0 or 1
 
 
 @app.route('/country/<ISO_code>', methods=['POST'])
@@ -142,16 +142,20 @@ def add_comment(ISO_code):
     # return jsonify({"result": "success"})
     
     data = request.get_json()
-    conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
     cur = conn.cursor()
-    cur.execute('INSERT INTO Comment VALUES(NULL, "{0}", "{1}", "{2}", "{3}", "{4}", "{5}")'.format(\
+    cur.execute('INSERT INTO Comment VALUES(NULL, "{0}", "{1}", "{2}", "{3}", "{4}", "{5}", "{6}")'.format(\
     data[i]["iso_code"], \
     int(data[i]["parent"]), \
     data[i]["text"], \
     data[i]["nickname"], \
     datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), \
     data[i]["password"]))
-    # post input : 'iso_code': 'RU', 'parent': -1, 'text': 'asd', 'nickname': 'asd', 'password': 'asd'
+    # if data["parent"] == -1:
+    #     data["parent"] = data["index"]
+    # if data["parent"] == -1: # 내용 : data["parent"] = data["index"]
+    #     cur.execute("UPDATE Comment SET ")
+
     conn.commit()
     conn.close()
     return jsonify({"result" : "success"})
@@ -180,7 +184,7 @@ def update_comment(ISO_code):
     # return jsonify({"result": "fail"})
 
     data = request.get_json()   # {'index': 15, 'text': 'srn', 'password': 'ㅁㄴㅇㄹ'}
-    conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
     cur = conn.cursor()
     cur.execute("SELECT password FROM Comment where idx = '{}'".format(data["index"]))
     pw = cur.fetchall()[0][0] # 가지고 온 비밀번호
@@ -233,7 +237,7 @@ def delete_comment(ISO_code):
 
     # return jsonify({"result": "fail"})
     data = request.get_json()   # 'index': 15, 'password': 'ㅁㄴㅇㄹ'
-    conn = pymysql.connect(host="localhost", user="root", password="root", db="coalarm", charset="utf8")
+    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
     cur = conn.cursor()
     cur.execute("SELECT password FROM Comment where idx = '{}'".format(data["index"]))
     pw = cur.fetchall()[0][0] # 가지고 온 비밀번호
