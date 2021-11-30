@@ -2,7 +2,7 @@ footer {
   display: flex;
   flex-flow: column;
   justify-content: center;
-  margin-left: 200px;
+  padding-left: 500px;
   margin-bottom: 20px;
 }
 footer .footer-title {
@@ -36,12 +36,12 @@ footer .text-group {
 
 @media(max-width:1024px) {
   footer {
-    margin-left:-400px;
+    padding-left: 30px;
   }
 }
 @media(max-width:768px) {
   footer {
-    margin-left:0;
+    padding-left:0;
   }
   footer .text-group> div:first-child{
     width: 250px;
