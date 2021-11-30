@@ -17,9 +17,13 @@ a{
 .hidden{
     display: none !important;
 }
+.fadeout{
+    opacity: 0;
+}
 #search{
     background-image: url("../img/candi2.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
     height: 100vh;
     width: 100%;    
 }
@@ -106,3 +110,64 @@ a{
      80% { opacity:1; transform: translateY(1vw); }	
     100% { opacity:0; transform: translateY(2vw); }	
   }
+.dividing-line {
+    width: 75%;
+    border-bottom: 1px solid rgb(230, 225, 225);
+    margin: 60px auto;
+}
+
+.corona-board> .dividing-line {
+    width: 100%;
+}
+.dividing-line.footer-line {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+
+@media(max-width:1024px) {
+    #main {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+    }
+    .dividing-line {
+        width: 85%;
+    }
+    .corona-board> .dividing-line {
+        width: 85%;
+    }
+    #search {
+        height: 100px;
+        background: #8b60e8;
+        border-bottom: 15px solid #5733b5;
+    }
+    .logo {
+        height: 60px;
+        position: relative;
+        bottom: 80px;
+    }
+    .logoimage {
+        width: 3rem;
+        height: 3rem;
+    }
+    .logotext {
+        font-size: 2.2rem;
+        color: #333;
+        color: #fff;
+    }
+    .search {
+        display: none;
+    }
+    #arrowAnim{
+        display: none;
+    }
+}
+
+@media(max-width:767px) {
+    .logo {
+        bottom: 30px;
+    }
+}

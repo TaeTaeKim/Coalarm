@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Mochiy+Pop+One&display=swap" rel="stylesheet">
     <script src="https://code.highcharts.com/highcharts.src.js"></script>
     <link rel="stylesheet" href="../static/css/top-btn.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
     <link rel="stylesheet" href="../static/css/main.css">
     <link rel="stylesheet" href="../static/css/detail.css">
     <title>Coalarm</title>
@@ -87,7 +88,7 @@
               코로나 관련 <b>요약 정보</b>별로 확인해보세요.<br>❗꼭 <b>전체</b> 정보를 확인하세요
             </div>
             <div class="information-tab">
-              <div class="summary tab">요약</div>
+              <div class="summary tab active">요약</div>
               <div class="allcontent tab">전체</div>
             </div>
           </div>
@@ -154,7 +155,6 @@
           </div>
         </section>
       </div>
-        <!-- <div id="disqus_thread"></div> -->
         <section class="comment-content">
 
           <div class="comment-menu">
@@ -178,26 +178,20 @@
 
         </section>
       </div>
-      <!-- (구)댓글기능 -->
-      <!-- <script>
-          /**
-          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-          *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-          /*
-          var disqus_config = function () {
-          this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-          this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-          };
-          */
-          (function() { // DON'T EDIT BELOW THIS LINE
-          var d = document, s = d.createElement('script');
-          s.src = 'https://coalarm.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', +new Date());
-          (d.head || d.body).appendChild(s);
-          })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> -->
-
+      <div class="dividing-line footer-line"></div>
+        <footer class="footer-detail">
+            <div class="footer-title">Coalarm</div>
+            <div class="icon-group">
+                <div class="icon facebook"><i class="fab fa-facebook-f"></i></div>
+                <div class="icon instargram"><i class="fab fa-instagram"></i></div>
+                <div class="icon twitter"><i class="fab fa-twitter"></i></div>
+            </div>
+            <div class="text-group">
+                <div><i class="far fa-copyright"> 2021-11-09 ~ 2021-12-02 yeardream poject 6team</i></div>
+                <div><i class="far fa-copyright"></i> 김태윤, 최웅수, 정준호, 박병규, 유승아, 박용석</div>
+            </div>
+        </footer>
+  
   </div>
   <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  

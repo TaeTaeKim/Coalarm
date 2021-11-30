@@ -111,16 +111,21 @@ header {
 }
 .tooltip{
   font-size: 13px;
-  width: 15rem;
-  display: inline-block;
+  width: 280px;
+  display: block;
   position: absolute;
-  top: -1.3rem;
-  left:7rem;
-  background-color: white;
-  box-shadow:1px 1px 1px gray;
-  color: black;
+  padding: 8px;
+  top: -6.3rem;
+  left:-6.3rem;
+  background-color: rgba(255, 255, 255, 0.932);
+  box-shadow: 5px 4px 0.5px 0.5px #d1a2e4;
+  color: #474747;
   border-radius: 10px;
   text-align: left;
+  transition: .5s;
+}
+.safe-point-group:hover .fa-info-circle {
+  color: #d1a2e4;
 }
 .safe-point-group .safe-point.high {
   background: linear-gradient(to right top, #358d43, #98ecb1);
@@ -231,9 +236,17 @@ header {
   text-align: center;
   font-weight: bold;
   cursor: pointer;
+  padding: 1px 5px;
+  background: #aa8ceb;
 }
 .information-tab .summary.tab{
   margin-right: 7px;
+}
+.information-tab .summary.tab.active{
+  background: linear-gradient(to right top, #5733b5, #9d78fa);
+}
+.information-tab .allcontent.tab.active{
+  background: linear-gradient(to right top, #5733b5, #9d78fa);
 }
 
 .category-title {
@@ -280,8 +293,7 @@ header {
   height: 100%;
   margin-left: 50px;
   margin-right: -280px;
-  margin-top: 190px;
-  top: 280px;
+  margin-top: 200px;
   z-index: 2;
   background: #8b60e836;
   border-radius: 7px;
@@ -440,7 +452,11 @@ header {
     margin-left: 0;
     margin-right: 20px;
     margin-bottom: 30px;
-    margin-top: 180px;
+    margin-top: 280px;
+  }
+  .content-position::before {
+    height: 31vh;
+    margin-top: -53px;
   }
 }
 
