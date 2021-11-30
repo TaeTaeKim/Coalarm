@@ -7,9 +7,9 @@ $(document).ready(function(){
     success:function(res){
       let data = res['top3_score']
       data.forEach((el,i)=>{
-        $(rankingEl).append(
+        $(".ranking-body").append(
           `<a href="/country/${el.iso_code}" class="ranking-box">
-              <img src="https://flagcdn.com/40x30/${el.iso_code}.png" alt="">;
+              <img src="https://flagcdn.com/256x192/${el.iso_code.toLowerCase()}.png" alt="">;
               <div class="ranking-itmes">
                   <div class="star"><i class="fa fa-star"></i> ${i+1}위</div>
                   <div class="country-name">${el.country_kr}</div>
