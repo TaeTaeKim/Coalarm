@@ -293,7 +293,7 @@ header {
   height: 100%;
   margin-left: 50px;
   margin-right: -280px;
-  margin-top: 190px;
+  margin-top: 140px;
   z-index: 2;
   background: #8b60e836;
   border-radius: 7px;
@@ -452,7 +452,11 @@ header {
     margin-left: 0;
     margin-right: 20px;
     margin-bottom: 30px;
-    margin-top: 180px;
+    margin-top: 200px;
+  }
+  .content-position::before {
+    height: 31vh;
+    margin-top: -53px;
   }
 }
 

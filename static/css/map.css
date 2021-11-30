@@ -75,7 +75,11 @@
     display: block;
     color: white;
 }
-
+@media(max-width:1500px) {
+    .country-search input{
+        padding: 0 200px;
+    }
+}
 @media(max-width:1024px) {
     #map-container {
         width: 100vw;
