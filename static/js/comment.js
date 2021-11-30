@@ -238,12 +238,14 @@ function addComment(i) {
     undefined
       ? event.target.parentElement.parentElement.parentElement.dataset.parent
       : -1;
+  let classIndex = parentIndex == -1? 0:1;
   let postData = {
     iso_code: iso_upper,
     parent: parseInt(parentIndex),
     text: inputCommentEl.value,
     nickname: inputNicknameEl.value,
     password: inputPwEl.value,
+    class: classIndex
   };
   $.ajax({
     type: 'POST',
