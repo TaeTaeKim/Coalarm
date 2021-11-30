@@ -11,8 +11,8 @@ function categoryHandler(event) {
 categoryEl.addEventListener('click', categoryHandler);
 
 $('.summary').on('click', function () {
-  $('.all').addClass('hidden');
   $('.category-group').removeClass('hidden');
+  $('.all').addClass('hidden');
   $('.summary').addClass('active');
   $('.allcontent').removeClass('active');
   $('.info-help div:first').html(
