@@ -73,10 +73,7 @@
     display: block;
     color: white;
 }
-@media(max-width:1600px) {
-    .country-search input{
-    }
-}
+
 @media(max-width:1024px) {
     #map-container {
         width: 100vw;
