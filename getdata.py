@@ -21,7 +21,6 @@ rv = cur.fetchall()
 vaccinedata=[]
 for result in rv:
     vaccinedata.append(dict(zip(row_headers,result)))
-conn.close()
 # with open('./static/Test_json/corona_vaccine_data.json','r') as f:
 #     vaccinedata = json.load(f)
 

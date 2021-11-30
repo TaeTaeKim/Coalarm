@@ -117,8 +117,9 @@ score = []
 for i in range(len(a)):
     s = {}
     s['iso_code'] = a['iso_code'][i]
-    s['country_kr'] = a['country_kr'][i]
+    #s['country_kr'] = a['country_kr'][i]
     s['score'] = a['score'][i]
+    s["country_kr"] = s["iso_code"]
     for j in json_country_kr:
         if s["iso_code"] == j["iso_code"]:
             s["country_kr"] = j["country_kr"]
@@ -129,7 +130,7 @@ Safety_Score
     score
 '''
 for i in score:
-    print(i, len(i), type(i))
+    print(i)
 
 for i in range(len(score)):
     cur.execute("INSERT INTO Safety_Score VALUES('{0}', '{1}', '{2}')".format(\
