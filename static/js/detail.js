@@ -11,8 +11,10 @@ function categoryHandler(event) {
 categoryEl.addEventListener('click', categoryHandler);
 
 $('.summary').on('click', function () {
-  $('.category-group').removeClass('hidden');
   $('.all').addClass('hidden');
+  $('.category-group').removeClass('hidden');
+  $('.summary').addClass('active');
+  $('.allcontent').removeClass('active');
   $('.info-help div:first').html(
     '코로나 관련 <b>여행자 요약 정보</b>별로 확인해보세요.<br>❗꼭 <b>전체</b> 정보를 확인하세요'
   );
@@ -20,6 +22,8 @@ $('.summary').on('click', function () {
 $('.allcontent').on('click', function () {
   $('.category-group').addClass('hidden');
   $('.all').removeClass('hidden');
+  $('.allcontent').addClass('active');
+  $('.summary').removeClass('active');
 
   $('.info-help div:first').html(
     '코로나 관련 <b>여행자 전체 정보</b>를 확인해보세요.<br>요약정보를 보러면 <b>요약</b>을 클릭하세요'

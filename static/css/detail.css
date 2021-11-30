@@ -236,9 +236,17 @@ header {
   text-align: center;
   font-weight: bold;
   cursor: pointer;
+  padding: 1px 5px;
+  background: #aa8ceb;
 }
 .information-tab .summary.tab{
   margin-right: 7px;
+}
+.information-tab .summary.tab.active{
+  background: linear-gradient(to right top, #5733b5, #9d78fa);
+}
+.information-tab .allcontent.tab.active{
+  background: linear-gradient(to right top, #5733b5, #9d78fa);
 }
 
 .category-title {
