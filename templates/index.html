@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/map.css">
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="../static/css/main.css">
     <link rel="stylesheet" href="../static/css/safe-ranking.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="../static/img/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Mochiy+Pop+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@500&family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/map.css">
     <link rel="stylesheet" href="../static/css/top-btn.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
     <link rel="stylesheet" href="../static/css/board.css">
     <title>Coalarm</title>
 </head>
@@ -49,7 +50,7 @@
         <div class="scroll-top-btn"><i class="fas fa-arrow-circle-up"></i></div>
         <div id='map-container'>
             <div class="country-search">
-                <div>✔ 원하는 국가를 클릭하거나 검색하시면 <br>&emsp;상세페이지로 이동합니다.</div>
+                <div>✔ 원하는 국가를 클릭하거나 검색하시면 상세페이지로 이동합니다.</div>
                 <div>
                     <input onPropertyChange="test();" type="text" id ="country_search"placeholder="국가 검색" autofocus autocomplete="off" required>
                     <button onclick="searchCountry();">바로가기</button>
@@ -181,6 +182,21 @@
             </table>
             <div class="loadall"> 전체보기 </div>
         </div>
+
+        <div class="dividing-line footer-line"></div>
+        <footer>
+            <div class="footer-title">Coalarm</div>
+            <div class="icon-group">
+                <img class="icon logo" src="../static/img/mainlogo.png"/>
+                <div class="icon facebook"><i class="fab fa-facebook-f"></i></div>
+                <div class="icon instargram"><i class="fab fa-instagram"></i></div>
+                <div class="icon twitter"><i class="fab fa-twitter"></i></div>
+            </div>
+            <div class="text-group">
+                <div><i class="far fa-copyright"> 2021-11-09 ~ 2021-12-02 yeardream poject 6team</i></div>
+                <div><i class="far fa-copyright"></i> 김태윤, 최웅수, 정준호, 박병규, 유승아, 박용석</div>
+            </div>
+        </footer>
     </div>
 
     
