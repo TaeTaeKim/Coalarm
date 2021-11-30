@@ -10,6 +10,10 @@ footer .footer-title {
   font-size: 22px;
   font-weight: bolder;
 }
+footer img{
+  width: 101px;
+  height: 108px;
+}
 footer .icon-group {
   display: flex;
   text-align: center;
