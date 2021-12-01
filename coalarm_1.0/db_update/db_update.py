@@ -343,7 +343,8 @@ class AsyncTask:
         이후에도 (value)가 nan, -1 인 값은 전 세계 평균 적용 
         '''
         # 3. db 데이터 꺼내와서 가공
-        cur.execute("select v.iso_code, v.fully_vaccinated, s.homicide_rate, a.caution, c.total_caeses_per_1million_population, c.recovered_ratio, c.critical_ratio \
+        cur.execute("select v.iso_code, v.fully_vaccinated, s.homicide_rate, a.caution, c.total_caeses_per_1million_population, c.recovered_ratio, c.critical_ratio, \
+        s.safety_index, s.numbeo_index, s.last_terrorism, s.previous_terrorism \
         from Corona_Vaccine_Data v \
         join Safety_Data s using(iso_code) \
         join Api_Data a using(iso_code) \
@@ -353,7 +354,7 @@ class AsyncTask:
         recommend_data=[]
         for result in rv:
             recommend_data.append(dict(zip(row_headers,result)))
-
+        # -1 -> nan
         df_recommend_data = pd.DataFrame(recommend_data).replace(-1, np.NaN)
         df_recommend_data["caution"] = df_recommend_data["caution"].apply(lambda x : x if x != 5 else 1.5)
         df_recommend_data = pd.merge(df_continent, df_recommend_data, how = 'left', on = "iso_code").groupby("continent").apply(lambda x: x.fillna(x.mean()))
