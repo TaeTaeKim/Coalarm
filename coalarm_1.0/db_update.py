@@ -34,9 +34,9 @@ class AsyncTask:
     def update_Corona_Vaccine_Data(self):
         
         # 0. 쓰레드 실행
-        # t = threading.Timer(500, self.update_Corona_Vaccine_Data)
-        # t.daemon = True
-        # t.start()
+        t = threading.Timer(500, self.update_Corona_Vaccine_Data)
+        t.daemon = True
+        t.start()
         
         # 1. scraping
         vaccine_data = get_vaccine_scraping()
@@ -71,9 +71,9 @@ class AsyncTask:
     def update_Corona_Data(self):
 
         # 0. 쓰레드 실행
-        # t = threading.Timer(400, self.update_Corona_Data)
-        # t.daemon = True
-        # t.start()
+        t = threading.Timer(400, self.update_Corona_Data)
+        t.daemon = True
+        t.start()
 
         # 1. scraping
         get_corona_data = get_corona_scraping()
@@ -135,9 +135,9 @@ class AsyncTask:
     def update_Api_Data(self):
         
         # 0. 쓰레드 실행
-        # t = threading.Timer(300, self.update_Api_Data)
-        # t.daemon = True
-        # t.start()
+        t = threading.Timer(300, self.update_Api_Data)
+        t.daemon = True
+        t.start()
         
         # api data
         # 1. api 호출
@@ -225,9 +225,9 @@ class AsyncTask:
     def update_Embassy_Data(self):
 
         # 0. 쓰레드 실행
-        # t = threading.Timer(200, self.update_Embassy_Data)
-        # t.daemon = True
-        # t.start()
+        t = threading.Timer(200, self.update_Embassy_Data)
+        t.daemon = True
+        t.start()
 
         # 1. scraping
         embassy_data = get_embassy_data()
@@ -252,9 +252,9 @@ class AsyncTask:
     def update_Safety_Data(self):
         
         # 0. 쓰레드 실행
-        # t = threading.Timer(600, self.update_Safety_Data)
-        # t.daemon = True
-        # t.start()
+        t = threading.Timer(600, self.update_Safety_Data)
+        t.daemon = True
+        t.start()
 
         # 1. scraping
         safety_data = get_safety_data() # return : ['Country', 'Safety_index', 'Numbeo_index', 'Homicide_rate']
@@ -306,9 +306,9 @@ class AsyncTask:
     def update_Safety_Score(self):
         
         # 0. 쓰레드 실행
-        # t = threading.Timer(500, self.update_Corona_Vaccine_Data)
-        # t.daemon = True
-        # t.start()
+        t = threading.Timer(500, self.update_Corona_Vaccine_Data)
+        t.daemon = True
+        t.start()
 
         # 1. 기반 데이터 호출
         with open('./json_file/new_continent.json', 'r') as f:
@@ -320,9 +320,30 @@ class AsyncTask:
         conn = pymysql.connect(host='localhost', user="coalarm", password="coalarm", db="coalarm", charset="utf8")
         cur = conn.cursor()
         cur.execute('TRUNCATE TABLE Safety_Score') # 테이블 레코드 비우기
-
+        '''
+        필요한 input 값
+        [
+            {
+                'iso_code': (value),
+                'total_caeses_per_1million_population' : (value),
+                'recovered': (value),
+                'critical': (value),
+                'fully_vaccinated': (value),
+                'lvl': (value),
+                'homicide_rate': (value),
+                'safety_index': (value),
+                'numbeo_index': (value),
+                'last_terrorism': (value),
+                'previous_terrorism': (value),
+            },
+            ...
+        ]
+        (value)가 nan, -1 인 값은 대륙(서유럽 등의 소분류) 평균 적용
+        이후에도 (value)가 nan, -1 인 값은 전 세계 평균 적용 
+        '''
         # 3. db 데이터 꺼내와서 가공
-        cur.execute("select v.iso_code, v.fully_vaccinated, s.homicide_rate, a.caution, c.total_caeses_per_1million_population, c.recovered_ratio, c.critical_ratio \
+        cur.execute("select v.iso_code, v.fully_vaccinated, s.homicide_rate, a.caution, c.total_caeses_per_1million_population, c.recovered_ratio, c.critical_ratio, \
+        s.safety_index, s.numbeo_index, s.last_terrorism, s.previous_terrorism \
         from Corona_Vaccine_Data v \
         join Safety_Data s using(iso_code) \
         join Api_Data a using(iso_code) \
@@ -332,7 +353,7 @@ class AsyncTask:
         recommend_data=[]
         for result in rv:
             recommend_data.append(dict(zip(row_headers,result)))
-
+        # -1 -> nan
         df_recommend_data = pd.DataFrame(recommend_data).replace(-1, np.NaN)
         df_recommend_data["caution"] = df_recommend_data["caution"].apply(lambda x : x if x != 5 else 1.5)
         df_recommend_data = pd.merge(df_continent, df_recommend_data, how = 'left', on = "iso_code").groupby("continent").apply(lambda x: x.fillna(x.mean()))
@@ -342,19 +363,25 @@ class AsyncTask:
         df_recommend_data = df_recommend_data.to_dict(orient = "records")
         #print(len(df_recommend_data), type(df_recommend_data))
 
-        a = SafetyScore(df_recommend_data)
-
+        df_score = SafetyScore(df_recommend_data)
+        '''
+        [
+            {},
+            ...
+            {}
+        ]
+        형태로 변환
+        '''
         score = []
-        for i in range(len(a)):
-            s = {}
-            s['iso_code'] = a['iso_code'][i]
-            #s['country_kr'] = a['country_kr'][i]
-            s['score'] = a['score'][i]
-            s["country_kr"] = s["iso_code"]
+        for i in range(len(df_score)):
+            dict_score = {}
+            dict_score['iso_code'] = df_score['iso_code'][i]
+            dict_score['score'] = df_score['score'][i]
+            dict_score["country_kr"] = dict_score["iso_code"]
             for j in json_country_kr:
-                if s["iso_code"] == j["iso_code"]:
-                    s["country_kr"] = j["country_kr"]
-            score.append(s)
+                if dict_score["iso_code"] == j["iso_code"]:
+                    dict_score["country_kr"] = j["country_kr"]
+            score.append(dict_score)
 
         # 4. 해당 테이블에 데이터 추가        
         for i in range(len(score)):
