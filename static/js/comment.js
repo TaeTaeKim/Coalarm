@@ -57,7 +57,6 @@ function btnActiveDelete() {
 // 댓글 시간 계산 함수
 function displayedAt(createdAt) {
   const milliSeconds = new Date() - createdAt;
-  console.log(new Date(Date.UTC()));
   const seconds = milliSeconds / 1000;
   if (seconds < 60) return `방금 전`;
   const minutes = seconds / 60;
