@@ -9,7 +9,7 @@ def board_data():
             kr_country = json.load(f)
 
     # db select query 
-    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+    conn = pymysql.connect(host="localhost", user="coalarm", password="v4SxXqsLz", db="coalarm", charset="utf8")
     cur = conn.cursor()
 
     cur.execute("select * from Corona_Data")
