@@ -34,9 +34,9 @@ class AsyncTask:
     def update_Corona_Vaccine_Data(self):
         
         # 0. 쓰레드 실행
-        t = threading.Timer(500, self.update_Corona_Vaccine_Data)
-        t.daemon = True
-        t.start()
+        # t = threading.Timer(500, self.update_Corona_Vaccine_Data)
+        # t.daemon = True
+        # t.start()
         
         # 1. scraping
         vaccine_data = get_vaccine_scraping()
@@ -71,9 +71,9 @@ class AsyncTask:
     def update_Corona_Data(self):
 
         # 0. 쓰레드 실행
-        t = threading.Timer(400, self.update_Corona_Data)
-        t.daemon = True
-        t.start()
+        # t = threading.Timer(400, self.update_Corona_Data)
+        # t.daemon = True
+        # t.start()
 
         # 1. scraping
         get_corona_data = get_corona_scraping()
@@ -135,9 +135,9 @@ class AsyncTask:
     def update_Api_Data(self):
         
         # 0. 쓰레드 실행
-        t = threading.Timer(300, self.update_Api_Data)
-        t.daemon = True
-        t.start()
+        # t = threading.Timer(300, self.update_Api_Data)
+        # t.daemon = True
+        # t.start()
         
         # api data
         # 1. api 호출
@@ -225,9 +225,9 @@ class AsyncTask:
     def update_Embassy_Data(self):
 
         # 0. 쓰레드 실행
-        t = threading.Timer(200, self.update_Embassy_Data)
-        t.daemon = True
-        t.start()
+        # t = threading.Timer(200, self.update_Embassy_Data)
+        # t.daemon = True
+        # t.start()
 
         # 1. scraping
         embassy_data = get_embassy_data()
@@ -252,9 +252,9 @@ class AsyncTask:
     def update_Safety_Data(self):
         
         # 0. 쓰레드 실행
-        t = threading.Timer(600, self.update_Safety_Data)
-        t.daemon = True
-        t.start()
+        # t = threading.Timer(600, self.update_Safety_Data)
+        # t.daemon = True
+        # t.start()
 
         # 1. scraping
         safety_data = get_safety_data() # return : ['Country', 'Safety_index', 'Numbeo_index', 'Homicide_rate']
@@ -306,9 +306,9 @@ class AsyncTask:
     def update_Safety_Score(self):
         
         # 0. 쓰레드 실행
-        t = threading.Timer(500, self.update_Corona_Vaccine_Data)
-        t.daemon = True
-        t.start()
+        # t = threading.Timer(500, self.update_Corona_Vaccine_Data)
+        # t.daemon = True
+        # t.start()
 
         # 1. 기반 데이터 호출
         with open('./json_file/new_continent.json', 'r') as f:
