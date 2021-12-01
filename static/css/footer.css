@@ -42,4 +42,7 @@ footer .text-group {
   .footer-detail {
     margin-left: 20px;
   }
+  footer img{
+    display: none;
+  }
 }
