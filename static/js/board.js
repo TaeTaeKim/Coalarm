@@ -84,6 +84,12 @@ function load_board(num,conti){
                 if(data[i]['fully_vaccinated']==-1){
                     data[i]['fully_vaccinated'] = ""
                 };
+                if(data[i]['total_recovered']==-1){
+                    data[i]['total_recovered'] = ""
+                };
+                if(data[i]['total_deaths']==-1){
+                    data[i]['total_deaths'] = ""
+                };
                 // 대륙분류 기능
                 if(conti=='all'){
                     $('#board-data').append(`
@@ -225,5 +231,13 @@ $('#board-select').change(function(){
     load_board(board_length,board_continent)
     $('.loadall').html('접어보기');
 })
+
+//발생률 툴팁
+// $('.caseper1millon').on('mouseover', function () {
+//     $('.tooltip').removeClass('fadeout');
+//   });
+// $('.caseper1millon').on('mouseleave', function () {
+//     $('.tooltip').addClass('fadeout');
+// });
 // 사이트 실행시 보드 렌더링
 load_board(num,board_continent)
