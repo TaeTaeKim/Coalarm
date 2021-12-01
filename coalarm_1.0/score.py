@@ -16,10 +16,10 @@ def normalize(x):
         {
             'iso_code': (value),
             'total_caeses_per_1million_population' : (value),
-            'recovered': (value),
-            'critical': (value),
+            'recovered_ratio': (value),
+            'critical_ratio': (value),
             'fully_vaccinated': (value),
-            'lvl': (value),
+            'caution': (value),
             'homicide_rate': (value),
             'safety_index': (value),
             'numbeo_index': (value),
@@ -49,17 +49,17 @@ def SafetyScore(data):
     X[:, 0] = decrease_variable(X[:, 0])
     X[:, 0] = normalize(X[:, 0])
 
-    X[:, 1] = df_score['recovered']
+    X[:, 1] = df_score['recovered_ratio']
     X[:, 1] = normalize(X[:, 1])
 
-    X[:, 2] = df_score['critical']
+    X[:, 2] = df_score['critical_ratio']
     X[:, 2] = decrease_variable(X[:, 2])
     X[:, 2] = normalize(X[:, 2])
 
     X[:, 3] = df_score['fully_vaccinated']
     X[:, 3] = normalize(X[:, 3])
 
-    X[:, 4] = df_score['lvl']
+    X[:, 4] = df_score['caution']
     X[:, 4] = decrease_variable(X[:, 4])
     X[:, 4] = normalize(X[:, 4])
     # 편차
