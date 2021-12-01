@@ -12,7 +12,8 @@ schedule.every().day.at("11:00").do(corona_update.update_Api_Data)
 schedule.every().day.at("06:30").do(corona_update.update_Corona_Vaccine_Data) 
 
 # Corona_Data update
-schedule.every().hour.do(corona_update.update_Corona_Data)
+#schedule.every().hour.do(corona_update.update_Corona_Data)
+schedule.every().minute.do(corona_update.update_Corona_Data)
 
 # Embassy_Data update
 schedule.every().day.at("10:30").do(corona_update.update_Embassy_Data) 
