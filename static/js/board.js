@@ -218,12 +218,12 @@ $('.loadall').on('click',()=>{
         $('.loadall').html('전체보기');
     };
     
-})
+});
 // 대륙선택 기능
 $('#board-select').change(function(){
     board_continent = $('#board-select option:selected').val()
     load_board(board_length,board_continent)
     $('.loadall').html('접어보기');
-})
+});
 // 사이트 실행시 보드 렌더링
 load_board(num,board_continent)

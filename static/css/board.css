@@ -3,10 +3,19 @@
     min-width: 800px;
     margin: auto;
 }
+/* 발생률 툴팁 */
+.boardtooltip{
+    background-color: rgba(255, 255, 255, 0.932);
+    color: #474747;
+    border-radius: 10px;
+    transition: .5s;
+    text-align: right;
+    font-size: 15px;
+}
 /* 버튼 부분 */
 .board-btn{
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
     margin:0 0 10px 0;
     font-size: 20px;
 }
@@ -66,3 +75,4 @@
         display: none;
     }
 }
+

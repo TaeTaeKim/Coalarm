@@ -141,16 +141,20 @@
             <div class="dividing-line"></div>
             <div style="font-size: 2.5rem; text-align: center;">코로나 테이블</div>
             <div class="board-btn">
-                <div>대륙별로 보기</div>
-                <select name="board-select" id="board-select">
-                    <option selected='selected'value="all">전체</option>
-                    <option value="Europe">유럽</option>
-                    <option value="Asia">아시아</option>
-                    <option value="North America">북미</option>
-                    <option value="South America">남미</option>
-                    <option value="Oceania">오세아니아</option>
-                    <option value="Africa">아프리카</option>
-                </select>
+                <div>
+                    <div style="display: inline-block;">대륙별로 보기</div>
+                    <select name="board-select" id="board-select">
+                        <option selected='selected'value="all">전체</option>
+                        <option value="Europe">유럽</option>
+                        <option value="Asia">아시아</option>
+                        <option value="North America">북미</option>
+                        <option value="South America">남미</option>
+                        <option value="Oceania">오세아니아</option>
+                        <option value="Africa">아프리카</option>
+                    </select>
+                </div>
+               
+                <div class="boardtooltip"><i class="fas fa-info-circle"></i> 발생률 : 인구 백만명당 확진된 사람 수</div>
             </div>
 
             <table id ='board_div'>
@@ -161,7 +165,7 @@
                     <th>회복자<span class="newdata">(신규회복)</span></th>
                     <th>치명률</th>
                     <th>회복률</th>
-                    <th>발생률</th>
+                    <th>발생률 <i class="fas fa-info-circle"></i></th>
                     <th>1차접종률</th>
                     <th>2차접종률</th>
                 </thead>
