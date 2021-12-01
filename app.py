@@ -18,7 +18,7 @@ def index():
 # 경보 데이터
 @app.route('/data', methods=['GET'])
 def data():
-    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+    conn = pymysql.connect(host="localhost", user="coalarm", password="v4SxXqsLz", db="coalarm", charset="utf8")
     cur = conn.cursor()
     cur.execute("select * from Api_Data")
     row_headers=[x[0] for x in cur.description]
@@ -38,7 +38,7 @@ def board():
 # 안전 점수
 @app.route("/safety_score", methods=["GET"])
 def safety_score():
-    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+    conn = pymysql.connect(host="localhost", user="coalarm", password="v4SxXqsLz", db="coalarm", charset="utf8")
     cur = conn.cursor()
     cur.execute("select * from Safety_Score order by score desc limit 3")
     row_headers=[x[0] for x in cur.description]
@@ -71,7 +71,7 @@ def country(ISO_code):
 # 해당 나라 댓글 개수 알려주기
 @app.route('/country/<ISO_code>/comment_update', methods=['GET'])
 def get_comment_count(ISO_code):
-    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+    conn = pymysql.connect(host="localhost", user="coalarm", password="v4SxXqsLz", db="coalarm", charset="utf8")
     cur = conn.cursor()
     cur.execute(f"select count(*) from Comment where iso_code='{ISO_code}';")
     count = cur.fetchall()[0][0]
@@ -81,7 +81,7 @@ def get_comment_count(ISO_code):
 # 댓글 가져오기
 @app.route('/country/<ISO_code>/comment', methods=['GET'])
 def comment_data(ISO_code):
-    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+    conn = pymysql.connect(host="localhost", user="coalarm", password="v4SxXqsLz", db="coalarm", charset="utf8")
     cur = conn.cursor()
     cur.execute(f"select * from Comment c where iso_code='{ISO_code}' order by if(c.parent = -1, idx, parent) desc;")
     row_headers=[x[0] for x in cur.description]
@@ -97,7 +97,7 @@ def comment_data(ISO_code):
 @app.route('/country/<ISO_code>', methods=['POST'])
 def add_comment(ISO_code):    
     data = request.get_json()
-    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+    conn = pymysql.connect(host="localhost", user="coalarm", password="v4SxXqsLz", db="coalarm", charset="utf8")
     cur = conn.cursor()
     cur.execute('INSERT INTO Comment VALUES(NULL, "{0}", "{1}", "{2}", "{3}", "{4}", "{5}", "{6}")'.format(\
     data["iso_code"], \
@@ -115,7 +115,7 @@ def add_comment(ISO_code):
 @app.route('/country/<ISO_code>', methods=['PATCH'])
 def update_comment(ISO_code):
     data = request.get_json()
-    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+    conn = pymysql.connect(host="localhost", user="coalarm", password="v4SxXqsLz", db="coalarm", charset="utf8")
     cur = conn.cursor()
     cur.execute("SELECT password FROM Comment where idx = '{}'".format(data["index"]))
     pw = cur.fetchall()[0][0] 
@@ -132,7 +132,7 @@ def update_comment(ISO_code):
 @app.route('/country/<ISO_code>', methods=['DELETE'])
 def delete_comment(ISO_code):
     data = request.get_json() 
-    conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+    conn = pymysql.connect(host="localhost", user="coalarm", password="v4SxXqsLz", db="coalarm", charset="utf8")
     cur = conn.cursor()
     cur.execute("SELECT password FROM Comment where idx = '{}'".format(data["index"]))
     pw = cur.fetchall()[0][0] 
