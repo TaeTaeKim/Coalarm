@@ -32,7 +32,7 @@ def exchange(ISO):
         
     for i in response_text_dict:
         if ISO==i['cur_unit'][:2]:
-            if ISO =="JP" or ISO=="IN":
+            if ISO =="JP" or ISO=="ID":
                 exchange_rate = float(i['deal_bas_r'].replace(',',""))/100
                 exchange_name = i['cur_nm']
                 return [str(exchange_rate),exchange_name]

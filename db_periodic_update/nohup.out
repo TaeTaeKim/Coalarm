@@ -1,0 +1,105 @@
+db update - background
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/selenium/webdriver/common/service.py", line 71, in start
+    self.process = subprocess.Popen(cmd, env=self.env,
+  File "/usr/lib/python3.8/subprocess.py", line 858, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.8/subprocess.py", line 1704, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 13] Permission denied: './chromedriver'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "db_periodic_update.py", line 28, in <module>
+    schedule.run_pending()
+  File "/usr/local/lib/python3.8/dist-packages/schedule/__init__.py", line 780, in run_pending
+    default_scheduler.run_pending()
+  File "/usr/local/lib/python3.8/dist-packages/schedule/__init__.py", line 100, in run_pending
+    self._run_job(job)
+  File "/usr/local/lib/python3.8/dist-packages/schedule/__init__.py", line 172, in _run_job
+    ret = job.run()
+  File "/usr/local/lib/python3.8/dist-packages/schedule/__init__.py", line 661, in run
+    ret = self.job_func()
+  File "/coalarm/db_periodic_update/db_update.py", line 206, in update_Embassy_Data
+    embassy_data = get_embassy_data()
+  File "/coalarm/db_periodic_update/embassy_data_scraping.py", line 56, in get_embassy_data
+    driver = webdriver.Chrome("./chromedriver", options=options)
+  File "/usr/local/lib/python3.8/dist-packages/selenium/webdriver/chrome/webdriver.py", line 70, in __init__
+    super(WebDriver, self).__init__(DesiredCapabilities.CHROME['browserName'], "goog",
+  File "/usr/local/lib/python3.8/dist-packages/selenium/webdriver/chromium/webdriver.py", line 90, in __init__
+    self.service.start()
+  File "/usr/local/lib/python3.8/dist-packages/selenium/webdriver/common/service.py", line 86, in start
+    raise WebDriverException(
+selenium.common.exceptions.WebDriverException: Message: 'chromedriver' executable may have wrong permissions. Please see https://chromedriver.chromium.org/home
+
+db update - background
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/selenium/webdriver/common/service.py", line 71, in start
+    self.process = subprocess.Popen(cmd, env=self.env,
+  File "/usr/lib/python3.8/subprocess.py", line 858, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.8/subprocess.py", line 1704, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 13] Permission denied: './chromedriver'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "db_periodic_update.py", line 28, in <module>
+    schedule.run_pending()
+  File "/usr/local/lib/python3.8/dist-packages/schedule/__init__.py", line 780, in run_pending
+    default_scheduler.run_pending()
+  File "/usr/local/lib/python3.8/dist-packages/schedule/__init__.py", line 100, in run_pending
+    self._run_job(job)
+  File "/usr/local/lib/python3.8/dist-packages/schedule/__init__.py", line 172, in _run_job
+    ret = job.run()
+  File "/usr/local/lib/python3.8/dist-packages/schedule/__init__.py", line 661, in run
+    ret = self.job_func()
+  File "/coalarm/db_periodic_update/db_update.py", line 206, in update_Embassy_Data
+    embassy_data = get_embassy_data()
+  File "/coalarm/db_periodic_update/embassy_data_scraping.py", line 56, in get_embassy_data
+    driver = webdriver.Chrome("./chromedriver", options=options)
+  File "/usr/local/lib/python3.8/dist-packages/selenium/webdriver/chrome/webdriver.py", line 70, in __init__
+    super(WebDriver, self).__init__(DesiredCapabilities.CHROME['browserName'], "goog",
+  File "/usr/local/lib/python3.8/dist-packages/selenium/webdriver/chromium/webdriver.py", line 90, in __init__
+    self.service.start()
+  File "/usr/local/lib/python3.8/dist-packages/selenium/webdriver/common/service.py", line 86, in start
+    raise WebDriverException(
+selenium.common.exceptions.WebDriverException: Message: 'chromedriver' executable may have wrong permissions. Please see https://chromedriver.chromium.org/home
+
+db update - background
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/selenium/webdriver/common/service.py", line 71, in start
+    self.process = subprocess.Popen(cmd, env=self.env,
+  File "/usr/lib/python3.8/subprocess.py", line 858, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.8/subprocess.py", line 1704, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 13] Permission denied: './chromedriver'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "db_periodic_update.py", line 28, in <module>
+    schedule.run_pending()
+  File "/usr/local/lib/python3.8/dist-packages/schedule/__init__.py", line 780, in run_pending
+    default_scheduler.run_pending()
+  File "/usr/local/lib/python3.8/dist-packages/schedule/__init__.py", line 100, in run_pending
+    self._run_job(job)
+  File "/usr/local/lib/python3.8/dist-packages/schedule/__init__.py", line 172, in _run_job
+    ret = job.run()
+  File "/usr/local/lib/python3.8/dist-packages/schedule/__init__.py", line 661, in run
+    ret = self.job_func()
+  File "/coalarm/db_periodic_update/db_update.py", line 206, in update_Embassy_Data
+    embassy_data = get_embassy_data()
+  File "/coalarm/db_periodic_update/embassy_data_scraping.py", line 56, in get_embassy_data
+    driver = webdriver.Chrome("./chromedriver", options=options)
+  File "/usr/local/lib/python3.8/dist-packages/selenium/webdriver/chrome/webdriver.py", line 70, in __init__
+    super(WebDriver, self).__init__(DesiredCapabilities.CHROME['browserName'], "goog",
+  File "/usr/local/lib/python3.8/dist-packages/selenium/webdriver/chromium/webdriver.py", line 90, in __init__
+    self.service.start()
+  File "/usr/local/lib/python3.8/dist-packages/selenium/webdriver/common/service.py", line 86, in start
+    raise WebDriverException(
+selenium.common.exceptions.WebDriverException: Message: 'chromedriver' executable may have wrong permissions. Please see https://chromedriver.chromium.org/home
+

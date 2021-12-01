@@ -3,6 +3,7 @@ import pymysql
 import json
 import pandas as pd
 import numpy as np
+import datetime
 
 # 코로나 백신 데이터 가져오기
 from corona_vaccine_data_scraping import get_vaccine_scraping
@@ -21,7 +22,7 @@ from score import SafetyScore
 class AsyncTask:
     
     def __init__(self):
-        print("db update - background")
+        print(str(datetime.datetime.now()) + ": db update - background")
 
     # 기능 1. corona vaccine data update, 주기 : 24시간
     def update_Corona_Vaccine_Data(self):
@@ -53,7 +54,7 @@ class AsyncTask:
             float(vaccine_data[i]["fully"])))
         conn.commit()
         conn.close()
-        print("corona_vaccine_date table update complete")
+        print(str(datetime.datetime.now()) + ": corona_vaccine_date table update complete")
 
     # 기능 2. corona data update, 주기 : 1시간
     def update_Corona_Data(self):
@@ -112,7 +113,7 @@ class AsyncTask:
 
         conn.commit()
         conn.close()
-        print("corona_data table update complete")
+        print(str(datetime.datetime.now()) + ": corona_data table update complete")
 
     # 기능 3. api date update, 주기 : 24시간
     def update_Api_Data(self):
@@ -173,7 +174,7 @@ class AsyncTask:
         conn.commit()
         conn.close()
 
-        print("api_data table update complete")   
+        print(str(datetime.datetime.now()) + ": api_data table update complete")   
         
         # exchange_data
         # 1. api 호출
@@ -195,9 +196,9 @@ class AsyncTask:
             conn.commit()
             conn.close()
 
-            print("exchange table update complete")
+            print(str(datetime.datetime.now()) + ": exchange table update complete")
         else:
-            print("주말엔 exchange api가 안와요")
+            print(str(datetime.datetime.now()) + ": 주말엔 exchange api가 안와요")
 
     # 기능 4. embassy data update, 주기 : 24시간
     def update_Embassy_Data(self):
@@ -219,7 +220,7 @@ class AsyncTask:
             embassy_data[i]["url"]))
         conn.commit()
         conn.close()
-        print("embassy_data table update complete")
+        print(str(datetime.datetime.now()) + ": embassy_data table update complete")
 
     # 기능 5. safety data update, 주기 : 24시간
     def update_Safety_Data(self):
@@ -268,7 +269,7 @@ class AsyncTask:
 
         conn.commit()
         conn.close()
-        print("safety_data table update complete")
+        print(str(datetime.datetime.now()) + ": safety_data table update complete")
 
     # 기능 6. Safety_Score update, 주기 : 24시간
     def update_Safety_Score(self):
@@ -346,5 +347,5 @@ class AsyncTask:
                 float(score[i]["score"])))
         conn.commit()
         conn.close()
-        print("Safety Score table update complete")
+        print(str(datetime.datetime.now()) + ": Safety Score table update complete")
 
