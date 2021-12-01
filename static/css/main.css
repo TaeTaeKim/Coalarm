@@ -171,3 +171,8 @@ a{
         bottom: 30px;
     }
 }
+@media(max-width:768px) {
+    #main> .dividing-line:nth-child(6) {
+        display: none;
+    }
+}
