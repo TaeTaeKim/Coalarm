@@ -54,6 +54,26 @@ function btnActiveDelete() {
   }
 }
 
+// 댓글 시간 계산 함수
+function displayedAt(createdAt) {
+  const milliSeconds = new Date() - createdAt;
+  console.log(new Date(Date.UTC()));
+  const seconds = milliSeconds / 1000;
+  if (seconds < 60) return `방금 전`;
+  const minutes = seconds / 60;
+  if (minutes < 60) return `${Math.floor(minutes)}분 전`;
+  const hours = minutes / 60;
+  if (hours < 24) return `${Math.floor(hours)}시간 전`;
+  const days = hours / 24;
+  if (days < 7) return `${Math.floor(days)}일 전`;
+  const weeks = days / 7;
+  if (weeks < 5) return `${Math.floor(weeks)}주 전`;
+  const months = days / 30;
+  if (months < 12) return `${Math.floor(months)}개월 전`;
+  const years = days / 365;
+  return `${Math.floor(years)}년 전`;
+}
+
 // 댓글 보여 주기
 function readComment(data) {
   const commentListEl = document.querySelector('.comment-list');
@@ -65,10 +85,11 @@ function readComment(data) {
       commentBoxDiv.setAttribute('class', 'comment-box');
       commentBoxDiv.setAttribute('data-parent', el.index); // 부모 댓글 표시
       commentBoxDiv.setAttribute('data-index', el.index); // 자기 index 표시
+      let timeCalc = displayedAt(new Date(el.write_time));
       commentBoxDiv.innerHTML = `
       <div class="box-head">
         <span class="comment-nickname">${el.nickname}</span>
-        <span class="comment-period">${el.write_time}</span>
+        <span class="comment-period">${timeCalc}</span>
       </div>
       <div class="box-body">${el.text}</div>
       <div class="box-btn-group">
@@ -132,10 +153,11 @@ function readPlusComment(plusComment) {
   let commentBoxDiv = document.createElement('div');
   commentBoxDiv.setAttribute('class', 'comment-box-plus');
   commentBoxDiv.setAttribute('data-index', plusComment.index); // 자기 index 표시
+  let timeCalc = displayedAt(new Date(plusComment.write_time));
   commentBoxDiv.innerHTML = `
   <div class="box-head">
     <span class="comment-nickname">${plusComment.nickname}</span>
-    <span class="comment-period">${plusComment.write_time}</span>
+    <span class="comment-period">${timeCalc}</span>
   </div>
   <div class="box-body">${plusComment.text}</div>
   <div class="box-btn-group">
@@ -239,14 +261,14 @@ function addComment(i) {
     undefined
       ? event.target.parentElement.parentElement.parentElement.dataset.parent
       : -1;
-  let classIndex = parentIndex == -1? 0:1;
+  let classIndex = parentIndex == -1 ? 0 : 1;
   let postData = {
     iso_code: iso_upper,
     parent: parseInt(parentIndex),
     text: inputCommentEl.value,
     nickname: inputNicknameEl.value,
     password: inputPwEl.value,
-    class: classIndex
+    class: classIndex,
   };
   $.ajax({
     type: 'POST',
