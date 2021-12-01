@@ -19,7 +19,7 @@ from terror_scraping import get_terror_data
 # Safety_Score 데이터 가공 함수
 from score import SafetyScore
 
-class AsyncTask:
+class DB_Update:
     
     def __init__(self):
         print(str(datetime.datetime.now()) + ": db update - background")
