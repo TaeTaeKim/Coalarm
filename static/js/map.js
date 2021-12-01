@@ -65,7 +65,7 @@ $(document).ready(()=>{
 function searchCountry(){
   console.log($('#country_search').val())
   let searched = $('#country_search').val()
-  $.getJSON('./static/Test_json/country_kr_ISO.json',function(data){
+  $.getJSON('./static/json/country_kr_ISO.json',function(data){
     let countrydata = data;
     for(let i=0;i<=countrydata.length;i++){
       if(searched==countrydata[i].country_kr){
@@ -83,7 +83,7 @@ $('#country_search').on('keyup',function(){
   else{
     $('.autocomplete').removeClass('hidden')
   }
-  $.getJSON('./static/Test_json/country_kr_ISO.json',function(data){
+  $.getJSON('./static/json/country_kr_ISO.json',function(data){
     $('.autocomplete').html("")
     data.forEach((el)=>{
       if (el.country_kr.indexOf(txt)>-1){
