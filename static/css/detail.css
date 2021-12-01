@@ -122,7 +122,7 @@ header {
   color: #474747;
   border-radius: 10px;
   text-align: left;
-  transition: .5s;
+  transition: .2s;
 }
 .safe-point-group:hover .fa-info-circle {
   color: #d1a2e4;

@@ -1,7 +1,7 @@
 import json
 import pymysql
 
-# 여기에 DB  data가져오는 query작성.
+# db select query
 conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
 cur = conn.cursor()
 cur.execute("select * from Corona_Data")
@@ -10,8 +10,6 @@ rv = cur.fetchall()
 coronadata=[]
 for result in rv:
     coronadata.append(dict(zip(row_headers,result)))
-# with open('./static/Test_json/corona_data.json','r') as f:
-#     coronadata = json.load(f)
 
 conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
 cur = conn.cursor()
@@ -21,8 +19,6 @@ rv = cur.fetchall()
 vaccinedata=[]
 for result in rv:
     vaccinedata.append(dict(zip(row_headers,result)))
-# with open('./static/Test_json/corona_vaccine_data.json','r') as f:
-#     vaccinedata = json.load(f)
 
 cur.execute("select * from Api_Data")
 row_headers=[x[0] for x in cur.description]
@@ -30,8 +26,6 @@ rv = cur.fetchall()
 api_data=[]
 for result in rv:
     api_data.append(dict(zip(row_headers,result)))
-# with open('./static/Test_json/api_data.json','r') as f:
-#     api_data = json.load(f)
 
 cur.execute("select * from Embassy_Data")
 row_headers=[x[0] for x in cur.description]
@@ -39,8 +33,6 @@ rv = cur.fetchall()
 embassy_data=[]
 for result in rv:
     embassy_data.append(dict(zip(row_headers,result)))
-# with open('./static/Test_json/embassy_data.json','r') as f:
-#     embassy_data = json.load(f)
 
 cur.execute("select * from Safety_Score")
 row_headers=[x[0] for x in cur.description]
@@ -48,10 +40,7 @@ rv = cur.fetchall()
 safe_data=[]
 for result in rv:
     safe_data.append(dict(zip(row_headers,result)))
-# with open('./static/Test_json/new_safety_data.json','r') as f:
-#     safe_data = json.load(f)
 
-# 안전 점수 가져오기
 conn.close()
 
 inbound = ["목적", "외국인", "한국", "해외입국자","금지", "허용", "중단","허가","허용","불허","제한","통제","폐쇄","불가","관광","중지","통제"]

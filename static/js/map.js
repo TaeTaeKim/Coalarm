@@ -45,7 +45,9 @@ countryCode.forEach((el) => {
 });
 
 // 페이지 resize시에 지도 갱신
-$(window).resize(function(){location.reload();});
+if(screen.width>1500){
+  $(window).resize(function(){location.reload();});
+}
 
 //dropmenu관련 설정
 $(document).ready(()=>{
@@ -81,7 +83,7 @@ $('#country_search').on('keyup',function(){
   else{
     $('.autocomplete').removeClass('hidden')
   }
-  $.getJSON('./static/Test_json/country_kr_ISO.json',function(data){
+  $.getJSON('./json_file/country_kr_ISO.json',function(data){
     $('.autocomplete').html("")
     data.forEach((el)=>{
       if (el.country_kr.indexOf(txt)>-1){
