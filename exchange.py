@@ -32,8 +32,13 @@ def exchange(ISO):
         
     for i in response_text_dict:
         if ISO==i['cur_unit'][:2]:
-            exchange_rate = i['deal_bas_r']
-            exchange_name = i['cur_nm']
-            return [exchange_rate,exchange_name]
+            if ISO =="JP" or ISO=="IN":
+                exchange_rate = int(i['deal_bas_r'])/100
+                exchange_name = i['cur_nm']
+                return [str(exchange_rate),exchange_name]
+            else:
+                exchange_rate = i['deal_bas_r']
+                exchange_name = i['cur_nm']
+                return [exchange_rate,exchange_name]
 
     return [dollar["deal_bas_r"],dollar['cur_nm']]

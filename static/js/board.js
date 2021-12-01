@@ -58,37 +58,37 @@ function load_board(num,conti){
             for(i=0;i<num;i++){
                 // 결측치 처리
                 if(data[i]['new_cases']==-1){
-                    data[i]['new_cases'] = ""
+                    data[i]['new_cases'] = "-"
                 };
                 if(data[i]['new_deaths']==-1){
-                    data[i]['new_deaths'] = ""
+                    data[i]['new_deaths'] = "-"
                 };
                 if(data[i]['new_recovered']==-1){
-                    data[i]['new_recovered'] = ""
+                    data[i]['new_recovered'] = "-"
                 };
                 if(data[i]['country_kr']==-1){
                     data[i]['country_kr'] = data[i]['country_x']
                 };
                 if(data[i]['critical_ratio']==-1){
-                    data[i]['critical_ratio'] = ""
+                    data[i]['critical_ratio'] = "-"
                 };
                 if(data[i]['recovered_ratio']==-1){
-                    data[i]['recovered_ratio'] = ""
+                    data[i]['recovered_ratio'] = "-"
                 };
                 if(data[i]['total_caeses_per_1million_population']==-1){
-                    data[i]['total_caeses_per_1million_population'] = ""
+                    data[i]['total_caeses_per_1million_population'] = "-"
                 };
                 if(data[i]['vaccinated']==-1){
-                    data[i]['vaccinated'] = ""
+                    data[i]['vaccinated'] = "-"
                 };
                 if(data[i]['fully_vaccinated']==-1){
-                    data[i]['fully_vaccinated'] = ""
+                    data[i]['fully_vaccinated'] = "-"
                 };
                 if(data[i]['total_recovered']==-1){
-                    data[i]['total_recovered'] = ""
+                    data[i]['total_recovered'] = "-"
                 };
                 if(data[i]['total_deaths']==-1){
-                    data[i]['total_deaths'] = ""
+                    data[i]['total_deaths'] = "-"
                 };
                 // 대륙분류 기능
                 if(conti=='all'){

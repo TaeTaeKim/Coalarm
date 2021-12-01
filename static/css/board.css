@@ -6,7 +6,7 @@
 /* 버튼 부분 */
 .board-btn{
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
     margin:0 0 10px 0;
     font-size: 20px;
 }
@@ -51,6 +51,10 @@
     cursor: pointer;
 }
 
+.boardtooltip{
+    font-size: 15px;
+    color:#474747;
+}
 /* 대륙선택 부분 */
 #board-select{
     width: 10rem;
