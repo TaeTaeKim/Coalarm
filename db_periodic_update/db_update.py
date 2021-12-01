@@ -52,7 +52,7 @@ class AsyncTask:
                     vaccine_data[i]["iso_code"] = iso_list[j]["Code"]
 
         # 3. db 연결
-        conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+        conn = pymysql.connect(host="localhost", user="coalarm", password="v4SxXqsLz", db="coalarm", charset="utf8")
         cur = conn.cursor()
         cur.execute('TRUNCATE TABLE Corona_Vaccine_Data') # 테이블 레코드 비우기
 
@@ -107,7 +107,7 @@ class AsyncTask:
                     corona_data[i]["continent"] = j["continent"]
 
         # 4. db 연결
-        conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+        conn = pymysql.connect(host="localhost", user="coalarm", password="v4SxXqsLz", db="coalarm", charset="utf8")
         cur = conn.cursor()
         cur.execute('TRUNCATE TABLE Corona_Data') # 테이블 레코드 비우기
         
@@ -179,7 +179,7 @@ class AsyncTask:
                     i["notice"] = j["notice"].replace("'", "`").replace('"', "`") # 따옴표들 백틱으로 변경
 
         # 4. db 연결
-        conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")  
+        conn = pymysql.connect(host="localhost", user="coalarm", password="v4SxXqsLz", db="coalarm", charset="utf8")  
         cur = conn.cursor()
         cur.execute('TRUNCATE TABLE Api_Data') # 테이블 레코드 비우기
         
@@ -203,7 +203,7 @@ class AsyncTask:
         
         if len(exchange_data) != 0:
             # 2. db 연결
-            conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+            conn = pymysql.connect(host="localhost", user="coalarm", password="v4SxXqsLz", db="coalarm", charset="utf8")
             cur = conn.cursor()
             cur.execute('TRUNCATE TABLE Exchange_Data') # 테이블 레코드 비우기
             
@@ -234,7 +234,7 @@ class AsyncTask:
         # return column : ['country_eng_nm', 'country_iso_alp2', 'country_nm', 'embassy_kor_nm', 'url']
 
         # 3. db 연결
-        conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+        conn = pymysql.connect(host="localhost", user="coalarm", password="v4SxXqsLz", db="coalarm", charset="utf8")
         cur = conn.cursor()
         cur.execute('TRUNCATE TABLE Embassy_Data') # 테이블 레코드 비우기
 
@@ -284,7 +284,7 @@ class AsyncTask:
         # return : {'Safety_index', 'Numbeo_index', 'Homicide_rate', 'iso_code', 'Last', 'Previous'}
         
         # 3. db 연결
-        conn = pymysql.connect(host="localhost", user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+        conn = pymysql.connect(host="localhost", user="coalarm", password="v4SxXqsLz", db="coalarm", charset="utf8")
         cur = conn.cursor()
         cur.execute('TRUNCATE TABLE Safety_Data') # 테이블 레코드 비우기
 
@@ -317,7 +317,7 @@ class AsyncTask:
             json_country_kr = json.load(f)  # json_country_kr key : ["country_kr", "iso_code"]
 
         # 2. db 연결
-        conn = pymysql.connect(host='localhost', user="coalarm", password="coalarm", db="coalarm", charset="utf8")
+        conn = pymysql.connect(host='localhost', user="coalarm", password="v4SxXqsLz", db="coalarm", charset="utf8")
         cur = conn.cursor()
         cur.execute('TRUNCATE TABLE Safety_Score') # 테이블 레코드 비우기
         '''
