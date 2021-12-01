@@ -461,9 +461,6 @@ header {
 }
 
 @media(max-width:1500px) {
-  .comment-menu .comment-resent {
-    margin-left: 80%;
-  }
   .comment-content {
     max-width: 890px;
     margin-top: 0px;
@@ -513,7 +510,9 @@ header {
     flex-flow: column;
     max-width: none;
   }
-  
+  .comment-menu .comment-resent {
+    margin-left: 90%;
+  }
   .comment-content {
     max-width: 87%;
     align-self: center;
@@ -578,5 +577,8 @@ header {
   }
   .comment-content {
     max-width: 93%;
+  }
+  .comment-menu .comment-resent {
+    margin-left: 70%;
   }
 }
