@@ -1,12 +1,5 @@
 
-# Latest update
-# 11/17 내부 호출 method를 외부 파일로 분리 (corona_vaccine_data_scraping.py, corona_data_scraping.py, corona_api.py)
-# 내용 : __(private) 제거, 내부 호출(self) 제거, 
-# 장점 : import 간소화, 코드 리딩이 보다 쉬워짐.
-# 단점 : private을 표현할 수 없음.
-
 import pymysql
-import threading
 import json
 import pandas as pd
 import numpy as np
@@ -32,11 +25,6 @@ class AsyncTask:
 
     # 기능 1. corona vaccine data update, 주기 : 24시간
     def update_Corona_Vaccine_Data(self):
-        
-        # 0. 쓰레드 실행
-        # t = threading.Timer(500, self.update_Corona_Vaccine_Data)
-        # t.daemon = True
-        # t.start()
         
         # 1. scraping
         vaccine_data = get_vaccine_scraping()
@@ -69,11 +57,6 @@ class AsyncTask:
 
     # 기능 2. corona data update, 주기 : 1시간
     def update_Corona_Data(self):
-
-        # 0. 쓰레드 실행
-        # t = threading.Timer(400, self.update_Corona_Data)
-        # t.daemon = True
-        # t.start()
 
         # 1. scraping
         get_corona_data = get_corona_scraping()
@@ -133,11 +116,6 @@ class AsyncTask:
 
     # 기능 3. api date update, 주기 : 24시간
     def update_Api_Data(self):
-        
-        # 0. 쓰레드 실행
-        # t = threading.Timer(300, self.update_Api_Data)
-        # t.daemon = True
-        # t.start()
         
         # api data
         # 1. api 호출
@@ -224,11 +202,6 @@ class AsyncTask:
     # 기능 4. embassy data update, 주기 : 24시간
     def update_Embassy_Data(self):
 
-        # 0. 쓰레드 실행
-        # t = threading.Timer(200, self.update_Embassy_Data)
-        # t.daemon = True
-        # t.start()
-
         # 1. scraping
         embassy_data = get_embassy_data()
         # return column : ['country_eng_nm', 'country_iso_alp2', 'country_nm', 'embassy_kor_nm', 'url']
@@ -250,11 +223,6 @@ class AsyncTask:
 
     # 기능 5. safety data update, 주기 : 24시간
     def update_Safety_Data(self):
-        
-        # 0. 쓰레드 실행
-        # t = threading.Timer(600, self.update_Safety_Data)
-        # t.daemon = True
-        # t.start()
 
         # 1. scraping
         safety_data = get_safety_data() # return : ['Country', 'Safety_index', 'Numbeo_index', 'Homicide_rate']
@@ -304,11 +272,6 @@ class AsyncTask:
 
     # 기능 6. Safety_Score update, 주기 : 24시간
     def update_Safety_Score(self):
-        
-        # 0. 쓰레드 실행
-        # t = threading.Timer(500, self.update_Corona_Vaccine_Data)
-        # t.daemon = True
-        # t.start()
 
         # 1. 기반 데이터 호출
         with open('./json_file/new_continent.json', 'r') as f:
@@ -364,14 +327,6 @@ class AsyncTask:
         #print(len(df_recommend_data), type(df_recommend_data))
 
         df_score = SafetyScore(df_recommend_data)
-        '''
-        [
-            {},
-            ...
-            {}
-        ]
-        형태로 변환
-        '''
         score = []
         for i in range(len(df_score)):
             dict_score = {}
