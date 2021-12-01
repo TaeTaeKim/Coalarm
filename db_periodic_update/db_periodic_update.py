@@ -21,7 +21,7 @@ schedule.every().day.at("10:30").do(periodic_update.update_Embassy_Data)
 schedule.every().monday.do(periodic_update.update_Safety_Data)
 
 # Safety_Score update
-schedule.every(3).hours.do(periodic_update.update_Safety_Score)
+schedule.every().hour.at(":11").do(periodic_update.update_Safety_Score)
 
 
 while True:

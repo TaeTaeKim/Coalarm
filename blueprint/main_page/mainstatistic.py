@@ -1,6 +1,5 @@
 import json
 import pymysql
-from flask.json import jsonify
 import pandas as pd
 import numpy as np
 def board_data():

@@ -6,16 +6,17 @@ import numpy as np
 import datetime
 
 # 코로나 백신 데이터 가져오기
-from corona_vaccine_data_scraping import get_vaccine_scraping
+from data_scraping.corona_vaccine_data_scraping import get_vaccine_scraping
 # 코로나 데이터 가져오기
-from corona_data_scraping import get_corona_scraping
+from data_scraping.corona_data_scraping import get_corona_scraping
 # 코로나 관련 api 가져오기
-from corona_api import get_level_api, get_text_api, get_exchange_api
+from data_scraping.corona_api import get_level_api, get_text_api, get_exchange_api
 # 대사관 데이터 가져오기
-from embassy_data_scraping import get_embassy_data
+from data_scraping.embassy_data_scraping import get_embassy_data
 # 안전 데이터, 범죄 데이터 가져오기
-from safety_scraping import get_safety_data
-from terror_scraping import get_terror_data
+from data_scraping.safety_scraping import get_safety_data
+from data_scraping.terror_scraping import get_terror_data
+
 # Safety_Score 데이터 가공 함수
 from score import SafetyScore
 
@@ -332,7 +333,7 @@ class DB_Update:
         for i in range(len(df_score)):
             dict_score = {}
             dict_score['iso_code'] = df_score['iso_code'][i]
-            dict_score['score'] = df_score['score'][i]
+            dict_score['score'] = round(float(df_score['score'][i]), 2)
             dict_score["country_kr"] = dict_score["iso_code"]
             for j in json_country_kr:
                 if dict_score["iso_code"] == j["iso_code"]:
@@ -344,7 +345,7 @@ class DB_Update:
             cur.execute("INSERT INTO Safety_Score VALUES('{0}', '{1}', '{2}')".format(\
                 score[i]["iso_code"], \
                 score[i]["country_kr"], \
-                float(score[i]["score"])))
+                score[i]["score"]))
         conn.commit()
         conn.close()
         print(str(datetime.datetime.now()) + ": Safety Score table update complete")
