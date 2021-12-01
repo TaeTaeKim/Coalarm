@@ -11,8 +11,6 @@ def get_exchange_api():
     response = requests.get(url, params=params)
     response_text_dict = response.json()
     return response_text_dict
-    # {'result': 1, 'cur_unit': 'AED', 'ttb': '317.93', 'tts': '324.36', 'deal_bas_r': '321.15', 'bkpr': '321', 
-    # 'yy_efee_r': '0', 'ten_dd_efee_r': '0', 'kftc_bkpr': '321', 'kftc_deal_bas_r': '321.15', 'cur_nm': '아랍에미리트 디르함'}
 
 # 3-2 notice data api
 def get_text_api():

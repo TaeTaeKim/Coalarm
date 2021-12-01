@@ -1,4 +1,0 @@
-1. mysql : id : "root", pw : "root" port : 3306
-2. chrome version : 92.~
-3. import 해야할 패키지
-4. chrome driver, 가상 브라우저
