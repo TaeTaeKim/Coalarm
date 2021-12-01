@@ -44,7 +44,7 @@ def SafetyScore(data):
     1. 증가하면 안전 점수가 낮아지는 변수는 decrease_variable() 함수를 이용하여 증가하면 안전 점수가 증가도록 변경한다.
     2. 각 변수의 공분산을 구하여 공분산에 해당하는 고유값과 고유벡터를 구하고, 여기서 얻은 고유값을 각 변수의 가중치로하여 안전점수를 계산한다.
     '''
-    X = np.zeros((217, 5))
+    X = np.zeros((len(df_score), 5))
     X[:, 0] = df_score['total_caeses_per_1million_population']
     X[:, 0] = decrease_variable(X[:, 0])
     X[:, 0] = normalize(X[:, 0])
@@ -83,7 +83,7 @@ def SafetyScore(data):
 
     방식은 score1 과 동일하다.
     '''
-    X = np.zeros((217, 5))
+    X = np.zeros((len(df_score), 5))
 
     X[:, 0] = df_score['homicide_rate']
     X[:, 0] = decrease_variable(X[:, 0])
