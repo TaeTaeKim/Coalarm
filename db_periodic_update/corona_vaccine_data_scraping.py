@@ -14,8 +14,9 @@ def get_vaccine_scraping():
     # 옵션 생성
     options = webdriver.ChromeOptions()
     # 창 숨기는 옵션 추가
-    options.add_argument("headless")
-
+    options.add_argument("--headless")
+    options.add_argument("--no-sandbox")
+    
     # driver 실행
     driver = webdriver.Chrome("./chromedriver", options=options)
     # driver = webdriver.Chrome(options=options)
