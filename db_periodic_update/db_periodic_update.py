@@ -6,7 +6,7 @@ import time
 periodic_update = db_update.DB_Update()
 
 # Api_Data update
-schedule.every().day.at("11:00").do(periodic_update.update_Api_Data)
+schedule.every().day.at("08:25").do(periodic_update.update_Api_Data)
 
 # Vaccine_Data update
 schedule.every().day.at("06:30").do(periodic_update.update_Corona_Vaccine_Data) 
@@ -26,4 +26,4 @@ schedule.every(3).hours.do(periodic_update.update_Safety_Score)
 
 while True:
     schedule.run_pending()
-    time.sleep(1)
+    time.sleep(3)
