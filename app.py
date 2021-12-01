@@ -1,10 +1,8 @@
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template
 from exchange import exchange
 from getdata import corona, embassy, vaccine, kr_name, notice, noticeall, embassy, safe
 from mainstatistic import board_data
-from pytz import timezone
-import json
-import datetime
+
 import pymysql
 import comment
 

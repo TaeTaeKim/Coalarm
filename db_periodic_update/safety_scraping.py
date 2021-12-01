@@ -1,5 +1,4 @@
 from selenium import webdriver
-from selenium.webdriver import ActionChains
 from selenium.webdriver.support.select import Select
 import re
 import time
@@ -54,7 +53,6 @@ def get_safety_data(): # return : ['Country', 'Safety_index', 'Numbeo_index', 'H
     import pandas as pd
     from pandas import json_normalize
 
-    # print("pandas version: ", pd.__version__)
     pd.set_option('display.max_row', 500)
 
     df = pd.read_json(Safety_json_data)
@@ -62,6 +60,5 @@ def get_safety_data(): # return : ['Country', 'Safety_index', 'Numbeo_index', 'H
     duplicate_sum = (df.groupby(['Country'], as_index=False).mean()).round(2)
 
     duplicate_sum_json = duplicate_sum.to_dict('records')
-    # print(duplicate_sum_json)
+
     return duplicate_sum_json
-    # return list(duplicate_sum)

@@ -1,8 +1,6 @@
 import requests
 import json
-import datetime
 import time
-import re
 
 from selenium import webdriver
 from selenium.webdriver import ActionChains

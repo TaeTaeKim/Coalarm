@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-import json
 
 
 # 증가하면 안전 점수가 낮아지는 변수를 증가하면 안전 점수가 증가하게 변경한다.
@@ -116,7 +115,7 @@ def SafetyScore(data):
         rate[4] * X[:, 4]
     ) * 100
     # score1 과 score2를 1:1의 비율로 더하여 score를 구한다.
-    df_score['score'] = (df_score['score1'] + df_score['score2']) / 2
+    df_score['score'] = round(((df_score['score1'] + df_score['score2']) / 2), 2)
     # 여행 안전 경보 4단계인 나라는 입국 금지 이므로 안전 점수를 0으로 만들어준다.
     for i in range(len(df_score)):
         if df_score['caution'][i] == 4:

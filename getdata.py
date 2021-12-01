@@ -1,4 +1,4 @@
-import json
+
 import pymysql
 
 # db select query

@@ -5,7 +5,6 @@
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 import time
-import json
 
 def get_corona_scraping():
 

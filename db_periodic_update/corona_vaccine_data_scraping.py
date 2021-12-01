@@ -9,7 +9,6 @@ from bs4 import BeautifulSoup
 
 # 1-1 vaccine data scraping
 def get_vaccine_scraping():
-    year = datetime.datetime.now().year
 
     # 옵션 생성
     options = webdriver.ChromeOptions()

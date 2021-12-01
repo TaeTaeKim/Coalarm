@@ -1,6 +1,4 @@
 # 환율 API를 이용해서 반환하는 함수.
-import requests
-import json
 import pymysql
 
 def exchange(ISO):

@@ -1,6 +1,5 @@
 from selenium import webdriver
 import time
-from selenium.webdriver import ActionChains
 import re
 
 def get_terror_data(): # return : ['Ranking', 'Country', 'Last', 'Previous']
