@@ -321,7 +321,27 @@ class AsyncTask:
         conn = pymysql.connect(host='localhost', user="coalarm", password="coalarm", db="coalarm", charset="utf8")
         cur = conn.cursor()
         cur.execute('TRUNCATE TABLE Safety_Score') # 테이블 레코드 비우기
-
+        '''
+        필요한 input 값
+        [
+            {
+                'iso_code': (value),
+                'total_caeses_per_1million_population' : (value),
+                'recovered': (value),
+                'critical': (value),
+                'fully_vaccinated': (value),
+                'lvl': (value),
+                'homicide_rate': (value),
+                'safety_index': (value),
+                'numbeo_index': (value),
+                'last_terrorism': (value),
+                'previous_terrorism': (value),
+            },
+            ...
+        ]
+        (value)가 nan, -1 인 값은 대륙(서유럽 등의 소분류) 평균 적용
+        이후에도 (value)가 nan, -1 인 값은 전 세계 평균 적용 
+        '''
         # 3. db 데이터 꺼내와서 가공
         cur.execute("select v.iso_code, v.fully_vaccinated, s.homicide_rate, a.caution, c.total_caeses_per_1million_population, c.recovered_ratio, c.critical_ratio \
         from Corona_Vaccine_Data v \
@@ -343,19 +363,25 @@ class AsyncTask:
         df_recommend_data = df_recommend_data.to_dict(orient = "records")
         #print(len(df_recommend_data), type(df_recommend_data))
 
-        a = SafetyScore(df_recommend_data)
-
+        df_score = SafetyScore(df_recommend_data)
+        '''
+        [
+            {},
+            ...
+            {}
+        ]
+        형태로 변환
+        '''
         score = []
-        for i in range(len(a)):
-            s = {}
-            s['iso_code'] = a['iso_code'][i]
-            #s['country_kr'] = a['country_kr'][i]
-            s['score'] = a['score'][i]
-            s["country_kr"] = s["iso_code"]
+        for i in range(len(df_score)):
+            dict_score = {}
+            dict_score['iso_code'] = df_score['iso_code'][i]
+            dict_score['score'] = df_score['score'][i]
+            dict_score["country_kr"] = dict_score["iso_code"]
             for j in json_country_kr:
-                if s["iso_code"] == j["iso_code"]:
-                    s["country_kr"] = j["country_kr"]
-            score.append(s)
+                if dict_score["iso_code"] == j["iso_code"]:
+                    dict_score["country_kr"] = j["country_kr"]
+            score.append(dict_score)
 
         # 4. 해당 테이블에 데이터 추가        
         for i in range(len(score)):
