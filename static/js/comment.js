@@ -430,7 +430,7 @@ function commentResentActivition() {
 // 댓글 감지 타이머
 const commentResentActivityTimer = setInterval(() => {
   commentResentActivition();
-}, 10000);
+}, 5000);
 // 댓글 최신화 실행
 function commentResentDeactivation() {
   const rensentIconEl = document.querySelector('.fa-history');
