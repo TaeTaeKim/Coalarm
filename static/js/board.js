@@ -32,7 +32,7 @@ function drawChart() {
         colorAxis: {colors: ['yellow', 'red']},
         chartArea:{width:'90%',height:'80%'},
         vAxis:{title: '백신 접종률',maxValue:100,minValue:0},
-        hAxis:{title:'코로나 발생률',minValue:0,maxValue:120000},
+        hAxis:{title:'코로나 발생률',minValue:0,maxValue:150000},
         legend:'none'
 };
 
