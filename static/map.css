@@ -1,0 +1,40 @@
+*{
+    padding :0px;
+    margin:0px;
+    box-sizing: border-box;
+}
+li{
+    list-style: none;
+    text-align: left;
+}
+.hidden{
+    display: none !important;
+}
+#map-container{
+    width: 50%;
+    margin: 10px auto 0 auto;
+
+}
+.tabbar{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+.tab{
+    font-size: 1.2rem;
+    cursor: pointer;
+    color:tomato;
+    font-weight: bold;
+}
+.tab:hover{
+    color: pink;
+}
+.dropmenu {
+    font-size: 1rem;
+    cursor: pointer;
+    position: absolute;
+    z-index: 9;
+    background-color: pink;
+}

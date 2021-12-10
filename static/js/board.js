@@ -224,7 +224,7 @@ $('.loadall').on('click',()=>{
         $('.loadall').html('전체보기');
     };
     
-})
+});
 // 대륙선택 기능
 $('#board-select').change(function(){
     board_continent = $('#board-select option:selected').val()
