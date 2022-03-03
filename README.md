@@ -93,3 +93,16 @@
 - 회사 정보와 이용약관 등 안내 
 
 ----
+
+## 스크린샷
+**1. 지도**
+![코알람1](https://user-images.githubusercontent.com/70123707/156512010-5a342662-7578-4fe4-804b-77693959b736.png)
+**2. 코로나 그래프, 차트**
+![코알람3](https://user-images.githubusercontent.com/70123707/156512241-7ad5c5db-caca-495f-afd7-4bca7957c2f2.png)
+![코알람4](https://user-images.githubusercontent.com/70123707/156512264-83aea1f9-18b8-4836-9ff7-c476d6f14f5f.png)
+**3. 국가별 페이지 예시1 >>여행관련 사항**
+![코알람5](https://user-images.githubusercontent.com/70123707/156512333-b1913113-460a-404e-8545-5308a26e5f5d.png)
+
+**4. 국가별 페이지 예시2 >>입국조치 요약**
+![코알람6](https://user-images.githubusercontent.com/70123707/156512392-b5ada821-27ba-4227-81fd-5d37d089a9b2.png)
+![코알람7](https://user-images.githubusercontent.com/70123707/156512515-5f82703f-9958-4de6-9e77-87610fba0246.png)
